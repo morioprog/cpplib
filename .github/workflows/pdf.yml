@@ -20,7 +20,11 @@ jobs:
 
       - run: mkdir output
 
+      - run: pwd
+
       - run: cd github-actions
+
+      - run: pwd
 
       - run: ls -al
 
