@@ -39,10 +39,12 @@ layout: default
 ### template
 
 * :heavy_check_mark: <a href="library/template/main.cpp.html">template/main.cpp</a>
+* :heavy_check_mark: <a href="library/template/short.cpp.html">template/short.cpp</a>
 
 
 ## Verify Files
 
+* :heavy_check_mark: <a href="verify/test/aoj/ITP1_1_A.short.test.cpp.html">test/aoj/ITP1_1_A.short.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/ITP1_1_A.test.cpp.html">test/aoj/ITP1_1_A.test.cpp</a>
 
 
