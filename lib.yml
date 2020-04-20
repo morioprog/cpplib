@@ -1,0 +1,7 @@
+テンプレート:
+  - name: Template
+    prefix: [template_main]
+    path: template/main.cpp
+  - name: Template (Short)
+    prefix: [template_short]
+    path: template/short.cpp
