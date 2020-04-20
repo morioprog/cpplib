@@ -25,7 +25,6 @@ jobs:
 
       - name: Make PDF
         run: |
-          cd github-actions
           docker run --rm -v "`pwd`":/workdir paperist/alpine-texlive-ja platex library.tex
           docker run --rm -v "`pwd`":/workdir paperist/alpine-texlive-ja platex library.tex
           docker run --rm -v "`pwd`":/workdir paperist/alpine-texlive-ja dvipdfmx library.dvi
