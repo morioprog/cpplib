@@ -20,7 +20,7 @@ jobs:
 
       - run: mkdir output
 
-      - run: github-actions
+      - run: cd github-actions
 
       - name: Generate TeX
         run: python3 generate_tex.py
