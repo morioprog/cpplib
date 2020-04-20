@@ -1,8 +1,7 @@
 import yaml
 
-BASE_DIR = r'github-actions/'
-INPUT_YAML = BASE_DIR + r'lib.yml'
-OUTPUT_TEX = BASE_DIR + r'library.tex'
+INPUT_YAML = r'lib.yml'
+OUTPUT_TEX = r'library.tex'
 HEADER = r'''\documentclass[a4paper,10pt,onecolumn,notitlepage]{article}
 \usepackage[top=10truemm,bottom=15truemm,left=10truemm,right=10truemm]{geometry}
 \usepackage{setspace}
@@ -36,7 +35,7 @@ def texify_tag(tag, name):
     return '\\{}{{{}}}\n'.format(tag, name)
 
 def texify_file(file, sec):
-    return texify_tag(sec, file['name']) + '\\lstinputlisting{{{}}}\n'.format('../' + file['path'])
+    return texify_tag(sec, file['name']) + '\\lstinputlisting{{{}}}\n'.format(file['path'])
 
 if __name__ == '__main__':
     with open(INPUT_YAML, 'r') as lib, open(OUTPUT_TEX, 'w') as tex:
