@@ -20,27 +20,17 @@ jobs:
 
       - run: mkdir output
 
-      - run: pwd
-
-      - run: cd github-actions
-
-      - run: pwd
-
-      - run: ls -al
-
-      - run: ls -al ..
-
       - name: Generate TeX
-        run: python3 generate_tex.py
+        run: python3 github-actions/generate_tex.py
 
       - name: Make PDF
         run: |
-          docker run --rm -v "`pwd`":/workdir paperist/alpine-texlive-ja platex library.tex
-          docker run --rm -v "`pwd`":/workdir paperist/alpine-texlive-ja platex library.tex
-          docker run --rm -v "`pwd`":/workdir paperist/alpine-texlive-ja dvipdfmx library.dvi
+          docker run --rm -v "`pwd`":/workdir paperist/alpine-texlive-ja platex github-actions/library.tex
+          docker run --rm -v "`pwd`":/workdir paperist/alpine-texlive-ja platex github-actions/library.tex
+          docker run --rm -v "`pwd`":/workdir paperist/alpine-texlive-ja dvipdfmx github-actions/library.dvi
       
       - name: Move PDF
-        run: mv library.pdf ../output
+        run: mv github-actions/library.pdf output
 
       - name: Upload PDF
         uses: actions/upload-artifact@master
