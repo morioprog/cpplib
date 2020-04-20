@@ -20,12 +20,6 @@ jobs:
 
       - run: mkdir output
 
-      - run: cd github-actions
-
-      - run: ls -al
-
-      - run: ls -al ..
-
       - name: Generate TeX
         run: python3 generate_tex.py
 
@@ -36,7 +30,7 @@ jobs:
           docker run --rm -v "`pwd`":/workdir paperist/alpine-texlive-ja dvipdfmx library.dvi
       
       - name: Move PDF
-        run: mv library.pdf ../output
+        run: mv library.pdf output
 
       - name: Upload PDF
         uses: actions/upload-artifact@master
