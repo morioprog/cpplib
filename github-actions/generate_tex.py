@@ -36,7 +36,7 @@ def texify_tag(tag, name):
     return '\\{}{{{}}}\n'.format(tag, name)
 
 def texify_file(file, sec):
-    return texify_tag(sec, file['name']) + '\\lstinputlisting{{{}}}\n'.format(file['path'])
+    return texify_tag(sec, file['name']) + '\\lstinputlisting{{{}}}\n'.format('../' + file['path'])
 
 if __name__ == '__main__':
     with open(INPUT_YAML, 'r') as lib, open(OUTPUT_TEX, 'w') as tex:
