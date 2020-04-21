@@ -1,4 +1,10 @@
-template<typename T> struct Fraction {
+/**
+ * @brief Fraction (分数)
+ * @docs docs/math/fraction.md
+ */
+
+struct Fraction {
+    using T = long long;
     T numer, denom;
     T gcd(T a, T b) { return b ? gcd(b, a % b) : a; }
     Fraction(T n = 0, T d = 1) {
@@ -22,9 +28,6 @@ template<typename T> struct Fraction {
     bool operator<=(const Fraction &f) const { return numer * f.denom <= f.numer * denom; }
     bool operator> (const Fraction &f) const { return numer * f.denom >  f.numer * denom; }
     bool operator>=(const Fraction &f) const { return numer * f.denom >= f.numer * denom; }
-    explicit operator T()      const { assert(denom == 1); return numer; }
-    explicit operator double() const { return (double) numer / denom; }
-    friend ostream &operator<<(ostream &os, const Fraction <T> &f) {
-        return os << f.numer << " / " << f.denom;
-    }
+    double to_double() const { return (double) numer / denom; }
+    friend ostream &operator<<(ostream &os, const Fraction &f) { return os << f.numer << " / " << f.denom; }
 };
