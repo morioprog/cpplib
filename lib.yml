@@ -14,6 +14,9 @@
     - name: 素因数分解
       prefix: [math, prime, primefactor]
       path: math/prime/prime_factor.hpp
+  - name: ModInt
+    prefix: [math, modint]
+    path: math/modint.hpp
   - name: 分数
     prefix: [math, fraction]
     path: math/fraction.hpp
