@@ -1,5 +1,3 @@
-#define IGNORE
-
 auto check = [&](long long mid) -> bool {
     $3
 };

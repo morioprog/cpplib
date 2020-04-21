@@ -1,7 +1,17 @@
 テンプレート:
   - name: Template
     prefix: [template_main]
-    path: template/main.cpp
+    path: template/main.hpp
   - name: Template (Short)
     prefix: [template_short]
-    path: template/short.cpp
+    path: template/short.hpp
+
+数学:
+  - name: 分数
+    prefix: [math, fraction]
+    path: math/fraction.hpp
+
+スニペット:
+  - name: めぐる式二分探索
+    prefix: [meguru]
+    path: snippet/meguru.hpp
