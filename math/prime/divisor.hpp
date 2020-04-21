@@ -1,5 +1,5 @@
 /**
- * @brief Fraction (分数)
+ * @brief Divisor (約数)
  * @docs docs/math/prime/divisor.md
  */
 
