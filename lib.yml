@@ -11,6 +11,9 @@
     - name: 約数列挙
       prefix: [math, prime, divisor]
       path: math/prime/divisor.hpp
+    - name: 素因数分解
+      prefix: [math, prime, primefactor]
+      path: math/prime/prime_factor.hpp
   - name: 分数
     prefix: [math, fraction]
     path: math/fraction.hpp
