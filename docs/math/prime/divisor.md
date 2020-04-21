@@ -8,7 +8,4 @@ $O(\sqrt{n})$
 
 ## 使用例
 
-```cpp
-int N = 105;
-vector<long long> div = divisor(N);
-```
+* `divisor(N)` : $N$の約数を`vector<long long>`で返す.
