@@ -6,6 +6,12 @@
     prefix: [template_short]
     path: template/short.hpp
 
+データ構造:
+  - UnionFind:
+    - name: UnionFind
+      prefix: [datastructure, unionfind]
+      path: datastructure/unionfind/unionfind.hpp
+
 数学:
   - 素数:
     - name: 約数列挙
