@@ -41,6 +41,14 @@ layout: default
 * :warning: <a href="library/math/fraction.hpp.html">Fraction (分数) <small>(math/fraction.hpp)</small></a>
 
 
+<div id="284ec5e6a3c30a992cd88179b43d3dce"></div>
+
+### math/prime
+
+* :warning: <a href="library/math/prime/divisor.hpp.html">Fraction (分数) <small>(math/prime/divisor.hpp)</small></a>
+* :heavy_check_mark: <a href="library/math/prime/prime_factor.hpp.html">Prime Factor (素因数分解) <small>(math/prime/prime_factor.hpp)</small></a>
+
+
 <div id="54de4c5e0ecfc39083b31b56ee36cb19"></div>
 
 ### snippet
@@ -60,5 +68,6 @@ layout: default
 
 * :heavy_check_mark: <a href="verify/test/aoj/ITP1_1_A.short.test.cpp.html">test/aoj/ITP1_1_A.short.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/ITP1_1_A.test.cpp.html">test/aoj/ITP1_1_A.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj/NTL_1_A.test.cpp.html">test/aoj/NTL_1_A.test.cpp</a>
 
 

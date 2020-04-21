@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#0d0c91c0cca30af9c1c9faef0cf04aa9">test/aoj</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/aoj/ITP1_1_A.short.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-21 14:07:07+09:00
+    - Last commit date: 2020-04-21 22:53:19+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ITP1_1_A">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ITP1_1_A</a>
@@ -49,9 +49,7 @@ layout: default
 ```cpp
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ITP1_1_A"
 
-#define call_from_test
 #include "../../template/short.hpp"
-#undef call_from_test
 
 signed main() {
 
@@ -68,15 +66,13 @@ signed main() {
 #line 1 "test/aoj/ITP1_1_A.short.test.cpp"
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ITP1_1_A"
 
-#define call_from_test
 #line 1 "template/short.hpp"
 #include <bits/stdc++.h>
 using namespace std;
 using ll = long long;
 #define REP(i, n)    for (ll (i) = 0;   (i) < (n); ++(i))
 #define FOR(i, a, b) for (ll (i) = (a); (i) < (b); ++(i))
-#line 5 "test/aoj/ITP1_1_A.short.test.cpp"
-#undef call_from_test
+#line 4 "test/aoj/ITP1_1_A.short.test.cpp"
 
 signed main() {
 
