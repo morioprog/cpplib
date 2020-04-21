@@ -7,6 +7,10 @@
     path: template/short.hpp
 
 数学:
+  - 素数:
+    - name: 約数列挙
+      prefix: [math, prime, divisor]
+      path: math/prime/divisor.hpp
   - name: 分数
     prefix: [math, fraction]
     path: math/fraction.hpp
