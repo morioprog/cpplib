@@ -8,4 +8,5 @@ $O(\sqrt{n})$
 
 ## 使用例
 
-* `divisor(N)` : $N$の約数を`vector<long long>`で返す.
+* `divisor(N)` : $N$の約数を返す.
+  * 返り値の型 : `vector<long long>`
