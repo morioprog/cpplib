@@ -34,10 +34,18 @@ layout: default
 
 ## Library Files
 
+<div id="30b7082b479ad4b7861d398d23468641"></div>
+
+### datastructure/unionfind
+
+* :heavy_check_mark: <a href="library/datastructure/unionfind/unionfind.hpp.html">UnionFind <small>(datastructure/unionfind/unionfind.hpp)</small></a>
+
+
 <div id="7e676e9e663beb40fd133f5ee24487c2"></div>
 
 ### math
 
+* :heavy_check_mark: <a href="library/math/extgcd.hpp.html">拡張ユークリッドの互除法 <small>(math/extgcd.hpp)</small></a>
 * :warning: <a href="library/math/fraction.hpp.html">Fraction (分数) <small>(math/fraction.hpp)</small></a>
 * :heavy_check_mark: <a href="library/math/modint.hpp.html">ModInt <small>(math/modint.hpp)</small></a>
 
@@ -47,6 +55,7 @@ layout: default
 ### math/prime
 
 * :warning: <a href="library/math/prime/divisor.hpp.html">Divisor (約数) <small>(math/prime/divisor.hpp)</small></a>
+* :heavy_check_mark: <a href="library/math/prime/euler_totient.hpp.html">Euler's totient function (オイラーのφ関数) <small>(math/prime/euler_totient.hpp)</small></a>
 * :heavy_check_mark: <a href="library/math/prime/prime_factor.hpp.html">Prime Factor (素因数分解) <small>(math/prime/prime_factor.hpp)</small></a>
 
 
@@ -71,5 +80,8 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/aoj/ITP1_1_A.test.cpp.html">test/aoj/ITP1_1_A.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/NTL_1_A.test.cpp.html">test/aoj/NTL_1_A.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/NTL_1_B.test.cpp.html">test/aoj/NTL_1_B.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj/NTL_1_D.test.cpp.html">test/aoj/NTL_1_D.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj/NTL_1_E.test.cpp.html">test/aoj/NTL_1_E.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yosupo/unionfind.test.cpp.html">test/yosupo/unionfind.test.cpp</a>
 
 
