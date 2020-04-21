@@ -1,3 +1,7 @@
+/**
+ * @brief めぐる式二分探索
+ */
+
 auto check = [&](long long mid) -> bool {
     $3
 };
