@@ -17,6 +17,9 @@
     - name: オイラーのトーシェント関数
       prefix: [math, prime, totient, phi]
       path: math/prime/euler_totient.hpp
+  - name: 拡張ユークリッドの互除法
+    prefix: [math, extgcd]
+    path: math/extgcd.hpp
   - name: ModInt
     prefix: [math, modint]
     path: math/modint.hpp
