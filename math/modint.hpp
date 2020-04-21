@@ -1,3 +1,8 @@
+/**
+ * @brief ModInt
+ * @docs docs/math/modint.md
+ */
+
 template< int MODULO > struct ModInt {
     using i32 = int;
     using i64 = long long;
