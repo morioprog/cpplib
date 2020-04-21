@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: Fraction (分数) <small>(math/prime/divisor.hpp)</small>
+# :warning: Divisor (約数) <small>(math/prime/divisor.hpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#284ec5e6a3c30a992cd88179b43d3dce">math/prime</a>
 * <a href="{{ site.github.repository_url }}/blob/master/math/prime/divisor.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-21 22:36:20+09:00
+    - Last commit date: 2020-04-22 00:08:28+09:00
 
 
 
@@ -56,7 +56,7 @@ $O(\sqrt{n})$
 {% raw %}
 ```cpp
 /**
- * @brief Fraction (分数)
+ * @brief Divisor (約数)
  * @docs docs/math/prime/divisor.md
  */
 
@@ -79,7 +79,7 @@ vector<long long> divisor(const long long n) {
 ```cpp
 #line 1 "math/prime/divisor.hpp"
 /**
- * @brief Fraction (分数)
+ * @brief Divisor (約数)
  * @docs docs/math/prime/divisor.md
  */
 

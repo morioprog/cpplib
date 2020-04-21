@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: snippet/meguru.hpp
+# :warning: めぐる式二分探索 <small>(snippet/meguru.hpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#54de4c5e0ecfc39083b31b56ee36cb19">snippet</a>
 * <a href="{{ site.github.repository_url }}/blob/master/snippet/meguru.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-21 14:05:17+09:00
+    - Last commit date: 2020-04-22 00:09:46+09:00
 
 
 
@@ -41,6 +41,10 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+/**
+ * @brief めぐる式二分探索
+ */
+
 auto check = [&](long long mid) -> bool {
     $3
 };
@@ -58,6 +62,10 @@ while (abs(ok - ng) > 1) {
 {% raw %}
 ```cpp
 #line 1 "snippet/meguru.hpp"
+/**
+ * @brief めぐる式二分探索
+ */
+
 auto check = [&](long long mid) -> bool {
     $3
 };

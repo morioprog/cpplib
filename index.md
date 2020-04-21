@@ -39,13 +39,14 @@ layout: default
 ### math
 
 * :warning: <a href="library/math/fraction.hpp.html">Fraction (分数) <small>(math/fraction.hpp)</small></a>
+* :heavy_check_mark: <a href="library/math/modint.hpp.html">ModInt <small>(math/modint.hpp)</small></a>
 
 
 <div id="284ec5e6a3c30a992cd88179b43d3dce"></div>
 
 ### math/prime
 
-* :warning: <a href="library/math/prime/divisor.hpp.html">Fraction (分数) <small>(math/prime/divisor.hpp)</small></a>
+* :warning: <a href="library/math/prime/divisor.hpp.html">Divisor (約数) <small>(math/prime/divisor.hpp)</small></a>
 * :heavy_check_mark: <a href="library/math/prime/prime_factor.hpp.html">Prime Factor (素因数分解) <small>(math/prime/prime_factor.hpp)</small></a>
 
 
@@ -53,7 +54,7 @@ layout: default
 
 ### snippet
 
-* :warning: <a href="library/snippet/meguru.hpp.html">snippet/meguru.hpp</a>
+* :warning: <a href="library/snippet/meguru.hpp.html">めぐる式二分探索 <small>(snippet/meguru.hpp)</small></a>
 
 
 <div id="66f6181bcb4cff4cd38fbc804a036db6"></div>
@@ -69,5 +70,6 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/aoj/ITP1_1_A.short.test.cpp.html">test/aoj/ITP1_1_A.short.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/ITP1_1_A.test.cpp.html">test/aoj/ITP1_1_A.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/NTL_1_A.test.cpp.html">test/aoj/NTL_1_A.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj/NTL_1_B.test.cpp.html">test/aoj/NTL_1_B.test.cpp</a>
 
 
