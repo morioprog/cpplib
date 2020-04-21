@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: template/main.cpp
+# :heavy_check_mark: template/main.hpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#66f6181bcb4cff4cd38fbc804a036db6">template</a>
-* <a href="{{ site.github.repository_url }}/blob/master/template/main.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-21 01:02:48+09:00
+* <a href="{{ site.github.repository_url }}/blob/master/template/main.hpp">View this file on GitHub</a>
+    - Last commit date: 2020-04-21 14:05:17+09:00
 
 
 
@@ -171,7 +171,7 @@ struct abracadabra {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "template/main.cpp"
+#line 1 "template/main.hpp"
 // #pragma GCC target ("avx")
 // #pragma GCC optimize("Ofast")
 // #pragma GCC optimize("unroll-loops")

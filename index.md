@@ -34,26 +34,26 @@ layout: default
 
 ## Library Files
 
-<div id="ed469618898d75b149e5c7c4b6a1c415"></div>
-
-### algorithm
-
-* :warning: <a href="library/algorithm/meguru.cpp.html">algorithm/meguru.cpp</a>
-
-
 <div id="7e676e9e663beb40fd133f5ee24487c2"></div>
 
 ### math
 
-* :warning: <a href="library/math/fraction.cpp.html">Fraction (分数) <small>(math/fraction.cpp)</small></a>
+* :warning: <a href="library/math/fraction.hpp.html">Fraction (分数) <small>(math/fraction.hpp)</small></a>
+
+
+<div id="54de4c5e0ecfc39083b31b56ee36cb19"></div>
+
+### snippet
+
+* :warning: <a href="library/snippet/meguru.hpp.html">snippet/meguru.hpp</a>
 
 
 <div id="66f6181bcb4cff4cd38fbc804a036db6"></div>
 
 ### template
 
-* :heavy_check_mark: <a href="library/template/main.cpp.html">template/main.cpp</a>
-* :heavy_check_mark: <a href="library/template/short.cpp.html">template/short.cpp</a>
+* :heavy_check_mark: <a href="library/template/main.hpp.html">template/main.hpp</a>
+* :heavy_check_mark: <a href="library/template/short.hpp.html">template/short.hpp</a>
 
 
 ## Verify Files

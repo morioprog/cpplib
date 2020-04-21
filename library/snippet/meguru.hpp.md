@@ -25,20 +25,15 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: template/short.cpp
+# :warning: snippet/meguru.hpp
 
 <a href="../../index.html">Back to top page</a>
 
-* category: <a href="../../index.html#66f6181bcb4cff4cd38fbc804a036db6">template</a>
-* <a href="{{ site.github.repository_url }}/blob/master/template/short.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-21 01:09:06+09:00
+* category: <a href="../../index.html#54de4c5e0ecfc39083b31b56ee36cb19">snippet</a>
+* <a href="{{ site.github.repository_url }}/blob/master/snippet/meguru.hpp">View this file on GitHub</a>
+    - Last commit date: 2020-04-21 14:05:17+09:00
 
 
-
-
-## Verified with
-
-* :heavy_check_mark: <a href="../../verify/test/aoj/ITP1_1_A.short.test.cpp.html">test/aoj/ITP1_1_A.short.test.cpp</a>
 
 
 ## Code
@@ -46,11 +41,15 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#include <bits/stdc++.h>
-using namespace std;
-using ll = long long;
-#define REP(i, n)    for (ll (i) = 0;   (i) < (n); ++(i))
-#define FOR(i, a, b) for (ll (i) = (a); (i) < (b); ++(i))
+auto check = [&](long long mid) -> bool {
+    $3
+};
+
+long long ok = $1, ng = $2;
+while (abs(ok - ng) > 1) {
+    long long mid = (ok + ng) >> 1;
+    (check(mid) ? ok : ng) = mid;
+}
 
 ```
 {% endraw %}
@@ -58,12 +57,16 @@ using ll = long long;
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "template/short.cpp"
-#include <bits/stdc++.h>
-using namespace std;
-using ll = long long;
-#define REP(i, n)    for (ll (i) = 0;   (i) < (n); ++(i))
-#define FOR(i, a, b) for (ll (i) = (a); (i) < (b); ++(i))
+#line 1 "snippet/meguru.hpp"
+auto check = [&](long long mid) -> bool {
+    $3
+};
+
+long long ok = $1, ng = $2;
+while (abs(ok - ng) > 1) {
+    long long mid = (ok + ng) >> 1;
+    (check(mid) ? ok : ng) = mid;
+}
 
 ```
 {% endraw %}
