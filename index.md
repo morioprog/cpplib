@@ -96,6 +96,13 @@ layout: default
 * :heavy_check_mark: <a href="library/template/short.hpp.html">template/short.hpp</a>
 
 
+<div id="e8ba03245cc911ba95395348d53122a0"></div>
+
+### test/atcoder
+
+* :warning: <a href="library/test/atcoder/abc106_d.cpp.html">test/atcoder/abc106_d.cpp</a>
+
+
 ## Verify Files
 
 * :heavy_check_mark: <a href="verify/test/aoj/ITP1_1_A.short.test.cpp.html">test/aoj/ITP1_1_A.short.test.cpp</a>
@@ -104,7 +111,6 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/aoj/NTL_1_B.test.cpp.html">test/aoj/NTL_1_B.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/NTL_1_D.test.cpp.html">test/aoj/NTL_1_D.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/NTL_1_E.test.cpp.html">test/aoj/NTL_1_E.test.cpp</a>
-* :x: <a href="verify/test/atcoder/abc106_d.test.cpp.html">test/atcoder/abc106_d.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yosupo/pointaddrangesum.test.cpp.html">test/yosupo/pointaddrangesum.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yosupo/staticrangesum.test.cpp.html">test/yosupo/staticrangesum.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yosupo/staticrmq.test.cpp.html">test/yosupo/staticrmq.test.cpp</a>

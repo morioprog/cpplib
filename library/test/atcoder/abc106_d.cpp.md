@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :x: test/atcoder/abc106_d.test.cpp
+# :warning: test/atcoder/abc106_d.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#e8ba03245cc911ba95395348d53122a0">test/atcoder</a>
-* <a href="{{ site.github.repository_url }}/blob/master/test/atcoder/abc106_d.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-22 19:52:55+09:00
+* <a href="{{ site.github.repository_url }}/blob/master/test/atcoder/abc106_d.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-04-23 01:10:40+09:00
 
 
 
@@ -76,7 +76,7 @@ signed main() {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "test/atcoder/abc106_d.test.cpp"
+#line 1 "test/atcoder/abc106_d.cpp"
 #define IGNORE
 
 // #define PROBLEM "https://atcoder.jp/contests/abc106/tasks/abc106_d"
