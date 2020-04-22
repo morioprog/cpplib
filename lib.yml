@@ -21,6 +21,9 @@
     - name: Lazy Segment Tree
       prefix: [datastructure, segmenttree, lazysegmenttree]
       path: datastructure/segmenttree/lazysegmenttree.hpp
+    - name: Segment Tree Beats
+      prefix: [datastructure, segmenttree, beats]
+      path: datastructure/segmenttree/segmenttreebeats.hpp
   - UnionFind:
     - name: UnionFind
       prefix: [datastructure, unionfind]
