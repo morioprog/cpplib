@@ -55,6 +55,7 @@ layout: default
 
 * :heavy_check_mark: <a href="library/datastructure/segmenttree/lazysegmenttree.hpp.html">遅延セグメント木 <small>(datastructure/segmenttree/lazysegmenttree.hpp)</small></a>
 * :heavy_check_mark: <a href="library/datastructure/segmenttree/segmenttree.hpp.html">セグメント木 <small>(datastructure/segmenttree/segmenttree.hpp)</small></a>
+* :heavy_check_mark: <a href="library/datastructure/segmenttree/segmenttreebeats.hpp.html">Segment Tree Beats <small>(datastructure/segmenttree/segmenttreebeats.hpp)</small></a>
 
 
 <div id="30b7082b479ad4b7861d398d23468641"></div>
@@ -106,6 +107,8 @@ layout: default
 
 ## Verify Files
 
+* :heavy_check_mark: <a href="verify/test/aoj/DSL_2_A.test.cpp.html">test/aoj/DSL_2_A.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj/DSL_2_B.test.cpp.html">test/aoj/DSL_2_B.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/DSL_2_F.test.cpp.html">test/aoj/DSL_2_F.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/DSL_2_G.test.cpp.html">test/aoj/DSL_2_G.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/DSL_2_H.test.cpp.html">test/aoj/DSL_2_H.test.cpp</a>
@@ -118,6 +121,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/aoj/NTL_1_E.test.cpp.html">test/aoj/NTL_1_E.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yosupo/pointaddrangesum.test.cpp.html">test/yosupo/pointaddrangesum.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yosupo/rangeaffinerangesum.test.cpp.html">test/yosupo/rangeaffinerangesum.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yosupo/rangechminchmaxaddrangesum.test.cpp.html">test/yosupo/rangechminchmaxaddrangesum.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yosupo/staticrangesum.test.cpp.html">test/yosupo/staticrangesum.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yosupo/staticrmq.test.cpp.html">test/yosupo/staticrmq.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yosupo/unionfind.test.cpp.html">test/yosupo/unionfind.test.cpp</a>

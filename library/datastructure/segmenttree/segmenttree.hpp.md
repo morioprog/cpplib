@@ -64,6 +64,8 @@ layout: default
 
 ## Verified with
 
+* :heavy_check_mark: <a href="../../../verify/test/aoj/DSL_2_A.test.cpp.html">test/aoj/DSL_2_A.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/aoj/DSL_2_B.test.cpp.html">test/aoj/DSL_2_B.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/yosupo/pointaddrangesum.test.cpp.html">test/yosupo/pointaddrangesum.test.cpp</a>
 
 
