@@ -1,9 +1,9 @@
 #define IGNORE
 
-#define PROBLEM "https://atcoder.jp/contests/abc106/tasks/abc106_d"
+// #define PROBLEM "https://atcoder.jp/contests/abc106/tasks/abc106_d"
 
-#include "../../template/main.hpp"
-#include "../../datastructure/cumulativesum/cumulativesum2d.hpp"
+// #include "../../template/main.hpp"
+// #include "../../datastructure/cumulativesum/cumulativesum2d.hpp"
 
 signed main() {
  
