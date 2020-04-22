@@ -11,6 +11,9 @@
     - name: UnionFind
       prefix: [datastructure, unionfind]
       path: datastructure/unionfind/unionfind.hpp
+  - name: Sparse Table
+    prefix: [datastructure, sparsetable]
+    path: datastructure/sparsetable.hpp
 
 数学:
   - 素数:
