@@ -7,6 +7,10 @@
     path: template/short.hpp
 
 データ構造:
+  - 累積和:
+    - name: 1次元累積和
+      prefix: [datastructure, cumulativesum]
+      path: datastructure/cumulativesum/cumulativesum.hpp
   - UnionFind:
     - name: UnionFind
       prefix: [datastructure, unionfind]
