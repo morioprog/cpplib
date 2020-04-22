@@ -1,4 +1,8 @@
 {
+"test/aoj/DSL_2_F.test.cpp": "2020-04-23 05:26:48 +0900",
+"test/aoj/DSL_2_G.test.cpp": "2020-04-23 05:26:48 +0900",
+"test/aoj/DSL_2_H.test.cpp": "2020-04-23 05:26:48 +0900",
+"test/aoj/DSL_2_I.test.cpp": "2020-04-23 05:26:48 +0900",
 "test/aoj/ITP1_1_A.short.test.cpp": "2020-04-21 22:53:19 +0900",
 "test/aoj/ITP1_1_A.test.cpp": "2020-04-21 22:53:19 +0900",
 "test/aoj/NTL_1_A.test.cpp": "2020-04-22 15:52:26 +0900",
@@ -6,6 +10,7 @@
 "test/aoj/NTL_1_D.test.cpp": "2020-04-22 15:52:26 +0900",
 "test/aoj/NTL_1_E.test.cpp": "2020-04-22 15:52:26 +0900",
 "test/yosupo/pointaddrangesum.test.cpp": "2020-04-22 16:56:36 +0900",
+"test/yosupo/rangeaffinerangesum.test.cpp": "2020-04-23 05:26:48 +0900",
 "test/yosupo/staticrangesum.test.cpp": "2020-04-22 16:07:20 +0900",
 "test/yosupo/staticrmq.test.cpp": "2020-04-22 15:52:26 +0900",
 "test/yosupo/unionfind.test.cpp": "2020-04-22 15:52:26 +0900"
