@@ -11,6 +11,9 @@
     - name: 1次元累積和
       prefix: [datastructure, cumulativesum]
       path: datastructure/cumulativesum/cumulativesum.hpp
+    - name: 2次元累積和
+      prefix: [datastructure, cumulativesum2d]
+      path: datastructure/cumulativesum/cumulativesum2d.hpp
   - セグメント木:
     - name: Segment Tree
       prefix: [datastructure, segmenttree]
