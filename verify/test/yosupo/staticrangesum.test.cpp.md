@@ -40,7 +40,7 @@ layout: default
 ## Depends on
 
 * :heavy_check_mark: <a href="../../../library/datastructure/cumulativesum/cumulativesum.hpp.html">1次元累積和 <small>(datastructure/cumulativesum/cumulativesum.hpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/template/main.hpp.html">template/main.hpp</a>
+* :question: <a href="../../../library/template/main.hpp.html">template/main.hpp</a>
 
 
 ## Code

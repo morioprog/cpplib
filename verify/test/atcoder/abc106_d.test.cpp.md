@@ -25,21 +25,20 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/yosupo/staticrmq.test.cpp
+# :x: test/atcoder/abc106_d.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
-* category: <a href="../../../index.html#0b58406058f6619a0f31a172defc0230">test/yosupo</a>
-* <a href="{{ site.github.repository_url }}/blob/master/test/yosupo/staticrmq.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-22 15:52:26+09:00
+* category: <a href="../../../index.html#e8ba03245cc911ba95395348d53122a0">test/atcoder</a>
+* <a href="{{ site.github.repository_url }}/blob/master/test/atcoder/abc106_d.test.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-04-22 17:52:09+09:00
 
 
-* see: <a href="https://judge.yosupo.jp/problem/staticrmq">https://judge.yosupo.jp/problem/staticrmq</a>
 
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../../library/datastructure/sparsetable.hpp.html">Sparse Table <small>(datastructure/sparsetable.hpp)</small></a>
+* :x: <a href="../../../library/datastructure/cumulativesum/cumulativesum2d.hpp.html">2次元累積和 <small>(datastructure/cumulativesum/cumulativesum2d.hpp)</small></a>
 * :question: <a href="../../../library/template/main.hpp.html">template/main.hpp</a>
 
 
@@ -48,28 +47,33 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "https://judge.yosupo.jp/problem/staticrmq"
+#define IGNORE
+
+#define PROBLEM "https://atcoder.jp/contests/abc106/tasks/abc106_d"
 
 #include "../../template/main.hpp"
-#include "../../datastructure/sparsetable.hpp"
+#include "../../datastructure/cumulativesum/cumulativesum2d.hpp"
 
 signed main() {
-
-    int N, Q;
-    cin >> N >> Q;
-
-    using T = long long;
-    vector<T> A(N);
-    for (auto& e: A) cin >> e;
-
-    SparseTable<T> st(A, [](T a, T b) { return min(a, b); });
-
-    while (Q--) {
-        int l, r;
-        cin >> l >> r;
-        cout << st.query(l, r) << endl;
+ 
+    int N, M, Q;
+    cin >> N >> M >> Q;
+ 
+    vector<vector<int>> v(N + 1, vector<int>(N + 1, 0));
+    while (M--) {
+        int L, R;
+        cin >> L >> R;
+        v[L][R]++;
     }
-
+ 
+    CumulativeSum2D<int> acc(v);
+ 
+    while (Q--) {
+        int p, q;
+        cin >> p >> q;
+        print(acc.query(p, p, q + 1, q + 1));
+    }
+ 
 }
 
 ```
@@ -78,8 +82,10 @@ signed main() {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "test/yosupo/staticrmq.test.cpp"
-#define PROBLEM "https://judge.yosupo.jp/problem/staticrmq"
+#line 1 "test/atcoder/abc106_d.test.cpp"
+#define IGNORE
+
+#define PROBLEM "https://atcoder.jp/contests/abc106/tasks/abc106_d"
 
 #line 1 "template/main.hpp"
 // #pragma GCC target ("avx")
@@ -200,52 +206,50 @@ struct abracadabra {
 } ABRACADABRA;
 
 #pragma endregion
-#line 1 "datastructure/sparsetable.hpp"
+#line 1 "datastructure/cumulativesum/cumulativesum2d.hpp"
 /**
-* @brief Sparse Table
-* @docs docs/datastructure/sparsetable.md
+* @brief 2次元累積和
+* @docs docs/datastructure/cumulativesum/cumulativesum2d.md
 */
 
-template<typename T> struct SparseTable {
-    vector<vector<T>> st;
-    using F = function<T(T, T)>;
-    const F f;
-    SparseTable() {}
-    SparseTable(const vector<T> &v, const F f) : f(f) {
-        int b = 0, sz = v.size();
-        while ((1 << b) <= sz) ++b;
-        st.assign(b, vector<T>(1 << b));
-        for (int i = 0; i < sz; ++i) st[0][i] = v[i];
-        for (int i = 1; i < b; ++i) {
-            for (int j = 0; j + (1 << i) <= (1 << b); ++j) {
-                st[i][j] = f(st[i - 1][j], st[i - 1][j + (1 << (i - 1))]);
+template<class T> struct CumulativeSum2D {
+    int H, W;
+    vector<vector<T>> data;
+    CumulativeSum2D(const vector<vector<T>> &v)
+        : H(v.size()), W(v[0].size()) {
+        data.assign(H + 1, vector<T>(W + 1, 0));
+        for (int i = 0; i < H; ++i) {
+            for (int j = 0; j < W; ++j) {
+                data[i + 1][j + 1] = v[i][j] + data[i + 1][j] + data[i][j + 1] - data[i][j];
             }
         }
     }
-    T query(const int l, const int r) const {
-        int b = 31 - __builtin_clz(r - l);
-        return f(st[b][l], st[b][r - (1 << b)]);
+    T query(int sx, int sy, int gx, int gy) {
+        return data[gx][gy] - data[sx][gy] - data[gx][sy] + data[sx][sy];
     }
 };
-#line 5 "test/yosupo/staticrmq.test.cpp"
+#line 7 "test/atcoder/abc106_d.test.cpp"
 
 signed main() {
-
-    int N, Q;
-    cin >> N >> Q;
-
-    using T = long long;
-    vector<T> A(N);
-    for (auto& e: A) cin >> e;
-
-    SparseTable<T> st(A, [](T a, T b) { return min(a, b); });
-
-    while (Q--) {
-        int l, r;
-        cin >> l >> r;
-        cout << st.query(l, r) << endl;
+ 
+    int N, M, Q;
+    cin >> N >> M >> Q;
+ 
+    vector<vector<int>> v(N + 1, vector<int>(N + 1, 0));
+    while (M--) {
+        int L, R;
+        cin >> L >> R;
+        v[L][R]++;
     }
-
+ 
+    CumulativeSum2D<int> acc(v);
+ 
+    while (Q--) {
+        int p, q;
+        cin >> p >> q;
+        print(acc.query(p, p, q + 1, q + 1));
+    }
+ 
 }
 
 ```

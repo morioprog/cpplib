@@ -46,6 +46,7 @@ layout: default
 ### datastructure/cumulativesum
 
 * :heavy_check_mark: <a href="library/datastructure/cumulativesum/cumulativesum.hpp.html">1次元累積和 <small>(datastructure/cumulativesum/cumulativesum.hpp)</small></a>
+* :x: <a href="library/datastructure/cumulativesum/cumulativesum2d.hpp.html">2次元累積和 <small>(datastructure/cumulativesum/cumulativesum2d.hpp)</small></a>
 
 
 <div id="23b0293042a380c2b90b74c55c0e1d22"></div>
@@ -91,7 +92,7 @@ layout: default
 
 ### template
 
-* :heavy_check_mark: <a href="library/template/main.hpp.html">template/main.hpp</a>
+* :question: <a href="library/template/main.hpp.html">template/main.hpp</a>
 * :heavy_check_mark: <a href="library/template/short.hpp.html">template/short.hpp</a>
 
 
@@ -103,6 +104,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/aoj/NTL_1_B.test.cpp.html">test/aoj/NTL_1_B.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/NTL_1_D.test.cpp.html">test/aoj/NTL_1_D.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/NTL_1_E.test.cpp.html">test/aoj/NTL_1_E.test.cpp</a>
+* :x: <a href="verify/test/atcoder/abc106_d.test.cpp.html">test/atcoder/abc106_d.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yosupo/pointaddrangesum.test.cpp.html">test/yosupo/pointaddrangesum.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yosupo/staticrangesum.test.cpp.html">test/yosupo/staticrangesum.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yosupo/staticrmq.test.cpp.html">test/yosupo/staticrmq.test.cpp</a>
