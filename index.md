@@ -46,7 +46,7 @@ layout: default
 ### datastructure/cumulativesum
 
 * :heavy_check_mark: <a href="library/datastructure/cumulativesum/cumulativesum.hpp.html">1次元累積和 <small>(datastructure/cumulativesum/cumulativesum.hpp)</small></a>
-* :x: <a href="library/datastructure/cumulativesum/cumulativesum2d.hpp.html">2次元累積和 <small>(datastructure/cumulativesum/cumulativesum2d.hpp)</small></a>
+* :warning: <a href="library/datastructure/cumulativesum/cumulativesum2d.hpp.html">2次元累積和 <small>(datastructure/cumulativesum/cumulativesum2d.hpp)</small></a>
 
 
 <div id="23b0293042a380c2b90b74c55c0e1d22"></div>
@@ -92,7 +92,7 @@ layout: default
 
 ### template
 
-* :question: <a href="library/template/main.hpp.html">template/main.hpp</a>
+* :heavy_check_mark: <a href="library/template/main.hpp.html">template/main.hpp</a>
 * :heavy_check_mark: <a href="library/template/short.hpp.html">template/short.hpp</a>
 
 
