@@ -1,6 +1,6 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/staticrmq"
 
-#include "../../template/short.hpp"
+#include "../../template/main.hpp"
 #include "../../datastructure/sparsetable.hpp"
 
 signed main() {

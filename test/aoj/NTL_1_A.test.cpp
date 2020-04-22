@@ -1,6 +1,6 @@
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_1_A"
 
-#include "../../template/short.hpp"
+#include "../../template/main.hpp"
 #include "../../math/prime/prime_factor.hpp"
 
 signed main() {

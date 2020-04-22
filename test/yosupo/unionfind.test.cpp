@@ -1,6 +1,6 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/unionfind"
 
-#include "../../template/short.hpp"
+#include "../../template/main.hpp"
 #include "../../datastructure/unionfind/unionfind.hpp"
 
 signed main() {
