@@ -25,21 +25,21 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/aoj/NTL_1_A.test.cpp
+# :heavy_check_mark: test/yosupo/staticrmq.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
-* category: <a href="../../../index.html#0d0c91c0cca30af9c1c9faef0cf04aa9">test/aoj</a>
-* <a href="{{ site.github.repository_url }}/blob/master/test/aoj/NTL_1_A.test.cpp">View this file on GitHub</a>
+* category: <a href="../../../index.html#0b58406058f6619a0f31a172defc0230">test/yosupo</a>
+* <a href="{{ site.github.repository_url }}/blob/master/test/yosupo/staticrmq.test.cpp">View this file on GitHub</a>
     - Last commit date: 2020-04-22 15:52:26+09:00
 
 
-* see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_1_A">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_1_A</a>
+* see: <a href="https://judge.yosupo.jp/problem/staticrmq">https://judge.yosupo.jp/problem/staticrmq</a>
 
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../../library/math/prime/prime_factor.hpp.html">Prime Factor (素因数分解) <small>(math/prime/prime_factor.hpp)</small></a>
+* :heavy_check_mark: <a href="../../../library/datastructure/sparsetable.hpp.html">Sparse Table <small>(datastructure/sparsetable.hpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/template/main.hpp.html">template/main.hpp</a>
 
 
@@ -48,27 +48,26 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_1_A"
+#define PROBLEM "https://judge.yosupo.jp/problem/staticrmq"
 
 #include "../../template/main.hpp"
-#include "../../math/prime/prime_factor.hpp"
+#include "../../datastructure/sparsetable.hpp"
 
 signed main() {
 
-    int N;  cin >> N;
-    auto pf = prime_factor(N);
+    int N, Q;
+    cin >> N >> Q;
 
-    vector<int> res;
-    for (auto& e: pf) {
-        for (int i = 0; i < e.second; ++i) {
-            res.emplace_back(e.first);
-        }
-    }
+    using T = long long;
+    vector<T> A(N);
+    for (auto& e: A) cin >> e;
 
-    cout << N << ": ";
-    int sz = res.size();
-    for (int i = 0; i < sz; ++i) {
-        cout << res[i] << " \n"[i == sz - 1];
+    SparseTable<T> st(A, [](T a, T b) { return min(a, b); });
+
+    while (Q--) {
+        int l, r;
+        cin >> l >> r;
+        cout << st.query(l, r) << endl;
     }
 
 }
@@ -79,8 +78,8 @@ signed main() {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "test/aoj/NTL_1_A.test.cpp"
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_1_A"
+#line 1 "test/yosupo/staticrmq.test.cpp"
+#define PROBLEM "https://judge.yosupo.jp/problem/staticrmq"
 
 #line 1 "template/main.hpp"
 // #pragma GCC target ("avx")
@@ -201,41 +200,50 @@ struct abracadabra {
 } ABRACADABRA;
 
 #pragma endregion
-#line 1 "math/prime/prime_factor.hpp"
+#line 1 "datastructure/sparsetable.hpp"
 /**
- * @brief Prime Factor (素因数分解)
- * @docs docs/math/prime/prime_factor.md
- */
+* @brief Sparse Table
+* @docs docs/datastructure/sparsetable.md
+*/
 
-map<long long, int> prime_factor(long long n) {
-    map<long long, int> ret;
-    for (long long i = 2; i * i <= n; ++i) {
-        while (n % i == 0) {
-            ++ret[i];
-            n /= i;
+template<typename T> struct SparseTable {
+    vector<vector<T>> st;
+    using F = function<T(T, T)>;
+    const F f;
+    SparseTable() {}
+    SparseTable(const vector<T> &v, const F f) : f(f) {
+        int b = 0, sz = v.size();
+        while ((1 << b) <= sz) ++b;
+        st.assign(b, vector<T>(1 << b));
+        for (int i = 0; i < sz; ++i) st[0][i] = v[i];
+        for (int i = 1; i < b; ++i) {
+            for (int j = 0; j + (1 << i) <= (1 << b); ++j) {
+                st[i][j] = f(st[i - 1][j], st[i - 1][j + (1 << (i - 1))]);
+            }
         }
     }
-    if (n != 1) ret[n] = 1;
-    return ret;
-}
-#line 5 "test/aoj/NTL_1_A.test.cpp"
+    T query(const int l, const int r) const {
+        int b = 31 - __builtin_clz(r - l);
+        return f(st[b][l], st[b][r - (1 << b)]);
+    }
+};
+#line 5 "test/yosupo/staticrmq.test.cpp"
 
 signed main() {
 
-    int N;  cin >> N;
-    auto pf = prime_factor(N);
+    int N, Q;
+    cin >> N >> Q;
 
-    vector<int> res;
-    for (auto& e: pf) {
-        for (int i = 0; i < e.second; ++i) {
-            res.emplace_back(e.first);
-        }
-    }
+    using T = long long;
+    vector<T> A(N);
+    for (auto& e: A) cin >> e;
 
-    cout << N << ": ";
-    int sz = res.size();
-    for (int i = 0; i < sz; ++i) {
-        cout << res[i] << " \n"[i == sz - 1];
+    SparseTable<T> st(A, [](T a, T b) { return min(a, b); });
+
+    while (Q--) {
+        int l, r;
+        cin >> l >> r;
+        cout << st.query(l, r) << endl;
     }
 
 }

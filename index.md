@@ -34,6 +34,20 @@ layout: default
 
 ## Library Files
 
+<div id="8dc87745f885a4cc532acd7b15b8b5fe"></div>
+
+### datastructure
+
+* :heavy_check_mark: <a href="library/datastructure/sparsetable.hpp.html">Sparse Table <small>(datastructure/sparsetable.hpp)</small></a>
+
+
+<div id="053d19836570d3243deead9fd40452d5"></div>
+
+### datastructure/cumulativesum
+
+* :heavy_check_mark: <a href="library/datastructure/cumulativesum/cumulativesum.hpp.html">1次元累積和 <small>(datastructure/cumulativesum/cumulativesum.hpp)</small></a>
+
+
 <div id="30b7082b479ad4b7861d398d23468641"></div>
 
 ### datastructure/unionfind
@@ -82,6 +96,8 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/aoj/NTL_1_B.test.cpp.html">test/aoj/NTL_1_B.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/NTL_1_D.test.cpp.html">test/aoj/NTL_1_D.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/NTL_1_E.test.cpp.html">test/aoj/NTL_1_E.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yosupo/staticrangesum.test.cpp.html">test/yosupo/staticrangesum.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yosupo/staticrmq.test.cpp.html">test/yosupo/staticrmq.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yosupo/unionfind.test.cpp.html">test/yosupo/unionfind.test.cpp</a>
 
 

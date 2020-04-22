@@ -25,21 +25,21 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/aoj/NTL_1_A.test.cpp
+# :heavy_check_mark: test/yosupo/staticrangesum.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
-* category: <a href="../../../index.html#0d0c91c0cca30af9c1c9faef0cf04aa9">test/aoj</a>
-* <a href="{{ site.github.repository_url }}/blob/master/test/aoj/NTL_1_A.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-22 15:52:26+09:00
+* category: <a href="../../../index.html#0b58406058f6619a0f31a172defc0230">test/yosupo</a>
+* <a href="{{ site.github.repository_url }}/blob/master/test/yosupo/staticrangesum.test.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-04-22 16:07:20+09:00
 
 
-* see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_1_A">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_1_A</a>
+* see: <a href="https://judge.yosupo.jp/problem/static_range_sum">https://judge.yosupo.jp/problem/static_range_sum</a>
 
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../../library/math/prime/prime_factor.hpp.html">Prime Factor (素因数分解) <small>(math/prime/prime_factor.hpp)</small></a>
+* :heavy_check_mark: <a href="../../../library/datastructure/cumulativesum/cumulativesum.hpp.html">1次元累積和 <small>(datastructure/cumulativesum/cumulativesum.hpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/template/main.hpp.html">template/main.hpp</a>
 
 
@@ -48,27 +48,26 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_1_A"
+#define PROBLEM "https://judge.yosupo.jp/problem/static_range_sum"
 
 #include "../../template/main.hpp"
-#include "../../math/prime/prime_factor.hpp"
+#include "../../datastructure/cumulativesum/cumulativesum.hpp"
 
 signed main() {
 
-    int N;  cin >> N;
-    auto pf = prime_factor(N);
+    int N, Q;
+    cin >> N >> Q;
 
-    vector<int> res;
-    for (auto& e: pf) {
-        for (int i = 0; i < e.second; ++i) {
-            res.emplace_back(e.first);
-        }
-    }
+    using T = long long;
+    vector<T> A(N);
+    for (auto& e: A) cin >> e;
 
-    cout << N << ": ";
-    int sz = res.size();
-    for (int i = 0; i < sz; ++i) {
-        cout << res[i] << " \n"[i == sz - 1];
+    CumulativeSum<T> acc(A);
+
+    while (Q--) {
+        int l, r;
+        cin >> l >> r;
+        cout << acc.query(l, r) << endl;
     }
 
 }
@@ -79,8 +78,8 @@ signed main() {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "test/aoj/NTL_1_A.test.cpp"
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_1_A"
+#line 1 "test/yosupo/staticrangesum.test.cpp"
+#define PROBLEM "https://judge.yosupo.jp/problem/static_range_sum"
 
 #line 1 "template/main.hpp"
 // #pragma GCC target ("avx")
@@ -201,41 +200,48 @@ struct abracadabra {
 } ABRACADABRA;
 
 #pragma endregion
-#line 1 "math/prime/prime_factor.hpp"
+#line 1 "datastructure/cumulativesum/cumulativesum.hpp"
 /**
- * @brief Prime Factor (素因数分解)
- * @docs docs/math/prime/prime_factor.md
- */
+* @brief 1次元累積和
+* @docs docs/datastructure/cumulativesum/cumulativesum.md
+*/
 
-map<long long, int> prime_factor(long long n) {
-    map<long long, int> ret;
-    for (long long i = 2; i * i <= n; ++i) {
-        while (n % i == 0) {
-            ++ret[i];
-            n /= i;
-        }
+template<typename T> struct CumulativeSum {
+    int sz;
+    vector<T> data;
+    CumulativeSum(const vector<T> &v, const T margin = 0)
+        : sz(v.size()), data(1, margin) {
+        for (int i = 0; i < sz; ++i) data.emplace_back(data[i] + v[i]);
     }
-    if (n != 1) ret[n] = 1;
-    return ret;
-}
-#line 5 "test/aoj/NTL_1_A.test.cpp"
+    T query(const int &l, const int &r) const {
+        if (l >= r) return 0;
+        return data[min(r, sz)] - data[max(l, 0)];
+    }
+    T operator[](const int &k) const {
+        return query(k, k + 1);
+    }
+    void print() {
+        for (int i = 0; i < sz; ++i) cerr << data[i] << ' ';
+        cerr << endl;
+    }
+};
+#line 5 "test/yosupo/staticrangesum.test.cpp"
 
 signed main() {
 
-    int N;  cin >> N;
-    auto pf = prime_factor(N);
+    int N, Q;
+    cin >> N >> Q;
 
-    vector<int> res;
-    for (auto& e: pf) {
-        for (int i = 0; i < e.second; ++i) {
-            res.emplace_back(e.first);
-        }
-    }
+    using T = long long;
+    vector<T> A(N);
+    for (auto& e: A) cin >> e;
 
-    cout << N << ": ";
-    int sz = res.size();
-    for (int i = 0; i < sz; ++i) {
-        cout << res[i] << " \n"[i == sz - 1];
+    CumulativeSum<T> acc(A);
+
+    while (Q--) {
+        int l, r;
+        cin >> l >> r;
+        cout << acc.query(l, r) << endl;
     }
 
 }
