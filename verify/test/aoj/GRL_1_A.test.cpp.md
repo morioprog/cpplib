@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#0d0c91c0cca30af9c1c9faef0cf04aa9">test/aoj</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/aoj/GRL_1_A.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-23 17:45:50+09:00
+    - Last commit date: 2020-04-23 19:21:10+09:00
 
 
 * see: <a href="https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/1/GRL_1_A">https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/1/GRL_1_A</a>
@@ -39,7 +39,8 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../../library/graph/graph.hpp.html">グラフテンプレート <small>(graph/graph.hpp)</small></a>
+* :heavy_check_mark: <a href="../../../library/graph/shortestpath/dijkstra.hpp.html">ダイクストラ法 <small>(graph/shortestpath/dijkstra.hpp)</small></a>
+* :heavy_check_mark: <a href="../../../library/graph/template.hpp.html">グラフテンプレート <small>(graph/template.hpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/template/main.hpp.html">template/main.hpp</a>
 
 
@@ -51,7 +52,8 @@ layout: default
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/1/GRL_1_A"
 
 #include "../../template/main.hpp"
-#include "../../graph/graph.hpp"
+#include "../../graph/template.hpp"
+#include "../../graph/shortestpath/dijkstra.hpp"
 
 signed main() {
 
@@ -198,10 +200,10 @@ struct abracadabra {
 } ABRACADABRA;
 
 #pragma endregion
-#line 1 "graph/graph.hpp"
+#line 1 "graph/template.hpp"
 /**
 * @brief グラフテンプレート
-* @docs docs/graph/graph.md
+* @docs docs/graph/template.md
 */
 
 template<typename T>
@@ -223,14 +225,11 @@ struct Graph {
         mat[a].emplace_back(a, b, c);
         mat[b].emplace_back(b, a, c);
         if ((int)wf.size() == 0) return;
-        warshallfloyd_update(a, b, c);
-        warshallfloyd_update(b, a, c);
     }
     inline void add_arc(int a, int b, T c, int margin = 0) {
         a -= margin, b -= margin, E += 1;
         mat[a].emplace_back(a, b, c);
         if ((int)wf.size() == 0) return;
-        warshallfloyd_update(a, b, c);
     }
     inline void input_edges(int M, int margin = 0, bool need_cost = false) {
         for (int i = 0; i < M; ++i) {
@@ -258,75 +257,38 @@ struct Graph {
             }
         }
     }
-    inline vector<T> dijkstra(int frm) {
-        vector<T> ret(V, INF);  ret[frm] = 0;
-        priority_queue<P, vector<P>, greater<P>> pq;
-        pq.emplace(ret[frm], frm);
-        while (not pq.empty()) {
-            T cst;  int idx;
-            tie(cst, idx) = pq.top();   pq.pop();
-            if (ret[idx] < cst) continue;
-            for (auto& e: mat[idx]) {
-                T nxt_cst = cst + e.cst;
-                if (ret[e.to] <= nxt_cst) continue;
-                ret[e.to] = nxt_cst;
-                pq.emplace(ret[e.to], e.to);
-            }
-        }
-        return ret;
-    }
-    inline vector<T> bellmanford(int frm) {
-        vector<T> ret(V, INF);  ret[frm] = 0;
-        for (int i = 0; i < V - 1; ++i) {
-            for (int j = 0; j < V; ++j) {
-                for (auto& e: mat[j]) {
-                    if (ret[e.frm] == INF) continue;
-                    ret[e.to] = min(ret[e.to], ret[e.frm] + e.cst);
-                }
-            }
-        }
-        for (int j = 0; j < V; ++j) {
-            for (auto& e: mat[j]) {
-                if (ret[e.frm] == INF) continue;
-                if (ret[e.frm] + e.cst < ret[e.to]) return vector<T>();
-            }
-        }
-        return ret;
-    }
-    inline bool warshallfloyd() {
-        wf.assign(V, vector<T>(V, INF));
-        for (int i = 0; i < V; ++i) wf[i][i] = 0;
-        for (int i = 0; i < V; ++i) {
-            for (auto& e: mat[i]) {
-                wf[e.frm][e.to] = min(wf[e.frm][e.to], e.cst);
-            }
-        }
-        for (int k = 0; k < V; ++k) {
-            for (int i = 0; i < V; ++i) {
-                for (int j = 0; j < V; ++j) {
-                    if (wf[i][k] != INF and wf[k][j] != INF) {
-                        wf[i][j] = min(wf[i][j], wf[i][k] + wf[k][j]);
-                    }
-                }
-            }
-        }
-        bool hasnegcycle = false;
-        for (int i = 0; i < V; ++i) hasnegcycle |= wf[i][i] < 0;
-        return hasnegcycle;
-    }
-    inline void warshallfloyd_update(int frm, int to, T cst = 1) {
-        if (wf[frm][to] <= cst) return;
-        wf[frm][to] = cst;
-        for (int i = 0; i < V; ++i) {
-            for (int j = 0; j < V; ++j) {
-                if (wf[i][frm] != INF and wf[frm][j] != INF) {
-                    wf[i][j] = min(wf[i][j], wf[i][frm] + wf[frm][j]);
-                }
-            }
-        }
-    }
+    vector<T> dijkstra(int frm);
+    vector<T> bellmanford(int frm);
+    bool warshallfloyd();
+    void warshallfloyd_update(int frm, int to, T cst);
+    void warshallfloyd_add_arc(int frm, int to, T cst);
+    void warshallfloyd_add_edge(int frm, int to, T cst);
 };
-#line 5 "test/aoj/GRL_1_A.test.cpp"
+#line 1 "graph/shortestpath/dijkstra.hpp"
+/**
+* @brief ダイクストラ法
+* @docs docs/graph/shortestpath/dijkstra.md
+*/
+
+template<typename T>
+vector<T> Graph<T>::dijkstra(int frm) {
+    vector<T> ret(V, INF);  ret[frm] = 0;
+    priority_queue<P, vector<P>, greater<P>> pq;
+    pq.emplace(ret[frm], frm);
+    while (not pq.empty()) {
+        T cst;  int idx;
+        tie(cst, idx) = pq.top();   pq.pop();
+        if (ret[idx] < cst) continue;
+        for (auto& e: mat[idx]) {
+            T nxt_cst = cst + e.cst;
+            if (ret[e.to] <= nxt_cst) continue;
+            ret[e.to] = nxt_cst;
+            pq.emplace(ret[e.to], e.to);
+        }
+    }
+    return ret;
+}
+#line 6 "test/aoj/GRL_1_A.test.cpp"
 
 signed main() {
 
