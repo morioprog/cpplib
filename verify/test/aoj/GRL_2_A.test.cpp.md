@@ -25,21 +25,22 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/aoj/GRL_1_C.test.cpp
+# :heavy_check_mark: test/aoj/GRL_2_A.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#0d0c91c0cca30af9c1c9faef0cf04aa9">test/aoj</a>
-* <a href="{{ site.github.repository_url }}/blob/master/test/aoj/GRL_1_C.test.cpp">View this file on GitHub</a>
+* <a href="{{ site.github.repository_url }}/blob/master/test/aoj/GRL_2_A.test.cpp">View this file on GitHub</a>
     - Last commit date: 2020-04-23 19:46:02+09:00
 
 
-* see: <a href="https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/1/GRL_1_C">https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/1/GRL_1_C</a>
+* see: <a href="https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/2/GRL_2_A">https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/2/GRL_2_A</a>
 
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../../library/graph/shortestpath/warshallfloyd.hpp.html">ワーシャルフロイド法 <small>(graph/shortestpath/warshallfloyd.hpp)</small></a>
+* :heavy_check_mark: <a href="../../../library/datastructure/unionfind/unionfind.hpp.html">UnionFind <small>(datastructure/unionfind/unionfind.hpp)</small></a>
+* :heavy_check_mark: <a href="../../../library/graph/minimumspanningtree/kruskal.hpp.html">クラスカル法 <small>(graph/minimumspanningtree/kruskal.hpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/graph/template.hpp.html">グラフテンプレート <small>(graph/template.hpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/template/main.hpp.html">template/main.hpp</a>
 
@@ -49,34 +50,22 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/1/GRL_1_C"
+#define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/2/GRL_2_A"
 
 #include "../../template/main.hpp"
 #include "../../graph/template.hpp"
-#include "../../graph/shortestpath/warshallfloyd.hpp"
+#include "../../datastructure/unionfind/unionfind.hpp"
+#include "../../graph/minimumspanningtree/kruskal.hpp"
 
 signed main() {
 
     int N, M;
     cin >> N >> M;
 
-    using lint = long long;
-    Graph<lint> g(N);
-    g.input_arcs(M, 0, true);
+    Graph<int> g(N);
+    g.input_edges(M, 0, true);
 
-    if (g.warshallfloyd()) {
-        cout << "NEGATIVE CYCLE" << endl;
-        return 0;
-    }
-
-    for (auto& e: g.wf) {
-        for (int i = 0; i < N; ++i) {
-            if (e[i] == g.INF) cout << "INF";
-            else               cout << e[i];
-            if (i != N - 1) cout << ' ';
-        }
-        cout << endl;
-    }
+    cout << g.kruskal() << endl;
 
 }
 
@@ -86,8 +75,8 @@ signed main() {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "test/aoj/GRL_1_C.test.cpp"
-#define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/1/GRL_1_C"
+#line 1 "test/aoj/GRL_2_A.test.cpp"
+#define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/2/GRL_2_A"
 
 #line 1 "template/main.hpp"
 // #pragma GCC target ("avx")
@@ -273,84 +262,60 @@ struct Graph {
     void warshallfloyd_add_edge(int frm, int to, T cst);
     T kruskal();
 };
-#line 1 "graph/shortestpath/warshallfloyd.hpp"
+#line 1 "datastructure/unionfind/unionfind.hpp"
 /**
-* @brief ワーシャルフロイド法
-* @docs docs/graph/shortestpath/warshallfloyd.md
+* @brief UnionFind
+* @docs docs/datastructure/unionfind/unionfind.md
+*/
+
+struct UnionFind {
+    int sz;
+    vector<int> parent;
+    UnionFind(int sz) : sz(sz), parent(sz, -1) {}
+    bool unite(int x, int y) {
+        if ((x = find(x)) != (y = find(y))) {
+            if (parent[y] < parent[x]) swap(x, y);
+            parent[x] += parent[y];
+            parent[y] = x;
+            --sz;
+            return true;
+        }
+        return false;
+    }
+    bool same(int x, int y) { return find(x) == find(y); }
+    int find(int x) { return parent[x] < 0 ? x : parent[x] = find(parent[x]); }
+    int size(int x) { return -parent[find(x)]; }
+    int size() { return sz; }
+};
+#line 1 "graph/minimumspanningtree/kruskal.hpp"
+/**
+* @brief クラスカル法
+* @docs docs/graph/minimumspanningtree/kruskal.md
 */
 
 template<typename T>
-bool Graph<T>::warshallfloyd() {
-    wf.assign(V, vector<T>(V, INF));
-    for (int i = 0; i < V; ++i) wf[i][i] = 0;
-    for (int i = 0; i < V; ++i) {
-        for (auto& e: mat[i]) {
-            wf[e.frm][e.to] = min(wf[e.frm][e.to], e.cst);
-        }
-    }
-    for (int k = 0; k < V; ++k) {
-        for (int i = 0; i < V; ++i) {
-            for (int j = 0; j < V; ++j) {
-                if (wf[i][k] != INF and wf[k][j] != INF) {
-                    wf[i][j] = min(wf[i][j], wf[i][k] + wf[k][j]);
-                }
-            }
-        }
-    }
-    bool hasnegcycle = false;
-    for (int i = 0; i < V; ++i) hasnegcycle |= wf[i][i] < 0;
-    return hasnegcycle;
+T Graph<T>::kruskal() {
+    vector<Edge> edges;
+    for (int i = 0; i < V; ++i) for (auto& e: mat[i]) edges.emplace_back(e);
+    sort(edges.begin(), edges.end(), [](const Edge &a, const Edge &b) {
+        return a.cst < b.cst;
+    });
+    UnionFind uf(V);
+    T ret(0);
+    for (auto& e : edges) if (uf.unite(e.frm, e.to)) ret += e.cst;
+    return ret;
 }
-
-template<typename T>
-void Graph<T>::warshallfloyd_update(int frm, int to, T cst) {
-    if (wf[frm][to] <= cst) return;
-    wf[frm][to] = cst;
-    for (int i = 0; i < V; ++i) {
-        for (int j = 0; j < V; ++j) {
-            if (wf[i][frm] != INF and wf[frm][j] != INF) {
-                wf[i][j] = min(wf[i][j], wf[i][frm] + wf[frm][j]);
-            }
-        }
-    }
-}
-
-template<typename T>
-void Graph<T>::warshallfloyd_add_arc(int frm, int to, T cst) {
-    add_arc(frm, to, cst);
-    warshallfloyd_update(frm, to, cst);
-}
-
-template<typename T>
-void Graph<T>::warshallfloyd_add_edge(int frm, int to, T cst) {
-    add_edge(frm, to, cst);
-    warshallfloyd_update(frm, to, cst);
-    warshallfloyd_update(to, frm, cst);
-}
-#line 6 "test/aoj/GRL_1_C.test.cpp"
+#line 7 "test/aoj/GRL_2_A.test.cpp"
 
 signed main() {
 
     int N, M;
     cin >> N >> M;
 
-    using lint = long long;
-    Graph<lint> g(N);
-    g.input_arcs(M, 0, true);
+    Graph<int> g(N);
+    g.input_edges(M, 0, true);
 
-    if (g.warshallfloyd()) {
-        cout << "NEGATIVE CYCLE" << endl;
-        return 0;
-    }
-
-    for (auto& e: g.wf) {
-        for (int i = 0; i < N; ++i) {
-            if (e[i] == g.INF) cout << "INF";
-            else               cout << e[i];
-            if (i != N - 1) cout << ' ';
-        }
-        cout << endl;
-    }
+    cout << g.kruskal() << endl;
 
 }
 

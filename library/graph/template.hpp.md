@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#f8b0b924ebd7046dbfa85a856e4682c8">graph</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/template.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-23 19:21:10+09:00
+    - Last commit date: 2020-04-23 19:46:02+09:00
 
 
 
@@ -63,6 +63,7 @@ layout: default
 * :heavy_check_mark: <a href="../../verify/test/aoj/GRL_1_A.test.cpp.html">test/aoj/GRL_1_A.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj/GRL_1_B.test.cpp.html">test/aoj/GRL_1_B.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj/GRL_1_C.test.cpp.html">test/aoj/GRL_1_C.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj/GRL_2_A.test.cpp.html">test/aoj/GRL_2_A.test.cpp</a>
 
 
 ## Code
@@ -132,6 +133,7 @@ struct Graph {
     void warshallfloyd_update(int frm, int to, T cst);
     void warshallfloyd_add_arc(int frm, int to, T cst);
     void warshallfloyd_add_edge(int frm, int to, T cst);
+    T kruskal();
 };
 
 ```
@@ -203,6 +205,7 @@ struct Graph {
     void warshallfloyd_update(int frm, int to, T cst);
     void warshallfloyd_add_arc(int frm, int to, T cst);
     void warshallfloyd_add_edge(int frm, int to, T cst);
+    T kruskal();
 };
 
 ```

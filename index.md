@@ -72,6 +72,13 @@ layout: default
 * :heavy_check_mark: <a href="library/graph/template.hpp.html">グラフテンプレート <small>(graph/template.hpp)</small></a>
 
 
+<div id="fd7b240ac98922caf22c9202d36f936f"></div>
+
+### graph/minimumspanningtree
+
+* :heavy_check_mark: <a href="library/graph/minimumspanningtree/kruskal.hpp.html">クラスカル法 <small>(graph/minimumspanningtree/kruskal.hpp)</small></a>
+
+
 <div id="893699352036854e82d247c81f4d89a6"></div>
 
 ### graph/shortestpath
@@ -132,6 +139,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/aoj/GRL_1_A.test.cpp.html">test/aoj/GRL_1_A.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/GRL_1_B.test.cpp.html">test/aoj/GRL_1_B.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/GRL_1_C.test.cpp.html">test/aoj/GRL_1_C.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj/GRL_2_A.test.cpp.html">test/aoj/GRL_2_A.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/ITP1_1_A.short.test.cpp.html">test/aoj/ITP1_1_A.short.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/ITP1_1_A.test.cpp.html">test/aoj/ITP1_1_A.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/NTL_1_A.test.cpp.html">test/aoj/NTL_1_A.test.cpp</a>

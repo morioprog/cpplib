@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#0d0c91c0cca30af9c1c9faef0cf04aa9">test/aoj</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/aoj/GRL_1_A.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-23 19:21:10+09:00
+    - Last commit date: 2020-04-23 19:46:02+09:00
 
 
 * see: <a href="https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/1/GRL_1_A">https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/1/GRL_1_A</a>
@@ -263,6 +263,7 @@ struct Graph {
     void warshallfloyd_update(int frm, int to, T cst);
     void warshallfloyd_add_arc(int frm, int to, T cst);
     void warshallfloyd_add_edge(int frm, int to, T cst);
+    T kruskal();
 };
 #line 1 "graph/shortestpath/dijkstra.hpp"
 /**
