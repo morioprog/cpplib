@@ -6,6 +6,11 @@
     prefix: [template_short]
     path: template/short.hpp
 
+グラフ:
+  - name: テンプレート
+    prefix: [graph]
+    path: graph/graph.hpp
+
 データ構造:
   - 累積和:
     - name: 1次元累積和
