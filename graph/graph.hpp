@@ -72,4 +72,18 @@ struct Graph {
         }
         return ret;
     }
+    inline vector<T> bellmanford(int frm) {
+        vector<T> ret(V, INF);  ret[frm] = 0;
+        for (int i = 0; i < V - 1; ++i) {
+            for (auto& e: edges) {
+                if (ret[e.frm] == INF) continue;
+                ret[e.to] = min(ret[e.to], ret[e.frm] + e.cst);
+            }
+        }
+        for (auto& e: edges) {
+            if (ret[e.frm] == INF) continue;
+            if (ret[e.frm] + e.cst < ret[e.to]) return vector<T>();
+        }
+        return ret;
+    }
 };
