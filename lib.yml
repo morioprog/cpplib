@@ -20,6 +20,10 @@
     - name: ワーシャルフロイド法
       prefix: [graph, shortestpath, warshallfloyd]
       path: graph/shortestpath/warshallfloyd.hpp
+  - 最小全域木:
+    - name: クラスカル法
+      prefix: [graph, minimumspanningtree, spanningtree, kruskal]
+      path: graph/minimumspanningtree/kruskal.hpp
 
 データ構造:
   - 累積和:

@@ -60,4 +60,5 @@ struct Graph {
     void warshallfloyd_update(int frm, int to, T cst);
     void warshallfloyd_add_arc(int frm, int to, T cst);
     void warshallfloyd_add_edge(int frm, int to, T cst);
+    T kruskal();
 };
