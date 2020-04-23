@@ -9,7 +9,17 @@
 グラフ:
   - name: テンプレート
     prefix: [graph]
-    path: graph/graph.hpp
+    path: graph/template.hpp
+  - 最短経路:
+    - name: ダイクストラ法
+      prefix: [graph, shortestpath, dijkstra]
+      path: graph/shortestpath/dijkstra.hpp
+    - name: ベルマンフォード法
+      prefix: [graph, shortestpath, bellmanford]
+      path: graph/shortestpath/bellmanford.hpp
+    - name: ワーシャルフロイド法
+      prefix: [graph, shortestpath, warshallfloyd]
+      path: graph/shortestpath/warshallfloyd.hpp
 
 データ構造:
   - 累積和:
