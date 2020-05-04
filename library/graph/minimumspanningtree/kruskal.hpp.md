@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#fd7b240ac98922caf22c9202d36f936f">graph/minimumspanningtree</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/minimumspanningtree/kruskal.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-23 19:46:02+09:00
+    - Last commit date: 2020-05-04 23:29:50+09:00
 
 
 
@@ -66,13 +66,13 @@ $O(E\log V)$
 */
 
 template<typename T>
-T Graph<T>::kruskal() {
-    vector<Edge> edges;
-    for (int i = 0; i < V; ++i) for (auto& e: mat[i]) edges.emplace_back(e);
-    sort(edges.begin(), edges.end(), [](const Edge &a, const Edge &b) {
+T kruskal(Graph<T> &g) {
+    vector<Edge<T>> edges;
+    for (int i = 0; i < g.V; ++i) for (auto& e: g.mat[i]) edges.emplace_back(e);
+    sort(edges.begin(), edges.end(), [](const Edge<T> &a, const Edge<T> &b) {
         return a.cst < b.cst;
     });
-    UnionFind uf(V);
+    UnionFind uf(g.V);
     T ret(0);
     for (auto& e : edges) if (uf.unite(e.frm, e.to)) ret += e.cst;
     return ret;
@@ -91,13 +91,13 @@ T Graph<T>::kruskal() {
 */
 
 template<typename T>
-T Graph<T>::kruskal() {
-    vector<Edge> edges;
-    for (int i = 0; i < V; ++i) for (auto& e: mat[i]) edges.emplace_back(e);
-    sort(edges.begin(), edges.end(), [](const Edge &a, const Edge &b) {
+T kruskal(Graph<T> &g) {
+    vector<Edge<T>> edges;
+    for (int i = 0; i < g.V; ++i) for (auto& e: g.mat[i]) edges.emplace_back(e);
+    sort(edges.begin(), edges.end(), [](const Edge<T> &a, const Edge<T> &b) {
         return a.cst < b.cst;
     });
-    UnionFind uf(V);
+    UnionFind uf(g.V);
     T ret(0);
     for (auto& e : edges) if (uf.unite(e.frm, e.to)) ret += e.cst;
     return ret;

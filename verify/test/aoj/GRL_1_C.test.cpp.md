@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#0d0c91c0cca30af9c1c9faef0cf04aa9">test/aoj</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/aoj/GRL_1_C.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-23 19:46:02+09:00
+    - Last commit date: 2020-05-04 23:29:50+09:00
 
 
 * see: <a href="https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/1/GRL_1_C">https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/1/GRL_1_C</a>
@@ -64,7 +64,7 @@ signed main() {
     Graph<lint> g(N);
     g.input_arcs(M, 0, true);
 
-    if (g.warshallfloyd()) {
+    if (warshallfloyd(g)) {
         cout << "NEGATIVE CYCLE" << endl;
         return 0;
     }
@@ -215,29 +215,27 @@ struct abracadabra {
 */
 
 template<typename T>
+struct Edge {
+    int frm, to;    T cst;
+    Edge() {}
+    Edge(int f, int t, T c) : frm(f), to(t), cst(c) {}
+};
+
+template<typename T>
 struct Graph {
-    using P = pair<T, int>;
-    using Matrix = vector<vector<T>>;
-    struct Edge {
-        int frm, to;    T cst;
-        Edge() {}
-        Edge(int f, int t, T c) : frm(f), to(t), cst(c) {}
-    };
     int V, E;   const T INF;
-    vector<vector<Edge>> mat;
-    Matrix wf;
+    vector<vector<Edge<T>>> mat;
+    vector<vector<T>> wf;
     Graph() {}
     Graph(int v) : V(v), E(0),INF(numeric_limits<T>::max() / 10), mat(v) {}
     inline void add_edge(int a, int b, T c, int margin = 0) {
         a -= margin, b -= margin, E += 2;
         mat[a].emplace_back(a, b, c);
         mat[b].emplace_back(b, a, c);
-        if ((int)wf.size() == 0) return;
     }
     inline void add_arc(int a, int b, T c, int margin = 0) {
         a -= margin, b -= margin, E += 1;
         mat[a].emplace_back(a, b, c);
-        if ((int)wf.size() == 0) return;
     }
     inline void input_edges(int M, int margin = 0, bool need_cost = false) {
         for (int i = 0; i < M; ++i) {
@@ -265,13 +263,6 @@ struct Graph {
             }
         }
     }
-    vector<T> dijkstra(int frm);
-    vector<T> bellmanford(int frm);
-    bool warshallfloyd();
-    void warshallfloyd_update(int frm, int to, T cst);
-    void warshallfloyd_add_arc(int frm, int to, T cst);
-    void warshallfloyd_add_edge(int frm, int to, T cst);
-    T kruskal();
 };
 #line 1 "graph/shortestpath/warshallfloyd.hpp"
 /**
@@ -280,52 +271,42 @@ struct Graph {
 */
 
 template<typename T>
-bool Graph<T>::warshallfloyd() {
-    wf.assign(V, vector<T>(V, INF));
-    for (int i = 0; i < V; ++i) wf[i][i] = 0;
-    for (int i = 0; i < V; ++i) {
-        for (auto& e: mat[i]) {
-            wf[e.frm][e.to] = min(wf[e.frm][e.to], e.cst);
-        }
-    }
-    for (int k = 0; k < V; ++k) {
-        for (int i = 0; i < V; ++i) {
-            for (int j = 0; j < V; ++j) {
-                if (wf[i][k] != INF and wf[k][j] != INF) {
-                    wf[i][j] = min(wf[i][j], wf[i][k] + wf[k][j]);
-                }
-            }
-        }
+bool warshallfloyd(Graph<T> &g) {
+    g.wf.assign(g.V, vector<T>(g.V, g.INF));
+    for (int i = 0; i < g.V; ++i) g.wf[i][i] = 0;
+    for (int i = 0; i < g.V; ++i) for (auto& e: g.mat[i]) g.wf[e.frm][e.to] = min(g.wf[e.frm][e.to], e.cst);
+    for (int k = 0; k < g.V; ++k) for (int i = 0; i < g.V; ++i) for (int j = 0; j < g.V; ++j) {
+        if (g.wf[i][k] != g.INF and g.wf[k][j] != g.INF) g.wf[i][j] = min(g.wf[i][j], g.wf[i][k] + g.wf[k][j]);
     }
     bool hasnegcycle = false;
-    for (int i = 0; i < V; ++i) hasnegcycle |= wf[i][i] < 0;
+    for (int i = 0; i < g.V; ++i) hasnegcycle |= g.wf[i][i] < 0;
     return hasnegcycle;
 }
 
 template<typename T>
-void Graph<T>::warshallfloyd_update(int frm, int to, T cst) {
-    if (wf[frm][to] <= cst) return;
-    wf[frm][to] = cst;
-    for (int i = 0; i < V; ++i) {
-        for (int j = 0; j < V; ++j) {
-            if (wf[i][frm] != INF and wf[frm][j] != INF) {
-                wf[i][j] = min(wf[i][j], wf[i][frm] + wf[frm][j]);
+void warshallfloyd_update(Graph<T> &g, int frm, int to, T cst) {
+    if (g.wf[frm][to] <= cst) return;
+    g.wf[frm][to] = cst;
+    for (int i = 0; i < g.V; ++i) {
+        for (int j = 0; j < g.V; ++j) {
+            if (g.wf[i][frm] != g.INF and g.wf[frm][j] != g.INF) {
+                g.wf[i][j] = min(g.wf[i][j], g.wf[i][frm] + g.wf[frm][j]);
             }
         }
     }
 }
 
 template<typename T>
-void Graph<T>::warshallfloyd_add_arc(int frm, int to, T cst) {
-    add_arc(frm, to, cst);
-    warshallfloyd_update(frm, to, cst);
+void warshallfloyd_add_arc(Graph<T> &g, int frm, int to, T cst) {
+    g.add_arc(frm, to, cst);
+    warshallfloyd_update(g, frm, to, cst);
 }
 
 template<typename T>
-void Graph<T>::warshallfloyd_add_edge(int frm, int to, T cst) {
-    add_edge(frm, to, cst);
-    warshallfloyd_update(frm, to, cst);
-    warshallfloyd_update(to, frm, cst);
+void warshallfloyd_add_edge(Graph<T> &g, int frm, int to, T cst) {
+    g.add_edge(frm, to, cst);
+    warshallfloyd_update(g, frm, to, cst);
+    warshallfloyd_update(g, to, frm, cst);
 }
 #line 6 "test/aoj/GRL_1_C.test.cpp"
 
@@ -338,7 +319,7 @@ signed main() {
     Graph<lint> g(N);
     g.input_arcs(M, 0, true);
 
-    if (g.warshallfloyd()) {
+    if (warshallfloyd(g)) {
         cout << "NEGATIVE CYCLE" << endl;
         return 0;
     }

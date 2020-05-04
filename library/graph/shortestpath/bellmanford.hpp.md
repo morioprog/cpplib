@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#893699352036854e82d247c81f4d89a6">graph/shortestpath</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/shortestpath/bellmanford.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-23 19:21:10+09:00
+    - Last commit date: 2020-05-04 23:29:50+09:00
 
 
 
@@ -67,19 +67,19 @@ $O(EV)$
 */
 
 template<typename T>
-vector<T> Graph<T>::bellmanford(int frm) {
-    vector<T> ret(V, INF);  ret[frm] = 0;
-    for (int i = 0; i < V - 1; ++i) {
-        for (int j = 0; j < V; ++j) {
-            for (auto& e: mat[j]) {
-                if (ret[e.frm] == INF) continue;
+vector<T> bellmanford(Graph<T> &g, int frm) {
+    vector<T> ret(g.V, g.INF);  ret[frm] = 0;
+    for (int i = 0; i < g.V - 1; ++i) {
+        for (int j = 0; j < g.V; ++j) {
+            for (auto& e: g.mat[j]) {
+                if (ret[e.frm] == g.INF) continue;
                 ret[e.to] = min(ret[e.to], ret[e.frm] + e.cst);
             }
         }
     }
-    for (int j = 0; j < V; ++j) {
-        for (auto& e: mat[j]) {
-            if (ret[e.frm] == INF) continue;
+    for (int j = 0; j < g.V; ++j) {
+        for (auto& e: g.mat[j]) {
+            if (ret[e.frm] == g.INF) continue;
             if (ret[e.frm] + e.cst < ret[e.to]) return vector<T>();
         }
     }
@@ -99,19 +99,19 @@ vector<T> Graph<T>::bellmanford(int frm) {
 */
 
 template<typename T>
-vector<T> Graph<T>::bellmanford(int frm) {
-    vector<T> ret(V, INF);  ret[frm] = 0;
-    for (int i = 0; i < V - 1; ++i) {
-        for (int j = 0; j < V; ++j) {
-            for (auto& e: mat[j]) {
-                if (ret[e.frm] == INF) continue;
+vector<T> bellmanford(Graph<T> &g, int frm) {
+    vector<T> ret(g.V, g.INF);  ret[frm] = 0;
+    for (int i = 0; i < g.V - 1; ++i) {
+        for (int j = 0; j < g.V; ++j) {
+            for (auto& e: g.mat[j]) {
+                if (ret[e.frm] == g.INF) continue;
                 ret[e.to] = min(ret[e.to], ret[e.frm] + e.cst);
             }
         }
     }
-    for (int j = 0; j < V; ++j) {
-        for (auto& e: mat[j]) {
-            if (ret[e.frm] == INF) continue;
+    for (int j = 0; j < g.V; ++j) {
+        for (auto& e: g.mat[j]) {
+            if (ret[e.frm] == g.INF) continue;
             if (ret[e.frm] + e.cst < ret[e.to]) return vector<T>();
         }
     }

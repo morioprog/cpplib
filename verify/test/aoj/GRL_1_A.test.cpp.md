@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#0d0c91c0cca30af9c1c9faef0cf04aa9">test/aoj</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/aoj/GRL_1_A.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-23 19:46:02+09:00
+    - Last commit date: 2020-05-04 23:29:50+09:00
 
 
 * see: <a href="https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/1/GRL_1_A">https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/1/GRL_1_A</a>
@@ -64,7 +64,7 @@ signed main() {
     Graph<lint> g(N);
     g.input_arcs(M, 0, true);
 
-    auto dij = g.dijkstra(frm);
+    auto dij = dijkstra(g, frm);
     for (auto& e: dij) {
         if (e == g.INF) cout << "INF" << endl;
         else            cout << e << endl;
@@ -207,29 +207,27 @@ struct abracadabra {
 */
 
 template<typename T>
+struct Edge {
+    int frm, to;    T cst;
+    Edge() {}
+    Edge(int f, int t, T c) : frm(f), to(t), cst(c) {}
+};
+
+template<typename T>
 struct Graph {
-    using P = pair<T, int>;
-    using Matrix = vector<vector<T>>;
-    struct Edge {
-        int frm, to;    T cst;
-        Edge() {}
-        Edge(int f, int t, T c) : frm(f), to(t), cst(c) {}
-    };
     int V, E;   const T INF;
-    vector<vector<Edge>> mat;
-    Matrix wf;
+    vector<vector<Edge<T>>> mat;
+    vector<vector<T>> wf;
     Graph() {}
     Graph(int v) : V(v), E(0),INF(numeric_limits<T>::max() / 10), mat(v) {}
     inline void add_edge(int a, int b, T c, int margin = 0) {
         a -= margin, b -= margin, E += 2;
         mat[a].emplace_back(a, b, c);
         mat[b].emplace_back(b, a, c);
-        if ((int)wf.size() == 0) return;
     }
     inline void add_arc(int a, int b, T c, int margin = 0) {
         a -= margin, b -= margin, E += 1;
         mat[a].emplace_back(a, b, c);
-        if ((int)wf.size() == 0) return;
     }
     inline void input_edges(int M, int margin = 0, bool need_cost = false) {
         for (int i = 0; i < M; ++i) {
@@ -257,13 +255,6 @@ struct Graph {
             }
         }
     }
-    vector<T> dijkstra(int frm);
-    vector<T> bellmanford(int frm);
-    bool warshallfloyd();
-    void warshallfloyd_update(int frm, int to, T cst);
-    void warshallfloyd_add_arc(int frm, int to, T cst);
-    void warshallfloyd_add_edge(int frm, int to, T cst);
-    T kruskal();
 };
 #line 1 "graph/shortestpath/dijkstra.hpp"
 /**
@@ -272,15 +263,16 @@ struct Graph {
 */
 
 template<typename T>
-vector<T> Graph<T>::dijkstra(int frm) {
-    vector<T> ret(V, INF);  ret[frm] = 0;
+vector<T> dijkstra(Graph<T> &g, int frm) {
+    using P = pair<T, int>;
+    vector<T> ret(g.V, g.INF);  ret[frm] = 0;
     priority_queue<P, vector<P>, greater<P>> pq;
     pq.emplace(ret[frm], frm);
     while (not pq.empty()) {
         T cst;  int idx;
         tie(cst, idx) = pq.top();   pq.pop();
         if (ret[idx] < cst) continue;
-        for (auto& e: mat[idx]) {
+        for (auto& e: g.mat[idx]) {
             T nxt_cst = cst + e.cst;
             if (ret[e.to] <= nxt_cst) continue;
             ret[e.to] = nxt_cst;
@@ -300,7 +292,7 @@ signed main() {
     Graph<lint> g(N);
     g.input_arcs(M, 0, true);
 
-    auto dij = g.dijkstra(frm);
+    auto dij = dijkstra(g, frm);
     for (auto& e: dij) {
         if (e == g.INF) cout << "INF" << endl;
         else            cout << e << endl;

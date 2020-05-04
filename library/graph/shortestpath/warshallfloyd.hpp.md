@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#893699352036854e82d247c81f4d89a6">graph/shortestpath</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/shortestpath/warshallfloyd.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-23 19:21:10+09:00
+    - Last commit date: 2020-05-04 23:29:50+09:00
 
 
 
@@ -71,52 +71,42 @@ layout: default
 */
 
 template<typename T>
-bool Graph<T>::warshallfloyd() {
-    wf.assign(V, vector<T>(V, INF));
-    for (int i = 0; i < V; ++i) wf[i][i] = 0;
-    for (int i = 0; i < V; ++i) {
-        for (auto& e: mat[i]) {
-            wf[e.frm][e.to] = min(wf[e.frm][e.to], e.cst);
-        }
-    }
-    for (int k = 0; k < V; ++k) {
-        for (int i = 0; i < V; ++i) {
-            for (int j = 0; j < V; ++j) {
-                if (wf[i][k] != INF and wf[k][j] != INF) {
-                    wf[i][j] = min(wf[i][j], wf[i][k] + wf[k][j]);
-                }
-            }
-        }
+bool warshallfloyd(Graph<T> &g) {
+    g.wf.assign(g.V, vector<T>(g.V, g.INF));
+    for (int i = 0; i < g.V; ++i) g.wf[i][i] = 0;
+    for (int i = 0; i < g.V; ++i) for (auto& e: g.mat[i]) g.wf[e.frm][e.to] = min(g.wf[e.frm][e.to], e.cst);
+    for (int k = 0; k < g.V; ++k) for (int i = 0; i < g.V; ++i) for (int j = 0; j < g.V; ++j) {
+        if (g.wf[i][k] != g.INF and g.wf[k][j] != g.INF) g.wf[i][j] = min(g.wf[i][j], g.wf[i][k] + g.wf[k][j]);
     }
     bool hasnegcycle = false;
-    for (int i = 0; i < V; ++i) hasnegcycle |= wf[i][i] < 0;
+    for (int i = 0; i < g.V; ++i) hasnegcycle |= g.wf[i][i] < 0;
     return hasnegcycle;
 }
 
 template<typename T>
-void Graph<T>::warshallfloyd_update(int frm, int to, T cst) {
-    if (wf[frm][to] <= cst) return;
-    wf[frm][to] = cst;
-    for (int i = 0; i < V; ++i) {
-        for (int j = 0; j < V; ++j) {
-            if (wf[i][frm] != INF and wf[frm][j] != INF) {
-                wf[i][j] = min(wf[i][j], wf[i][frm] + wf[frm][j]);
+void warshallfloyd_update(Graph<T> &g, int frm, int to, T cst) {
+    if (g.wf[frm][to] <= cst) return;
+    g.wf[frm][to] = cst;
+    for (int i = 0; i < g.V; ++i) {
+        for (int j = 0; j < g.V; ++j) {
+            if (g.wf[i][frm] != g.INF and g.wf[frm][j] != g.INF) {
+                g.wf[i][j] = min(g.wf[i][j], g.wf[i][frm] + g.wf[frm][j]);
             }
         }
     }
 }
 
 template<typename T>
-void Graph<T>::warshallfloyd_add_arc(int frm, int to, T cst) {
-    add_arc(frm, to, cst);
-    warshallfloyd_update(frm, to, cst);
+void warshallfloyd_add_arc(Graph<T> &g, int frm, int to, T cst) {
+    g.add_arc(frm, to, cst);
+    warshallfloyd_update(g, frm, to, cst);
 }
 
 template<typename T>
-void Graph<T>::warshallfloyd_add_edge(int frm, int to, T cst) {
-    add_edge(frm, to, cst);
-    warshallfloyd_update(frm, to, cst);
-    warshallfloyd_update(to, frm, cst);
+void warshallfloyd_add_edge(Graph<T> &g, int frm, int to, T cst) {
+    g.add_edge(frm, to, cst);
+    warshallfloyd_update(g, frm, to, cst);
+    warshallfloyd_update(g, to, frm, cst);
 }
 
 ```
@@ -132,52 +122,42 @@ void Graph<T>::warshallfloyd_add_edge(int frm, int to, T cst) {
 */
 
 template<typename T>
-bool Graph<T>::warshallfloyd() {
-    wf.assign(V, vector<T>(V, INF));
-    for (int i = 0; i < V; ++i) wf[i][i] = 0;
-    for (int i = 0; i < V; ++i) {
-        for (auto& e: mat[i]) {
-            wf[e.frm][e.to] = min(wf[e.frm][e.to], e.cst);
-        }
-    }
-    for (int k = 0; k < V; ++k) {
-        for (int i = 0; i < V; ++i) {
-            for (int j = 0; j < V; ++j) {
-                if (wf[i][k] != INF and wf[k][j] != INF) {
-                    wf[i][j] = min(wf[i][j], wf[i][k] + wf[k][j]);
-                }
-            }
-        }
+bool warshallfloyd(Graph<T> &g) {
+    g.wf.assign(g.V, vector<T>(g.V, g.INF));
+    for (int i = 0; i < g.V; ++i) g.wf[i][i] = 0;
+    for (int i = 0; i < g.V; ++i) for (auto& e: g.mat[i]) g.wf[e.frm][e.to] = min(g.wf[e.frm][e.to], e.cst);
+    for (int k = 0; k < g.V; ++k) for (int i = 0; i < g.V; ++i) for (int j = 0; j < g.V; ++j) {
+        if (g.wf[i][k] != g.INF and g.wf[k][j] != g.INF) g.wf[i][j] = min(g.wf[i][j], g.wf[i][k] + g.wf[k][j]);
     }
     bool hasnegcycle = false;
-    for (int i = 0; i < V; ++i) hasnegcycle |= wf[i][i] < 0;
+    for (int i = 0; i < g.V; ++i) hasnegcycle |= g.wf[i][i] < 0;
     return hasnegcycle;
 }
 
 template<typename T>
-void Graph<T>::warshallfloyd_update(int frm, int to, T cst) {
-    if (wf[frm][to] <= cst) return;
-    wf[frm][to] = cst;
-    for (int i = 0; i < V; ++i) {
-        for (int j = 0; j < V; ++j) {
-            if (wf[i][frm] != INF and wf[frm][j] != INF) {
-                wf[i][j] = min(wf[i][j], wf[i][frm] + wf[frm][j]);
+void warshallfloyd_update(Graph<T> &g, int frm, int to, T cst) {
+    if (g.wf[frm][to] <= cst) return;
+    g.wf[frm][to] = cst;
+    for (int i = 0; i < g.V; ++i) {
+        for (int j = 0; j < g.V; ++j) {
+            if (g.wf[i][frm] != g.INF and g.wf[frm][j] != g.INF) {
+                g.wf[i][j] = min(g.wf[i][j], g.wf[i][frm] + g.wf[frm][j]);
             }
         }
     }
 }
 
 template<typename T>
-void Graph<T>::warshallfloyd_add_arc(int frm, int to, T cst) {
-    add_arc(frm, to, cst);
-    warshallfloyd_update(frm, to, cst);
+void warshallfloyd_add_arc(Graph<T> &g, int frm, int to, T cst) {
+    g.add_arc(frm, to, cst);
+    warshallfloyd_update(g, frm, to, cst);
 }
 
 template<typename T>
-void Graph<T>::warshallfloyd_add_edge(int frm, int to, T cst) {
-    add_edge(frm, to, cst);
-    warshallfloyd_update(frm, to, cst);
-    warshallfloyd_update(to, frm, cst);
+void warshallfloyd_add_edge(Graph<T> &g, int frm, int to, T cst) {
+    g.add_edge(frm, to, cst);
+    warshallfloyd_update(g, frm, to, cst);
+    warshallfloyd_update(g, to, frm, cst);
 }
 
 ```

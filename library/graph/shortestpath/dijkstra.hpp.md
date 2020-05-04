@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#893699352036854e82d247c81f4d89a6">graph/shortestpath</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/shortestpath/dijkstra.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-23 19:21:10+09:00
+    - Last commit date: 2020-05-04 23:29:50+09:00
 
 
 
@@ -66,15 +66,16 @@ $O(E\log V)$
 */
 
 template<typename T>
-vector<T> Graph<T>::dijkstra(int frm) {
-    vector<T> ret(V, INF);  ret[frm] = 0;
+vector<T> dijkstra(Graph<T> &g, int frm) {
+    using P = pair<T, int>;
+    vector<T> ret(g.V, g.INF);  ret[frm] = 0;
     priority_queue<P, vector<P>, greater<P>> pq;
     pq.emplace(ret[frm], frm);
     while (not pq.empty()) {
         T cst;  int idx;
         tie(cst, idx) = pq.top();   pq.pop();
         if (ret[idx] < cst) continue;
-        for (auto& e: mat[idx]) {
+        for (auto& e: g.mat[idx]) {
             T nxt_cst = cst + e.cst;
             if (ret[e.to] <= nxt_cst) continue;
             ret[e.to] = nxt_cst;
@@ -97,15 +98,16 @@ vector<T> Graph<T>::dijkstra(int frm) {
 */
 
 template<typename T>
-vector<T> Graph<T>::dijkstra(int frm) {
-    vector<T> ret(V, INF);  ret[frm] = 0;
+vector<T> dijkstra(Graph<T> &g, int frm) {
+    using P = pair<T, int>;
+    vector<T> ret(g.V, g.INF);  ret[frm] = 0;
     priority_queue<P, vector<P>, greater<P>> pq;
     pq.emplace(ret[frm], frm);
     while (not pq.empty()) {
         T cst;  int idx;
         tie(cst, idx) = pq.top();   pq.pop();
         if (ret[idx] < cst) continue;
-        for (auto& e: mat[idx]) {
+        for (auto& e: g.mat[idx]) {
             T nxt_cst = cst + e.cst;
             if (ret[e.to] <= nxt_cst) continue;
             ret[e.to] = nxt_cst;

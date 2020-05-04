@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#0d0c91c0cca30af9c1c9faef0cf04aa9">test/aoj</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/aoj/GRL_2_A.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-23 19:46:02+09:00
+    - Last commit date: 2020-05-04 23:29:50+09:00
 
 
 * see: <a href="https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/2/GRL_2_A">https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/2/GRL_2_A</a>
@@ -65,7 +65,7 @@ signed main() {
     Graph<int> g(N);
     g.input_edges(M, 0, true);
 
-    cout << g.kruskal() << endl;
+    cout << kruskal(g) << endl;
 
 }
 
@@ -204,29 +204,27 @@ struct abracadabra {
 */
 
 template<typename T>
+struct Edge {
+    int frm, to;    T cst;
+    Edge() {}
+    Edge(int f, int t, T c) : frm(f), to(t), cst(c) {}
+};
+
+template<typename T>
 struct Graph {
-    using P = pair<T, int>;
-    using Matrix = vector<vector<T>>;
-    struct Edge {
-        int frm, to;    T cst;
-        Edge() {}
-        Edge(int f, int t, T c) : frm(f), to(t), cst(c) {}
-    };
     int V, E;   const T INF;
-    vector<vector<Edge>> mat;
-    Matrix wf;
+    vector<vector<Edge<T>>> mat;
+    vector<vector<T>> wf;
     Graph() {}
     Graph(int v) : V(v), E(0),INF(numeric_limits<T>::max() / 10), mat(v) {}
     inline void add_edge(int a, int b, T c, int margin = 0) {
         a -= margin, b -= margin, E += 2;
         mat[a].emplace_back(a, b, c);
         mat[b].emplace_back(b, a, c);
-        if ((int)wf.size() == 0) return;
     }
     inline void add_arc(int a, int b, T c, int margin = 0) {
         a -= margin, b -= margin, E += 1;
         mat[a].emplace_back(a, b, c);
-        if ((int)wf.size() == 0) return;
     }
     inline void input_edges(int M, int margin = 0, bool need_cost = false) {
         for (int i = 0; i < M; ++i) {
@@ -254,13 +252,6 @@ struct Graph {
             }
         }
     }
-    vector<T> dijkstra(int frm);
-    vector<T> bellmanford(int frm);
-    bool warshallfloyd();
-    void warshallfloyd_update(int frm, int to, T cst);
-    void warshallfloyd_add_arc(int frm, int to, T cst);
-    void warshallfloyd_add_edge(int frm, int to, T cst);
-    T kruskal();
 };
 #line 1 "datastructure/unionfind/unionfind.hpp"
 /**
@@ -294,13 +285,13 @@ struct UnionFind {
 */
 
 template<typename T>
-T Graph<T>::kruskal() {
-    vector<Edge> edges;
-    for (int i = 0; i < V; ++i) for (auto& e: mat[i]) edges.emplace_back(e);
-    sort(edges.begin(), edges.end(), [](const Edge &a, const Edge &b) {
+T kruskal(Graph<T> &g) {
+    vector<Edge<T>> edges;
+    for (int i = 0; i < g.V; ++i) for (auto& e: g.mat[i]) edges.emplace_back(e);
+    sort(edges.begin(), edges.end(), [](const Edge<T> &a, const Edge<T> &b) {
         return a.cst < b.cst;
     });
-    UnionFind uf(V);
+    UnionFind uf(g.V);
     T ret(0);
     for (auto& e : edges) if (uf.unite(e.frm, e.to)) ret += e.cst;
     return ret;
@@ -315,7 +306,7 @@ signed main() {
     Graph<int> g(N);
     g.input_edges(M, 0, true);
 
-    cout << g.kruskal() << endl;
+    cout << kruskal(g) << endl;
 
 }
 
