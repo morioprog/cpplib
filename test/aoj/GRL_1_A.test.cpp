@@ -13,7 +13,7 @@ signed main() {
     Graph<lint> g(N);
     g.input_arcs(M, 0, true);
 
-    auto dij = g.dijkstra(frm);
+    auto dij = dijkstra(g, frm);
     for (auto& e: dij) {
         if (e == g.INF) cout << "INF" << endl;
         else            cout << e << endl;

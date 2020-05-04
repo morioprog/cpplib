@@ -13,7 +13,7 @@ signed main() {
     Graph<lint> g(N);
     g.input_arcs(M, 0, true);
 
-    auto bf = g.bellmanford(frm);
+    auto bf = bellmanford(g, frm);
     if (bf.size() == 0) {
         cout << "NEGATIVE CYCLE" << endl;
         return 0;

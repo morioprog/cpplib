@@ -13,7 +13,7 @@ signed main() {
     Graph<lint> g(N);
     g.input_arcs(M, 0, true);
 
-    if (g.warshallfloyd()) {
+    if (warshallfloyd(g)) {
         cout << "NEGATIVE CYCLE" << endl;
         return 0;
     }

@@ -13,6 +13,6 @@ signed main() {
     Graph<int> g(N);
     g.input_edges(M, 0, true);
 
-    cout << g.kruskal() << endl;
+    cout << kruskal(g) << endl;
 
 }
