@@ -12,11 +12,11 @@ struct Edge {
 
 template<typename T>
 struct Graph {
-    int V, E;   const T INF;
+    int V, E;   static const T INF = numeric_limits<T>::max() / 10;
     vector<vector<Edge<T>>> mat;
     vector<vector<T>> wf;
     Graph() {}
-    Graph(int v) : V(v), E(0), INF(numeric_limits<T>::max() / 10), mat(v) {}
+    Graph(int v) : V(v), E(0), mat(v) {}
     inline void add_edge(int a, int b, T c, int margin = 0) {
         a -= margin, b -= margin, E += 2;
         mat[a].emplace_back(a, b, c);
