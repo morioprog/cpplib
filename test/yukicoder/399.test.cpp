@@ -1,5 +1,3 @@
-#define IGNORE
-
 #define PROBLEM "https://yukicoder.me/problems/no/399"
 
 #include "../../template/main.hpp"
