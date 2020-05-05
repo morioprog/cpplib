@@ -23,7 +23,11 @@
 ## 使用例
 
 * `HLDecomposition<int> hld(V)` : 頂点数$V$のグラフを生成
+  * 入力はグラフを参照
+* `hld.build(r = 0)` : 頂点$r$を根として構築
 * `hld.lca(u, v)` : $u$と$v$の最小共通祖先を取得
 * `hld.dist(u, v)`  : パスの距離を取得
-* `hld.query_path(u, v)` : $u, v$間のパスに対応する頂点番号ペア群
-* `hld.query_subtree(u)` : $u$を根とする部分木の頂点番号ペア
+* `hld.get_path(u, v)` : $u, v$間のパスに対応する頂点番号ペア群 (半開区間)
+  * 辺属性なら第3引数を`true`にする
+* `hld.get_subtree(u)` : $u$を根とする部分木の頂点番号ペア (半開区間)
+  * 辺属性なら第2引数を`true`にする

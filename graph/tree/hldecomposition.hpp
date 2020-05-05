@@ -34,15 +34,17 @@ struct HLDecomposition : Graph<T> {
     T dist(int u, int v) const {
         return dst[u] + dst[v] - 2 * dst[lca(u, v)];
     }
-    pair<int, int> query_subtree(int u) const { return make_pair(in[u], out[u]); }
-    vector<pair<int, int>> query_path(int u, int v) {
+    pair<int, int> query_subtree(int u, bool isEdge = false) const {
+        return make_pair(in[u] + isEdge, out[u]);
+    }
+    vector<pair<int, int>> query_path(int u, int v, bool isEdge = false) {
         vector<pair<int, int>> ret;
         for(;; v = par[head[v]]) {
 			if (in[u] > in[v]) swap(u, v);
 			if (head[u] == head[v]) break;
 			ret.emplace_back(in[head[v]], in[v] + 1);
 		}
-		ret.emplace_back(in[u], in[v] + 1);
+		ret.emplace_back(in[u] + isEdge, in[v] + 1);
 		return ret;
     }
     void dfs_sz(int cur, int prv, int depth, T weight) {
