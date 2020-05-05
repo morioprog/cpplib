@@ -25,23 +25,23 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/aoj/GRL_2_A.test.cpp
+# :heavy_check_mark: test/yosupo/vertexaddsubtreesum.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
-* category: <a href="../../../index.html#0d0c91c0cca30af9c1c9faef0cf04aa9">test/aoj</a>
-* <a href="{{ site.github.repository_url }}/blob/master/test/aoj/GRL_2_A.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-05 10:33:15+09:00
+* category: <a href="../../../index.html#0b58406058f6619a0f31a172defc0230">test/yosupo</a>
+* <a href="{{ site.github.repository_url }}/blob/master/test/yosupo/vertexaddsubtreesum.test.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-05-05 13:25:42+09:00
 
 
-* see: <a href="https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/2/GRL_2_A">https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/2/GRL_2_A</a>
+* see: <a href="https://judge.yosupo.jp/problem/vertex_add_subtree_sum">https://judge.yosupo.jp/problem/vertex_add_subtree_sum</a>
 
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../../library/datastructure/unionfind/unionfind.hpp.html">UnionFind <small>(datastructure/unionfind/unionfind.hpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/graph/minimumspanningtree/kruskal.hpp.html">クラスカル法 <small>(graph/minimumspanningtree/kruskal.hpp)</small></a>
+* :heavy_check_mark: <a href="../../../library/datastructure/segmenttree/segmenttree.hpp.html">セグメント木 <small>(datastructure/segmenttree/segmenttree.hpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/graph/template.hpp.html">グラフテンプレート <small>(graph/template.hpp)</small></a>
+* :heavy_check_mark: <a href="../../../library/graph/tree/hldecomposition.hpp.html">HL分解 <small>(graph/tree/hldecomposition.hpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/template/main.hpp.html">template/main.hpp</a>
 
 
@@ -50,22 +50,53 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/2/GRL_2_A"
+#define PROBLEM "https://judge.yosupo.jp/problem/vertex_add_subtree_sum"
 
 #include "../../template/main.hpp"
+#include "../../datastructure/segmenttree/segmenttree.hpp"
 #include "../../graph/template.hpp"
-#include "../../datastructure/unionfind/unionfind.hpp"
-#include "../../graph/minimumspanningtree/kruskal.hpp"
+#include "../../graph/tree/hldecomposition.hpp"
 
 signed main() {
 
-    int N, M;
-    cin >> N >> M;
+    int N, Q;
+    cin >> N >> Q;
 
-    Graph<int> g(N);
-    g.input_edges(M, 0, true);
+    using lint = long long;
+    vector<lint> A(N);
+    for (auto& e: A) cin >> e;
 
-    cout << kruskal(g) << endl;
+    HLDecomposition<lint> hld(N);
+    for (int i = 1; i < N; ++i) {
+        int P;  cin >> P;
+        hld.add_edge(P, i);
+    }
+    hld.build();
+
+    vector<lint> B(N);
+    for (int i = 0; i < N; ++i) B[hld.get(i)] = A[i];
+    SegmentTree<lint> seg(B, [](lint a, lint b){ return a + b; }, 0LL);
+
+    auto query = [&](int u) -> lint {
+        auto prs = hld.query_subtree(u);
+        return seg.query(prs.first, prs.second);
+    };
+
+    auto update = [&](int u, lint n) -> void {
+        int idx = hld.get(u);
+        seg.add(idx, n);
+    };
+
+    while (Q--) {
+        int t;  cin >> t;
+        if (t == 0) {
+            int U, X;   cin >> U >> X;
+            update(U, X);
+        } else {
+            int U;  cin >> U;
+            cout << query(U) << endl;
+        }
+    }
 
 }
 
@@ -75,8 +106,8 @@ signed main() {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "test/aoj/GRL_2_A.test.cpp"
-#define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/2/GRL_2_A"
+#line 1 "test/yosupo/vertexaddsubtreesum.test.cpp"
+#define PROBLEM "https://judge.yosupo.jp/problem/vertex_add_subtree_sum"
 
 #line 1 "template/main.hpp"
 // #pragma GCC target ("avx")
@@ -197,6 +228,61 @@ struct abracadabra {
 } ABRACADABRA;
 
 #pragma endregion
+#line 1 "datastructure/segmenttree/segmenttree.hpp"
+/**
+* @brief セグメント木
+* @docs docs/datastructure/segmenttree/segmenttree.md
+*/
+
+template<typename T> struct SegmentTree {
+    using F = function<T(T, T)>;
+    vector<T> seg;
+    int sz;
+    const F func;
+    const T IDENT;
+    SegmentTree() {}
+    SegmentTree(int n, const F f, const T &ID) : func(f), IDENT(ID) {
+        sz = 1; while (sz < n) sz <<= 1;
+        seg.assign(2 * sz - 1, IDENT);
+    }
+    SegmentTree(vector<T> v, const F f, const T &ID) : func(f), IDENT(ID) {
+        int n = v.size();
+        sz = 1; while (sz < n) sz <<= 1;
+        seg.assign(2 * sz - 1, IDENT);
+        for (int i = 0; i < n; ++i) seg[i + sz - 1] = v[i];
+        for (int i = sz - 2; i >= 0; --i) seg[i] = func(seg[2 * i + 1], seg[2 * i + 2]);
+    }
+    void update(int k, T x) {
+        k += sz - 1;
+        seg[k] = x;
+        while (k > 0) {
+            k = (k - 1) / 2;
+            seg[k] = func(seg[2 * k + 1], seg[2 * k + 2]);
+        }
+    }
+    void add(int k, T x) {
+        k += sz - 1;
+        seg[k] += x;
+        while (k > 0) {
+            k = (k - 1) / 2;
+            seg[k] = func(seg[2 * k + 1], seg[2 * k + 2]);
+        }
+    }
+    T query(int a, int b, int k = 0, int l = 0, int r = -1) {
+        if (r < 0) r = sz;
+        if (r <= a || l >= b) return IDENT;
+        if (l >= a && r <= b) return seg[k];
+        T f_l = query(a, b, 2 * k + 1, l, (l + r) / 2);
+        T f_r = query(a, b, 2 * k + 2, (l + r) / 2, r);
+        return func(f_l, f_r);
+    }
+    void print() {
+        for (int i = 0; i < 2 * sz - 1; ++i) {
+            cerr << seg[i] << ' ';
+            if (!((i + 2) & (i + 1))) cerr << endl;
+        }
+    }
+};
 #line 1 "graph/template.hpp"
 /**
 * @brief グラフテンプレート
@@ -254,60 +340,123 @@ struct Graph {
         }
     }
 };
-#line 1 "datastructure/unionfind/unionfind.hpp"
+#line 1 "graph/tree/hldecomposition.hpp"
 /**
-* @brief UnionFind
-* @docs docs/datastructure/unionfind/unionfind.md
-*/
-
-struct UnionFind {
-    int sz;
-    vector<int> parent;
-    UnionFind(int sz) : sz(sz), parent(sz, -1) {}
-    bool unite(int x, int y) {
-        if ((x = find(x)) != (y = find(y))) {
-            if (parent[y] < parent[x]) swap(x, y);
-            parent[x] += parent[y];
-            parent[y] = x;
-            --sz;
-            return true;
-        }
-        return false;
-    }
-    bool same(int x, int y) { return find(x) == find(y); }
-    int find(int x) { return parent[x] < 0 ? x : parent[x] = find(parent[x]); }
-    int size(int x) { return -parent[find(x)]; }
-    int size() { return sz; }
-};
-#line 1 "graph/minimumspanningtree/kruskal.hpp"
-/**
-* @brief クラスカル法
-* @docs docs/graph/minimumspanningtree/kruskal.md
+* @brief HL分解
+* @docs docs/graph/tree/hldecomposition.md
 */
 
 template<typename T>
-T kruskal(Graph<T> &g) {
-    vector<Edge<T>> edges;
-    for (int i = 0; i < g.V; ++i) for (auto& e: g.mat[i]) edges.emplace_back(e);
-    sort(edges.begin(), edges.end(), [](const Edge<T> &a, const Edge<T> &b) {
-        return a.cst < b.cst;
-    });
-    UnionFind uf(g.V);
-    T ret(0);
-    for (auto& e : edges) if (uf.unite(e.frm, e.to)) ret += e.cst;
-    return ret;
-}
-#line 7 "test/aoj/GRL_2_A.test.cpp"
+struct HLDecomposition : Graph<T> {
+    using Graph<T>::Graph;
+    using Graph<T>::mat;
+    using Graph<T>::V;
+    vector<int> sub, dep, par, head, in, out, rev;
+    vector<T> dst;
+    void build(const int root = 0) {
+        sub.assign(V, 0);
+        dep.assign(V, 0);
+        par.assign(V, 0);
+        head.assign(V, 0);
+        in.assign(V, 0);
+        out.assign(V, 0);
+        rev.assign(V, 0);
+        dst.assign(V, T(0));
+        dfs_sz(root, -1, 0, T(0));
+        int t = 0;
+        dfs_hld(root, -1, t);
+    }
+    int get(int u) const { return in[u]; }
+    int lca(int u, int v) const {
+        for (;; v = par[head[v]]) {
+            // uよりもvを後に来るようにして, vを上に押し上げていく
+            if (in[u] > in[v]) swap(u, v);
+            if (head[u] == head[v]) return u;
+        }
+    }
+    T dist(int u, int v) const {
+        return dst[u] + dst[v] - 2 * dst[lca(u, v)];
+    }
+    pair<int, int> query_subtree(int u) const { return make_pair(in[u], out[u]); }
+    vector<pair<int, int>> query_path(int u, int v) {
+        vector<pair<int, int>> ret;
+        for(;; v = par[head[v]]) {
+			if (in[u] > in[v]) swap(u, v);
+			if (head[u] == head[v]) break;
+			ret.emplace_back(in[head[v]], in[v] + 1);
+		}
+		ret.emplace_back(in[u], in[v] + 1);
+		return ret;
+    }
+    void dfs_sz(int cur, int prv, int depth, T weight) {
+        sub[cur] = 1;
+        dep[cur] = depth;
+        par[cur] = prv;
+        dst[cur] = weight;
+        // 0番目をheavy-pathにするための比較対象を設定
+        if (mat[cur].size() && mat[cur][0] == prv)
+            swap(mat[cur][0], mat[cur].back());
+        for (auto& nxt : mat[cur]) {
+            if (nxt == prv) continue;
+            dfs_sz(nxt, cur, depth + 1, weight + nxt.cst);
+            sub[cur] += sub[nxt];
+            if (sub[mat[cur][0]] < sub[nxt]) swap(mat[cur][0], nxt);
+        }
+    }
+    void dfs_hld(int cur, int prv, int& times) {
+        in[cur] = times++;
+        rev[in[cur]] = cur;
+        for (auto& nxt : mat[cur]) {
+            if (nxt == prv) continue;
+            // cur-nxtがheavy-path上ならheadは同じ
+            head[nxt] = mat[cur][0] == nxt ? head[cur] : nxt;
+            dfs_hld(nxt, cur, times);
+        }
+        out[cur] = times;
+    }
+};
+#line 7 "test/yosupo/vertexaddsubtreesum.test.cpp"
 
 signed main() {
 
-    int N, M;
-    cin >> N >> M;
+    int N, Q;
+    cin >> N >> Q;
 
-    Graph<int> g(N);
-    g.input_edges(M, 0, true);
+    using lint = long long;
+    vector<lint> A(N);
+    for (auto& e: A) cin >> e;
 
-    cout << kruskal(g) << endl;
+    HLDecomposition<lint> hld(N);
+    for (int i = 1; i < N; ++i) {
+        int P;  cin >> P;
+        hld.add_edge(P, i);
+    }
+    hld.build();
+
+    vector<lint> B(N);
+    for (int i = 0; i < N; ++i) B[hld.get(i)] = A[i];
+    SegmentTree<lint> seg(B, [](lint a, lint b){ return a + b; }, 0LL);
+
+    auto query = [&](int u) -> lint {
+        auto prs = hld.query_subtree(u);
+        return seg.query(prs.first, prs.second);
+    };
+
+    auto update = [&](int u, lint n) -> void {
+        int idx = hld.get(u);
+        seg.add(idx, n);
+    };
+
+    while (Q--) {
+        int t;  cin >> t;
+        if (t == 0) {
+            int U, X;   cin >> U >> X;
+            update(U, X);
+        } else {
+            int U;  cin >> U;
+            cout << query(U) << endl;
+        }
+    }
 
 }
 

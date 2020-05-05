@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#f8b0b924ebd7046dbfa85a856e4682c8">graph</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/template.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-04 23:29:50+09:00
+    - Last commit date: 2020-05-05 10:33:15+09:00
 
 
 
@@ -64,6 +64,9 @@ layout: default
 * :heavy_check_mark: <a href="../../verify/test/aoj/GRL_1_B.test.cpp.html">test/aoj/GRL_1_B.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj/GRL_1_C.test.cpp.html">test/aoj/GRL_1_C.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj/GRL_2_A.test.cpp.html">test/aoj/GRL_2_A.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj/GRL_5_C.test.cpp.html">test/aoj/GRL_5_C.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yosupo/vertexaddpathsum.test.cpp.html">test/yosupo/vertexaddpathsum.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yosupo/vertexaddsubtreesum.test.cpp.html">test/yosupo/vertexaddsubtreesum.test.cpp</a>
 
 
 ## Code
@@ -78,24 +81,25 @@ layout: default
 
 template<typename T>
 struct Edge {
-    int frm, to;    T cst;
+    int frm, to, idx;   T cst;
     Edge() {}
-    Edge(int f, int t, T c) : frm(f), to(t), cst(c) {}
+    Edge(int f, int t, T c, int i = -1) : frm(f), to(t), cst(c), idx(i) {}
+    operator int() const { return to; }
 };
 
 template<typename T>
 struct Graph {
-    int V, E;   const T INF;
+    int V, E;   static const T INF = numeric_limits<T>::max() / 10;
     vector<vector<Edge<T>>> mat;
     vector<vector<T>> wf;
     Graph() {}
-    Graph(int v) : V(v), E(0),INF(numeric_limits<T>::max() / 10), mat(v) {}
-    inline void add_edge(int a, int b, T c, int margin = 0) {
+    Graph(int v) : V(v), E(0), mat(v) {}
+    inline void add_edge(int a, int b, T c = 1, int margin = 0) {
         a -= margin, b -= margin, E += 2;
         mat[a].emplace_back(a, b, c);
         mat[b].emplace_back(b, a, c);
     }
-    inline void add_arc(int a, int b, T c, int margin = 0) {
+    inline void add_arc(int a, int b, T c = 1, int margin = 0) {
         a -= margin, b -= margin, E += 1;
         mat[a].emplace_back(a, b, c);
     }
@@ -141,24 +145,25 @@ struct Graph {
 
 template<typename T>
 struct Edge {
-    int frm, to;    T cst;
+    int frm, to, idx;   T cst;
     Edge() {}
-    Edge(int f, int t, T c) : frm(f), to(t), cst(c) {}
+    Edge(int f, int t, T c, int i = -1) : frm(f), to(t), cst(c), idx(i) {}
+    operator int() const { return to; }
 };
 
 template<typename T>
 struct Graph {
-    int V, E;   const T INF;
+    int V, E;   static const T INF = numeric_limits<T>::max() / 10;
     vector<vector<Edge<T>>> mat;
     vector<vector<T>> wf;
     Graph() {}
-    Graph(int v) : V(v), E(0),INF(numeric_limits<T>::max() / 10), mat(v) {}
-    inline void add_edge(int a, int b, T c, int margin = 0) {
+    Graph(int v) : V(v), E(0), mat(v) {}
+    inline void add_edge(int a, int b, T c = 1, int margin = 0) {
         a -= margin, b -= margin, E += 2;
         mat[a].emplace_back(a, b, c);
         mat[b].emplace_back(b, a, c);
     }
-    inline void add_arc(int a, int b, T c, int margin = 0) {
+    inline void add_arc(int a, int b, T c = 1, int margin = 0) {
         a -= margin, b -= margin, E += 1;
         mat[a].emplace_back(a, b, c);
     }

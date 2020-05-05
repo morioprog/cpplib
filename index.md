@@ -88,6 +88,13 @@ layout: default
 * :heavy_check_mark: <a href="library/graph/shortestpath/warshallfloyd.hpp.html">ワーシャルフロイド法 <small>(graph/shortestpath/warshallfloyd.hpp)</small></a>
 
 
+<div id="28790b6202284cbbffc9d712b59f4b80"></div>
+
+### graph/tree
+
+* :heavy_check_mark: <a href="library/graph/tree/hldecomposition.hpp.html">HL分解 <small>(graph/tree/hldecomposition.hpp)</small></a>
+
+
 <div id="7e676e9e663beb40fd133f5ee24487c2"></div>
 
 ### math
@@ -140,6 +147,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/aoj/GRL_1_B.test.cpp.html">test/aoj/GRL_1_B.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/GRL_1_C.test.cpp.html">test/aoj/GRL_1_C.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/GRL_2_A.test.cpp.html">test/aoj/GRL_2_A.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj/GRL_5_C.test.cpp.html">test/aoj/GRL_5_C.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/ITP1_1_A.short.test.cpp.html">test/aoj/ITP1_1_A.short.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/ITP1_1_A.test.cpp.html">test/aoj/ITP1_1_A.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/NTL_1_A.test.cpp.html">test/aoj/NTL_1_A.test.cpp</a>
@@ -152,5 +160,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/yosupo/staticrangesum.test.cpp.html">test/yosupo/staticrangesum.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yosupo/staticrmq.test.cpp.html">test/yosupo/staticrmq.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yosupo/unionfind.test.cpp.html">test/yosupo/unionfind.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yosupo/vertexaddpathsum.test.cpp.html">test/yosupo/vertexaddpathsum.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yosupo/vertexaddsubtreesum.test.cpp.html">test/yosupo/vertexaddsubtreesum.test.cpp</a>
 
 
