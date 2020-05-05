@@ -25,5 +25,6 @@
 "test/yosupo/staticrmq.test.cpp": "2020-04-22 15:52:26 +0900",
 "test/yosupo/unionfind.test.cpp": "2020-04-22 15:52:26 +0900",
 "test/yosupo/vertexaddpathsum.test.cpp": "2020-05-05 16:33:08 +0900",
-"test/yosupo/vertexaddsubtreesum.test.cpp": "2020-05-05 16:33:08 +0900"
+"test/yosupo/vertexaddsubtreesum.test.cpp": "2020-05-05 16:33:08 +0900",
+"test/yukicoder/399.test.cpp": "2020-05-05 17:41:33 +0900"
 }
