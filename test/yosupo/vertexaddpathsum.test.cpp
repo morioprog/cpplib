@@ -24,7 +24,7 @@ signed main() {
 
     auto query = [&](int u, int v) -> lint {
         lint ret = 0;
-        auto prs = hld.query_path(u, v);
+        auto prs = hld.get_path(u, v);
         for (auto& e: prs) {
             ret += seg.query(e.first, e.second);
         }

@@ -34,10 +34,10 @@ struct HLDecomposition : Graph<T> {
     T dist(int u, int v) const {
         return dst[u] + dst[v] - 2 * dst[lca(u, v)];
     }
-    pair<int, int> query_subtree(int u, bool isEdge = false) const {
+    pair<int, int> get_subtree(int u, bool isEdge = false) const {
         return make_pair(in[u] + isEdge, out[u]);
     }
-    vector<pair<int, int>> query_path(int u, int v, bool isEdge = false) {
+    vector<pair<int, int>> get_path(int u, int v, bool isEdge = false) {
         vector<pair<int, int>> ret;
         for(;; v = par[head[v]]) {
 			if (in[u] > in[v]) swap(u, v);

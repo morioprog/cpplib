@@ -26,7 +26,7 @@ signed main() {
     SegmentTree<lint> seg(B, [](lint a, lint b){ return a + b; }, 0LL);
 
     auto query = [&](int u) -> lint {
-        auto prs = hld.query_subtree(u);
+        auto prs = hld.get_subtree(u);
         return seg.query(prs.first, prs.second);
     };
 
