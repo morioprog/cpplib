@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: 遅延セグメント木 <small>(datastructure/segmenttree/lazysegmenttree.hpp)</small>
+# :question: 遅延セグメント木 <small>(datastructure/segmenttree/lazysegmenttree.hpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
@@ -128,7 +128,9 @@ auto seg = make_segtree(N, M(4e18), ID_OM, f, g, g, p);
 * :heavy_check_mark: <a href="../../../verify/test/aoj/DSL_2_G.test.cpp.html">test/aoj/DSL_2_G.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/aoj/DSL_2_H.test.cpp.html">test/aoj/DSL_2_H.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/aoj/DSL_2_I.test.cpp.html">test/aoj/DSL_2_I.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/aoj/GRL_5_E.test.cpp.html">test/aoj/GRL_5_E.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/yosupo/rangeaffinerangesum.test.cpp.html">test/yosupo/rangeaffinerangesum.test.cpp</a>
+* :x: <a href="../../../verify/test/yukicoder/399.test.cpp.html">test/yukicoder/399.test.cpp</a>
 
 
 ## Code

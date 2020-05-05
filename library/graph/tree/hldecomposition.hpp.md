@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: HL分解 <small>(graph/tree/hldecomposition.hpp)</small>
+# :question: HL分解 <small>(graph/tree/hldecomposition.hpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#28790b6202284cbbffc9d712b59f4b80">graph/tree</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/tree/hldecomposition.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-05 13:25:42+09:00
+    - Last commit date: 2020-05-05 16:33:08+09:00
 
 
 
@@ -61,17 +61,24 @@ layout: default
 ## 使用例
 
 * `HLDecomposition<int> hld(V)` : 頂点数$V$のグラフを生成
+  * 入力はグラフを参照
+* `hld.build(r = 0)` : 頂点$r$を根として構築
 * `hld.lca(u, v)` : $u$と$v$の最小共通祖先を取得
 * `hld.dist(u, v)`  : パスの距離を取得
-* `hld.query_path(u, v)` : $u, v$間のパスに対応する頂点番号ペア群
-* `hld.query_subtree(u)` : $u$を根とする部分木の頂点番号ペア
+* `hld.get_path(u, v)` : $u, v$間のパスに対応する頂点番号ペア群 (半開区間)
+  * 辺属性なら第3引数を`true`にする
+* `hld.get_subtree(u)` : $u$を根とする部分木の頂点番号ペア (半開区間)
+  * 辺属性なら第2引数を`true`にする
 
 
 ## Verified with
 
 * :heavy_check_mark: <a href="../../../verify/test/aoj/GRL_5_C.test.cpp.html">test/aoj/GRL_5_C.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/aoj/GRL_5_D.test.cpp.html">test/aoj/GRL_5_D.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/aoj/GRL_5_E.test.cpp.html">test/aoj/GRL_5_E.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/yosupo/vertexaddpathsum.test.cpp.html">test/yosupo/vertexaddpathsum.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/yosupo/vertexaddsubtreesum.test.cpp.html">test/yosupo/vertexaddsubtreesum.test.cpp</a>
+* :x: <a href="../../../verify/test/yukicoder/399.test.cpp.html">test/yukicoder/399.test.cpp</a>
 
 
 ## Code
@@ -115,15 +122,17 @@ struct HLDecomposition : Graph<T> {
     T dist(int u, int v) const {
         return dst[u] + dst[v] - 2 * dst[lca(u, v)];
     }
-    pair<int, int> query_subtree(int u) const { return make_pair(in[u], out[u]); }
-    vector<pair<int, int>> query_path(int u, int v) {
+    pair<int, int> get_subtree(int u, bool isEdge = false) const {
+        return make_pair(in[u] + isEdge, out[u]);
+    }
+    vector<pair<int, int>> get_path(int u, int v, bool isEdge = false) {
         vector<pair<int, int>> ret;
         for(;; v = par[head[v]]) {
 			if (in[u] > in[v]) swap(u, v);
 			if (head[u] == head[v]) break;
 			ret.emplace_back(in[head[v]], in[v] + 1);
 		}
-		ret.emplace_back(in[u], in[v] + 1);
+		ret.emplace_back(in[u] + isEdge, in[v] + 1);
 		return ret;
     }
     void dfs_sz(int cur, int prv, int depth, T weight) {
@@ -197,15 +206,17 @@ struct HLDecomposition : Graph<T> {
     T dist(int u, int v) const {
         return dst[u] + dst[v] - 2 * dst[lca(u, v)];
     }
-    pair<int, int> query_subtree(int u) const { return make_pair(in[u], out[u]); }
-    vector<pair<int, int>> query_path(int u, int v) {
+    pair<int, int> get_subtree(int u, bool isEdge = false) const {
+        return make_pair(in[u] + isEdge, out[u]);
+    }
+    vector<pair<int, int>> get_path(int u, int v, bool isEdge = false) {
         vector<pair<int, int>> ret;
         for(;; v = par[head[v]]) {
 			if (in[u] > in[v]) swap(u, v);
 			if (head[u] == head[v]) break;
 			ret.emplace_back(in[head[v]], in[v] + 1);
 		}
-		ret.emplace_back(in[u], in[v] + 1);
+		ret.emplace_back(in[u] + isEdge, in[v] + 1);
 		return ret;
     }
     void dfs_sz(int cur, int prv, int depth, T weight) {

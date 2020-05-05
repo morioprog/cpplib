@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#0b58406058f6619a0f31a172defc0230">test/yosupo</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/yosupo/vertexaddpathsum.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-05 13:25:42+09:00
+    - Last commit date: 2020-05-05 16:33:08+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/vertex_add_path_sum">https://judge.yosupo.jp/problem/vertex_add_path_sum</a>
@@ -40,9 +40,9 @@ layout: default
 ## Depends on
 
 * :heavy_check_mark: <a href="../../../library/datastructure/segmenttree/segmenttree.hpp.html">セグメント木 <small>(datastructure/segmenttree/segmenttree.hpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/graph/template.hpp.html">グラフテンプレート <small>(graph/template.hpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/graph/tree/hldecomposition.hpp.html">HL分解 <small>(graph/tree/hldecomposition.hpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/template/main.hpp.html">template/main.hpp</a>
+* :question: <a href="../../../library/graph/template.hpp.html">グラフテンプレート <small>(graph/template.hpp)</small></a>
+* :question: <a href="../../../library/graph/tree/hldecomposition.hpp.html">HL分解 <small>(graph/tree/hldecomposition.hpp)</small></a>
+* :question: <a href="../../../library/template/main.hpp.html">template/main.hpp</a>
 
 
 ## Code
@@ -76,7 +76,7 @@ signed main() {
 
     auto query = [&](int u, int v) -> lint {
         lint ret = 0;
-        auto prs = hld.query_path(u, v);
+        auto prs = hld.get_path(u, v);
         for (auto& e: prs) {
             ret += seg.query(e.first, e.second);
         }
@@ -374,15 +374,17 @@ struct HLDecomposition : Graph<T> {
     T dist(int u, int v) const {
         return dst[u] + dst[v] - 2 * dst[lca(u, v)];
     }
-    pair<int, int> query_subtree(int u) const { return make_pair(in[u], out[u]); }
-    vector<pair<int, int>> query_path(int u, int v) {
+    pair<int, int> get_subtree(int u, bool isEdge = false) const {
+        return make_pair(in[u] + isEdge, out[u]);
+    }
+    vector<pair<int, int>> get_path(int u, int v, bool isEdge = false) {
         vector<pair<int, int>> ret;
         for(;; v = par[head[v]]) {
 			if (in[u] > in[v]) swap(u, v);
 			if (head[u] == head[v]) break;
 			ret.emplace_back(in[head[v]], in[v] + 1);
 		}
-		ret.emplace_back(in[u], in[v] + 1);
+		ret.emplace_back(in[u] + isEdge, in[v] + 1);
 		return ret;
     }
     void dfs_sz(int cur, int prv, int depth, T weight) {
@@ -433,7 +435,7 @@ signed main() {
 
     auto query = [&](int u, int v) -> lint {
         lint ret = 0;
-        auto prs = hld.query_path(u, v);
+        auto prs = hld.get_path(u, v);
         for (auto& e: prs) {
             ret += seg.query(e.first, e.second);
         }

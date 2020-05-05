@@ -53,7 +53,7 @@ layout: default
 
 ### datastructure/segmenttree
 
-* :heavy_check_mark: <a href="library/datastructure/segmenttree/lazysegmenttree.hpp.html">遅延セグメント木 <small>(datastructure/segmenttree/lazysegmenttree.hpp)</small></a>
+* :question: <a href="library/datastructure/segmenttree/lazysegmenttree.hpp.html">遅延セグメント木 <small>(datastructure/segmenttree/lazysegmenttree.hpp)</small></a>
 * :heavy_check_mark: <a href="library/datastructure/segmenttree/segmenttree.hpp.html">セグメント木 <small>(datastructure/segmenttree/segmenttree.hpp)</small></a>
 * :heavy_check_mark: <a href="library/datastructure/segmenttree/segmenttreebeats.hpp.html">Segment Tree Beats <small>(datastructure/segmenttree/segmenttreebeats.hpp)</small></a>
 
@@ -69,7 +69,7 @@ layout: default
 
 ### graph
 
-* :heavy_check_mark: <a href="library/graph/template.hpp.html">グラフテンプレート <small>(graph/template.hpp)</small></a>
+* :question: <a href="library/graph/template.hpp.html">グラフテンプレート <small>(graph/template.hpp)</small></a>
 
 
 <div id="fd7b240ac98922caf22c9202d36f936f"></div>
@@ -92,7 +92,7 @@ layout: default
 
 ### graph/tree
 
-* :heavy_check_mark: <a href="library/graph/tree/hldecomposition.hpp.html">HL分解 <small>(graph/tree/hldecomposition.hpp)</small></a>
+* :question: <a href="library/graph/tree/hldecomposition.hpp.html">HL分解 <small>(graph/tree/hldecomposition.hpp)</small></a>
 
 
 <div id="7e676e9e663beb40fd133f5ee24487c2"></div>
@@ -124,7 +124,7 @@ layout: default
 
 ### template
 
-* :heavy_check_mark: <a href="library/template/main.hpp.html">template/main.hpp</a>
+* :question: <a href="library/template/main.hpp.html">template/main.hpp</a>
 * :heavy_check_mark: <a href="library/template/short.hpp.html">template/short.hpp</a>
 
 
@@ -148,6 +148,8 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/aoj/GRL_1_C.test.cpp.html">test/aoj/GRL_1_C.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/GRL_2_A.test.cpp.html">test/aoj/GRL_2_A.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/GRL_5_C.test.cpp.html">test/aoj/GRL_5_C.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj/GRL_5_D.test.cpp.html">test/aoj/GRL_5_D.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj/GRL_5_E.test.cpp.html">test/aoj/GRL_5_E.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/ITP1_1_A.short.test.cpp.html">test/aoj/ITP1_1_A.short.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/ITP1_1_A.test.cpp.html">test/aoj/ITP1_1_A.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/NTL_1_A.test.cpp.html">test/aoj/NTL_1_A.test.cpp</a>
@@ -162,5 +164,6 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/yosupo/unionfind.test.cpp.html">test/yosupo/unionfind.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yosupo/vertexaddpathsum.test.cpp.html">test/yosupo/vertexaddpathsum.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yosupo/vertexaddsubtreesum.test.cpp.html">test/yosupo/vertexaddsubtreesum.test.cpp</a>
+* :x: <a href="verify/test/yukicoder/399.test.cpp.html">test/yukicoder/399.test.cpp</a>
 
 

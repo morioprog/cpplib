@@ -25,21 +25,23 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/aoj/DSL_2_G.test.cpp
+# :heavy_check_mark: test/aoj/GRL_5_D.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#0d0c91c0cca30af9c1c9faef0cf04aa9">test/aoj</a>
-* <a href="{{ site.github.repository_url }}/blob/master/test/aoj/DSL_2_G.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-23 05:26:48+09:00
+* <a href="{{ site.github.repository_url }}/blob/master/test/aoj/GRL_5_D.test.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-05-05 16:33:08+09:00
 
 
-* see: <a href="https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/2/DSL_2_G">https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/2/DSL_2_G</a>
+* see: <a href="https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/5/GRL_5_D">https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/5/GRL_5_D</a>
 
 
 ## Depends on
 
-* :question: <a href="../../../library/datastructure/segmenttree/lazysegmenttree.hpp.html">遅延セグメント木 <small>(datastructure/segmenttree/lazysegmenttree.hpp)</small></a>
+* :heavy_check_mark: <a href="../../../library/datastructure/segmenttree/segmenttree.hpp.html">セグメント木 <small>(datastructure/segmenttree/segmenttree.hpp)</small></a>
+* :question: <a href="../../../library/graph/template.hpp.html">グラフテンプレート <small>(graph/template.hpp)</small></a>
+* :question: <a href="../../../library/graph/tree/hldecomposition.hpp.html">HL分解 <small>(graph/tree/hldecomposition.hpp)</small></a>
 * :question: <a href="../../../library/template/main.hpp.html">template/main.hpp</a>
 
 
@@ -48,34 +50,45 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/2/DSL_2_G"
+#define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/5/GRL_5_D"
 
 #include "../../template/main.hpp"
-#include "../../datastructure/segmenttree/lazysegmenttree.hpp"
+#include "../../datastructure/segmenttree/segmenttree.hpp"
+#include "../../graph/template.hpp"
+#include "../../graph/tree/hldecomposition.hpp"
 
 signed main() {
 
-    int N, Q;
-    cin >> N >> Q;
+    int N;  cin >> N;
 
-    using lint = long long;
-    using M = lint;
-    auto f = [](M a, M b) -> M { return a + b; };
-    auto p = [](M a, int b) -> M { return a * b; };
-    auto seg = make_segtree(N, M(0), M(0), f, f, f, p);
+    HLDecomposition<int> hld(N);
+    for (int i = 0; i < N; ++i) {
+        int K;  cin >> K;
+        while (K--) {
+            int C;  cin >> C;
+            hld.add_edge(i, C);
+        }
+    }
+    hld.build();
 
+    SegmentTree<int> seg(N, [](int a, int b){ return a + b; }, 0);
+
+    auto query = [&](int a) -> int {
+        auto prs = hld.get_path(0, a, true);
+        int ret = 0;
+        for (auto& e: prs) ret += seg.query(e.first, e.second);
+        return ret;
+    };
+
+    int Q;  cin >> Q;
     while (Q--) {
-        int q;  cin >> q;
-        if (q == 0) {
-            int s, t; lint x;
-            cin >> s >> t >> x;
-            --s;
-            seg.update(s, t, x);
+        int T;  cin >> T;
+        if (T == 0) {
+            int V, W; cin >> V >> W;
+            seg.add(hld.get(V), W);
         } else {
-            int s, t;
-            cin >> s >> t;
-            --s;
-            cout << seg.query(s, t) << endl;
+            int U;  cin >> U;
+            cout << query(U) << endl;
         }
     }
 
@@ -87,8 +100,8 @@ signed main() {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "test/aoj/DSL_2_G.test.cpp"
-#define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/2/DSL_2_G"
+#line 1 "test/aoj/GRL_5_D.test.cpp"
+#define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/5/GRL_5_D"
 
 #line 1 "template/main.hpp"
 // #pragma GCC target ("avx")
@@ -209,109 +222,229 @@ struct abracadabra {
 } ABRACADABRA;
 
 #pragma endregion
-#line 1 "datastructure/segmenttree/lazysegmenttree.hpp"
+#line 1 "datastructure/segmenttree/segmenttree.hpp"
 /**
-* @brief 遅延セグメント木
-* @docs docs/datastructure/segmenttree/lazysegmenttree.md
+* @brief セグメント木
+* @docs docs/datastructure/segmenttree/segmenttree.md
 */
 
-template <typename M, typename OM, typename F, typename G, typename H, typename P>
-struct LazySegmentTree {
+template<typename T> struct SegmentTree {
+    using F = function<T(T, T)>;
+    vector<T> seg;
     int sz;
-    F f; G g; H h; P p;
-    const M ID_M;
-    const OM ID_OM;
-    vector<M> dat;
-    vector<OM> laz;
-    LazySegmentTree(int n, M ID_M, OM ID_OM, F f, G g, H h, P p)
-        : ID_M(ID_M), ID_OM(ID_OM), f(f), g(g), h(h), p(p) { build(n); }
-    LazySegmentTree(const vector<M> &v, M ID_M, OM ID_OM, F f, G g, H h, P p)
-        : ID_M(ID_M), ID_OM(ID_OM), f(f), g(g), h(h), p(p) {
-        int n = v.size();
-        build(n);
-        for (int i = 0; i < n; ++i) dat[i + sz - 1] = v[i];
-        for (int i = sz - 2; i >= 0; --i) dat[i] = f(dat[2 * i + 1], dat[2 * i + 2]);
-    }
-    void build(int n) {
+    const F func;
+    const T IDENT;
+    SegmentTree() {}
+    SegmentTree(int n, const F f, const T &ID) : func(f), IDENT(ID) {
         sz = 1; while (sz < n) sz <<= 1;
-        dat.assign(2 * sz - 1, ID_M);
-        laz.assign(2 * sz - 1, ID_OM);
+        seg.assign(2 * sz - 1, IDENT);
     }
-    void eval(int len, int k) {
-        if (laz[k] == ID_OM) return;
-        if (2 * k + 1 < 2 * sz - 1) {
-            laz[2 * k + 1] = h(laz[2 * k + 1], laz[k]);
-            laz[2 * k + 2] = h(laz[2 * k + 2], laz[k]);
+    SegmentTree(vector<T> v, const F f, const T &ID) : func(f), IDENT(ID) {
+        int n = v.size();
+        sz = 1; while (sz < n) sz <<= 1;
+        seg.assign(2 * sz - 1, IDENT);
+        for (int i = 0; i < n; ++i) seg[i + sz - 1] = v[i];
+        for (int i = sz - 2; i >= 0; --i) seg[i] = func(seg[2 * i + 1], seg[2 * i + 2]);
+    }
+    void update(int k, T x) {
+        k += sz - 1;
+        seg[k] = x;
+        while (k > 0) {
+            k = (k - 1) / 2;
+            seg[k] = func(seg[2 * k + 1], seg[2 * k + 2]);
         }
-        dat[k] = g(dat[k], p(laz[k], len));
-        laz[k] = ID_OM;
     }
-    M update(int a, int b, OM x, int k, int l, int r) {
-        eval(r - l, k);
-        if (r <= a or b <= l) return dat[k];
-        if (a <= l and r <= b) {
-            laz[k] = h(laz[k], x);
-            return g(dat[k], p(laz[k], r - l));
+    void add(int k, T x) {
+        k += sz - 1;
+        seg[k] += x;
+        while (k > 0) {
+            k = (k - 1) / 2;
+            seg[k] = func(seg[2 * k + 1], seg[2 * k + 2]);
         }
-        return dat[k] = f(update(a, b, x, 2 * k + 1, l, (l + r) / 2),
-                          update(a, b, x, 2 * k + 2, (l + r) / 2, r));
     }
-    M update(int a, int b, OM x) {
-        return update(a, b, x, 0, 0, sz);
-    }
-    M query(int a, int b, int k, int l, int r) {
-        eval(r - l, k);
-        if (r <= a or b <= l) return ID_M;
-        if (a <= l and r <= b) return dat[k];
-        M vl = query(a, b, 2 * k + 1, l, (l + r) / 2);
-        M vr = query(a, b, 2 * k + 2, (l + r) / 2, r);
-        return f(vl, vr);
-    }
-    M query(int a, int b) {
-        return query(a, b, 0, 0, sz);
-    }
-    M operator[](const int &k) {
-        return query(k, k + 1);
+    T query(int a, int b, int k = 0, int l = 0, int r = -1) {
+        if (r < 0) r = sz;
+        if (r <= a || l >= b) return IDENT;
+        if (l >= a && r <= b) return seg[k];
+        T f_l = query(a, b, 2 * k + 1, l, (l + r) / 2);
+        T f_r = query(a, b, 2 * k + 2, (l + r) / 2, r);
+        return func(f_l, f_r);
     }
     void print() {
-        for (int i = 0; i < sz; ++i) cerr << query(i, i + 1) << ' ';
-        cerr << endl;
+        for (int i = 0; i < 2 * sz - 1; ++i) {
+            cerr << seg[i] << ' ';
+            if (!((i + 2) & (i + 1))) cerr << endl;
+        }
     }
 };
+#line 1 "graph/template.hpp"
+/**
+* @brief グラフテンプレート
+* @docs docs/graph/template.md
+*/
 
-template<typename M, typename OM, typename F, typename G, typename H, typename P>
-auto make_segtree(int n, M ID_M, OM ID_OM, F f, G g, H h, P p) {
-    return LazySegmentTree<M, OM, F, G, H, P>(n, ID_M, ID_OM, f, g, h, p);
-}
-template<typename M, typename OM, typename F, typename G, typename H, typename P>
-auto make_segtree(vector<M> v, M ID_M, OM ID_OM, F f, G g, H h, P p) {
-    return LazySegmentTree<M, OM, F, G, H, P>(v, ID_M, ID_OM, f, g, h, p);
-}
-#line 5 "test/aoj/DSL_2_G.test.cpp"
+template<typename T>
+struct Edge {
+    int frm, to, idx;   T cst;
+    Edge() {}
+    Edge(int f, int t, T c, int i = -1) : frm(f), to(t), cst(c), idx(i) {}
+    operator int() const { return to; }
+};
+
+template<typename T>
+struct Graph {
+    int V, E;   static const T INF = numeric_limits<T>::max() / 10;
+    vector<vector<Edge<T>>> mat;
+    vector<vector<T>> wf;
+    Graph() {}
+    Graph(int v) : V(v), E(0), mat(v) {}
+    inline void add_edge(int a, int b, T c = 1, int margin = 0) {
+        a -= margin, b -= margin, E += 2;
+        mat[a].emplace_back(a, b, c);
+        mat[b].emplace_back(b, a, c);
+    }
+    inline void add_arc(int a, int b, T c = 1, int margin = 0) {
+        a -= margin, b -= margin, E += 1;
+        mat[a].emplace_back(a, b, c);
+    }
+    inline void input_edges(int M, int margin = 0, bool need_cost = false) {
+        for (int i = 0; i < M; ++i) {
+            if (need_cost) {
+                int a, b;   T c;
+                cin >> a >> b >> c;
+                add_edge(a, b, c, margin);
+            } else {
+                int a, b;   T c(1);
+                cin >> a >> b;
+                add_edge(a, b, c, margin);
+            }
+        }
+    }
+    inline void input_arcs(int M, int margin = 0, bool need_cost = false) {
+        for (int i = 0; i < M; ++i) {
+            if (need_cost) {
+                int a, b;   T c;
+                cin >> a >> b >> c;
+                add_arc(a, b, c, margin);
+            } else {
+                int a, b;   T c(1);
+                cin >> a >> b;
+                add_arc(a, b, c, margin);
+            }
+        }
+    }
+};
+#line 1 "graph/tree/hldecomposition.hpp"
+/**
+* @brief HL分解
+* @docs docs/graph/tree/hldecomposition.md
+*/
+
+template<typename T>
+struct HLDecomposition : Graph<T> {
+    using Graph<T>::Graph;
+    using Graph<T>::mat;
+    using Graph<T>::V;
+    vector<int> sub, dep, par, head, in, out, rev;
+    vector<T> dst;
+    void build(const int root = 0) {
+        sub.assign(V, 0);
+        dep.assign(V, 0);
+        par.assign(V, 0);
+        head.assign(V, 0);
+        in.assign(V, 0);
+        out.assign(V, 0);
+        rev.assign(V, 0);
+        dst.assign(V, T(0));
+        dfs_sz(root, -1, 0, T(0));
+        int t = 0;
+        dfs_hld(root, -1, t);
+    }
+    int get(int u) const { return in[u]; }
+    int lca(int u, int v) const {
+        for (;; v = par[head[v]]) {
+            // uよりもvを後に来るようにして, vを上に押し上げていく
+            if (in[u] > in[v]) swap(u, v);
+            if (head[u] == head[v]) return u;
+        }
+    }
+    T dist(int u, int v) const {
+        return dst[u] + dst[v] - 2 * dst[lca(u, v)];
+    }
+    pair<int, int> get_subtree(int u, bool isEdge = false) const {
+        return make_pair(in[u] + isEdge, out[u]);
+    }
+    vector<pair<int, int>> get_path(int u, int v, bool isEdge = false) {
+        vector<pair<int, int>> ret;
+        for(;; v = par[head[v]]) {
+			if (in[u] > in[v]) swap(u, v);
+			if (head[u] == head[v]) break;
+			ret.emplace_back(in[head[v]], in[v] + 1);
+		}
+		ret.emplace_back(in[u] + isEdge, in[v] + 1);
+		return ret;
+    }
+    void dfs_sz(int cur, int prv, int depth, T weight) {
+        sub[cur] = 1;
+        dep[cur] = depth;
+        par[cur] = prv;
+        dst[cur] = weight;
+        // 0番目をheavy-pathにするための比較対象を設定
+        if (mat[cur].size() && mat[cur][0] == prv)
+            swap(mat[cur][0], mat[cur].back());
+        for (auto& nxt : mat[cur]) {
+            if (nxt == prv) continue;
+            dfs_sz(nxt, cur, depth + 1, weight + nxt.cst);
+            sub[cur] += sub[nxt];
+            if (sub[mat[cur][0]] < sub[nxt]) swap(mat[cur][0], nxt);
+        }
+    }
+    void dfs_hld(int cur, int prv, int& times) {
+        in[cur] = times++;
+        rev[in[cur]] = cur;
+        for (auto& nxt : mat[cur]) {
+            if (nxt == prv) continue;
+            // cur-nxtがheavy-path上ならheadは同じ
+            head[nxt] = mat[cur][0] == nxt ? head[cur] : nxt;
+            dfs_hld(nxt, cur, times);
+        }
+        out[cur] = times;
+    }
+};
+#line 7 "test/aoj/GRL_5_D.test.cpp"
 
 signed main() {
 
-    int N, Q;
-    cin >> N >> Q;
+    int N;  cin >> N;
 
-    using lint = long long;
-    using M = lint;
-    auto f = [](M a, M b) -> M { return a + b; };
-    auto p = [](M a, int b) -> M { return a * b; };
-    auto seg = make_segtree(N, M(0), M(0), f, f, f, p);
+    HLDecomposition<int> hld(N);
+    for (int i = 0; i < N; ++i) {
+        int K;  cin >> K;
+        while (K--) {
+            int C;  cin >> C;
+            hld.add_edge(i, C);
+        }
+    }
+    hld.build();
 
+    SegmentTree<int> seg(N, [](int a, int b){ return a + b; }, 0);
+
+    auto query = [&](int a) -> int {
+        auto prs = hld.get_path(0, a, true);
+        int ret = 0;
+        for (auto& e: prs) ret += seg.query(e.first, e.second);
+        return ret;
+    };
+
+    int Q;  cin >> Q;
     while (Q--) {
-        int q;  cin >> q;
-        if (q == 0) {
-            int s, t; lint x;
-            cin >> s >> t >> x;
-            --s;
-            seg.update(s, t, x);
+        int T;  cin >> T;
+        if (T == 0) {
+            int V, W; cin >> V >> W;
+            seg.add(hld.get(V), W);
         } else {
-            int s, t;
-            cin >> s >> t;
-            --s;
-            cout << seg.query(s, t) << endl;
+            int U;  cin >> U;
+            cout << query(U) << endl;
         }
     }
 
