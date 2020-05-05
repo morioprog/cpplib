@@ -5,9 +5,10 @@
 
 template<typename T>
 struct Edge {
-    int frm, to;    T cst;
+    int frm, to, idx;   T cst;
     Edge() {}
-    Edge(int f, int t, T c) : frm(f), to(t), cst(c) {}
+    Edge(int f, int t, T c, int i = -1) : frm(f), to(t), cst(c), idx(i) {}
+    operator int() const { return to; }
 };
 
 template<typename T>
@@ -17,12 +18,12 @@ struct Graph {
     vector<vector<T>> wf;
     Graph() {}
     Graph(int v) : V(v), E(0), mat(v) {}
-    inline void add_edge(int a, int b, T c, int margin = 0) {
+    inline void add_edge(int a, int b, T c = 1, int margin = 0) {
         a -= margin, b -= margin, E += 2;
         mat[a].emplace_back(a, b, c);
         mat[b].emplace_back(b, a, c);
     }
-    inline void add_arc(int a, int b, T c, int margin = 0) {
+    inline void add_arc(int a, int b, T c = 1, int margin = 0) {
         a -= margin, b -= margin, E += 1;
         mat[a].emplace_back(a, b, c);
     }
