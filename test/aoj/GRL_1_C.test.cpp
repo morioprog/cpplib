@@ -20,8 +20,8 @@ signed main() {
 
     for (auto& e: g.wf) {
         for (int i = 0; i < N; ++i) {
-            if (e[i] == g.INF) cout << "INF";
-            else               cout << e[i];
+            if (e[i] == GINF<lint>) cout << "INF";
+            else                    cout << e[i];
             if (i != N - 1) cout << ' ';
         }
         cout << endl;

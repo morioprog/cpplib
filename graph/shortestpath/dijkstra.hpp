@@ -6,7 +6,7 @@
 template<typename T>
 vector<T> dijkstra(Graph<T> &g, int frm) {
     using P = pair<T, int>;
-    vector<T> ret(g.V, g.INF);  ret[frm] = 0;
+    vector<T> ret(g.V, GINF<T>);    ret[frm] = 0;
     priority_queue<P, vector<P>, greater<P>> pq;
     pq.emplace(ret[frm], frm);
     while (not pq.empty()) {

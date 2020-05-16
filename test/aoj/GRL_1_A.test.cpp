@@ -15,7 +15,7 @@ signed main() {
 
     auto dij = dijkstra(g, frm);
     for (auto& e: dij) {
-        if (e == g.INF) cout << "INF" << endl;
+        if (e == GINF<lint>)  cout << "INF" << endl;
         else            cout << e << endl;
     }
 

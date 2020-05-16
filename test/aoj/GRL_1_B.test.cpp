@@ -19,7 +19,7 @@ signed main() {
         return 0;
     }
     for (auto& e: bf) {
-        if (e == g.INF) cout << "INF" << endl;
+        if (e == GINF<lint>)  cout << "INF" << endl;
         else            cout << e << endl;
     }
 

@@ -12,20 +12,23 @@ struct Edge {
 };
 
 template<typename T>
+constexpr T GINF = numeric_limits<T>::max() / 10;
+
+template<typename T>
 struct Graph {
-    int V, E;   static const T INF = numeric_limits<T>::max() / 10;
+    int V, E;
     vector<vector<Edge<T>>> mat;
     vector<vector<T>> wf;
     Graph() {}
     Graph(int v) : V(v), E(0), mat(v) {}
     inline void add_edge(int a, int b, T c = 1, int margin = 0) {
-        a -= margin, b -= margin, E += 2;
-        mat[a].emplace_back(a, b, c);
-        mat[b].emplace_back(b, a, c);
+        a -= margin, b -= margin;
+        mat[a].emplace_back(a, b, c, E++);
+        mat[b].emplace_back(b, a, c, E++);
     }
     inline void add_arc(int a, int b, T c = 1, int margin = 0) {
-        a -= margin, b -= margin, E += 1;
-        mat[a].emplace_back(a, b, c);
+        a -= margin, b -= margin;
+        mat[a].emplace_back(a, b, c, E++);
     }
     inline void input_edges(int M, int margin = 0, bool need_cost = false) {
         for (int i = 0; i < M; ++i) {

@@ -18,3 +18,4 @@
   * `need_cost` : コストを受け取るか.
     * `true` : `U V cst`
     * `false` : `U V`
+* `GINF<int>` : グラフアルゴリズムで使う`INF`.
