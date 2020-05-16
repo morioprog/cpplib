@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#0b58406058f6619a0f31a172defc0230">test/yosupo</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/yosupo/vertexaddpathsum.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-16 22:07:22+09:00
+    - Last commit date: 2020-05-16 22:51:55+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/vertex_add_path_sum">https://judge.yosupo.jp/problem/vertex_add_path_sum</a>
@@ -338,6 +338,22 @@ struct Graph {
                 add_arc(a, b, c, margin);
             }
         }
+    }
+    inline int isbipartite() {
+        bool isbi = true;
+        vector<int> color(V, 0);
+        function<void(int, int)> dfs = [&](int i, int clr) {
+            if (color[i] != 0) return;
+            color[i] = clr;
+            for (auto& e: mat[i]) {
+                if (color[e.to] == 0) dfs(e.to, -clr);
+                else if (color[e.to] == clr) isbi = false;
+            }
+        };
+        dfs(0, 1);
+        int cnt = 0;
+        for (auto& e: color) if (e == 1) ++cnt;
+        return isbi ? -1 : cnt;
     }
 };
 #line 1 "graph/tree/hldecomposition.hpp"

@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#f8b0b924ebd7046dbfa85a856e4682c8">graph</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/template.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-16 22:07:22+09:00
+    - Last commit date: 2020-05-16 22:51:55+09:00
 
 
 
@@ -40,23 +40,35 @@ layout: default
 
 グラフのテンプレート.
 
-### 最短経路
+### アルゴリズム
+
+* 二部グラフの判定 : $O(E + V)$
+
+#### 最短経路
 
 * ダイクストラ法 : 単一始点最短路. 辺の重みが非負である必要がある. $O(E\log V)$
 * ベルマンフォード法 : 単一始点最短路. 負閉路検出ができる. $O(EV)$
 * ワーシャルフロイド法 : 全点間最短路. 負閉路検出ができる. $O(V^3)$
   * 辺の追加は$O(V^2)$
 
+#### 最小全域木
+
+* クラスカル法 : UnionFindに依存. $O(E\log V)$
+
 ## 使用例
 
 * `Graph<int> g(V)` : $V$頂点のグラフを定義.
+* `GINF<int>` : グラフアルゴリズムで使う`INF`.
 * `g.input_edges(E, origin, need_cost)` : 標準入力から無向辺を張る.
 * `g.input_arcs(E, origin, need_cost)` : 標準入力から有向辺を張る.
   * `origin` : 辺を何originで受け取るか.
   * `need_cost` : コストを受け取るか.
     * `true` : `U V cst`
     * `false` : `U V`
-* `GINF<int>` : グラフアルゴリズムで使う`INF`.
+* `isbipartite(g)` : 二部グラフの判定.
+  * 返り値の型 : `int`
+    * 二部グラフだったら片方の集合の大きさを返す.
+    * そうでなければ$-1$を返す.
 
 
 ## Verified with
@@ -136,6 +148,22 @@ struct Graph {
             }
         }
     }
+    inline int isbipartite() {
+        bool isbi = true;
+        vector<int> color(V, 0);
+        function<void(int, int)> dfs = [&](int i, int clr) {
+            if (color[i] != 0) return;
+            color[i] = clr;
+            for (auto& e: mat[i]) {
+                if (color[e.to] == 0) dfs(e.to, -clr);
+                else if (color[e.to] == clr) isbi = false;
+            }
+        };
+        dfs(0, 1);
+        int cnt = 0;
+        for (auto& e: color) if (e == 1) ++cnt;
+        return isbi ? -1 : cnt;
+    }
 };
 
 ```
@@ -202,6 +230,22 @@ struct Graph {
                 add_arc(a, b, c, margin);
             }
         }
+    }
+    inline int isbipartite() {
+        bool isbi = true;
+        vector<int> color(V, 0);
+        function<void(int, int)> dfs = [&](int i, int clr) {
+            if (color[i] != 0) return;
+            color[i] = clr;
+            for (auto& e: mat[i]) {
+                if (color[e.to] == 0) dfs(e.to, -clr);
+                else if (color[e.to] == clr) isbi = false;
+            }
+        };
+        dfs(0, 1);
+        int cnt = 0;
+        for (auto& e: color) if (e == 1) ++cnt;
+        return isbi ? -1 : cnt;
     }
 };
 
