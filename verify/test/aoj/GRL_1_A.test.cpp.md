@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#0d0c91c0cca30af9c1c9faef0cf04aa9">test/aoj</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/aoj/GRL_1_A.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-05 10:33:15+09:00
+    - Last commit date: 2020-05-16 22:07:22+09:00
 
 
 * see: <a href="https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/1/GRL_1_A">https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/1/GRL_1_A</a>
@@ -66,7 +66,7 @@ signed main() {
 
     auto dij = dijkstra(g, frm);
     for (auto& e: dij) {
-        if (e == g.INF) cout << "INF" << endl;
+        if (e == GINF<lint>)  cout << "INF" << endl;
         else            cout << e << endl;
     }
 
@@ -215,20 +215,23 @@ struct Edge {
 };
 
 template<typename T>
+constexpr T GINF = numeric_limits<T>::max() / 10;
+
+template<typename T>
 struct Graph {
-    int V, E;   static const T INF = numeric_limits<T>::max() / 10;
+    int V, E;
     vector<vector<Edge<T>>> mat;
     vector<vector<T>> wf;
     Graph() {}
     Graph(int v) : V(v), E(0), mat(v) {}
     inline void add_edge(int a, int b, T c = 1, int margin = 0) {
-        a -= margin, b -= margin, E += 2;
-        mat[a].emplace_back(a, b, c);
-        mat[b].emplace_back(b, a, c);
+        a -= margin, b -= margin;
+        mat[a].emplace_back(a, b, c, E++);
+        mat[b].emplace_back(b, a, c, E++);
     }
     inline void add_arc(int a, int b, T c = 1, int margin = 0) {
-        a -= margin, b -= margin, E += 1;
-        mat[a].emplace_back(a, b, c);
+        a -= margin, b -= margin;
+        mat[a].emplace_back(a, b, c, E++);
     }
     inline void input_edges(int M, int margin = 0, bool need_cost = false) {
         for (int i = 0; i < M; ++i) {
@@ -266,7 +269,7 @@ struct Graph {
 template<typename T>
 vector<T> dijkstra(Graph<T> &g, int frm) {
     using P = pair<T, int>;
-    vector<T> ret(g.V, g.INF);  ret[frm] = 0;
+    vector<T> ret(g.V, GINF<T>);    ret[frm] = 0;
     priority_queue<P, vector<P>, greater<P>> pq;
     pq.emplace(ret[frm], frm);
     while (not pq.empty()) {
@@ -295,7 +298,7 @@ signed main() {
 
     auto dij = dijkstra(g, frm);
     for (auto& e: dij) {
-        if (e == g.INF) cout << "INF" << endl;
+        if (e == GINF<lint>)  cout << "INF" << endl;
         else            cout << e << endl;
     }
 

@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#f8b0b924ebd7046dbfa85a856e4682c8">graph</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/template.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-05 10:33:15+09:00
+    - Last commit date: 2020-05-16 22:07:22+09:00
 
 
 
@@ -56,6 +56,7 @@ layout: default
   * `need_cost` : コストを受け取るか.
     * `true` : `U V cst`
     * `false` : `U V`
+* `GINF<int>` : グラフアルゴリズムで使う`INF`.
 
 
 ## Verified with
@@ -91,20 +92,23 @@ struct Edge {
 };
 
 template<typename T>
+constexpr T GINF = numeric_limits<T>::max() / 10;
+
+template<typename T>
 struct Graph {
-    int V, E;   static const T INF = numeric_limits<T>::max() / 10;
+    int V, E;
     vector<vector<Edge<T>>> mat;
     vector<vector<T>> wf;
     Graph() {}
     Graph(int v) : V(v), E(0), mat(v) {}
     inline void add_edge(int a, int b, T c = 1, int margin = 0) {
-        a -= margin, b -= margin, E += 2;
-        mat[a].emplace_back(a, b, c);
-        mat[b].emplace_back(b, a, c);
+        a -= margin, b -= margin;
+        mat[a].emplace_back(a, b, c, E++);
+        mat[b].emplace_back(b, a, c, E++);
     }
     inline void add_arc(int a, int b, T c = 1, int margin = 0) {
-        a -= margin, b -= margin, E += 1;
-        mat[a].emplace_back(a, b, c);
+        a -= margin, b -= margin;
+        mat[a].emplace_back(a, b, c, E++);
     }
     inline void input_edges(int M, int margin = 0, bool need_cost = false) {
         for (int i = 0; i < M; ++i) {
@@ -155,20 +159,23 @@ struct Edge {
 };
 
 template<typename T>
+constexpr T GINF = numeric_limits<T>::max() / 10;
+
+template<typename T>
 struct Graph {
-    int V, E;   static const T INF = numeric_limits<T>::max() / 10;
+    int V, E;
     vector<vector<Edge<T>>> mat;
     vector<vector<T>> wf;
     Graph() {}
     Graph(int v) : V(v), E(0), mat(v) {}
     inline void add_edge(int a, int b, T c = 1, int margin = 0) {
-        a -= margin, b -= margin, E += 2;
-        mat[a].emplace_back(a, b, c);
-        mat[b].emplace_back(b, a, c);
+        a -= margin, b -= margin;
+        mat[a].emplace_back(a, b, c, E++);
+        mat[b].emplace_back(b, a, c, E++);
     }
     inline void add_arc(int a, int b, T c = 1, int margin = 0) {
-        a -= margin, b -= margin, E += 1;
-        mat[a].emplace_back(a, b, c);
+        a -= margin, b -= margin;
+        mat[a].emplace_back(a, b, c, E++);
     }
     inline void input_edges(int M, int margin = 0, bool need_cost = false) {
         for (int i = 0; i < M; ++i) {

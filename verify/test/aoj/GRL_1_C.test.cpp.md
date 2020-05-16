@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#0d0c91c0cca30af9c1c9faef0cf04aa9">test/aoj</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/aoj/GRL_1_C.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-05 10:33:15+09:00
+    - Last commit date: 2020-05-16 22:07:22+09:00
 
 
 * see: <a href="https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/1/GRL_1_C">https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/1/GRL_1_C</a>
@@ -71,8 +71,8 @@ signed main() {
 
     for (auto& e: g.wf) {
         for (int i = 0; i < N; ++i) {
-            if (e[i] == g.INF) cout << "INF";
-            else               cout << e[i];
+            if (e[i] == GINF<lint>) cout << "INF";
+            else                    cout << e[i];
             if (i != N - 1) cout << ' ';
         }
         cout << endl;
@@ -223,20 +223,23 @@ struct Edge {
 };
 
 template<typename T>
+constexpr T GINF = numeric_limits<T>::max() / 10;
+
+template<typename T>
 struct Graph {
-    int V, E;   static const T INF = numeric_limits<T>::max() / 10;
+    int V, E;
     vector<vector<Edge<T>>> mat;
     vector<vector<T>> wf;
     Graph() {}
     Graph(int v) : V(v), E(0), mat(v) {}
     inline void add_edge(int a, int b, T c = 1, int margin = 0) {
-        a -= margin, b -= margin, E += 2;
-        mat[a].emplace_back(a, b, c);
-        mat[b].emplace_back(b, a, c);
+        a -= margin, b -= margin;
+        mat[a].emplace_back(a, b, c, E++);
+        mat[b].emplace_back(b, a, c, E++);
     }
     inline void add_arc(int a, int b, T c = 1, int margin = 0) {
-        a -= margin, b -= margin, E += 1;
-        mat[a].emplace_back(a, b, c);
+        a -= margin, b -= margin;
+        mat[a].emplace_back(a, b, c, E++);
     }
     inline void input_edges(int M, int margin = 0, bool need_cost = false) {
         for (int i = 0; i < M; ++i) {
@@ -273,11 +276,11 @@ struct Graph {
 
 template<typename T>
 bool warshallfloyd(Graph<T> &g) {
-    g.wf.assign(g.V, vector<T>(g.V, g.INF));
+    g.wf.assign(g.V, vector<T>(g.V, GINF<T>));
     for (int i = 0; i < g.V; ++i) g.wf[i][i] = 0;
     for (int i = 0; i < g.V; ++i) for (auto& e: g.mat[i]) g.wf[e.frm][e.to] = min(g.wf[e.frm][e.to], e.cst);
     for (int k = 0; k < g.V; ++k) for (int i = 0; i < g.V; ++i) for (int j = 0; j < g.V; ++j) {
-        if (g.wf[i][k] != g.INF and g.wf[k][j] != g.INF) g.wf[i][j] = min(g.wf[i][j], g.wf[i][k] + g.wf[k][j]);
+        if (g.wf[i][k] != GINF<T> and g.wf[k][j] != GINF<T>) g.wf[i][j] = min(g.wf[i][j], g.wf[i][k] + g.wf[k][j]);
     }
     bool hasnegcycle = false;
     for (int i = 0; i < g.V; ++i) hasnegcycle |= g.wf[i][i] < 0;
@@ -290,7 +293,7 @@ void warshallfloyd_update(Graph<T> &g, int frm, int to, T cst) {
     g.wf[frm][to] = cst;
     for (int i = 0; i < g.V; ++i) {
         for (int j = 0; j < g.V; ++j) {
-            if (g.wf[i][frm] != g.INF and g.wf[frm][j] != g.INF) {
+            if (g.wf[i][frm] != GINF<T> and g.wf[frm][j] != GINF<T>) {
                 g.wf[i][j] = min(g.wf[i][j], g.wf[i][frm] + g.wf[frm][j]);
             }
         }
@@ -327,8 +330,8 @@ signed main() {
 
     for (auto& e: g.wf) {
         for (int i = 0; i < N; ++i) {
-            if (e[i] == g.INF) cout << "INF";
-            else               cout << e[i];
+            if (e[i] == GINF<lint>) cout << "INF";
+            else                    cout << e[i];
             if (i != N - 1) cout << ' ';
         }
         cout << endl;
