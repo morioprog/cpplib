@@ -69,6 +69,10 @@
     - name: オイラーのトーシェント関数
       prefix: [math, prime, totient, phi]
       path: math/prime/euler_totient.hpp
+  - 行列:
+    - name: 行列
+      prefix: [math, matrix]
+      path: math/matrix/matrix.hpp
   - name: 拡張ユークリッドの互除法
     prefix: [math, extgcd]
     path: math/extgcd.hpp
