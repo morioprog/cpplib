@@ -56,20 +56,21 @@ struct Graph {
             }
         }
     }
-    inline int isbipartite() {
+    inline bool isbipartite() {
         bool isbi = true;
         vector<int> color(V, 0);
-        function<void(int, int)> dfs = [&](int i, int clr) {
+        auto dfs = [&](auto &&f, int i, int clr) -> void {
             if (color[i] != 0) return;
             color[i] = clr;
             for (auto& e: mat[i]) {
-                if (color[e.to] == 0) dfs(e.to, -clr);
-                else if (color[e.to] == clr) isbi = false;
+                /* */if (color[e.to] == 0)      f(f, e.to, -clr);
+                else if (color[e.to] == clr)    isbi = false;
             }
         };
-        dfs(0, 1);
-        int cnt = 0;
-        for (auto& e: color) if (e == 1) ++cnt;
-        return isbi ? -1 : cnt;
+        dfs(dfs, 0, 1);
+        return isbi;
+        // int cnt = 0;
+        // for (auto& e: color) if (e == 1) ++cnt;
+        // return isbi ? -1 : cnt;
     }
 };
