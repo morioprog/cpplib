@@ -25,23 +25,22 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/yosupo/vertexaddpathsum.test.cpp
+# :heavy_check_mark: test/yosupo/determinantofmatrix.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#0b58406058f6619a0f31a172defc0230">test/yosupo</a>
-* <a href="{{ site.github.repository_url }}/blob/master/test/yosupo/vertexaddpathsum.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-17 15:13:29+09:00
+* <a href="{{ site.github.repository_url }}/blob/master/test/yosupo/determinantofmatrix.test.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-05-17 15:54:03+09:00
 
 
-* see: <a href="https://judge.yosupo.jp/problem/vertex_add_path_sum">https://judge.yosupo.jp/problem/vertex_add_path_sum</a>
+* see: <a href="https://judge.yosupo.jp/problem/matrix_det">https://judge.yosupo.jp/problem/matrix_det</a>
 
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../../library/datastructure/segmenttree/segmenttree.hpp.html">セグメント木 <small>(datastructure/segmenttree/segmenttree.hpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/graph/template.hpp.html">グラフテンプレート <small>(graph/template.hpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/graph/tree/hldecomposition.hpp.html">HL分解 <small>(graph/tree/hldecomposition.hpp)</small></a>
+* :heavy_check_mark: <a href="../../../library/math/matrix/matrix.hpp.html">Matrix (行列) <small>(math/matrix/matrix.hpp)</small></a>
+* :heavy_check_mark: <a href="../../../library/math/modint.hpp.html">ModInt <small>(math/modint.hpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/template/main.hpp.html">template/main.hpp</a>
 
 
@@ -50,50 +49,23 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "https://judge.yosupo.jp/problem/vertex_add_path_sum"
+#define PROBLEM "https://judge.yosupo.jp/problem/matrix_det"
 
 #include "../../template/main.hpp"
-#include "../../datastructure/segmenttree/segmenttree.hpp"
-#include "../../graph/template.hpp"
-#include "../../graph/tree/hldecomposition.hpp"
+#include "../../math/modint.hpp"
+#include "../../math/matrix/matrix.hpp"
+
+using mint = ModInt<998244353>;
 
 signed main() {
 
-    int N, Q;
-    cin >> N >> Q;
+    int N;
+    cin >> N;
+    
+    Matrix<mint> mat(N);
+    cin >> mat;
 
-    using lint = long long;
-    vector<lint> A(N);
-    for (auto& e: A) cin >> e;
-
-    HLDecomposition<lint> hld(N);
-    hld.input_edges(N - 1, 0, false);
-    hld.build();
-
-    vector<lint> B(N);
-    for (int i = 0; i < N; ++i) B[hld.get(i)] = A[i];
-    SegmentTree<lint> seg(B, [](lint a, lint b){ return a + b; }, 0LL);
-
-    auto query = [&](int u, int v) -> lint {
-        lint ret = 0;
-        auto prs = hld.get_path(u, v);
-        for (auto& e: prs) {
-            ret += seg.query(e.first, e.second);
-        }
-        return ret;
-    };
-
-    auto update = [&](int u, lint n) -> void {
-        int idx = hld.get(u);
-        seg.add(idx, n);
-    };
-
-    while (Q--) {
-        int t, a, b;
-        cin >> t >> a >> b;
-        if (t == 0) update(a, b);
-        else        cout << query(a, b) << endl;
-    }
+    cout << mat.determinant() << endl;
 
 }
 
@@ -103,8 +75,8 @@ signed main() {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "test/yosupo/vertexaddpathsum.test.cpp"
-#define PROBLEM "https://judge.yosupo.jp/problem/vertex_add_path_sum"
+#line 1 "test/yosupo/determinantofmatrix.test.cpp"
+#define PROBLEM "https://judge.yosupo.jp/problem/matrix_det"
 
 #line 1 "template/main.hpp"
 // #pragma GCC target ("avx")
@@ -225,254 +197,226 @@ struct abracadabra {
 } ABRACADABRA;
 
 #pragma endregion
-#line 1 "datastructure/segmenttree/segmenttree.hpp"
+#line 1 "math/modint.hpp"
 /**
-* @brief セグメント木
-* @docs docs/datastructure/segmenttree/segmenttree.md
+ * @brief ModInt
+ * @docs docs/math/modint.md
+ */
+
+template< int MODULO > struct ModInt {
+    using i32 = int;
+    using i64 = long long;
+    using u32 = unsigned int;
+    using u64 = unsigned long long;
+    u64 x; ModInt() : x(0) {}
+    ModInt(i64 y) : x(set(y % MODULO + MODULO)) {}
+    static u64 set(const i64 &y) { return (y < MODULO) ? y : y - MODULO; }
+    ModInt operator+(const ModInt &m) const { return ModInt(set(x + m.x)); }
+    ModInt operator-(const ModInt &m) const { return ModInt(set(x + MODULO - m.x)); }
+    ModInt operator*(const ModInt &m) const { return ModInt(x * m.x % MODULO); }
+    ModInt operator/(const ModInt &m) const { return ModInt(x) * ~ModInt(m.x); }
+    ModInt &operator+=(const ModInt &m) { return *this = *this + m; }
+    ModInt &operator-=(const ModInt &m) { return *this = *this - m; }
+    ModInt &operator*=(const ModInt &m) { return *this = *this * m; }
+    ModInt &operator/=(const ModInt &m) { return *this = *this / m; }
+    ModInt &operator^=(const u64 &y) { return *this = *this ^ y; }
+    ModInt operator~ () const { return *this ^ (MODULO - 2); }
+    ModInt operator- () const { return ModInt(set(MODULO - x)); }
+    ModInt operator! () const { return getFact(u32(*this)); }
+    ModInt operator& () const { return getFinv(u32(*this)); }
+    ModInt operator++() { return *this = ModInt(set(x + 1)); }
+    ModInt operator--() { return *this = ModInt(set(x + MODULO - 1)); }
+    bool operator==(const ModInt &m) const { return x == m.x; }
+    bool operator!=(const ModInt &m) const { return x != m.x; }
+    bool operator< (const ModInt &m) const { return x <  m.x; }
+    bool operator<=(const ModInt &m) const { return x <= m.x; }
+    bool operator> (const ModInt &m) const { return x >  m.x; }
+    bool operator>=(const ModInt &m) const { return x >= m.x; }
+    explicit operator u64() const { return x; }
+    ModInt operator^(u64 y) const {
+        u64 t = x, u = 1;
+        while (y) { if (y & 1) (u *= t) %= MODULO; (t *= t) %= MODULO; y >>= 1; }
+        return ModInt(u);
+    }
+    friend ostream &operator<<(ostream &os, const ModInt< MODULO > &m) { return os << m.x; }
+    friend istream &operator>>(istream &is, ModInt< MODULO > &m) { u64 y; is >> y; m = ModInt(y); return is; }
+    static vector< ModInt > fact, finv, invs;
+    static void init(u32 n) {
+        u32 m = fact.size();
+        if (n < m) return;
+        fact.resize(n + 1, 1);
+        finv.resize(n + 1, 1);
+        invs.resize(n + 1, 1);
+        if (m == 0) m = 1;
+        for (u32 i = m; i <= n; ++i) fact[i] = fact[i - 1] * ModInt(i);
+        finv[n] = ModInt(1) / fact[n];
+        for (u32 i = n; i >= m; --i) finv[i - 1] = finv[i] * ModInt(i);
+        for (u32 i = m; i <= n; ++i) invs[i] = finv[i] * fact[i - 1];
+    }
+    static ModInt getFact(u32 n) { init(n); return fact[n]; }
+    static ModInt getFinv(u32 n) { init(n); return finv[n]; }
+    static ModInt getInvs(u32 n) { init(n); return invs[n]; }
+    static ModInt C(i64 n, i64 r) {
+        if (r == 0) return ModInt(1);
+        if (r <  0) return ModInt(0);
+        if (n <  0) return ModInt(r & 1 ? MODULO - 1 : 1) * C(-n + r - 1, r);
+        if (n == 0 || n < r) return ModInt(0);
+        init(n);
+        return fact[n] * finv[n - r] * finv[r];
+    }
+    static ModInt P(i64 n, i64 r) {
+        if (n < r || r < 0) return ModInt(0);
+        init(n);
+        return fact[n] * finv[n - r];
+    }
+    static ModInt H(i64 n, i64 r) {
+        if (n < 0 || r < 0) return ModInt(0);
+        if (!n && !r) return ModInt(1);
+        init(n + r - 1);
+        return C(n + r - 1, r);
+    }
+    static ModInt montmort(u32 n) {
+        ModInt res;
+        init(n);
+        for (u32 k = 2; k <= n; ++k) {
+            if (k & 1) res -= finv[k];
+            else res += finv[k];
+        }
+        return res *= fact[n];
+    }
+    static ModInt LagrangePolynomial(vector<ModInt> &y, i64 t) {
+        u32 n = y.size() - 1;
+        if (t <= n) return y[t];
+        init(n + 1);
+        ModInt res, num(1);
+        for (int i = 0; i <= n; ++i) num *= ModInt(t - i);
+        for (int i = 0; i <= n; ++i) {
+            ModInt tmp = y[i] * num / (ModInt(t - i)) * finv[i] * finv[n - i];
+            if ((n - i) & 1) res -= tmp;
+            else res += tmp;
+        }
+        return res;
+    }
+};
+template< int MODULO > vector<ModInt< MODULO >> ModInt< MODULO >::fact = vector<ModInt< MODULO >>();
+template< int MODULO > vector<ModInt< MODULO >> ModInt< MODULO >::finv = vector<ModInt< MODULO >>();
+template< int MODULO > vector<ModInt< MODULO >> ModInt< MODULO >::invs = vector<ModInt< MODULO >>();
+constexpr int MODULO = (int)1e9 + 7;
+using modint = ModInt< MODULO >;
+#line 1 "math/matrix/matrix.hpp"
+/**
+* @brief Matrix (行列)
+* @docs docs/math/matrix/matrix.md
 */
 
-template<typename T> struct SegmentTree {
-    using F = function<T(T, T)>;
-    vector<T> seg;
-    int sz;
-    const F func;
-    const T IDENT;
-    SegmentTree() {}
-    SegmentTree(int n, const F f, const T &ID) : func(f), IDENT(ID) {
-        sz = 1; while (sz < n) sz <<= 1;
-        seg.assign(2 * sz - 1, IDENT);
+template<typename T>
+struct Matrix {
+    vector<vector<T>> A;
+    Matrix() {}
+    Matrix(size_t n, size_t m) : A(n, vector<T>(m, 0)) {}
+    Matrix(size_t n) : A(n, vector<T>(n, 0)) {}
+    size_t height() const { return A.size(); }
+    size_t  width() const { assert(height() > 0); return A[0].size(); }
+    inline const vector<T> &operator[](int k) const { return A.at(k); }
+    inline       vector<T> &operator[](int k)       { return A.at(k); }
+    static Matrix I(size_t n) {
+        Matrix mat(n);
+        for (int i = 0; i < n; ++i) mat[i][i] = 1;
+        return mat;
     }
-    SegmentTree(vector<T> v, const F f, const T &ID) : func(f), IDENT(ID) {
-        int n = v.size();
-        sz = 1; while (sz < n) sz <<= 1;
-        seg.assign(2 * sz - 1, IDENT);
-        for (int i = 0; i < n; ++i) seg[i + sz - 1] = v[i];
-        for (int i = sz - 2; i >= 0; --i) seg[i] = func(seg[2 * i + 1], seg[2 * i + 2]);
+    Matrix& operator+=(const Matrix &B) {
+        size_t n = height(), m = width();
+        assert(n == B.height() and m == B.width());
+        for (int i = 0; i < n; ++i)
+            for (int j = 0; j < m; ++j)
+                (*this)[i][j] += B[i][j];
+        return *this;
     }
-    void update(int k, T x) {
-        k += sz - 1;
-        seg[k] = x;
+    Matrix& operator-=(const Matrix &B) {
+        size_t n = height(), m = width();
+        assert(n == B.height() and m == B.width());
+        for (int i = 0; i < n; ++i)
+            for (int j = 0; j < m; ++j)
+                (*this)[i][j] -= B[i][j];
+        return *this;
+    }
+    Matrix& operator*=(const Matrix &B) {
+        size_t n = height(), m = B.width(), p = width();
+        assert(p == B.height());
+        vector<vector<T>> C(n, vector<T>(m, 0));
+        for (int i = 0; i < n; ++i)
+            for (int j = 0; j < m; ++j)
+                for (int k = 0; k < p; ++k)
+                    C[i][j] += (*this)[i][k] * B[k][j];
+        A.swap(C);
+        return *this;
+    }
+    Matrix& operator^=(long long k) {
+        Matrix B = Matrix::I(height());
         while (k > 0) {
-            k = (k - 1) / 2;
-            seg[k] = func(seg[2 * k + 1], seg[2 * k + 2]);
+            if (k & 1) B *= *this;
+            *this *= *this;
+            k >>= 1LL;
         }
+        A.swap(B.A);
+        return *this;
     }
-    void add(int k, T x) {
-        k += sz - 1;
-        seg[k] += x;
-        while (k > 0) {
-            k = (k - 1) / 2;
-            seg[k] = func(seg[2 * k + 1], seg[2 * k + 2]);
-        }
-    }
-    T query(int a, int b, int k = 0, int l = 0, int r = -1) {
-        if (r < 0) r = sz;
-        if (r <= a || l >= b) return IDENT;
-        if (l >= a && r <= b) return seg[k];
-        T f_l = query(a, b, 2 * k + 1, l, (l + r) / 2);
-        T f_r = query(a, b, 2 * k + 2, (l + r) / 2, r);
-        return func(f_l, f_r);
-    }
-    void print() {
-        for (int i = 0; i < 2 * sz - 1; ++i) {
-            cerr << seg[i] << ' ';
-            if (!((i + 2) & (i + 1))) cerr << endl;
-        }
-    }
-};
-#line 1 "graph/template.hpp"
-/**
-* @brief グラフテンプレート
-* @docs docs/graph/template.md
-*/
-
-template<typename T>
-struct Edge {
-    int frm, to, idx;   T cst;
-    Edge() {}
-    Edge(int f, int t, T c, int i = -1) : frm(f), to(t), cst(c), idx(i) {}
-    operator int() const { return to; }
-};
-
-template<typename T>
-constexpr T GINF = numeric_limits<T>::max() / 10;
-
-template<typename T>
-struct Graph {
-    int V, E;
-    vector<vector<Edge<T>>> mat;
-    vector<vector<T>> wf;
-    Graph() {}
-    Graph(int v) : V(v), E(0), mat(v) {}
-    inline void add_edge(int a, int b, T c = 1, int margin = 0) {
-        a -= margin, b -= margin;
-        mat[a].emplace_back(a, b, c, E++);
-        mat[b].emplace_back(b, a, c, E++);
-    }
-    inline void add_arc(int a, int b, T c = 1, int margin = 0) {
-        a -= margin, b -= margin;
-        mat[a].emplace_back(a, b, c, E++);
-    }
-    inline void input_edges(int M, int margin = 0, bool need_cost = false) {
-        for (int i = 0; i < M; ++i) {
-            if (need_cost) {
-                int a, b;   T c;
-                cin >> a >> b >> c;
-                add_edge(a, b, c, margin);
-            } else {
-                int a, b;   T c(1);
-                cin >> a >> b;
-                add_edge(a, b, c, margin);
+    Matrix operator+(const Matrix &B) const { return (Matrix(*this) += B); }
+    Matrix operator-(const Matrix &B) const { return (Matrix(*this) -= B); }
+    Matrix operator*(const Matrix &B) const { return (Matrix(*this) *= B); }
+    Matrix operator^(const long long k) const { return (Matrix(*this) ^= k); }
+    friend istream &operator>>(istream &is, Matrix &p) {
+        size_t n = p.height(), m = p.width();
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < m; ++j) {
+                is >> p[i][j];
             }
         }
+        return is;
     }
-    inline void input_arcs(int M, int margin = 0, bool need_cost = false) {
-        for (int i = 0; i < M; ++i) {
-            if (need_cost) {
-                int a, b;   T c;
-                cin >> a >> b >> c;
-                add_arc(a, b, c, margin);
-            } else {
-                int a, b;   T c(1);
-                cin >> a >> b;
-                add_arc(a, b, c, margin);
+    friend ostream &operator<<(ostream &os, Matrix &p) {
+        size_t n = p.height(), m = p.width();
+        for (int i = 0; i < n; ++i) {
+            os << '[';
+            for (int j = 0; j < m; ++j) {
+                os << p[i][j] << (j + 1 == m ? "]\n" : ", ");
             }
         }
+        return os;
     }
-    inline bool is_bipartite() {
-        bool isbi = true;
-        vector<int> color(V, 0);
-        auto dfs = [&](auto &&f, int i, int clr) -> void {
-            if (color[i] != 0) return;
-            color[i] = clr;
-            for (auto& e: mat[i]) {
-                /* */if (color[e.to] == 0)      f(f, e.to, -clr);
-                else if (color[e.to] == clr)    isbi = false;
+    T determinant() {
+        Matrix B(*this);
+        assert(width() == height());
+        T ret = 1;
+        for (int i = 0; i < width(); ++i) {
+            int idx = -1;
+            for (int j = i; j < width(); ++j) if (B[j][i] != 0) idx = j;
+            if (idx == -1) return T(0);
+            if (i != idx) { ret *= -1; swap(B[i], B[idx]); }
+            ret *= B[i][i];
+            T vv = B[i][i];
+            for (int j = 0; j < width(); ++j) B[i][j] /= vv;
+            for (int j = i + 1; j < width(); ++j) {
+                T a = B[j][i];
+                for (int k = 0; k < width(); ++k) B[j][k] -= B[i][k] * a;
             }
-        };
-        dfs(dfs, 0, 1);
-        return isbi;
-        // int cnt = 0;
-        // for (auto& e: color) if (e == 1) ++cnt;
-        // return isbi ? -1 : cnt;
+        }
+        return ret;
     }
 };
-#line 1 "graph/tree/hldecomposition.hpp"
-/**
-* @brief HL分解
-* @docs docs/graph/tree/hldecomposition.md
-*/
+#line 6 "test/yosupo/determinantofmatrix.test.cpp"
 
-template<typename T>
-struct HLDecomposition : Graph<T> {
-    using Graph<T>::Graph;
-    using Graph<T>::mat;
-    using Graph<T>::V;
-    vector<int> sub, dep, par, head, in, out, rev;
-    vector<T> dst;
-    void build(const int root = 0) {
-        sub.assign(V, 0);
-        dep.assign(V, 0);
-        par.assign(V, 0);
-        head.assign(V, 0);
-        in.assign(V, 0);
-        out.assign(V, 0);
-        rev.assign(V, 0);
-        dst.assign(V, T(0));
-        dfs_sz(root, -1, 0, T(0));
-        int t = 0;
-        dfs_hld(root, -1, t);
-    }
-    int get(int u) const { return in[u]; }
-    int lca(int u, int v) const {
-        for (;; v = par[head[v]]) {
-            // uよりもvを後に来るようにして, vを上に押し上げていく
-            if (in[u] > in[v]) swap(u, v);
-            if (head[u] == head[v]) return u;
-        }
-    }
-    T dist(int u, int v) const {
-        return dst[u] + dst[v] - 2 * dst[lca(u, v)];
-    }
-    pair<int, int> get_subtree(int u, bool isEdge = false) const {
-        return make_pair(in[u] + isEdge, out[u]);
-    }
-    vector<pair<int, int>> get_path(int u, int v, bool isEdge = false) {
-        vector<pair<int, int>> ret;
-        for(;; v = par[head[v]]) {
-			if (in[u] > in[v]) swap(u, v);
-			if (head[u] == head[v]) break;
-			ret.emplace_back(in[head[v]], in[v] + 1);
-		}
-		ret.emplace_back(in[u] + isEdge, in[v] + 1);
-		return ret;
-    }
-    void dfs_sz(int cur, int prv, int depth, T weight) {
-        sub[cur] = 1;
-        dep[cur] = depth;
-        par[cur] = prv;
-        dst[cur] = weight;
-        // 0番目をheavy-pathにするための比較対象を設定
-        if (mat[cur].size() && mat[cur][0] == prv)
-            swap(mat[cur][0], mat[cur].back());
-        for (auto& nxt : mat[cur]) {
-            if (nxt == prv) continue;
-            dfs_sz(nxt, cur, depth + 1, weight + nxt.cst);
-            sub[cur] += sub[nxt];
-            if (sub[mat[cur][0]] < sub[nxt]) swap(mat[cur][0], nxt);
-        }
-    }
-    void dfs_hld(int cur, int prv, int& times) {
-        in[cur] = times++;
-        rev[in[cur]] = cur;
-        for (auto& nxt : mat[cur]) {
-            if (nxt == prv) continue;
-            // cur-nxtがheavy-path上ならheadは同じ
-            head[nxt] = mat[cur][0] == nxt ? head[cur] : nxt;
-            dfs_hld(nxt, cur, times);
-        }
-        out[cur] = times;
-    }
-};
-#line 7 "test/yosupo/vertexaddpathsum.test.cpp"
+using mint = ModInt<998244353>;
 
 signed main() {
 
-    int N, Q;
-    cin >> N >> Q;
+    int N;
+    cin >> N;
+    
+    Matrix<mint> mat(N);
+    cin >> mat;
 
-    using lint = long long;
-    vector<lint> A(N);
-    for (auto& e: A) cin >> e;
-
-    HLDecomposition<lint> hld(N);
-    hld.input_edges(N - 1, 0, false);
-    hld.build();
-
-    vector<lint> B(N);
-    for (int i = 0; i < N; ++i) B[hld.get(i)] = A[i];
-    SegmentTree<lint> seg(B, [](lint a, lint b){ return a + b; }, 0LL);
-
-    auto query = [&](int u, int v) -> lint {
-        lint ret = 0;
-        auto prs = hld.get_path(u, v);
-        for (auto& e: prs) {
-            ret += seg.query(e.first, e.second);
-        }
-        return ret;
-    };
-
-    auto update = [&](int u, lint n) -> void {
-        int idx = hld.get(u);
-        seg.add(idx, n);
-    };
-
-    while (Q--) {
-        int t, a, b;
-        cin >> t >> a >> b;
-        if (t == 0) update(a, b);
-        else        cout << query(a, b) << endl;
-    }
+    cout << mat.determinant() << endl;
 
 }
 

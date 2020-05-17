@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#f8b0b924ebd7046dbfa85a856e4682c8">graph</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/template.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-17 14:45:52+09:00
+    - Last commit date: 2020-05-17 15:13:29+09:00
 
 
 
@@ -65,7 +65,7 @@ layout: default
   * `need_cost` : コストを受け取るか.
     * `true` : `U V cst`
     * `false` : `U V`
-* `isbipartite(g)` : 二部グラフの判定.
+* `is_bipartite(g)` : 二部グラフの判定.
   * 片方の集合の大きさが欲しかったら, 適宜コメントを外す.
 
 
@@ -146,7 +146,7 @@ struct Graph {
             }
         }
     }
-    inline bool isbipartite() {
+    inline bool is_bipartite() {
         bool isbi = true;
         vector<int> color(V, 0);
         auto dfs = [&](auto &&f, int i, int clr) -> void {
@@ -230,7 +230,7 @@ struct Graph {
             }
         }
     }
-    inline bool isbipartite() {
+    inline bool is_bipartite() {
         bool isbi = true;
         vector<int> color(V, 0);
         auto dfs = [&](auto &&f, int i, int clr) -> void {

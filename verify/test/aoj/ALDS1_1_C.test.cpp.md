@@ -25,22 +25,21 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/aoj/GRL_5_C.test.cpp
+# :heavy_check_mark: test/aoj/ALDS1_1_C.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#0d0c91c0cca30af9c1c9faef0cf04aa9">test/aoj</a>
-* <a href="{{ site.github.repository_url }}/blob/master/test/aoj/GRL_5_C.test.cpp">View this file on GitHub</a>
+* <a href="{{ site.github.repository_url }}/blob/master/test/aoj/ALDS1_1_C.test.cpp">View this file on GitHub</a>
     - Last commit date: 2020-05-17 15:13:29+09:00
 
 
-* see: <a href="https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/5/GRL_5_C">https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/5/GRL_5_C</a>
+* see: <a href="https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/all/ALDS1_1_C">https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/all/ALDS1_1_C</a>
 
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../../library/graph/template.hpp.html">グラフテンプレート <small>(graph/template.hpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/graph/tree/hldecomposition.hpp.html">HL分解 <small>(graph/tree/hldecomposition.hpp)</small></a>
+* :heavy_check_mark: <a href="../../../library/math/prime/is_prime.hpp.html">素数判定 <small>(math/prime/is_prime.hpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/template/main.hpp.html">template/main.hpp</a>
 
 
@@ -49,35 +48,24 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/5/GRL_5_C"
+#define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/all/ALDS1_1_C"
 
 #include "../../template/main.hpp"
-#include "../../graph/template.hpp"
-#include "../../graph/tree/hldecomposition.hpp"
+#include "../../math/prime/is_prime.hpp"
 
 signed main() {
 
     int N;
     cin >> N;
 
-    HLDecomposition<int> hld(N);
-    for (int i = 0; i < N; ++i) {
-        int K;  cin >> K;
-        for (int j = 0; j < K; ++j) {
-            int C; cin >> C;
-            hld.add_edge(i, C);
-        }
+    int res = 0;
+    while (N--) {
+        int X;
+        cin >> X;
+        res += is_prime(X);
     }
-    hld.build();
 
-    int Q;
-    cin >> Q;
-
-    while (Q--) {
-        int U, V;
-        cin >> U >> V;
-        cout << hld.lca(U, V) << endl;
-    }
+    cout << res << endl;
 
 }
 
@@ -87,8 +75,8 @@ signed main() {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "test/aoj/GRL_5_C.test.cpp"
-#define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/5/GRL_5_C"
+#line 1 "test/aoj/ALDS1_1_C.test.cpp"
+#define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/all/ALDS1_1_C"
 
 #line 1 "template/main.hpp"
 // #pragma GCC target ("avx")
@@ -209,185 +197,32 @@ struct abracadabra {
 } ABRACADABRA;
 
 #pragma endregion
-#line 1 "graph/template.hpp"
+#line 1 "math/prime/is_prime.hpp"
 /**
-* @brief グラフテンプレート
-* @docs docs/graph/template.md
-*/
+ * @brief 素数判定
+ * @docs docs/math/prime/is_prime.md
+ */
 
-template<typename T>
-struct Edge {
-    int frm, to, idx;   T cst;
-    Edge() {}
-    Edge(int f, int t, T c, int i = -1) : frm(f), to(t), cst(c), idx(i) {}
-    operator int() const { return to; }
-};
-
-template<typename T>
-constexpr T GINF = numeric_limits<T>::max() / 10;
-
-template<typename T>
-struct Graph {
-    int V, E;
-    vector<vector<Edge<T>>> mat;
-    vector<vector<T>> wf;
-    Graph() {}
-    Graph(int v) : V(v), E(0), mat(v) {}
-    inline void add_edge(int a, int b, T c = 1, int margin = 0) {
-        a -= margin, b -= margin;
-        mat[a].emplace_back(a, b, c, E++);
-        mat[b].emplace_back(b, a, c, E++);
-    }
-    inline void add_arc(int a, int b, T c = 1, int margin = 0) {
-        a -= margin, b -= margin;
-        mat[a].emplace_back(a, b, c, E++);
-    }
-    inline void input_edges(int M, int margin = 0, bool need_cost = false) {
-        for (int i = 0; i < M; ++i) {
-            if (need_cost) {
-                int a, b;   T c;
-                cin >> a >> b >> c;
-                add_edge(a, b, c, margin);
-            } else {
-                int a, b;   T c(1);
-                cin >> a >> b;
-                add_edge(a, b, c, margin);
-            }
-        }
-    }
-    inline void input_arcs(int M, int margin = 0, bool need_cost = false) {
-        for (int i = 0; i < M; ++i) {
-            if (need_cost) {
-                int a, b;   T c;
-                cin >> a >> b >> c;
-                add_arc(a, b, c, margin);
-            } else {
-                int a, b;   T c(1);
-                cin >> a >> b;
-                add_arc(a, b, c, margin);
-            }
-        }
-    }
-    inline bool is_bipartite() {
-        bool isbi = true;
-        vector<int> color(V, 0);
-        auto dfs = [&](auto &&f, int i, int clr) -> void {
-            if (color[i] != 0) return;
-            color[i] = clr;
-            for (auto& e: mat[i]) {
-                /* */if (color[e.to] == 0)      f(f, e.to, -clr);
-                else if (color[e.to] == clr)    isbi = false;
-            }
-        };
-        dfs(dfs, 0, 1);
-        return isbi;
-        // int cnt = 0;
-        // for (auto& e: color) if (e == 1) ++cnt;
-        // return isbi ? -1 : cnt;
-    }
-};
-#line 1 "graph/tree/hldecomposition.hpp"
-/**
-* @brief HL分解
-* @docs docs/graph/tree/hldecomposition.md
-*/
-
-template<typename T>
-struct HLDecomposition : Graph<T> {
-    using Graph<T>::Graph;
-    using Graph<T>::mat;
-    using Graph<T>::V;
-    vector<int> sub, dep, par, head, in, out, rev;
-    vector<T> dst;
-    void build(const int root = 0) {
-        sub.assign(V, 0);
-        dep.assign(V, 0);
-        par.assign(V, 0);
-        head.assign(V, 0);
-        in.assign(V, 0);
-        out.assign(V, 0);
-        rev.assign(V, 0);
-        dst.assign(V, T(0));
-        dfs_sz(root, -1, 0, T(0));
-        int t = 0;
-        dfs_hld(root, -1, t);
-    }
-    int get(int u) const { return in[u]; }
-    int lca(int u, int v) const {
-        for (;; v = par[head[v]]) {
-            // uよりもvを後に来るようにして, vを上に押し上げていく
-            if (in[u] > in[v]) swap(u, v);
-            if (head[u] == head[v]) return u;
-        }
-    }
-    T dist(int u, int v) const {
-        return dst[u] + dst[v] - 2 * dst[lca(u, v)];
-    }
-    pair<int, int> get_subtree(int u, bool isEdge = false) const {
-        return make_pair(in[u] + isEdge, out[u]);
-    }
-    vector<pair<int, int>> get_path(int u, int v, bool isEdge = false) {
-        vector<pair<int, int>> ret;
-        for(;; v = par[head[v]]) {
-			if (in[u] > in[v]) swap(u, v);
-			if (head[u] == head[v]) break;
-			ret.emplace_back(in[head[v]], in[v] + 1);
-		}
-		ret.emplace_back(in[u] + isEdge, in[v] + 1);
-		return ret;
-    }
-    void dfs_sz(int cur, int prv, int depth, T weight) {
-        sub[cur] = 1;
-        dep[cur] = depth;
-        par[cur] = prv;
-        dst[cur] = weight;
-        // 0番目をheavy-pathにするための比較対象を設定
-        if (mat[cur].size() && mat[cur][0] == prv)
-            swap(mat[cur][0], mat[cur].back());
-        for (auto& nxt : mat[cur]) {
-            if (nxt == prv) continue;
-            dfs_sz(nxt, cur, depth + 1, weight + nxt.cst);
-            sub[cur] += sub[nxt];
-            if (sub[mat[cur][0]] < sub[nxt]) swap(mat[cur][0], nxt);
-        }
-    }
-    void dfs_hld(int cur, int prv, int& times) {
-        in[cur] = times++;
-        rev[in[cur]] = cur;
-        for (auto& nxt : mat[cur]) {
-            if (nxt == prv) continue;
-            // cur-nxtがheavy-path上ならheadは同じ
-            head[nxt] = mat[cur][0] == nxt ? head[cur] : nxt;
-            dfs_hld(nxt, cur, times);
-        }
-        out[cur] = times;
-    }
-};
-#line 6 "test/aoj/GRL_5_C.test.cpp"
+bool is_prime(long long n) {
+    if (n < 2) return false;
+    for (int i = 2; i * i <= n; ++i) if (n % i == 0) return false;
+    return true;
+}
+#line 5 "test/aoj/ALDS1_1_C.test.cpp"
 
 signed main() {
 
     int N;
     cin >> N;
 
-    HLDecomposition<int> hld(N);
-    for (int i = 0; i < N; ++i) {
-        int K;  cin >> K;
-        for (int j = 0; j < K; ++j) {
-            int C; cin >> C;
-            hld.add_edge(i, C);
-        }
+    int res = 0;
+    while (N--) {
+        int X;
+        cin >> X;
+        res += is_prime(X);
     }
-    hld.build();
 
-    int Q;
-    cin >> Q;
-
-    while (Q--) {
-        int U, V;
-        cin >> U >> V;
-        cout << hld.lca(U, V) << endl;
-    }
+    cout << res << endl;
 
 }
 
