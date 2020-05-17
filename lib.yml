@@ -57,6 +57,9 @@
 
 数学:
   - 素数:
+    - name: 素数判定
+      prefix: [math, prime, isprime]
+      path: math/prime/is_prime.hpp
     - name: 約数列挙
       prefix: [math, prime, divisor]
       path: math/prime/divisor.hpp

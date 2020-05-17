@@ -27,5 +27,5 @@
   * `need_cost` : コストを受け取るか.
     * `true` : `U V cst`
     * `false` : `U V`
-* `isbipartite(g)` : 二部グラフの判定.
+* `is_bipartite(g)` : 二部グラフの判定.
   * 片方の集合の大きさが欲しかったら, 適宜コメントを外す.

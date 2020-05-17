@@ -56,7 +56,7 @@ struct Graph {
             }
         }
     }
-    inline bool isbipartite() {
+    inline bool is_bipartite() {
         bool isbi = true;
         vector<int> color(V, 0);
         auto dfs = [&](auto &&f, int i, int clr) -> void {
