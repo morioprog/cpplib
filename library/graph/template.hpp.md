@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#f8b0b924ebd7046dbfa85a856e4682c8">graph</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/template.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-16 22:51:55+09:00
+    - Last commit date: 2020-05-17 14:45:52+09:00
 
 
 
@@ -66,9 +66,7 @@ layout: default
     * `true` : `U V cst`
     * `false` : `U V`
 * `isbipartite(g)` : 二部グラフの判定.
-  * 返り値の型 : `int`
-    * 二部グラフだったら片方の集合の大きさを返す.
-    * そうでなければ$-1$を返す.
+  * 片方の集合の大きさが欲しかったら, 適宜コメントを外す.
 
 
 ## Verified with
@@ -148,21 +146,22 @@ struct Graph {
             }
         }
     }
-    inline int isbipartite() {
+    inline bool isbipartite() {
         bool isbi = true;
         vector<int> color(V, 0);
-        function<void(int, int)> dfs = [&](int i, int clr) {
+        auto dfs = [&](auto &&f, int i, int clr) -> void {
             if (color[i] != 0) return;
             color[i] = clr;
             for (auto& e: mat[i]) {
-                if (color[e.to] == 0) dfs(e.to, -clr);
-                else if (color[e.to] == clr) isbi = false;
+                /* */if (color[e.to] == 0)      f(f, e.to, -clr);
+                else if (color[e.to] == clr)    isbi = false;
             }
         };
-        dfs(0, 1);
-        int cnt = 0;
-        for (auto& e: color) if (e == 1) ++cnt;
-        return isbi ? -1 : cnt;
+        dfs(dfs, 0, 1);
+        return isbi;
+        // int cnt = 0;
+        // for (auto& e: color) if (e == 1) ++cnt;
+        // return isbi ? -1 : cnt;
     }
 };
 
@@ -231,21 +230,22 @@ struct Graph {
             }
         }
     }
-    inline int isbipartite() {
+    inline bool isbipartite() {
         bool isbi = true;
         vector<int> color(V, 0);
-        function<void(int, int)> dfs = [&](int i, int clr) {
+        auto dfs = [&](auto &&f, int i, int clr) -> void {
             if (color[i] != 0) return;
             color[i] = clr;
             for (auto& e: mat[i]) {
-                if (color[e.to] == 0) dfs(e.to, -clr);
-                else if (color[e.to] == clr) isbi = false;
+                /* */if (color[e.to] == 0)      f(f, e.to, -clr);
+                else if (color[e.to] == clr)    isbi = false;
             }
         };
-        dfs(0, 1);
-        int cnt = 0;
-        for (auto& e: color) if (e == 1) ++cnt;
-        return isbi ? -1 : cnt;
+        dfs(dfs, 0, 1);
+        return isbi;
+        // int cnt = 0;
+        // for (auto& e: color) if (e == 1) ++cnt;
+        // return isbi ? -1 : cnt;
     }
 };
 
