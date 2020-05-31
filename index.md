@@ -38,6 +38,7 @@ layout: default
 
 ### datastructure
 
+* :warning: <a href="library/datastructure/binaryindexedtree.hpp.html">Binary Indexed Tree <small>(datastructure/binaryindexedtree.hpp)</small></a>
 * :heavy_check_mark: <a href="library/datastructure/sparsetable.hpp.html">Sparse Table <small>(datastructure/sparsetable.hpp)</small></a>
 
 

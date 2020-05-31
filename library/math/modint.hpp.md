@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#7e676e9e663beb40fd133f5ee24487c2">math</a>
 * <a href="{{ site.github.repository_url }}/blob/master/math/modint.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-22 00:08:47+09:00
+    - Last commit date: 2020-05-31 22:24:06+09:00
 
 
 
@@ -45,7 +45,7 @@ Mod演算のための構造体.
 ```cpp
 modint M;               // MOD=1e9+7における演算を行う
 modint::getFact(4);     // 4の階乗
-modint(3) ^ 5;          // 3の5乗
+modint::pow(3, 5);      // 3の5乗
 ```
 
 
@@ -96,10 +96,13 @@ template< int MODULO > struct ModInt {
     bool operator> (const ModInt &m) const { return x >  m.x; }
     bool operator>=(const ModInt &m) const { return x >= m.x; }
     explicit operator u64() const { return x; }
-    ModInt operator^(u64 y) const {
-        u64 t = x, u = 1;
-        while (y) { if (y & 1) (u *= t) %= MODULO; (t *= t) %= MODULO; y >>= 1; }
-        return ModInt(u);
+    ModInt operator^(i64 y) const { return pow(x, y); }
+    static ModInt pow(i64 x, i64 y) {
+        bool neg = false;
+        if (y < 0) y = -y, neg = true;
+        ModInt u(1), t(x);
+        while (y) { if (y & 1) u *= t; t *= t; y >>= 1; }
+        return neg ? ModInt(1) / u : u;
     }
     friend ostream &operator<<(ostream &os, const ModInt< MODULO > &m) { return os << m.x; }
     friend istream &operator>>(istream &is, ModInt< MODULO > &m) { u64 y; is >> y; m = ModInt(y); return is; }
@@ -209,10 +212,13 @@ template< int MODULO > struct ModInt {
     bool operator> (const ModInt &m) const { return x >  m.x; }
     bool operator>=(const ModInt &m) const { return x >= m.x; }
     explicit operator u64() const { return x; }
-    ModInt operator^(u64 y) const {
-        u64 t = x, u = 1;
-        while (y) { if (y & 1) (u *= t) %= MODULO; (t *= t) %= MODULO; y >>= 1; }
-        return ModInt(u);
+    ModInt operator^(i64 y) const { return pow(x, y); }
+    static ModInt pow(i64 x, i64 y) {
+        bool neg = false;
+        if (y < 0) y = -y, neg = true;
+        ModInt u(1), t(x);
+        while (y) { if (y & 1) u *= t; t *= t; y >>= 1; }
+        return neg ? ModInt(1) / u : u;
     }
     friend ostream &operator<<(ostream &os, const ModInt< MODULO > &m) { return os << m.x; }
     friend istream &operator>>(istream &is, ModInt< MODULO > &m) { u64 y; is >> y; m = ModInt(y); return is; }

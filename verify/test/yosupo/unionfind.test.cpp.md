@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#0b58406058f6619a0f31a172defc0230">test/yosupo</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/yosupo/unionfind.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-22 15:52:26+09:00
+    - Last commit date: 2020-05-31 22:25:19+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/unionfind">https://judge.yosupo.jp/problem/unionfind</a>
@@ -188,8 +188,7 @@ template<typename A, typename B> inline bool chmax(A &a, const B &b) { if (a < b
 template<typename A, typename B> inline bool chmin(A &a, const B &b) { if (a > b) { a = b; return true; } return false; }
 inline ll gcd(ll a, ll b) { return b ? gcd(b, a % b) : a; }
 inline ll lcm(ll a, ll b) { return a / gcd(a, b) * b; }
-inline ll POW(ll a, ll b)                    { ll r = 1; do { if (b & 1)  r *= a;        a *= a; }       while (b >>= 1); return r; }
-inline ll MOP(ll a, ll b, const ll &m = MOD) { ll r = 1; do { if (b & 1) (r *= a) %= m; (a *= a) %= m; } while (b >>= 1); return r; }
+inline ll POW(ll a, ll b) { ll r = 1; do { if (b & 1)  r *= a; a *= a; } while (b >>= 1); return r; }
 struct abracadabra {
     abracadabra() {
         cin.tie(nullptr); ios::sync_with_stdio(false);
