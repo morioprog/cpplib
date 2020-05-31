@@ -54,6 +54,9 @@
   - name: Sparse Table
     prefix: [datastructure, sparsetable]
     path: datastructure/sparsetable.hpp
+  - name: Binary Indexed Tree
+    prefix: [datastructure, binaryindexedtree]
+    path: datastructure/binaryindexedtree.hpp
 
 数学:
   - 素数:
