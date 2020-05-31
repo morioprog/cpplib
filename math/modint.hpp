@@ -33,10 +33,13 @@ template< int MODULO > struct ModInt {
     bool operator> (const ModInt &m) const { return x >  m.x; }
     bool operator>=(const ModInt &m) const { return x >= m.x; }
     explicit operator u64() const { return x; }
-    ModInt operator^(u64 y) const {
-        u64 t = x, u = 1;
-        while (y) { if (y & 1) (u *= t) %= MODULO; (t *= t) %= MODULO; y >>= 1; }
-        return ModInt(u);
+    ModInt operator^(i64 y) const { return pow(x, y); }
+    static ModInt pow(i64 x, i64 y) {
+        bool neg = false;
+        if (y < 0) y = -y, neg = true;
+        ModInt u(1), t(x);
+        while (y) { if (y & 1) u *= t; t *= t; y >>= 1; }
+        return neg ? ModInt(1) / u : u;
     }
     friend ostream &operator<<(ostream &os, const ModInt< MODULO > &m) { return os << m.x; }
     friend istream &operator>>(istream &is, ModInt< MODULO > &m) { u64 y; is >> y; m = ModInt(y); return is; }
