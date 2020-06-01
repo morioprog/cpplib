@@ -94,3 +94,9 @@
   - name: めぐる式二分探索
     prefix: [meguru]
     path: snippet/meguru.hpp
+  - name: Template with main func
+    prefix: [template_main]
+    path: snippet/main.hpp
+  - name: Template (short) with main func
+    prefix: [template_short]
+    path: snippet/short.hpp
