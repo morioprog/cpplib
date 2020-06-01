@@ -94,6 +94,9 @@
   - name: めぐる式二分探索
     prefix: [meguru]
     path: snippet/meguru.hpp
+  - name: 三分探索
+    prefix: [ternary]
+    path: snippet/ternarysearch.hpp
   - name: Template with main func
     prefix: [template_main]
     path: snippet/main.hpp
