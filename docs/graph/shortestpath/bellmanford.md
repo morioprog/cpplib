@@ -8,6 +8,6 @@ $O(EV)$
 
 ## 使用例
 
-* `g.bellmanford(frm)` : `frm`からベルマンフォード法.
+* `bellmanford(g, frm)` : `frm`からベルマンフォード法.
   * 返り値の型 : `vector<T>`
   * 負閉路があったら空の`vector`を返す.

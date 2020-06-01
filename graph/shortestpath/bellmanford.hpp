@@ -4,7 +4,7 @@
 */
 
 template<typename T>
-vector<T> bellmanford(Graph<T> &g, int frm) {
+vector<T> bellmanford(const Graph<T> &g, int frm) {
     vector<T> ret(g.V, GINF<T>);    ret[frm] = 0;
     for (int i = 0; i < g.V - 1; ++i) {
         for (int j = 0; j < g.V; ++j) {

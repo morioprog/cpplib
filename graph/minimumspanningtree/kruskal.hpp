@@ -4,7 +4,7 @@
 */
 
 template<typename T>
-T kruskal(Graph<T> &g) {
+T kruskal(const Graph<T> &g) {
     vector<Edge<T>> edges;
     for (int i = 0; i < g.V; ++i) for (auto& e: g.mat[i]) edges.emplace_back(e);
     sort(edges.begin(), edges.end(), [](const Edge<T> &a, const Edge<T> &b) {

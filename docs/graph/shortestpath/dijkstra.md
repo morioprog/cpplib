@@ -8,5 +8,5 @@ $O(E\log V)$
 
 ## 使用例
 
-* `g.dijkstra(frm)` : `frm`からダイクストラ法.
+* `dijkstra(g, frm)` : `frm`からダイクストラ法.
   * 返り値の型 : `vector<T>`

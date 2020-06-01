@@ -4,7 +4,7 @@
 */
 
 template<typename T>
-vector<T> dijkstra(Graph<T> &g, int frm) {
+vector<T> dijkstra(const Graph<T> &g, int frm) {
     using P = pair<T, int>;
     vector<T> ret(g.V, GINF<T>);    ret[frm] = 0;
     priority_queue<P, vector<P>, greater<P>> pq;
