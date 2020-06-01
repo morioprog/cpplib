@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#fd7b240ac98922caf22c9202d36f936f">graph/minimumspanningtree</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/minimumspanningtree/kruskal.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-04 23:29:50+09:00
+    - Last commit date: 2020-06-02 02:19:59+09:00
 
 
 
@@ -46,7 +46,7 @@ $O(E\log V)$
 
 ## 使用例
 
-* `g.kruskal()` : クラスカル法を行う.
+* `kruskal(g)` : グラフ`g`に対してクラスカル法を行う.
   * 返り値 : 最小全域木の重さ.
 
 
@@ -66,7 +66,7 @@ $O(E\log V)$
 */
 
 template<typename T>
-T kruskal(Graph<T> &g) {
+T kruskal(const Graph<T> &g) {
     vector<Edge<T>> edges;
     for (int i = 0; i < g.V; ++i) for (auto& e: g.mat[i]) edges.emplace_back(e);
     sort(edges.begin(), edges.end(), [](const Edge<T> &a, const Edge<T> &b) {
@@ -91,7 +91,7 @@ T kruskal(Graph<T> &g) {
 */
 
 template<typename T>
-T kruskal(Graph<T> &g) {
+T kruskal(const Graph<T> &g) {
     vector<Edge<T>> edges;
     for (int i = 0; i < g.V; ++i) for (auto& e: g.mat[i]) edges.emplace_back(e);
     sort(edges.begin(), edges.end(), [](const Edge<T> &a, const Edge<T> &b) {

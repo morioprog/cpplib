@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#893699352036854e82d247c81f4d89a6">graph/shortestpath</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/shortestpath/dijkstra.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-16 22:07:22+09:00
+    - Last commit date: 2020-06-02 02:19:59+09:00
 
 
 
@@ -46,7 +46,7 @@ $O(E\log V)$
 
 ## 使用例
 
-* `g.dijkstra(frm)` : `frm`からダイクストラ法.
+* `dijkstra(g, frm)` : `frm`からダイクストラ法.
   * 返り値の型 : `vector<T>`
 
 
@@ -66,7 +66,7 @@ $O(E\log V)$
 */
 
 template<typename T>
-vector<T> dijkstra(Graph<T> &g, int frm) {
+vector<T> dijkstra(const Graph<T> &g, int frm) {
     using P = pair<T, int>;
     vector<T> ret(g.V, GINF<T>);    ret[frm] = 0;
     priority_queue<P, vector<P>, greater<P>> pq;
@@ -98,7 +98,7 @@ vector<T> dijkstra(Graph<T> &g, int frm) {
 */
 
 template<typename T>
-vector<T> dijkstra(Graph<T> &g, int frm) {
+vector<T> dijkstra(const Graph<T> &g, int frm) {
     using P = pair<T, int>;
     vector<T> ret(g.V, GINF<T>);    ret[frm] = 0;
     priority_queue<P, vector<P>, greater<P>> pq;

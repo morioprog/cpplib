@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#0d0c91c0cca30af9c1c9faef0cf04aa9">test/aoj</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/aoj/GRL_2_A.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-31 22:25:19+09:00
+    - Last commit date: 2020-06-02 02:19:59+09:00
 
 
 * see: <a href="https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/2/GRL_2_A">https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/2/GRL_2_A</a>
@@ -305,7 +305,7 @@ struct UnionFind {
 */
 
 template<typename T>
-T kruskal(Graph<T> &g) {
+T kruskal(const Graph<T> &g) {
     vector<Edge<T>> edges;
     for (int i = 0; i < g.V; ++i) for (auto& e: g.mat[i]) edges.emplace_back(e);
     sort(edges.begin(), edges.end(), [](const Edge<T> &a, const Edge<T> &b) {
