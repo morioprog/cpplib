@@ -2,12 +2,14 @@
  * @brief めぐる式二分探索
  */
 
-auto check = [&](long long mid) -> bool {
+using T = long long;
+auto check = [&](T mid) -> bool {
     $3
 };
 
-long long ok = $1, ng = $2;
+T ok = ${1:0}, ng = ${2:1e9};
+// for (int _ = 0; _ < 1000; ++_) {
 while (abs(ok - ng) > 1) {
-    long long mid = (ok + ng) >> 1;
+    T mid = (ok + ng) / 2;
     (check(mid) ? ok : ng) = mid;
 }
