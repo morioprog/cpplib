@@ -28,6 +28,10 @@
     - name: HL分解
       prefix: [graph, heavylightdecomposition, lowestcommonancestor]
       path: graph/tree/hldecomposition.hpp
+  - その他:
+    - name: トポロジカルソート
+      prefix: [graph, topologicalsort]
+      path: graph/other/topologicalsort.hpp
 
 データ構造:
   - 累積和:
