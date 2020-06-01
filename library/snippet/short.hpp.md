@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: めぐる式二分探索 <small>(snippet/meguru.hpp)</small>
+# :warning: snippet/short.hpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#54de4c5e0ecfc39083b31b56ee36cb19">snippet</a>
-* <a href="{{ site.github.repository_url }}/blob/master/snippet/meguru.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-06-02 02:31:58+09:00
+* <a href="{{ site.github.repository_url }}/blob/master/snippet/short.hpp">View this file on GitHub</a>
+    - Last commit date: 2020-06-02 02:28:52+09:00
 
 
 
@@ -41,20 +41,16 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-/**
- * @brief めぐる式二分探索
- */
+#include <bits/stdc++.h>
+using namespace std;
+using ll = long long;
+#define REP(i, n)    for (ll (i) = 0;   (i) < (n); ++(i))
+#define FOR(i, a, b) for (ll (i) = (a); (i) < (b); ++(i))
 
-using T = long long;
-auto check = [&](T mid) -> bool {
-    $3
-};
+signed main() {
 
-T ok = ${1:0}, ng = ${2:1e9};
-// for (int _ = 0; _ < 1000; ++_) {
-while (abs(ok - ng) > 1) {
-    T mid = (ok + ng) / 2;
-    (check(mid) ? ok : ng) = mid;
+    $0
+
 }
 
 ```
@@ -63,21 +59,17 @@ while (abs(ok - ng) > 1) {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "snippet/meguru.hpp"
-/**
- * @brief めぐる式二分探索
- */
+#line 1 "snippet/short.hpp"
+#include <bits/stdc++.h>
+using namespace std;
+using ll = long long;
+#define REP(i, n)    for (ll (i) = 0;   (i) < (n); ++(i))
+#define FOR(i, a, b) for (ll (i) = (a); (i) < (b); ++(i))
 
-using T = long long;
-auto check = [&](T mid) -> bool {
-    $3
-};
+signed main() {
 
-T ok = ${1:0}, ng = ${2:1e9};
-// for (int _ = 0; _ < 1000; ++_) {
-while (abs(ok - ng) > 1) {
-    T mid = (ok + ng) / 2;
-    (check(mid) ? ok : ng) = mid;
+    $0
+
 }
 
 ```

@@ -133,7 +133,10 @@ layout: default
 
 ### snippet
 
+* :warning: <a href="library/snippet/main.hpp.html">snippet/main.hpp</a>
 * :warning: <a href="library/snippet/meguru.hpp.html">めぐる式二分探索 <small>(snippet/meguru.hpp)</small></a>
+* :warning: <a href="library/snippet/short.hpp.html">snippet/short.hpp</a>
+* :warning: <a href="library/snippet/ternarysearch.hpp.html">三分探索 <small>(snippet/ternarysearch.hpp)</small></a>
 
 
 <div id="66f6181bcb4cff4cd38fbc804a036db6"></div>

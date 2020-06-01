@@ -25,12 +25,12 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: めぐる式二分探索 <small>(snippet/meguru.hpp)</small>
+# :warning: 三分探索 <small>(snippet/ternarysearch.hpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#54de4c5e0ecfc39083b31b56ee36cb19">snippet</a>
-* <a href="{{ site.github.repository_url }}/blob/master/snippet/meguru.hpp">View this file on GitHub</a>
+* <a href="{{ site.github.repository_url }}/blob/master/snippet/ternarysearch.hpp">View this file on GitHub</a>
     - Last commit date: 2020-06-02 02:31:58+09:00
 
 
@@ -42,19 +42,20 @@ layout: default
 {% raw %}
 ```cpp
 /**
- * @brief めぐる式二分探索
+ * @brief 三分探索
  */
 
-using T = long long;
-auto check = [&](T mid) -> bool {
+using T = double;
+auto f_trn = [&](T c) -> T {
     $3
 };
 
-T ok = ${1:0}, ng = ${2:1e9};
-// for (int _ = 0; _ < 1000; ++_) {
-while (abs(ok - ng) > 1) {
-    T mid = (ok + ng) / 2;
-    (check(mid) ? ok : ng) = mid;
+T l = ${1:0}, r = ${2:1e9};
+for (int _ = 0; _ < 100; ++_) {
+    T c1 = (l * 2 + r) / 3;
+    T c2 = (l + r * 2) / 3;
+    if (f_trn(c1) > f_trn(c2)) l = c1;
+    else r = c2;
 }
 
 ```
@@ -63,21 +64,22 @@ while (abs(ok - ng) > 1) {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "snippet/meguru.hpp"
+#line 1 "snippet/ternarysearch.hpp"
 /**
- * @brief めぐる式二分探索
+ * @brief 三分探索
  */
 
-using T = long long;
-auto check = [&](T mid) -> bool {
+using T = double;
+auto f_trn = [&](T c) -> T {
     $3
 };
 
-T ok = ${1:0}, ng = ${2:1e9};
-// for (int _ = 0; _ < 1000; ++_) {
-while (abs(ok - ng) > 1) {
-    T mid = (ok + ng) / 2;
-    (check(mid) ? ok : ng) = mid;
+T l = ${1:0}, r = ${2:1e9};
+for (int _ = 0; _ < 100; ++_) {
+    T c1 = (l * 2 + r) / 3;
+    T c2 = (l + r * 2) / 3;
+    if (f_trn(c1) > f_trn(c2)) l = c1;
+    else r = c2;
 }
 
 ```
