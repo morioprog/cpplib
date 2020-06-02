@@ -54,18 +54,18 @@ layout: default
 
 ## 使用例
 
-* `SegmentTree<int> seg(n, [](int a, int b){ return a + b; }, 0);` : 単位元$0$で初期化.
-* `SegmentTree<int> seg(v, [](int a, int b){ return a + b; }, 0);` : `v`で初期化.
-* `seg.update(k, x);` : $k$要素目を$x$に変更する.
-* `seg.add(k, x);` : $k$要素目に$x$を加算する.
-* `seg.query(l, r);` : 半開区間$[l, r)$のクエリ.
-* `seg.print();` : セグメント木の中身をデバッグ出力.
+* `SegmentTree<int> seg(n, [](int a, int b){ return a + b; }, 0)` : 単位元$0$で初期化.
+* `SegmentTree<int> seg(v, [](int a, int b){ return a + b; }, 0)` : `v`で初期化.
+* `seg.update(k, x)` : $k$要素目を$x$に変更する.
+* `seg.add(k, x)` : $k$要素目に$x$を加算する.
+* `seg.query(l, r)` : 半開区間$[l, r)$のクエリ.
+* `seg.print()` : セグメント木の中身をデバッグ出力.
 
 
 ## Verified with
 
 * :heavy_check_mark: <a href="../../../verify/test/aoj/DSL_2_A.test.cpp.html">test/aoj/DSL_2_A.test.cpp</a>
-* :heavy_check_mark: <a href="../../../verify/test/aoj/DSL_2_B.test.cpp.html">test/aoj/DSL_2_B.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/aoj/DSL_2_B.segmenttree.test.cpp.html">test/aoj/DSL_2_B.segmenttree.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/aoj/GRL_5_D.test.cpp.html">test/aoj/GRL_5_D.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/yosupo/pointaddrangesum.test.cpp.html">test/yosupo/pointaddrangesum.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/yosupo/vertexaddpathsum.test.cpp.html">test/yosupo/vertexaddpathsum.test.cpp</a>

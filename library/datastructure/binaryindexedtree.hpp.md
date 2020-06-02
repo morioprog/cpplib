@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: Binary Indexed Tree <small>(datastructure/binaryindexedtree.hpp)</small>
+# :heavy_check_mark: Binary Indexed Tree <small>(datastructure/binaryindexedtree.hpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#8dc87745f885a4cc532acd7b15b8b5fe">datastructure</a>
 * <a href="{{ site.github.repository_url }}/blob/master/datastructure/binaryindexedtree.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-31 22:41:14+09:00
+    - Last commit date: 2020-06-02 10:45:19+09:00
 
 
 
@@ -44,16 +44,20 @@ layout: default
 
 * 構築 : $O(n)$
 * 区間取得 : $O(\log n)$
+* 二分探索 : $O(\log n)$
 
 ## 使用例
 
-```cpp
-BinaryIndexedTree<int> bit(N);      // 要素数NのBIT
-bit.add(k, x);                      // 要素kに値xを加算
-bit.sum(k);                         // 閉区間[0, k]の和を求める
-bit.sum(l, r);                      // 半開区間[l, r)の和を求める
-bit.lower_bound(x);                 // sum(i)>=xなる最小のiを求める
-```
+* `BinaryIndexedTree<int> bit(N)` : 要素数$N$のBIT
+* `bit.add(k, x)` : $k$要素目に$x$を加算.
+* `bit.sum(k)` : 閉区間$[0, k]$の和を求める
+* `bit.sum(l, r)` : 半開区間$[l, r)$の和を求める
+* `bit.lower_bound(x)` : `bit.sum(i) >= x`なる最小の$i$を求める
+
+
+## Verified with
+
+* :heavy_check_mark: <a href="../../verify/test/aoj/DSL_2_B.binaryindexedtree.test.cpp.html">test/aoj/DSL_2_B.binaryindexedtree.test.cpp</a>
 
 
 ## Code
@@ -84,11 +88,11 @@ template<typename T> struct BinaryIndexedTree {
     }
     int lower_bound(T w) {
         if (w <= 0) return 0;
-        int x = 0, r = 1;
+        int n = data.size(), x = 0, r = 1;
         while (r < n) r <<= 1;
         for (int k = r; k > 0; k >>= 1) {
             if (x + k <= n and data[x + k] < w) {
-                w -= bit[x + k];
+                w -= data[x + k];
                 x += k;
             }
         }
@@ -126,11 +130,11 @@ template<typename T> struct BinaryIndexedTree {
     }
     int lower_bound(T w) {
         if (w <= 0) return 0;
-        int x = 0, r = 1;
+        int n = data.size(), x = 0, r = 1;
         while (r < n) r <<= 1;
         for (int k = r; k > 0; k >>= 1) {
             if (x + k <= n and data[x + k] < w) {
-                w -= bit[x + k];
+                w -= data[x + k];
                 x += k;
             }
         }

@@ -52,10 +52,8 @@ layout: default
 
 ## 使用例
 
-```cpp
-SparseTable<int> st(v, [](int a, int b){ return min(a, b); });  // 構築
-st.query(1, 3);     // 半開区間[1, 3)に答える
-```
+* `SparseTable<int> st(v, [](int a, int b){ return min(a, b); })` : 区間最小クエリを処理するSparse Tableを構築.
+* `st.query(l, r)` : 半開区間$[l, r)$の区間取得クエリ.
 
 
 ## Verified with

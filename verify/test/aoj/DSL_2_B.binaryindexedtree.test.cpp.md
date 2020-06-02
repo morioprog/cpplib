@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/aoj/DSL_2_B.test.cpp
+# :heavy_check_mark: test/aoj/DSL_2_B.binaryindexedtree.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#0d0c91c0cca30af9c1c9faef0cf04aa9">test/aoj</a>
-* <a href="{{ site.github.repository_url }}/blob/master/test/aoj/DSL_2_B.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-31 22:25:19+09:00
+* <a href="{{ site.github.repository_url }}/blob/master/test/aoj/DSL_2_B.binaryindexedtree.test.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-06-02 10:45:19+09:00
 
 
 * see: <a href="https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/2/DSL_2_B">https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/2/DSL_2_B</a>
@@ -39,7 +39,7 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../../library/datastructure/segmenttree/segmenttree.hpp.html">セグメント木 <small>(datastructure/segmenttree/segmenttree.hpp)</small></a>
+* :heavy_check_mark: <a href="../../../library/datastructure/binaryindexedtree.hpp.html">Binary Indexed Tree <small>(datastructure/binaryindexedtree.hpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/template/main.hpp.html">template/main.hpp</a>
 
 
@@ -51,23 +51,23 @@ layout: default
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/2/DSL_2_B"
 
 #include "../../template/main.hpp"
-#include "../../datastructure/segmenttree/segmenttree.hpp"
+#include "../../datastructure/binaryindexedtree.hpp"
 
 signed main() {
 
     int N, Q;
     cin >> N >> Q;
 
-    SegmentTree<int> seg(N, [](int a, int b){ return a + b; }, 0);
+    BinaryIndexedTree<int> bit(N);
 
     while (Q--) {
         int q, a, b;
         cin >> q >> a >> b;
         --a;
         if (q == 0) {
-            seg.add(a, b);
+            bit.add(a, b);
         } else {
-            cout << seg.query(a, b) << endl;
+            cout << bit.sum(a, b) << endl;
         }
     }
 
@@ -79,7 +79,7 @@ signed main() {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "test/aoj/DSL_2_B.test.cpp"
+#line 1 "test/aoj/DSL_2_B.binaryindexedtree.test.cpp"
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/2/DSL_2_B"
 
 #line 1 "template/main.hpp"
@@ -200,78 +200,58 @@ struct abracadabra {
 } ABRACADABRA;
 
 #pragma endregion
-#line 1 "datastructure/segmenttree/segmenttree.hpp"
+#line 1 "datastructure/binaryindexedtree.hpp"
 /**
-* @brief セグメント木
-* @docs docs/datastructure/segmenttree/segmenttree.md
+* @brief Binary Indexed Tree
+* @docs docs/datastructure/binaryindexedtree.md
 */
 
-template<typename T> struct SegmentTree {
-    using F = function<T(T, T)>;
-    vector<T> seg;
-    int sz;
-    const F func;
-    const T IDENT;
-    SegmentTree() {}
-    SegmentTree(int n, const F f, const T &ID) : func(f), IDENT(ID) {
-        sz = 1; while (sz < n) sz <<= 1;
-        seg.assign(2 * sz - 1, IDENT);
+template<typename T> struct BinaryIndexedTree {
+    vector< T > data;
+    BinaryIndexedTree(int sz) { data.assign(++sz, 0); }
+    T sum(int k) {
+        if (k < 0) return T(0);
+        T ret = 0;
+        for (++k; k > 0; k -= k & -k) ret += data[k];
+        return (ret);
     }
-    SegmentTree(vector<T> v, const F f, const T &ID) : func(f), IDENT(ID) {
-        int n = v.size();
-        sz = 1; while (sz < n) sz <<= 1;
-        seg.assign(2 * sz - 1, IDENT);
-        for (int i = 0; i < n; ++i) seg[i + sz - 1] = v[i];
-        for (int i = sz - 2; i >= 0; --i) seg[i] = func(seg[2 * i + 1], seg[2 * i + 2]);
-    }
-    void update(int k, T x) {
-        k += sz - 1;
-        seg[k] = x;
-        while (k > 0) {
-            k = (k - 1) / 2;
-            seg[k] = func(seg[2 * k + 1], seg[2 * k + 2]);
-        }
+    T sum(int l, int r) {
+        assert(l <= r);
+        return sum(r - 1) - sum(l - 1);
     }
     void add(int k, T x) {
-        k += sz - 1;
-        seg[k] += x;
-        while (k > 0) {
-            k = (k - 1) / 2;
-            seg[k] = func(seg[2 * k + 1], seg[2 * k + 2]);
-        }
+        for (++k; k < data.size(); k += k & -k) data[k] += x;
     }
-    T query(int a, int b, int k = 0, int l = 0, int r = -1) {
-        if (r < 0) r = sz;
-        if (r <= a || l >= b) return IDENT;
-        if (l >= a && r <= b) return seg[k];
-        T f_l = query(a, b, 2 * k + 1, l, (l + r) / 2);
-        T f_r = query(a, b, 2 * k + 2, (l + r) / 2, r);
-        return func(f_l, f_r);
-    }
-    void print() {
-        for (int i = 0; i < 2 * sz - 1; ++i) {
-            cerr << seg[i] << ' ';
-            if (!((i + 2) & (i + 1))) cerr << endl;
+    int lower_bound(T w) {
+        if (w <= 0) return 0;
+        int n = data.size(), x = 0, r = 1;
+        while (r < n) r <<= 1;
+        for (int k = r; k > 0; k >>= 1) {
+            if (x + k <= n and data[x + k] < w) {
+                w -= data[x + k];
+                x += k;
+            }
         }
+        return x + 1;
     }
 };
-#line 5 "test/aoj/DSL_2_B.test.cpp"
+#line 5 "test/aoj/DSL_2_B.binaryindexedtree.test.cpp"
 
 signed main() {
 
     int N, Q;
     cin >> N >> Q;
 
-    SegmentTree<int> seg(N, [](int a, int b){ return a + b; }, 0);
+    BinaryIndexedTree<int> bit(N);
 
     while (Q--) {
         int q, a, b;
         cin >> q >> a >> b;
         --a;
         if (q == 0) {
-            seg.add(a, b);
+            bit.add(a, b);
         } else {
-            cout << seg.query(a, b) << endl;
+            cout << bit.sum(a, b) << endl;
         }
     }
 
