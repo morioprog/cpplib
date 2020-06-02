@@ -21,11 +21,11 @@ template<typename T> struct BinaryIndexedTree {
     }
     int lower_bound(T w) {
         if (w <= 0) return 0;
-        int x = 0, r = 1;
+        int n = data.size(), x = 0, r = 1;
         while (r < n) r <<= 1;
         for (int k = r; k > 0; k >>= 1) {
             if (x + k <= n and data[x + k] < w) {
-                w -= bit[x + k];
+                w -= data[x + k];
                 x += k;
             }
         }

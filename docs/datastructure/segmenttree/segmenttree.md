@@ -16,9 +16,9 @@
 
 ## 使用例
 
-* `SegmentTree<int> seg(n, [](int a, int b){ return a + b; }, 0);` : 単位元$0$で初期化.
-* `SegmentTree<int> seg(v, [](int a, int b){ return a + b; }, 0);` : `v`で初期化.
-* `seg.update(k, x);` : $k$要素目を$x$に変更する.
-* `seg.add(k, x);` : $k$要素目に$x$を加算する.
-* `seg.query(l, r);` : 半開区間$[l, r)$のクエリ.
-* `seg.print();` : セグメント木の中身をデバッグ出力.
+* `SegmentTree<int> seg(n, [](int a, int b){ return a + b; }, 0)` : 単位元$0$で初期化.
+* `SegmentTree<int> seg(v, [](int a, int b){ return a + b; }, 0)` : `v`で初期化.
+* `seg.update(k, x)` : $k$要素目を$x$に変更する.
+* `seg.add(k, x)` : $k$要素目に$x$を加算する.
+* `seg.query(l, r)` : 半開区間$[l, r)$のクエリ.
+* `seg.print()` : セグメント木の中身をデバッグ出力.
