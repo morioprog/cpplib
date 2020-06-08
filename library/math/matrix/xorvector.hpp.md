@@ -42,7 +42,7 @@ layout: default
 
 ## 計算量
 
-* 行列式 : `O(n^3)`
+* 掃き出し法 : $O(nb)$ ($b$はビットサイズ)
 
 ## 使用例
 
@@ -54,6 +54,7 @@ layout: default
 
 ## 問題例
 
+* [ABC141F - Xor Sum 3](https://atcoder.jp/contests/abc141/tasks/abc141_f)
 * [AGC045A - Xor Battle](https://atcoder.jp/contests/agc045/tasks/agc045_a)
 
 
