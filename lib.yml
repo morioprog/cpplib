@@ -61,6 +61,9 @@
   - name: Binary Indexed Tree
     prefix: [datastructure, binaryindexedtree]
     path: datastructure/binaryindexedtree.hpp
+  - name: Queue Aggregation
+    prefix: [datastructure, queueaggregation, swag]
+    path: datastructure/queueaggregation.hpp
 
 数学:
   - 素数:
