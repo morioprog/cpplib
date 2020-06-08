@@ -117,6 +117,7 @@ layout: default
 ### math/matrix
 
 * :heavy_check_mark: <a href="library/math/matrix/matrix.hpp.html">Matrix (行列) <small>(math/matrix/matrix.hpp)</small></a>
+* :warning: <a href="library/math/matrix/xorvector.hpp.html">Xor Vector <small>(math/matrix/xorvector.hpp)</small></a>
 
 
 <div id="284ec5e6a3c30a992cd88179b43d3dce"></div>
