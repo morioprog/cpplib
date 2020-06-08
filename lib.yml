@@ -80,6 +80,9 @@
     - name: 行列
       prefix: [math, matrix]
       path: math/matrix/matrix.hpp
+    - name: XOR Vector
+      prefix: [math, xorvector]
+      path: math/matrix/xorvector.hpp
   - name: 拡張ユークリッドの互除法
     prefix: [math, extgcd]
     path: math/extgcd.hpp
