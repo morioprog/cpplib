@@ -93,6 +93,11 @@
     prefix: [math, fraction]
     path: math/fraction.hpp
 
+文字列:
+  - name: ローリングハッシュ
+    prefix: [string, rollinghash]
+    path: string/rollinghash.hpp
+
 スニペット:
   - name: めぐる式二分探索
     prefix: [meguru]
