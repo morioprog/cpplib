@@ -135,6 +135,7 @@ layout: default
 
 ### snippet
 
+* :warning: <a href="library/snippet/main.cpp.html">snippet/main.cpp</a>
 * :warning: <a href="library/snippet/main.hpp.html">snippet/main.hpp</a>
 * :warning: <a href="library/snippet/meguru.hpp.html">めぐる式二分探索 <small>(snippet/meguru.hpp)</small></a>
 * :warning: <a href="library/snippet/short.hpp.html">snippet/short.hpp</a>
