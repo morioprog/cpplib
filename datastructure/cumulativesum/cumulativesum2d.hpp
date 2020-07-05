@@ -6,8 +6,9 @@
 template<class T> struct CumulativeSum2D {
     int H, W;
     vector<vector<T>> data;
-    CumulativeSum2D(const vector<vector<T>> &v)
-        : H(v.size()), W(v[0].size()) {
+    CumulativeSum2D(const vector<vector<T>> &v) {
+        H = v.size();
+        W = (H == 0) ? 0 : v[0].size();
         data.assign(H + 1, vector<T>(W + 1, 0));
         for (int i = 0; i < H; ++i) {
             for (int j = 0; j < W; ++j) {
