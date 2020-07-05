@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#053d19836570d3243deead9fd40452d5">datastructure/cumulativesum</a>
 * <a href="{{ site.github.repository_url }}/blob/master/datastructure/cumulativesum/cumulativesum2d.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-22 17:52:09+09:00
+    - Last commit date: 2020-07-06 00:41:58+09:00
 
 
 
@@ -64,8 +64,9 @@ layout: default
 template<class T> struct CumulativeSum2D {
     int H, W;
     vector<vector<T>> data;
-    CumulativeSum2D(const vector<vector<T>> &v)
-        : H(v.size()), W(v[0].size()) {
+    CumulativeSum2D(const vector<vector<T>> &v) {
+        H = v.size();
+        W = (H == 0) ? 0 : v[0].size();
         data.assign(H + 1, vector<T>(W + 1, 0));
         for (int i = 0; i < H; ++i) {
             for (int j = 0; j < W; ++j) {
@@ -93,8 +94,9 @@ template<class T> struct CumulativeSum2D {
 template<class T> struct CumulativeSum2D {
     int H, W;
     vector<vector<T>> data;
-    CumulativeSum2D(const vector<vector<T>> &v)
-        : H(v.size()), W(v[0].size()) {
+    CumulativeSum2D(const vector<vector<T>> &v) {
+        H = v.size();
+        W = (H == 0) ? 0 : v[0].size();
         data.assign(H + 1, vector<T>(W + 1, 0));
         for (int i = 0; i < H; ++i) {
             for (int j = 0; j < W; ++j) {
