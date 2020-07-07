@@ -86,6 +86,13 @@
     - name: XOR Vector
       prefix: [math, xorvector]
       path: math/matrix/xorvector.hpp
+  - 組み合わせ:
+    - name: 逆元
+      prefix: [math, combination, inverse]
+      path: math/combination/inverse.hpp
+    - name: パスカルの三角形
+      prefix: [math, combination, pascal]
+      path: math/combination/pascal.hpp
   - name: 拡張ユークリッドの互除法
     prefix: [math, extgcd]
     path: math/extgcd.hpp
