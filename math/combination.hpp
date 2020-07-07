@@ -65,4 +65,3 @@ struct Combination {
         return C_pascal(n + r - 1, r);
     }
 };
-
