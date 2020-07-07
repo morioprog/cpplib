@@ -1,6 +1,6 @@
 /**
- * @brief Combination
- * @docs docs/math/combination.md
+ * @brief Combination (Inverse)
+ * @docs docs/math/combination/inverse.md
  */
 
 template<typename T>
