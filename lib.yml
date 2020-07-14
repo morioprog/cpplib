@@ -28,10 +28,17 @@
     - name: HL分解
       prefix: [graph, heavylightdecomposition, lowestcommonancestor]
       path: graph/tree/hldecomposition.hpp
+  - 二部グラフ:
+    - name: 二部グラフ判定
+      prefix: [graph, bipartite, check]
+      path: graph/bipartite/bipartite_check.hpp
+    - name: 二部グラフの最大マッチング
+      prefix: [graph, bipartite, matching]
+      path: graph/bipartite/bipartite_matching.hpp
   - その他:
     - name: トポロジカルソート
       prefix: [graph, topologicalsort]
-      path: graph/other/topologicalsort.hpp
+      path: graph/other/topological_sort.hpp
 
 データ構造:
   - 累積和:
