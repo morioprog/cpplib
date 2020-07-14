@@ -1,5 +1,5 @@
 /**
- * @brief Bipartite Matching
+ * @brief 二部グラフの最大マッチング
  * @docs docs/graph/bipartite/bipartite_matching.md
  * @see https://qiita.com/drken/items/e805e3f514acceb87602
  * @see https://qiita.com/drken/items/7f98315b56c95a6181a4

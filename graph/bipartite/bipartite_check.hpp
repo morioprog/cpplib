@@ -1,5 +1,5 @@
 /**
- * @brief Bipartite Check
+ * @brief 二部グラフ判定
  * @docs docs/graph/bipartite/bipartite_check.md
  */
 
