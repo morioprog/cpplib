@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#0b58406058f6619a0f31a172defc0230">test/yosupo</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/yosupo/pointaddrangesum.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-31 22:25:19+09:00
+    - Last commit date: 2020-07-14 20:59:52+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/point_add_range_sum">https://judge.yosupo.jp/problem/point_add_range_sum</a>
@@ -90,7 +90,7 @@ signed main() {
 // #pragma GCC target ("avx")
 // #pragma GCC optimize("Ofast")
 // #pragma GCC optimize("unroll-loops")
-// #pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native")
+// #pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx")
 #include <bits/stdc++.h>
 using namespace std;
 // #define int long long
@@ -187,8 +187,6 @@ template<typename Head, typename... Tail> void dump(Head&& head, Tail&&... tail)
 #define se              second
 #define MP              make_pair
 #define MT              make_tuple
-#define tmax(x, y, z)   max((x), max((y), (z)))
-#define tmin(x, y, z)   min((x), min((y), (z)))
 template<typename T, typename A, typename B> inline bool between(T x, A a, B b) { return ((a <= x) && (x < b)); }
 template<typename A, typename B> inline bool chmax(A &a, const B &b) { if (a < b) { a = b; return true; } return false; }
 template<typename A, typename B> inline bool chmin(A &a, const B &b) { if (a > b) { a = b; return true; } return false; }

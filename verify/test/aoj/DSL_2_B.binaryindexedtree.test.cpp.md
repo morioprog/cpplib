@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#0d0c91c0cca30af9c1c9faef0cf04aa9">test/aoj</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/aoj/DSL_2_B.binaryindexedtree.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-06-02 10:45:19+09:00
+    - Last commit date: 2020-07-14 21:38:43+09:00
 
 
 * see: <a href="https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/2/DSL_2_B">https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/2/DSL_2_B</a>
@@ -86,7 +86,7 @@ signed main() {
 // #pragma GCC target ("avx")
 // #pragma GCC optimize("Ofast")
 // #pragma GCC optimize("unroll-loops")
-// #pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native")
+// #pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx")
 #include <bits/stdc++.h>
 using namespace std;
 // #define int long long
@@ -183,8 +183,6 @@ template<typename Head, typename... Tail> void dump(Head&& head, Tail&&... tail)
 #define se              second
 #define MP              make_pair
 #define MT              make_tuple
-#define tmax(x, y, z)   max((x), max((y), (z)))
-#define tmin(x, y, z)   min((x), min((y), (z)))
 template<typename T, typename A, typename B> inline bool between(T x, A a, B b) { return ((a <= x) && (x < b)); }
 template<typename A, typename B> inline bool chmax(A &a, const B &b) { if (a < b) { a = b; return true; } return false; }
 template<typename A, typename B> inline bool chmin(A &a, const B &b) { if (a > b) { a = b; return true; } return false; }
@@ -207,7 +205,7 @@ struct abracadabra {
 */
 
 template<typename T> struct BinaryIndexedTree {
-    vector< T > data;
+    vector<T> data;
     BinaryIndexedTree(int sz) { data.assign(++sz, 0); }
     T sum(int k) {
         if (k < 0) return T(0);

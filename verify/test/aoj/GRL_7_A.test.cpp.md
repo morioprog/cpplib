@@ -25,21 +25,22 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/aoj/NTL_1_A.test.cpp
+# :heavy_check_mark: test/aoj/GRL_7_A.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#0d0c91c0cca30af9c1c9faef0cf04aa9">test/aoj</a>
-* <a href="{{ site.github.repository_url }}/blob/master/test/aoj/NTL_1_A.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-07-14 20:59:52+09:00
+* <a href="{{ site.github.repository_url }}/blob/master/test/aoj/GRL_7_A.test.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-07-14 21:38:43+09:00
 
 
-* see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_1_A">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_1_A</a>
+* see: <a href="https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/7/GRL_7_A">https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/7/GRL_7_A</a>
 
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../../library/math/prime/prime_factor.hpp.html">Prime Factor (素因数分解) <small>(math/prime/prime_factor.hpp)</small></a>
+* :heavy_check_mark: <a href="../../../library/graph/bipartite/bipartite_matching.hpp.html">Bipartite Matching <small>(graph/bipartite/bipartite_matching.hpp)</small></a>
+* :heavy_check_mark: <a href="../../../library/graph/template.hpp.html">グラフテンプレート <small>(graph/template.hpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/template/main.hpp.html">template/main.hpp</a>
 
 
@@ -48,28 +49,25 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_1_A"
+#define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/7/GRL_7_A"
 
 #include "../../template/main.hpp"
-#include "../../math/prime/prime_factor.hpp"
+#include "../../graph/template.hpp"
+#include "../../graph/bipartite/bipartite_matching.hpp"
 
 signed main() {
 
-    int N;  cin >> N;
-    auto pf = prime_factor(N);
+    int X, Y, E;
+    cin >> X >> Y >> E;
 
-    vector<int> res;
-    for (auto& e: pf) {
-        for (int i = 0; i < e.second; ++i) {
-            res.emplace_back(e.first);
-        }
+    Graph<int> g(X + Y);
+    for (int i = 0; i < E; ++i) {
+        int x, y;
+        cin >> x >> y;
+        g.add_edge(x, y + X);
     }
 
-    cout << N << ": ";
-    int sz = res.size();
-    for (int i = 0; i < sz; ++i) {
-        cout << res[i] << " \n"[i == sz - 1];
-    }
+    cout << bipartite_matching(g) << endl;
 
 }
 
@@ -79,8 +77,8 @@ signed main() {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "test/aoj/NTL_1_A.test.cpp"
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_1_A"
+#line 1 "test/aoj/GRL_7_A.test.cpp"
+#define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/7/GRL_7_A"
 
 #line 1 "template/main.hpp"
 // #pragma GCC target ("avx")
@@ -198,42 +196,116 @@ struct abracadabra {
 } ABRACADABRA;
 
 #pragma endregion
-#line 1 "math/prime/prime_factor.hpp"
+#line 1 "graph/template.hpp"
 /**
- * @brief Prime Factor (素因数分解)
- * @docs docs/math/prime/prime_factor.md
- */
+* @brief グラフテンプレート
+* @docs docs/graph/template.md
+*/
 
-map<long long, int> prime_factor(long long n) {
-    map<long long, int> ret;
-    for (long long i = 2; i * i <= n; ++i) {
-        while (n % i == 0) {
-            ++ret[i];
-            n /= i;
+template<typename T>
+struct Edge {
+    int frm, to, idx;   T cst;
+    Edge() {}
+    Edge(int f, int t, T c, int i = -1) : frm(f), to(t), cst(c), idx(i) {}
+    operator int() const { return to; }
+};
+
+template<typename T>
+constexpr T GINF = numeric_limits<T>::max() / 10;
+
+template<typename T>
+struct Graph {
+    int V, E;
+    vector<vector<Edge<T>>> mat;
+    vector<vector<T>> wf;
+    Graph() {}
+    Graph(int v) : V(v), E(0), mat(v) {}
+    inline void add_edge(int a, int b, T c = 1, int margin = 0) {
+        a -= margin, b -= margin;
+        mat[a].emplace_back(a, b, c, E++);
+        mat[b].emplace_back(b, a, c, E++);
+    }
+    inline void add_arc(int a, int b, T c = 1, int margin = 0) {
+        a -= margin, b -= margin;
+        mat[a].emplace_back(a, b, c, E++);
+    }
+    inline void input_edges(int M, int margin = 0, bool need_cost = false) {
+        for (int i = 0; i < M; ++i) {
+            if (need_cost) {
+                int a, b;   T c;
+                cin >> a >> b >> c;
+                add_edge(a, b, c, margin);
+            } else {
+                int a, b;   T c(1);
+                cin >> a >> b;
+                add_edge(a, b, c, margin);
+            }
         }
     }
-    if (n != 1) ret[n] = 1;
+    inline void input_arcs(int M, int margin = 0, bool need_cost = false) {
+        for (int i = 0; i < M; ++i) {
+            if (need_cost) {
+                int a, b;   T c;
+                cin >> a >> b >> c;
+                add_arc(a, b, c, margin);
+            } else {
+                int a, b;   T c(1);
+                cin >> a >> b;
+                add_arc(a, b, c, margin);
+            }
+        }
+    }
+};
+#line 1 "graph/bipartite/bipartite_matching.hpp"
+/**
+ * @brief Bipartite Matching
+ * @docs docs/graph/bipartite/bipartite_matching.md
+ * @see https://qiita.com/drken/items/e805e3f514acceb87602
+ * @see https://qiita.com/drken/items/7f98315b56c95a6181a4
+ */
+
+template<typename T>
+int bipartite_matching(const Graph<T> &g) {
+    int timestamp = 0;
+    vector<int> alive(g.V, 1), used(g.V, 0), match(g.V, -1);
+    auto dfs = [&](auto &&f, int cur) -> bool {
+        used[cur] = timestamp;
+        for (auto& nxt: g.mat[cur]) {
+            int w = match[nxt];
+            if (alive[nxt] == 0) continue;
+            if (w == -1 or (used[w] != timestamp and f(f, w))) {
+                match[cur] = nxt;
+                match[nxt] = cur;
+                return true;
+            }
+        }
+        return false;
+    };
+    int ret = 0;
+    for (int i = 0; i < g.V; ++i) {
+        if (alive[i] == 0) continue;
+        if (match[i] == -1) {
+            ++timestamp;
+            ret += dfs(dfs, i);
+        }
+    }
     return ret;
 }
-#line 5 "test/aoj/NTL_1_A.test.cpp"
+#line 6 "test/aoj/GRL_7_A.test.cpp"
 
 signed main() {
 
-    int N;  cin >> N;
-    auto pf = prime_factor(N);
+    int X, Y, E;
+    cin >> X >> Y >> E;
 
-    vector<int> res;
-    for (auto& e: pf) {
-        for (int i = 0; i < e.second; ++i) {
-            res.emplace_back(e.first);
-        }
+    Graph<int> g(X + Y);
+    for (int i = 0; i < E; ++i) {
+        int x, y;
+        cin >> x >> y;
+        g.add_edge(x, y + X);
     }
 
-    cout << N << ": ";
-    int sz = res.size();
-    for (int i = 0; i < sz; ++i) {
-        cout << res[i] << " \n"[i == sz - 1];
-    }
+    cout << bipartite_matching(g) << endl;
 
 }
 

@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: トポロジカルソート <small>(graph/other/topologicalsort.hpp)</small>
+# :heavy_check_mark: トポロジカルソート <small>(graph/other/topological_sort.hpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#7bdf4bef6792afd2baf0aea42eec3899">graph/other</a>
-* <a href="{{ site.github.repository_url }}/blob/master/graph/other/topologicalsort.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-06-02 02:17:09+09:00
+* <a href="{{ site.github.repository_url }}/blob/master/graph/other/topological_sort.hpp">View this file on GitHub</a>
+    - Last commit date: 2020-07-14 21:38:43+09:00
 
 
 
@@ -46,8 +46,13 @@ $O(E + V)$
 
 ## 使用例
 
-* `TopologicalSort(g)` : グラフ`g`をトポロジカルソート.
+* `topological_sort(g)` : グラフ`g`をトポロジカルソート.
   * トポロジカルソートが出来ないなら`vector<int>()`を返す.
+
+
+## Verified with
+
+* :heavy_check_mark: <a href="../../../verify/test/aoj/GRL_4_B.test.cpp.html">test/aoj/GRL_4_B.test.cpp</a>
 
 
 ## Code
@@ -57,10 +62,10 @@ $O(E + V)$
 ```cpp
 /**
 * @brief トポロジカルソート
-* @docs docs/graph/other/topologicalsort.md
+* @docs docs/graph/other/topological_sort.md
 */
 
-template<typename T> vector<int> TopologicalSort(const Graph< T > &g) {
+template<typename T> vector<int> topological_sort(const Graph<T> &g) {
     vector<int> order, color(g.V, 0);
     auto rec = [&](auto &&f, int v) -> bool {
         color[v] = 1;
@@ -84,13 +89,13 @@ template<typename T> vector<int> TopologicalSort(const Graph< T > &g) {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "graph/other/topologicalsort.hpp"
+#line 1 "graph/other/topological_sort.hpp"
 /**
 * @brief トポロジカルソート
-* @docs docs/graph/other/topologicalsort.md
+* @docs docs/graph/other/topological_sort.md
 */
 
-template<typename T> vector<int> TopologicalSort(const Graph< T > &g) {
+template<typename T> vector<int> topological_sort(const Graph<T> &g) {
     vector<int> order, color(g.V, 0);
     auto rec = [&](auto &&f, int v) -> bool {
         color[v] = 1;

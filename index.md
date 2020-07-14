@@ -74,6 +74,14 @@ layout: default
 * :heavy_check_mark: <a href="library/graph/template.hpp.html">グラフテンプレート <small>(graph/template.hpp)</small></a>
 
 
+<div id="d1cac5659bebf80b30fdbc9c35b6208b"></div>
+
+### graph/bipartite
+
+* :warning: <a href="library/graph/bipartite/bipartite_check.hpp.html">Bipartite Check <small>(graph/bipartite/bipartite_check.hpp)</small></a>
+* :heavy_check_mark: <a href="library/graph/bipartite/bipartite_matching.hpp.html">Bipartite Matching <small>(graph/bipartite/bipartite_matching.hpp)</small></a>
+
+
 <div id="fd7b240ac98922caf22c9202d36f936f"></div>
 
 ### graph/minimumspanningtree
@@ -85,7 +93,7 @@ layout: default
 
 ### graph/other
 
-* :warning: <a href="library/graph/other/topologicalsort.hpp.html">トポロジカルソート <small>(graph/other/topologicalsort.hpp)</small></a>
+* :heavy_check_mark: <a href="library/graph/other/topological_sort.hpp.html">トポロジカルソート <small>(graph/other/topological_sort.hpp)</small></a>
 
 
 <div id="893699352036854e82d247c81f4d89a6"></div>
@@ -187,9 +195,11 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/aoj/GRL_1_B.test.cpp.html">test/aoj/GRL_1_B.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/GRL_1_C.test.cpp.html">test/aoj/GRL_1_C.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/GRL_2_A.test.cpp.html">test/aoj/GRL_2_A.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj/GRL_4_B.test.cpp.html">test/aoj/GRL_4_B.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/GRL_5_C.test.cpp.html">test/aoj/GRL_5_C.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/GRL_5_D.test.cpp.html">test/aoj/GRL_5_D.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/GRL_5_E.test.cpp.html">test/aoj/GRL_5_E.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj/GRL_7_A.test.cpp.html">test/aoj/GRL_7_A.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/ITP1_1_A.short.test.cpp.html">test/aoj/ITP1_1_A.short.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/ITP1_1_A.test.cpp.html">test/aoj/ITP1_1_A.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/NTL_1_A.test.cpp.html">test/aoj/NTL_1_A.test.cpp</a>

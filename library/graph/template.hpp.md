@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#f8b0b924ebd7046dbfa85a856e4682c8">graph</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/template.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-17 15:13:29+09:00
+    - Last commit date: 2020-07-14 21:38:43+09:00
 
 
 
@@ -39,10 +39,6 @@ layout: default
 ## 概要
 
 グラフのテンプレート.
-
-### アルゴリズム
-
-* 二部グラフの判定 : $O(E + V)$
 
 #### 最短経路
 
@@ -65,8 +61,6 @@ layout: default
   * `need_cost` : コストを受け取るか.
     * `true` : `U V cst`
     * `false` : `U V`
-* `is_bipartite(g)` : 二部グラフの判定.
-  * 片方の集合の大きさが欲しかったら, 適宜コメントを外す.
 
 
 ## Verified with
@@ -75,9 +69,11 @@ layout: default
 * :heavy_check_mark: <a href="../../verify/test/aoj/GRL_1_B.test.cpp.html">test/aoj/GRL_1_B.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj/GRL_1_C.test.cpp.html">test/aoj/GRL_1_C.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj/GRL_2_A.test.cpp.html">test/aoj/GRL_2_A.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj/GRL_4_B.test.cpp.html">test/aoj/GRL_4_B.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj/GRL_5_C.test.cpp.html">test/aoj/GRL_5_C.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj/GRL_5_D.test.cpp.html">test/aoj/GRL_5_D.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj/GRL_5_E.test.cpp.html">test/aoj/GRL_5_E.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj/GRL_7_A.test.cpp.html">test/aoj/GRL_7_A.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/yosupo/vertexaddpathsum.test.cpp.html">test/yosupo/vertexaddpathsum.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/yosupo/vertexaddsubtreesum.test.cpp.html">test/yosupo/vertexaddsubtreesum.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/yukicoder/399.test.cpp.html">test/yukicoder/399.test.cpp</a>
@@ -146,23 +142,6 @@ struct Graph {
             }
         }
     }
-    inline bool is_bipartite() {
-        bool isbi = true;
-        vector<int> color(V, 0);
-        auto dfs = [&](auto &&f, int i, int clr) -> void {
-            if (color[i] != 0) return;
-            color[i] = clr;
-            for (auto& e: mat[i]) {
-                /* */if (color[e.to] == 0)      f(f, e.to, -clr);
-                else if (color[e.to] == clr)    isbi = false;
-            }
-        };
-        dfs(dfs, 0, 1);
-        return isbi;
-        // int cnt = 0;
-        // for (auto& e: color) if (e == 1) ++cnt;
-        // return isbi ? -1 : cnt;
-    }
 };
 
 ```
@@ -229,23 +208,6 @@ struct Graph {
                 add_arc(a, b, c, margin);
             }
         }
-    }
-    inline bool is_bipartite() {
-        bool isbi = true;
-        vector<int> color(V, 0);
-        auto dfs = [&](auto &&f, int i, int clr) -> void {
-            if (color[i] != 0) return;
-            color[i] = clr;
-            for (auto& e: mat[i]) {
-                /* */if (color[e.to] == 0)      f(f, e.to, -clr);
-                else if (color[e.to] == clr)    isbi = false;
-            }
-        };
-        dfs(dfs, 0, 1);
-        return isbi;
-        // int cnt = 0;
-        // for (auto& e: color) if (e == 1) ++cnt;
-        // return isbi ? -1 : cnt;
     }
 };
 

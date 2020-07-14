@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#8dc87745f885a4cc532acd7b15b8b5fe">datastructure</a>
 * <a href="{{ site.github.repository_url }}/blob/master/datastructure/binaryindexedtree.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-06-02 10:45:19+09:00
+    - Last commit date: 2020-07-14 21:38:43+09:00
 
 
 
@@ -71,7 +71,7 @@ layout: default
 */
 
 template<typename T> struct BinaryIndexedTree {
-    vector< T > data;
+    vector<T> data;
     BinaryIndexedTree(int sz) { data.assign(++sz, 0); }
     T sum(int k) {
         if (k < 0) return T(0);
@@ -113,7 +113,7 @@ template<typename T> struct BinaryIndexedTree {
 */
 
 template<typename T> struct BinaryIndexedTree {
-    vector< T > data;
+    vector<T> data;
     BinaryIndexedTree(int sz) { data.assign(++sz, 0); }
     T sum(int k) {
         if (k < 0) return T(0);
