@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: Bipartite Check <small>(graph/bipartite/bipartite_check.hpp)</small>
+# :warning: 二部グラフ判定 <small>(graph/bipartite/bipartite_check.hpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#d1cac5659bebf80b30fdbc9c35b6208b">graph/bipartite</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/bipartite/bipartite_check.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-07-14 21:38:43+09:00
+    - Last commit date: 2020-07-14 22:08:56+09:00
 
 
 
@@ -56,7 +56,7 @@ $O(E + V)$
 {% raw %}
 ```cpp
 /**
- * @brief Bipartite Check
+ * @brief 二部グラフ判定
  * @docs docs/graph/bipartite/bipartite_check.md
  */
 
@@ -88,7 +88,7 @@ bool is_bipartite(const Graph<T> &g) {
 ```cpp
 #line 1 "graph/bipartite/bipartite_check.hpp"
 /**
- * @brief Bipartite Check
+ * @brief 二部グラフ判定
  * @docs docs/graph/bipartite/bipartite_check.md
  */
 

@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: Bipartite Matching <small>(graph/bipartite/bipartite_matching.hpp)</small>
+# :heavy_check_mark: 二部グラフの最大マッチング <small>(graph/bipartite/bipartite_matching.hpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#d1cac5659bebf80b30fdbc9c35b6208b">graph/bipartite</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/bipartite/bipartite_matching.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-07-14 21:38:43+09:00
+    - Last commit date: 2020-07-14 22:08:56+09:00
 
 
 * see: <a href="https://qiita.com/drken/items/e805e3f514acceb87602">https://qiita.com/drken/items/e805e3f514acceb87602</a>
@@ -66,7 +66,7 @@ $O(EV)$
 {% raw %}
 ```cpp
 /**
- * @brief Bipartite Matching
+ * @brief 二部グラフの最大マッチング
  * @docs docs/graph/bipartite/bipartite_matching.md
  * @see https://qiita.com/drken/items/e805e3f514acceb87602
  * @see https://qiita.com/drken/items/7f98315b56c95a6181a4
@@ -108,7 +108,7 @@ int bipartite_matching(const Graph<T> &g) {
 ```cpp
 #line 1 "graph/bipartite/bipartite_matching.hpp"
 /**
- * @brief Bipartite Matching
+ * @brief 二部グラフの最大マッチング
  * @docs docs/graph/bipartite/bipartite_matching.md
  * @see https://qiita.com/drken/items/e805e3f514acceb87602
  * @see https://qiita.com/drken/items/7f98315b56c95a6181a4

@@ -78,8 +78,8 @@ layout: default
 
 ### graph/bipartite
 
-* :warning: <a href="library/graph/bipartite/bipartite_check.hpp.html">Bipartite Check <small>(graph/bipartite/bipartite_check.hpp)</small></a>
-* :heavy_check_mark: <a href="library/graph/bipartite/bipartite_matching.hpp.html">Bipartite Matching <small>(graph/bipartite/bipartite_matching.hpp)</small></a>
+* :warning: <a href="library/graph/bipartite/bipartite_check.hpp.html">二部グラフ判定 <small>(graph/bipartite/bipartite_check.hpp)</small></a>
+* :heavy_check_mark: <a href="library/graph/bipartite/bipartite_matching.hpp.html">二部グラフの最大マッチング <small>(graph/bipartite/bipartite_matching.hpp)</small></a>
 
 
 <div id="fd7b240ac98922caf22c9202d36f936f"></div>
