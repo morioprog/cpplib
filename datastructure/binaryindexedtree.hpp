@@ -4,7 +4,7 @@
 */
 
 template<typename T> struct BinaryIndexedTree {
-    vector< T > data;
+    vector<T> data;
     BinaryIndexedTree(int sz) { data.assign(++sz, 0); }
     T sum(int k) {
         if (k < 0) return T(0);

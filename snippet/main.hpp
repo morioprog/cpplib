@@ -1,7 +1,7 @@
 // #pragma GCC target ("avx")
 // #pragma GCC optimize("Ofast")
 // #pragma GCC optimize("unroll-loops")
-// #pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native")
+// #pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx")
 #include <bits/stdc++.h>
 using namespace std;
 // #define int long long
@@ -98,8 +98,6 @@ template<typename Head, typename... Tail> void dump(Head&& head, Tail&&... tail)
 #define se              second
 #define MP              make_pair
 #define MT              make_tuple
-#define tmax(x, y, z)   max((x), max((y), (z)))
-#define tmin(x, y, z)   min((x), min((y), (z)))
 template<typename T, typename A, typename B> inline bool between(T x, A a, B b) { return ((a <= x) && (x < b)); }
 template<typename A, typename B> inline bool chmax(A &a, const B &b) { if (a < b) { a = b; return true; } return false; }
 template<typename A, typename B> inline bool chmin(A &a, const B &b) { if (a > b) { a = b; return true; } return false; }
@@ -116,7 +114,16 @@ struct abracadabra {
 
 #pragma endregion
 
+void solve();
+
 signed main() {
+
+    // int _T; cin >> _T; for (int t = 1; t <= _T; ++t)
+    solve();
+
+}
+
+void solve() {
 
     $0
 

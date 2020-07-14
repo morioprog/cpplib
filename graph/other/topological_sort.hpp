@@ -1,9 +1,9 @@
 /**
 * @brief トポロジカルソート
-* @docs docs/graph/other/topologicalsort.md
+* @docs docs/graph/other/topological_sort.md
 */
 
-template<typename T> vector<int> TopologicalSort(const Graph< T > &g) {
+template<typename T> vector<int> topological_sort(const Graph<T> &g) {
     vector<int> order, color(g.V, 0);
     auto rec = [&](auto &&f, int v) -> bool {
         color[v] = 1;
