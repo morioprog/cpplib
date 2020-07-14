@@ -30,5 +30,9 @@
 "test/yosupo/staticrangesum.test.cpp": "2020-07-14 20:59:52 +0900",
 "test/yosupo/staticrmq.test.cpp": "2020-07-14 20:59:52 +0900",
 "test/yosupo/unionfind.test.cpp": "2020-07-14 20:59:52 +0900",
-"test/yosupo/vertexaddpathsum.test.cpp": "2020-07-14 21:38:43 +0900"
+"test/yosupo/vertexaddpathsum.test.cpp": "2020-07-14 21:38:43 +0900",
+"test/yosupo/vertexaddsubtreesum.test.cpp": "2020-07-14 21:38:43 +0900",
+"test/yukicoder/1050.test.cpp": "2020-07-14 20:59:52 +0900",
+"test/yukicoder/117.test.cpp": "2020-07-14 20:59:52 +0900",
+"test/yukicoder/399.test.cpp": "2020-07-14 21:38:43 +0900"
 }
