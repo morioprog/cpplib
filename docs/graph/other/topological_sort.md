@@ -8,5 +8,5 @@ $O(E + V)$
 
 ## 使用例
 
-* `TopologicalSort(g)` : グラフ`g`をトポロジカルソート.
+* `topological_sort(g)` : グラフ`g`をトポロジカルソート.
   * トポロジカルソートが出来ないなら`vector<int>()`を返す.
