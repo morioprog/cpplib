@@ -18,3 +18,4 @@
 
 * [ABC141F - Xor Sum 3](https://atcoder.jp/contests/abc141/tasks/abc141_f)
 * [AGC045A - Xor Battle](https://atcoder.jp/contests/agc045/tasks/agc045_a)
+* [codeFlyer D - 数列 XOR](https://atcoder.jp/contests/bitflyer2018-final-open/tasks/bitflyer2018_final_d)
