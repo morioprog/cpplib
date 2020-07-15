@@ -4,16 +4,21 @@
 */
 
 struct XorVector {
+    bool dirty = false;
     int rank, N;
     vector<long long> span;
     XorVector(int N) : rank(0), N(N), span(N, 0) {}
     void emplace(ll num) {
         span[rank++] = num;
+        dirty = true;
     }
     bool find(ll num) {
         if (num == 0) return true;
-        gaussian_elimination();
-        for (int i = 0; i < rank; ++i) num = min(num, num ^ span[i]);
+        if (dirty) gaussian_elimination();
+        for (int i = 0; i < rank; ++i) {
+            if (span[i] == 0LL) break;
+            num = min(num, num ^ span[i]);
+        }
         return num == 0LL;
     }
     void gaussian_elimination() {
@@ -26,6 +31,7 @@ struct XorVector {
             for (int row = 0; row < N; ++row) if (row != rank and span[row] >> col & 1) span[row] ^= span[rank];
             ++rank;
         }
+        dirty = false;
     }
     void print() {
         for (int i = 0; i < rank; ++i) cerr << bitset<64>(span[i]) << endl;
