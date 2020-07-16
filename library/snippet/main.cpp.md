@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#54de4c5e0ecfc39083b31b56ee36cb19">snippet</a>
 * <a href="{{ site.github.repository_url }}/blob/master/snippet/main.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-07-14 20:59:52+09:00
+    - Last commit date: 2020-07-16 23:08:47+09:00
 
 
 
@@ -157,7 +157,7 @@ struct abracadabra {
 
 #pragma endregion
 
-void solve();
+int solve();
 
 signed main() {
 
@@ -166,9 +166,9 @@ signed main() {
 
 }
 
-void solve() {
+int solve() {
 
-    
+    return 0;
 
 }
 
@@ -295,7 +295,7 @@ struct abracadabra {
 
 #pragma endregion
 
-void solve();
+int solve();
 
 signed main() {
 
@@ -304,9 +304,9 @@ signed main() {
 
 }
 
-void solve() {
+int solve() {
 
-    
+    return 0;
 
 }
 
