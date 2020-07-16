@@ -114,7 +114,7 @@ struct abracadabra {
 
 #pragma endregion
 
-void solve();
+int solve();
 
 signed main() {
 
@@ -123,8 +123,10 @@ signed main() {
 
 }
 
-void solve() {
+int solve() {
 
     $0
+
+    return 0;
 
 }
