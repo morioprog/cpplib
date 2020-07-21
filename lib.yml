@@ -71,6 +71,9 @@
   - name: Queue Aggregation
     prefix: [datastructure, queueaggregation, swag]
     path: datastructure/queueaggregation.hpp
+  - name: Segment Map
+    prefix: [datastructure, segmentmap]
+    path: datastructure/segmentmap.hpp
 
 数学:
   - 素数:
