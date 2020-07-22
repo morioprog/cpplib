@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#54de4c5e0ecfc39083b31b56ee36cb19">snippet</a>
 * <a href="{{ site.github.repository_url }}/blob/master/snippet/main.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-07-16 23:08:47+09:00
+    - Last commit date: 2020-07-23 01:40:17+09:00
 
 
 
@@ -41,7 +41,6 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-// #pragma GCC target ("avx")
 // #pragma GCC optimize("Ofast")
 // #pragma GCC optimize("unroll-loops")
 // #pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx")
@@ -179,7 +178,6 @@ int solve() {
 {% raw %}
 ```cpp
 #line 1 "snippet/main.cpp"
-// #pragma GCC target ("avx")
 // #pragma GCC optimize("Ofast")
 // #pragma GCC optimize("unroll-loops")
 // #pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx")

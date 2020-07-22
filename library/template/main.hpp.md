@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: template/main.hpp
+# :question: template/main.hpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#66f6181bcb4cff4cd38fbc804a036db6">template</a>
 * <a href="{{ site.github.repository_url }}/blob/master/template/main.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-07-14 20:59:52+09:00
+    - Last commit date: 2020-07-23 01:40:17+09:00
 
 
 
@@ -67,12 +67,12 @@ layout: default
 * :heavy_check_mark: <a href="../../verify/test/yosupo/rangechminchmaxaddrangesum.test.cpp.html">test/yosupo/rangechminchmaxaddrangesum.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/yosupo/staticrangesum.test.cpp.html">test/yosupo/staticrangesum.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/yosupo/staticrmq.test.cpp.html">test/yosupo/staticrmq.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/yosupo/unionfind.test.cpp.html">test/yosupo/unionfind.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/yosupo/vertexaddpathsum.test.cpp.html">test/yosupo/vertexaddpathsum.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/yosupo/vertexaddsubtreesum.test.cpp.html">test/yosupo/vertexaddsubtreesum.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/yukicoder/1050.test.cpp.html">test/yukicoder/1050.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/yukicoder/117.test.cpp.html">test/yukicoder/117.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/yukicoder/399.test.cpp.html">test/yukicoder/399.test.cpp</a>
+* :x: <a href="../../verify/test/yosupo/unionfind.test.cpp.html">test/yosupo/unionfind.test.cpp</a>
+* :x: <a href="../../verify/test/yosupo/vertexaddpathsum.test.cpp.html">test/yosupo/vertexaddpathsum.test.cpp</a>
+* :x: <a href="../../verify/test/yosupo/vertexaddsubtreesum.test.cpp.html">test/yosupo/vertexaddsubtreesum.test.cpp</a>
+* :x: <a href="../../verify/test/yukicoder/1050.test.cpp.html">test/yukicoder/1050.test.cpp</a>
+* :x: <a href="../../verify/test/yukicoder/117.test.cpp.html">test/yukicoder/117.test.cpp</a>
+* :x: <a href="../../verify/test/yukicoder/399.test.cpp.html">test/yukicoder/399.test.cpp</a>
 
 
 ## Code
@@ -80,7 +80,6 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-// #pragma GCC target ("avx")
 // #pragma GCC optimize("Ofast")
 // #pragma GCC optimize("unroll-loops")
 // #pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx")
@@ -203,7 +202,6 @@ struct abracadabra {
 {% raw %}
 ```cpp
 #line 1 "template/main.hpp"
-// #pragma GCC target ("avx")
 // #pragma GCC optimize("Ofast")
 // #pragma GCC optimize("unroll-loops")
 // #pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx")

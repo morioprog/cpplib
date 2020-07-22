@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#0d0c91c0cca30af9c1c9faef0cf04aa9">test/aoj</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/aoj/DSL_2_B.segmenttree.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-07-14 20:59:52+09:00
+    - Last commit date: 2020-07-23 01:40:17+09:00
 
 
 * see: <a href="https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/2/DSL_2_B">https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/2/DSL_2_B</a>
@@ -39,8 +39,8 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../../library/datastructure/segmenttree/segmenttree.hpp.html">セグメント木 <small>(datastructure/segmenttree/segmenttree.hpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/template/main.hpp.html">template/main.hpp</a>
+* :question: <a href="../../../library/datastructure/segmenttree/segmenttree.hpp.html">セグメント木 <small>(datastructure/segmenttree/segmenttree.hpp)</small></a>
+* :question: <a href="../../../library/template/main.hpp.html">template/main.hpp</a>
 
 
 ## Code
@@ -83,7 +83,6 @@ signed main() {
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/2/DSL_2_B"
 
 #line 1 "template/main.hpp"
-// #pragma GCC target ("avx")
 // #pragma GCC optimize("Ofast")
 // #pragma GCC optimize("unroll-loops")
 // #pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx")

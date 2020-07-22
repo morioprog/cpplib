@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#0d0c91c0cca30af9c1c9faef0cf04aa9">test/aoj</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/aoj/GRL_1_C.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-07-14 21:38:43+09:00
+    - Last commit date: 2020-07-23 01:40:17+09:00
 
 
 * see: <a href="https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/1/GRL_1_C">https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/1/GRL_1_C</a>
@@ -40,8 +40,8 @@ layout: default
 ## Depends on
 
 * :heavy_check_mark: <a href="../../../library/graph/shortestpath/warshallfloyd.hpp.html">ワーシャルフロイド法 <small>(graph/shortestpath/warshallfloyd.hpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/graph/template.hpp.html">グラフテンプレート <small>(graph/template.hpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/template/main.hpp.html">template/main.hpp</a>
+* :question: <a href="../../../library/graph/template.hpp.html">グラフテンプレート <small>(graph/template.hpp)</small></a>
+* :question: <a href="../../../library/template/main.hpp.html">template/main.hpp</a>
 
 
 ## Code
@@ -90,7 +90,6 @@ signed main() {
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/1/GRL_1_C"
 
 #line 1 "template/main.hpp"
-// #pragma GCC target ("avx")
 // #pragma GCC optimize("Ofast")
 // #pragma GCC optimize("unroll-loops")
 // #pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx")

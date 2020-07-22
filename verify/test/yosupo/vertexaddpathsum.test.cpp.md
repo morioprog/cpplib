@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/yosupo/vertexaddpathsum.test.cpp
+# :x: test/yosupo/vertexaddpathsum.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#0b58406058f6619a0f31a172defc0230">test/yosupo</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/yosupo/vertexaddpathsum.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-07-14 21:38:43+09:00
+    - Last commit date: 2020-07-23 01:40:17+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/vertex_add_path_sum">https://judge.yosupo.jp/problem/vertex_add_path_sum</a>
@@ -39,10 +39,10 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../../library/datastructure/segmenttree/segmenttree.hpp.html">セグメント木 <small>(datastructure/segmenttree/segmenttree.hpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/graph/template.hpp.html">グラフテンプレート <small>(graph/template.hpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/graph/tree/hldecomposition.hpp.html">HL分解 <small>(graph/tree/hldecomposition.hpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/template/main.hpp.html">template/main.hpp</a>
+* :question: <a href="../../../library/datastructure/segmenttree/segmenttree.hpp.html">セグメント木 <small>(datastructure/segmenttree/segmenttree.hpp)</small></a>
+* :question: <a href="../../../library/graph/template.hpp.html">グラフテンプレート <small>(graph/template.hpp)</small></a>
+* :question: <a href="../../../library/graph/tree/hldecomposition.hpp.html">HL分解 <small>(graph/tree/hldecomposition.hpp)</small></a>
+* :question: <a href="../../../library/template/main.hpp.html">template/main.hpp</a>
 
 
 ## Code
@@ -107,7 +107,6 @@ signed main() {
 #define PROBLEM "https://judge.yosupo.jp/problem/vertex_add_path_sum"
 
 #line 1 "template/main.hpp"
-// #pragma GCC target ("avx")
 // #pragma GCC optimize("Ofast")
 // #pragma GCC optimize("unroll-loops")
 // #pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx")

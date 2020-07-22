@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#0d0c91c0cca30af9c1c9faef0cf04aa9">test/aoj</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/aoj/ALDS1_1_C.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-07-14 20:59:52+09:00
+    - Last commit date: 2020-07-23 01:40:17+09:00
 
 
 * see: <a href="https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/all/ALDS1_1_C">https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/all/ALDS1_1_C</a>
@@ -40,7 +40,7 @@ layout: default
 ## Depends on
 
 * :heavy_check_mark: <a href="../../../library/math/prime/is_prime.hpp.html">素数判定 <small>(math/prime/is_prime.hpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/template/main.hpp.html">template/main.hpp</a>
+* :question: <a href="../../../library/template/main.hpp.html">template/main.hpp</a>
 
 
 ## Code
@@ -79,7 +79,6 @@ signed main() {
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/all/ALDS1_1_C"
 
 #line 1 "template/main.hpp"
-// #pragma GCC target ("avx")
 // #pragma GCC optimize("Ofast")
 // #pragma GCC optimize("unroll-loops")
 // #pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx")
