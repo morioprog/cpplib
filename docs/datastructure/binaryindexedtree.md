@@ -14,4 +14,4 @@
 * `bit.add(k, x)` : $k$要素目に$x$を加算.
 * `bit.sum(k)` : 閉区間$[0, k]$の和を求める
 * `bit.sum(l, r)` : 半開区間$[l, r)$の和を求める
-* `bit.lower_bound(x)` : `bit.sum(i) >= x`なる最小の$i$を求める
+
