@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :question: UnionFind <small>(datastructure/unionfind/unionfind.hpp)</small>
+# :heavy_check_mark: UnionFind <small>(datastructure/unionfind/unionfind.hpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
@@ -56,7 +56,7 @@ $O(\alpha (n))$
 ## Verified with
 
 * :heavy_check_mark: <a href="../../../verify/test/aoj/GRL_2_A.test.cpp.html">test/aoj/GRL_2_A.test.cpp</a>
-* :x: <a href="../../../verify/test/yosupo/unionfind.test.cpp.html">test/yosupo/unionfind.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/yosupo/unionfind.test.cpp.html">test/yosupo/unionfind.test.cpp</a>
 
 
 ## Code

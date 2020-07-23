@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :x: Combination (Inverse) <small>(math/combination/inverse.hpp)</small>
+# :heavy_check_mark: Combination (Inverse) <small>(math/combination/inverse.hpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
@@ -38,7 +38,7 @@ layout: default
 
 ## 概要
 
-$ {}_{n}\mathrm{C}_{r}$, $ {}_{n}\mathrm{P}_{r}$, $ {}_{n}\mathrm{H}_{r}$を逆元を用いて求める.
+$C$, $P$, $H$を逆元を用いて求める.
 
 ## 計算量
 
@@ -48,13 +48,13 @@ $ {}_{n}\mathrm{C}_{r}$, $ {}_{n}\mathrm{P}_{r}$, $ {}_{n}\mathrm{H}_{r}$を逆�
 ## 使用例
 
 * `Combination<modint> comb` : 準備
-* `comb.C(n, r)` : $ {}_{n}\mathrm{C}_{r}$に答える
+* `comb.C(n, r)` : $C(n, r)$に答える
 * `comb.getFact(m)` : $m!$に答える
 
 
 ## Verified with
 
-* :x: <a href="../../../verify/test/yukicoder/117.test.cpp.html">test/yukicoder/117.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/yukicoder/117.test.cpp.html">test/yukicoder/117.test.cpp</a>
 
 
 ## Code

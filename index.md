@@ -56,8 +56,8 @@ layout: default
 
 ### datastructure/segmenttree
 
-* :question: <a href="library/datastructure/segmenttree/lazysegmenttree.hpp.html">遅延セグメント木 <small>(datastructure/segmenttree/lazysegmenttree.hpp)</small></a>
-* :question: <a href="library/datastructure/segmenttree/segmenttree.hpp.html">セグメント木 <small>(datastructure/segmenttree/segmenttree.hpp)</small></a>
+* :heavy_check_mark: <a href="library/datastructure/segmenttree/lazysegmenttree.hpp.html">遅延セグメント木 <small>(datastructure/segmenttree/lazysegmenttree.hpp)</small></a>
+* :heavy_check_mark: <a href="library/datastructure/segmenttree/segmenttree.hpp.html">セグメント木 <small>(datastructure/segmenttree/segmenttree.hpp)</small></a>
 * :heavy_check_mark: <a href="library/datastructure/segmenttree/segmenttreebeats.hpp.html">Segment Tree Beats <small>(datastructure/segmenttree/segmenttreebeats.hpp)</small></a>
 
 
@@ -65,14 +65,14 @@ layout: default
 
 ### datastructure/unionfind
 
-* :question: <a href="library/datastructure/unionfind/unionfind.hpp.html">UnionFind <small>(datastructure/unionfind/unionfind.hpp)</small></a>
+* :heavy_check_mark: <a href="library/datastructure/unionfind/unionfind.hpp.html">UnionFind <small>(datastructure/unionfind/unionfind.hpp)</small></a>
 
 
 <div id="f8b0b924ebd7046dbfa85a856e4682c8"></div>
 
 ### graph
 
-* :question: <a href="library/graph/template.hpp.html">グラフテンプレート <small>(graph/template.hpp)</small></a>
+* :heavy_check_mark: <a href="library/graph/template.hpp.html">グラフテンプレート <small>(graph/template.hpp)</small></a>
 
 
 <div id="d1cac5659bebf80b30fdbc9c35b6208b"></div>
@@ -110,7 +110,7 @@ layout: default
 
 ### graph/tree
 
-* :question: <a href="library/graph/tree/hldecomposition.hpp.html">HL分解 <small>(graph/tree/hldecomposition.hpp)</small></a>
+* :heavy_check_mark: <a href="library/graph/tree/hldecomposition.hpp.html">HL分解 <small>(graph/tree/hldecomposition.hpp)</small></a>
 
 
 <div id="7e676e9e663beb40fd133f5ee24487c2"></div>
@@ -119,14 +119,14 @@ layout: default
 
 * :heavy_check_mark: <a href="library/math/extgcd.hpp.html">拡張ユークリッドの互除法 <small>(math/extgcd.hpp)</small></a>
 * :warning: <a href="library/math/fraction.hpp.html">Fraction (分数) <small>(math/fraction.hpp)</small></a>
-* :question: <a href="library/math/modint.hpp.html">ModInt <small>(math/modint.hpp)</small></a>
+* :heavy_check_mark: <a href="library/math/modint.hpp.html">ModInt <small>(math/modint.hpp)</small></a>
 
 
 <div id="54907edcdfa59aabac4f72caf192990b"></div>
 
 ### math/combination
 
-* :x: <a href="library/math/combination/inverse.hpp.html">Combination (Inverse) <small>(math/combination/inverse.hpp)</small></a>
+* :heavy_check_mark: <a href="library/math/combination/inverse.hpp.html">Combination (Inverse) <small>(math/combination/inverse.hpp)</small></a>
 * :warning: <a href="library/math/combination/pascal.hpp.html">Combination (Pascal) <small>(math/combination/pascal.hpp)</small></a>
 
 
@@ -134,7 +134,7 @@ layout: default
 
 ### math/matrix
 
-* :question: <a href="library/math/matrix/matrix.hpp.html">Matrix (行列) <small>(math/matrix/matrix.hpp)</small></a>
+* :heavy_check_mark: <a href="library/math/matrix/matrix.hpp.html">Matrix (行列) <small>(math/matrix/matrix.hpp)</small></a>
 * :warning: <a href="library/math/matrix/xorvector.hpp.html">Xor Vector <small>(math/matrix/xorvector.hpp)</small></a>
 
 
@@ -170,7 +170,7 @@ layout: default
 
 ### template
 
-* :question: <a href="library/template/main.hpp.html">template/main.hpp</a>
+* :heavy_check_mark: <a href="library/template/main.hpp.html">template/main.hpp</a>
 * :heavy_check_mark: <a href="library/template/short.hpp.html">template/short.hpp</a>
 
 
@@ -213,11 +213,11 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/yosupo/rangechminchmaxaddrangesum.test.cpp.html">test/yosupo/rangechminchmaxaddrangesum.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yosupo/staticrangesum.test.cpp.html">test/yosupo/staticrangesum.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yosupo/staticrmq.test.cpp.html">test/yosupo/staticrmq.test.cpp</a>
-* :x: <a href="verify/test/yosupo/unionfind.test.cpp.html">test/yosupo/unionfind.test.cpp</a>
-* :x: <a href="verify/test/yosupo/vertexaddpathsum.test.cpp.html">test/yosupo/vertexaddpathsum.test.cpp</a>
-* :x: <a href="verify/test/yosupo/vertexaddsubtreesum.test.cpp.html">test/yosupo/vertexaddsubtreesum.test.cpp</a>
-* :x: <a href="verify/test/yukicoder/1050.test.cpp.html">test/yukicoder/1050.test.cpp</a>
-* :x: <a href="verify/test/yukicoder/117.test.cpp.html">test/yukicoder/117.test.cpp</a>
-* :x: <a href="verify/test/yukicoder/399.test.cpp.html">test/yukicoder/399.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yosupo/unionfind.test.cpp.html">test/yosupo/unionfind.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yosupo/vertexaddpathsum.test.cpp.html">test/yosupo/vertexaddpathsum.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yosupo/vertexaddsubtreesum.test.cpp.html">test/yosupo/vertexaddsubtreesum.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yukicoder/1050.test.cpp.html">test/yukicoder/1050.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yukicoder/117.test.cpp.html">test/yukicoder/117.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yukicoder/399.test.cpp.html">test/yukicoder/399.test.cpp</a>
 
 

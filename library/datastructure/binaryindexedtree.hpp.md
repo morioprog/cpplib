@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#8dc87745f885a4cc532acd7b15b8b5fe">datastructure</a>
 * <a href="{{ site.github.repository_url }}/blob/master/datastructure/binaryindexedtree.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-07-14 21:38:43+09:00
+    - Last commit date: 2020-07-24 03:22:50+09:00
 
 
 
@@ -52,7 +52,7 @@ layout: default
 * `bit.add(k, x)` : $k$要素目に$x$を加算.
 * `bit.sum(k)` : 閉区間$[0, k]$の和を求める
 * `bit.sum(l, r)` : 半開区間$[l, r)$の和を求める
-* `bit.lower_bound(x)` : `bit.sum(i) >= x`なる最小の$i$を求める
+
 
 
 ## Verified with
@@ -86,18 +86,6 @@ template<typename T> struct BinaryIndexedTree {
     void add(int k, T x) {
         for (++k; k < data.size(); k += k & -k) data[k] += x;
     }
-    int lower_bound(T w) {
-        if (w <= 0) return 0;
-        int n = data.size(), x = 0, r = 1;
-        while (r < n) r <<= 1;
-        for (int k = r; k > 0; k >>= 1) {
-            if (x + k <= n and data[x + k] < w) {
-                w -= data[x + k];
-                x += k;
-            }
-        }
-        return x + 1;
-    }
 };
 
 ```
@@ -127,18 +115,6 @@ template<typename T> struct BinaryIndexedTree {
     }
     void add(int k, T x) {
         for (++k; k < data.size(); k += k & -k) data[k] += x;
-    }
-    int lower_bound(T w) {
-        if (w <= 0) return 0;
-        int n = data.size(), x = 0, r = 1;
-        while (r < n) r <<= 1;
-        for (int k = r; k > 0; k >>= 1) {
-            if (x + k <= n and data[x + k] < w) {
-                w -= data[x + k];
-                x += k;
-            }
-        }
-        return x + 1;
     }
 };
 

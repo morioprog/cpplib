@@ -40,8 +40,8 @@ layout: default
 ## Depends on
 
 * :heavy_check_mark: <a href="../../../library/graph/other/topological_sort.hpp.html">トポロジカルソート <small>(graph/other/topological_sort.hpp)</small></a>
-* :question: <a href="../../../library/graph/template.hpp.html">グラフテンプレート <small>(graph/template.hpp)</small></a>
-* :question: <a href="../../../library/template/main.hpp.html">template/main.hpp</a>
+* :heavy_check_mark: <a href="../../../library/graph/template.hpp.html">グラフテンプレート <small>(graph/template.hpp)</small></a>
+* :heavy_check_mark: <a href="../../../library/template/main.hpp.html">template/main.hpp</a>
 
 
 ## Code

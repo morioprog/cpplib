@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#0d0c91c0cca30af9c1c9faef0cf04aa9">test/aoj</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/aoj/DSL_2_B.binaryindexedtree.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-07-23 01:40:17+09:00
+    - Last commit date: 2020-07-24 03:22:50+09:00
 
 
 * see: <a href="https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/2/DSL_2_B">https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/2/DSL_2_B</a>
@@ -40,7 +40,7 @@ layout: default
 ## Depends on
 
 * :heavy_check_mark: <a href="../../../library/datastructure/binaryindexedtree.hpp.html">Binary Indexed Tree <small>(datastructure/binaryindexedtree.hpp)</small></a>
-* :question: <a href="../../../library/template/main.hpp.html">template/main.hpp</a>
+* :heavy_check_mark: <a href="../../../library/template/main.hpp.html">template/main.hpp</a>
 
 
 ## Code
@@ -218,18 +218,6 @@ template<typename T> struct BinaryIndexedTree {
     }
     void add(int k, T x) {
         for (++k; k < data.size(); k += k & -k) data[k] += x;
-    }
-    int lower_bound(T w) {
-        if (w <= 0) return 0;
-        int n = data.size(), x = 0, r = 1;
-        while (r < n) r <<= 1;
-        for (int k = r; k > 0; k >>= 1) {
-            if (x + k <= n and data[x + k] < w) {
-                w -= data[x + k];
-                x += k;
-            }
-        }
-        return x + 1;
     }
 };
 #line 5 "test/aoj/DSL_2_B.binaryindexedtree.test.cpp"
