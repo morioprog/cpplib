@@ -122,6 +122,9 @@
   - name: 座標圧縮
     prefix: [compression]
     path: util/compress.hpp
+  - name: 乱数生成器
+    prefix: [randomnumbergenerator]
+    path: util/randomnumbergenerator.hpp
 
 スニペット:
   - name: めぐる式二分探索
