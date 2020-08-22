@@ -118,6 +118,11 @@
     prefix: [string, rollinghash]
     path: string/rollinghash.hpp
 
+テクニック:
+  - name: 座標圧縮
+    prefix: [compression]
+    path: util/compress.hpp
+
 スニペット:
   - name: めぐる式二分探索
     prefix: [meguru]
