@@ -125,6 +125,9 @@
   - name: 乱数生成器
     prefix: [randomnumbergenerator]
     path: util/randomnumbergenerator.hpp
+  - name: インタラクティブ問題
+    prefix: [jury, interactive]
+    path: util/jury.hpp
 
 スニペット:
   - name: めぐる式二分探索
