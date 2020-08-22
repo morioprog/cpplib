@@ -34,6 +34,13 @@ layout: default
 
 ## Library Files
 
+<div id="5058f1af8388633f609cadb75a75dc9d"></div>
+
+### .
+
+* :warning: <a href="library/generate_tex.py.html">generate_tex.py</a>
+
+
 <div id="8dc87745f885a4cc532acd7b15b8b5fe"></div>
 
 ### datastructure
@@ -179,6 +186,13 @@ layout: default
 ### test/atcoder
 
 * :warning: <a href="library/test/atcoder/abc106_d.cpp.html">test/atcoder/abc106_d.cpp</a>
+
+
+<div id="05c7e24700502a079cdd88012b5a76d3"></div>
+
+### util
+
+* :warning: <a href="library/util/compress.hpp.html">座標圧縮 <small>(util/compress.hpp)</small></a>
 
 
 ## Verify Files
