@@ -193,6 +193,8 @@ layout: default
 ### util
 
 * :warning: <a href="library/util/compress.hpp.html">座標圧縮 <small>(util/compress.hpp)</small></a>
+* :warning: <a href="library/util/jury.hpp.html">インタラクティブ問題 <small>(util/jury.hpp)</small></a>
+* :warning: <a href="library/util/randomnumbergenerator.hpp.html">乱数生成器 <small>(util/randomnumbergenerator.hpp)</small></a>
 
 
 ## Verify Files
