@@ -23,6 +23,9 @@
     - name: ワーシャルフロイド法
       prefix: [graph, shortestpath, warshallfloyd]
       path: graph/shortestpath/warshallfloyd.hpp
+    - name: 01-BFS
+      prefix: [graph, shortestpath, 01-BFS]
+      path: graph/shortestpath/01_bfs.hpp
   - 最小全域木:
     - name: クラスカル法
       prefix: [graph, minimumspanningtree, spanningtree, kruskal]
