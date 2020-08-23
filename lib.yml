@@ -10,6 +10,9 @@
   - name: テンプレート
     prefix: [graph]
     path: graph/template.hpp
+  - name: グリッドグラフ
+    prefix: [graph, gridgraph]
+    path: graph/gridgraph.hpp
   - 最短経路:
     - name: ダイクストラ法
       prefix: [graph, shortestpath, dijkstra]
