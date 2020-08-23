@@ -53,6 +53,7 @@ $O(E\log V)$
 ## Verified with
 
 * :heavy_check_mark: <a href="../../../verify/test/aoj/GRL_1_A.test.cpp.html">test/aoj/GRL_1_A.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/yukicoder/20.test.cpp.html">test/yukicoder/20.test.cpp</a>
 
 
 ## Code
