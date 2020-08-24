@@ -60,6 +60,9 @@ layout: default
 * :heavy_check_mark: <a href="../../verify/test/aoj/GRL_5_C.test.cpp.html">test/aoj/GRL_5_C.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj/GRL_5_D.test.cpp.html">test/aoj/GRL_5_D.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj/GRL_5_E.test.cpp.html">test/aoj/GRL_5_E.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj/GRL_6_A.dinic.test.cpp.html">test/aoj/GRL_6_A.dinic.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj/GRL_6_A.fordfulkerson.test.cpp.html">test/aoj/GRL_6_A.fordfulkerson.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj/GRL_6_B.test.cpp.html">test/aoj/GRL_6_B.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj/GRL_7_A.test.cpp.html">test/aoj/GRL_7_A.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj/ITP1_11_A.test.cpp.html">test/aoj/ITP1_11_A.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj/ITP1_11_B.test.cpp.html">test/aoj/ITP1_11_B.test.cpp</a>

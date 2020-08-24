@@ -92,6 +92,21 @@ layout: default
 * :heavy_check_mark: <a href="library/graph/bipartite/bipartite_matching.hpp.html">二部グラフの最大マッチング <small>(graph/bipartite/bipartite_matching.hpp)</small></a>
 
 
+<div id="9278425fe4cf6e9c7cdba9d11d70c354"></div>
+
+### graph/maximumflow
+
+* :heavy_check_mark: <a href="library/graph/maximumflow/dinic.hpp.html">Dinic法 <small>(graph/maximumflow/dinic.hpp)</small></a>
+* :heavy_check_mark: <a href="library/graph/maximumflow/fordfulkerson.hpp.html">FordFulkerson法 <small>(graph/maximumflow/fordfulkerson.hpp)</small></a>
+
+
+<div id="4f2a5e89d3f9de5e41e39d8432f85e12"></div>
+
+### graph/minimumcostflow
+
+* :heavy_check_mark: <a href="library/graph/minimumcostflow/primaldual.hpp.html">Primal Dual <small>(graph/minimumcostflow/primaldual.hpp)</small></a>
+
+
 <div id="fd7b240ac98922caf22c9202d36f936f"></div>
 
 ### graph/minimumspanningtree
@@ -237,6 +252,9 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/aoj/GRL_5_C.test.cpp.html">test/aoj/GRL_5_C.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/GRL_5_D.test.cpp.html">test/aoj/GRL_5_D.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/GRL_5_E.test.cpp.html">test/aoj/GRL_5_E.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj/GRL_6_A.dinic.test.cpp.html">test/aoj/GRL_6_A.dinic.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj/GRL_6_A.fordfulkerson.test.cpp.html">test/aoj/GRL_6_A.fordfulkerson.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj/GRL_6_B.test.cpp.html">test/aoj/GRL_6_B.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/GRL_7_A.test.cpp.html">test/aoj/GRL_7_A.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/ITP1_11_A.test.cpp.html">test/aoj/ITP1_11_A.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/ITP1_11_B.test.cpp.html">test/aoj/ITP1_11_B.test.cpp</a>
