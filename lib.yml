@@ -37,6 +37,10 @@
     - name: FordFulkerson法
       prefix: [graph, maximumflow, fordfulkerson]
       path: graph/maximumflow/fordfulkerson.hpp
+  - 最小費用流:
+    - name: Primal Dual
+      prefix: [graph, minimumcostflow, primaldual]
+      path: graph/minimumcostflow/primaldual.hpp
   - 木:
     - name: HL分解
       prefix: [graph, heavylightdecomposition, lowestcommonancestor]
