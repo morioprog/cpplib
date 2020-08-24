@@ -208,6 +208,7 @@ layout: default
 * :warning: <a href="library/util/compress.hpp.html">座標圧縮 <small>(util/compress.hpp)</small></a>
 * :heavy_check_mark: <a href="library/util/dice.hpp.html">サイコロ <small>(util/dice.hpp)</small></a>
 * :heavy_check_mark: <a href="library/util/groupby.hpp.html">ランレングス圧縮 (groupby) <small>(util/groupby.hpp)</small></a>
+* :heavy_check_mark: <a href="library/util/inversionnumber.hpp.html">転倒数 <small>(util/inversionnumber.hpp)</small></a>
 * :warning: <a href="library/util/jury.hpp.html">インタラクティブ問題 <small>(util/jury.hpp)</small></a>
 * :warning: <a href="library/util/randomnumbergenerator.hpp.html">乱数生成器 <small>(util/randomnumbergenerator.hpp)</small></a>
 
@@ -258,6 +259,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/yosupo/vertexaddpathsum.test.cpp.html">test/yosupo/vertexaddpathsum.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yosupo/vertexaddsubtreesum.test.cpp.html">test/yosupo/vertexaddsubtreesum.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yukicoder/1050.test.cpp.html">test/yukicoder/1050.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yukicoder/1115.test.cpp.html">test/yukicoder/1115.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yukicoder/117.test.cpp.html">test/yukicoder/117.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yukicoder/1183.test.cpp.html">test/yukicoder/1183.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yukicoder/20.test.cpp.html">test/yukicoder/20.test.cpp</a>
