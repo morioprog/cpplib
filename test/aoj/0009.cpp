@@ -1,8 +1,9 @@
 #define IGNORE
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=0009"
 
-#include "../../template/main.hpp"
-#include "../../math/prime/eratosthenes.hpp"
+// #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=0009"
+
+// #include "../../template/main.hpp"
+// #include "../../math/prime/eratosthenes.hpp"
 
 const int MX = 1000010;
 
