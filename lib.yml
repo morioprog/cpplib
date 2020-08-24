@@ -124,7 +124,7 @@
     prefix: [string, rollinghash]
     path: string/rollinghash.hpp
 
-テクニック:
+その他:
   - name: 座標圧縮
     prefix: [compression]
     path: util/compress.hpp
@@ -134,6 +134,9 @@
   - name: インタラクティブ問題
     prefix: [jury, interactive]
     path: util/jury.hpp
+  - name: サイコロ
+    prefix: [dice]
+    path: util/dice.hpp
 
 スニペット:
   - name: めぐる式二分探索
