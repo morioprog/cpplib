@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :question: Binary Indexed Tree <small>(datastructure/binaryindexedtree.hpp)</small>
+# :heavy_check_mark: Binary Indexed Tree <small>(datastructure/binaryindexedtree.hpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
@@ -58,7 +58,7 @@ layout: default
 ## Verified with
 
 * :heavy_check_mark: <a href="../../verify/test/aoj/DSL_2_B.binaryindexedtree.test.cpp.html">test/aoj/DSL_2_B.binaryindexedtree.test.cpp</a>
-* :x: <a href="../../verify/test/yukicoder/1115.test.cpp.html">test/yukicoder/1115.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yukicoder/1115.test.cpp.html">test/yukicoder/1115.test.cpp</a>
 
 
 ## Code

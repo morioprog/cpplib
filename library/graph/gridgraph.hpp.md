@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :question: グリッドグラフ <small>(graph/gridgraph.hpp)</small>
+# :heavy_check_mark: グリッドグラフ <small>(graph/gridgraph.hpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#f8b0b924ebd7046dbfa85a856e4682c8">graph</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/gridgraph.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-08-23 22:46:41+09:00
+    - Last commit date: 2020-08-24 22:46:00+09:00
 
 
 
@@ -67,7 +67,7 @@ layout: default
 ## Verified with
 
 * :heavy_check_mark: <a href="../../verify/test/aoj/2945.test.cpp.html">test/aoj/2945.test.cpp</a>
-* :x: <a href="../../verify/test/yukicoder/20.test.cpp.html">test/yukicoder/20.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yukicoder/20.test.cpp.html">test/yukicoder/20.test.cpp</a>
 
 
 ## Code
@@ -80,7 +80,7 @@ layout: default
 * @docs docs/graph/gridgraph.md
 */
 
-template<typename T=int>
+template <typename T = int>
 struct GridGraph : Graph<T> {
     using Graph<T>::V;
     using Graph<T>::E;
@@ -130,32 +130,22 @@ struct GridGraph : Graph<T> {
     }
     inline void input_edges(int M, int margin = 0, bool need_cost = false) {
         for (int i = 0; i < M; ++i) {
-            if (need_cost) {
-                int ax, ay, bx, by; T c;
-                cin >> ax >> ay >> bx >> by >> c;
-                add_edge(ax, ay, bx, by, c, margin);
-            } else {
-                int ax, ay, bx, by; T c(1);
-                cin >> ax >> ay >> bx >> by;
-                add_edge(ax, ay, bx, by, c, margin);
-            }
+            int ax, ay, bx, by; T c(1);
+            cin >> ax >> ay >> bx >> by;
+            if (need_cost) cin >> c;
+            add_edge(ax, ay, bx, by, c, margin);
         }
     }
     inline void input_arcs(int M, int margin = 0, bool need_cost = false) {
         for (int i = 0; i < M; ++i) {
-            if (need_cost) {
-                int ax, ay, bx, by; T c;
-                cin >> ax >> ay >> bx >> by >> c;
-                add_arc(ax, ay, bx, by, c, margin);
-            } else {
-                int ax, ay, bx, by; T c(1);
-                cin >> ax >> ay >> bx >> by;
-                add_arc(ax, ay, bx, by, c, margin);
-            }
+            int ax, ay, bx, by; T c(1);
+            cin >> ax >> ay >> bx >> by;
+            if (need_cost) cin >> c;
+            add_arc(ax, ay, bx, by, c, margin);
         }
     }
     template<typename B, typename C>
-    inline void load_board(const B &board, const C ng, const int cost = 1, const int neighbor = 4) {
+    inline void load_board(const B &board, const C ng, const T cost = 1, const int neighbor = 4) {
         assert(board.size() == H);
         if (H > 0) assert(board[0].size() == W);
         assert(neighbor >= 1 and neighbor <= 9);
@@ -186,7 +176,7 @@ struct GridGraph : Graph<T> {
 * @docs docs/graph/gridgraph.md
 */
 
-template<typename T=int>
+template <typename T = int>
 struct GridGraph : Graph<T> {
     using Graph<T>::V;
     using Graph<T>::E;
@@ -236,32 +226,22 @@ struct GridGraph : Graph<T> {
     }
     inline void input_edges(int M, int margin = 0, bool need_cost = false) {
         for (int i = 0; i < M; ++i) {
-            if (need_cost) {
-                int ax, ay, bx, by; T c;
-                cin >> ax >> ay >> bx >> by >> c;
-                add_edge(ax, ay, bx, by, c, margin);
-            } else {
-                int ax, ay, bx, by; T c(1);
-                cin >> ax >> ay >> bx >> by;
-                add_edge(ax, ay, bx, by, c, margin);
-            }
+            int ax, ay, bx, by; T c(1);
+            cin >> ax >> ay >> bx >> by;
+            if (need_cost) cin >> c;
+            add_edge(ax, ay, bx, by, c, margin);
         }
     }
     inline void input_arcs(int M, int margin = 0, bool need_cost = false) {
         for (int i = 0; i < M; ++i) {
-            if (need_cost) {
-                int ax, ay, bx, by; T c;
-                cin >> ax >> ay >> bx >> by >> c;
-                add_arc(ax, ay, bx, by, c, margin);
-            } else {
-                int ax, ay, bx, by; T c(1);
-                cin >> ax >> ay >> bx >> by;
-                add_arc(ax, ay, bx, by, c, margin);
-            }
+            int ax, ay, bx, by; T c(1);
+            cin >> ax >> ay >> bx >> by;
+            if (need_cost) cin >> c;
+            add_arc(ax, ay, bx, by, c, margin);
         }
     }
     template<typename B, typename C>
-    inline void load_board(const B &board, const C ng, const int cost = 1, const int neighbor = 4) {
+    inline void load_board(const B &board, const C ng, const T cost = 1, const int neighbor = 4) {
         assert(board.size() == H);
         if (H > 0) assert(board[0].size() == W);
         assert(neighbor >= 1 and neighbor <= 9);

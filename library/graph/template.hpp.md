@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :question: グラフテンプレート <small>(graph/template.hpp)</small>
+# :heavy_check_mark: グラフテンプレート <small>(graph/template.hpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#f8b0b924ebd7046dbfa85a856e4682c8">graph</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/template.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-07-14 21:38:43+09:00
+    - Last commit date: 2020-08-24 22:46:00+09:00
 
 
 
@@ -75,10 +75,10 @@ layout: default
 * :heavy_check_mark: <a href="../../verify/test/aoj/GRL_5_D.test.cpp.html">test/aoj/GRL_5_D.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj/GRL_5_E.test.cpp.html">test/aoj/GRL_5_E.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj/GRL_7_A.test.cpp.html">test/aoj/GRL_7_A.test.cpp</a>
-* :x: <a href="../../verify/test/yosupo/vertexaddpathsum.test.cpp.html">test/yosupo/vertexaddpathsum.test.cpp</a>
-* :x: <a href="../../verify/test/yosupo/vertexaddsubtreesum.test.cpp.html">test/yosupo/vertexaddsubtreesum.test.cpp</a>
-* :x: <a href="../../verify/test/yukicoder/20.test.cpp.html">test/yukicoder/20.test.cpp</a>
-* :x: <a href="../../verify/test/yukicoder/399.test.cpp.html">test/yukicoder/399.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yosupo/vertexaddpathsum.test.cpp.html">test/yosupo/vertexaddpathsum.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yosupo/vertexaddsubtreesum.test.cpp.html">test/yosupo/vertexaddsubtreesum.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yukicoder/20.test.cpp.html">test/yukicoder/20.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yukicoder/399.test.cpp.html">test/yukicoder/399.test.cpp</a>
 
 
 ## Code
@@ -95,7 +95,7 @@ template<typename T>
 struct Edge {
     int frm, to, idx;   T cst;
     Edge() {}
-    Edge(int f, int t, T c, int i = -1) : frm(f), to(t), cst(c), idx(i) {}
+    Edge(int f, int t, T c, int i = -1) : frm(f), to(t), idx(i), cst(c) {}
     operator int() const { return to; }
 };
 
@@ -120,28 +120,18 @@ struct Graph {
     }
     inline void input_edges(int M, int margin = 0, bool need_cost = false) {
         for (int i = 0; i < M; ++i) {
-            if (need_cost) {
-                int a, b;   T c;
-                cin >> a >> b >> c;
-                add_edge(a, b, c, margin);
-            } else {
-                int a, b;   T c(1);
-                cin >> a >> b;
-                add_edge(a, b, c, margin);
-            }
+            int a, b;   T c(1);
+            cin >> a >> b;
+            if (need_cost) cin >> c;
+            add_edge(a, b, c, margin);
         }
     }
     inline void input_arcs(int M, int margin = 0, bool need_cost = false) {
         for (int i = 0; i < M; ++i) {
-            if (need_cost) {
-                int a, b;   T c;
-                cin >> a >> b >> c;
-                add_arc(a, b, c, margin);
-            } else {
-                int a, b;   T c(1);
-                cin >> a >> b;
-                add_arc(a, b, c, margin);
-            }
+            int a, b;   T c(1);
+            cin >> a >> b;
+            if (need_cost) cin >> c;
+            add_arc(a, b, c, margin);
         }
     }
 };
@@ -162,7 +152,7 @@ template<typename T>
 struct Edge {
     int frm, to, idx;   T cst;
     Edge() {}
-    Edge(int f, int t, T c, int i = -1) : frm(f), to(t), cst(c), idx(i) {}
+    Edge(int f, int t, T c, int i = -1) : frm(f), to(t), idx(i), cst(c) {}
     operator int() const { return to; }
 };
 
@@ -187,28 +177,18 @@ struct Graph {
     }
     inline void input_edges(int M, int margin = 0, bool need_cost = false) {
         for (int i = 0; i < M; ++i) {
-            if (need_cost) {
-                int a, b;   T c;
-                cin >> a >> b >> c;
-                add_edge(a, b, c, margin);
-            } else {
-                int a, b;   T c(1);
-                cin >> a >> b;
-                add_edge(a, b, c, margin);
-            }
+            int a, b;   T c(1);
+            cin >> a >> b;
+            if (need_cost) cin >> c;
+            add_edge(a, b, c, margin);
         }
     }
     inline void input_arcs(int M, int margin = 0, bool need_cost = false) {
         for (int i = 0; i < M; ++i) {
-            if (need_cost) {
-                int a, b;   T c;
-                cin >> a >> b >> c;
-                add_arc(a, b, c, margin);
-            } else {
-                int a, b;   T c(1);
-                cin >> a >> b;
-                add_arc(a, b, c, margin);
-            }
+            int a, b;   T c(1);
+            cin >> a >> b;
+            if (need_cost) cin >> c;
+            add_arc(a, b, c, margin);
         }
     }
 };

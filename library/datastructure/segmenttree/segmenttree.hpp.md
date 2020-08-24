@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :question: セグメント木 <small>(datastructure/segmenttree/segmenttree.hpp)</small>
+# :heavy_check_mark: セグメント木 <small>(datastructure/segmenttree/segmenttree.hpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
@@ -68,8 +68,8 @@ layout: default
 * :heavy_check_mark: <a href="../../../verify/test/aoj/DSL_2_B.segmenttree.test.cpp.html">test/aoj/DSL_2_B.segmenttree.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/aoj/GRL_5_D.test.cpp.html">test/aoj/GRL_5_D.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/yosupo/pointaddrangesum.test.cpp.html">test/yosupo/pointaddrangesum.test.cpp</a>
-* :x: <a href="../../../verify/test/yosupo/vertexaddpathsum.test.cpp.html">test/yosupo/vertexaddpathsum.test.cpp</a>
-* :x: <a href="../../../verify/test/yosupo/vertexaddsubtreesum.test.cpp.html">test/yosupo/vertexaddsubtreesum.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/yosupo/vertexaddpathsum.test.cpp.html">test/yosupo/vertexaddpathsum.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/yosupo/vertexaddsubtreesum.test.cpp.html">test/yosupo/vertexaddsubtreesum.test.cpp</a>
 
 
 ## Code

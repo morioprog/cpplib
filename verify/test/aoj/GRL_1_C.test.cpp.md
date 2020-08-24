@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#0d0c91c0cca30af9c1c9faef0cf04aa9">test/aoj</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/aoj/GRL_1_C.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-08-24 21:32:27+09:00
+    - Last commit date: 2020-08-24 22:46:00+09:00
 
 
 * see: <a href="https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/1/GRL_1_C">https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/1/GRL_1_C</a>
@@ -40,8 +40,8 @@ layout: default
 ## Depends on
 
 * :heavy_check_mark: <a href="../../../library/graph/shortestpath/warshallfloyd.hpp.html">ワーシャルフロイド法 <small>(graph/shortestpath/warshallfloyd.hpp)</small></a>
-* :question: <a href="../../../library/graph/template.hpp.html">グラフテンプレート <small>(graph/template.hpp)</small></a>
-* :question: <a href="../../../library/template/main.hpp.html">template/main.hpp</a>
+* :heavy_check_mark: <a href="../../../library/graph/template.hpp.html">グラフテンプレート <small>(graph/template.hpp)</small></a>
+* :heavy_check_mark: <a href="../../../library/template/main.hpp.html">template/main.hpp</a>
 
 
 ## Code
@@ -221,7 +221,7 @@ template<typename T>
 struct Edge {
     int frm, to, idx;   T cst;
     Edge() {}
-    Edge(int f, int t, T c, int i = -1) : frm(f), to(t), cst(c), idx(i) {}
+    Edge(int f, int t, T c, int i = -1) : frm(f), to(t), idx(i), cst(c) {}
     operator int() const { return to; }
 };
 
@@ -246,28 +246,18 @@ struct Graph {
     }
     inline void input_edges(int M, int margin = 0, bool need_cost = false) {
         for (int i = 0; i < M; ++i) {
-            if (need_cost) {
-                int a, b;   T c;
-                cin >> a >> b >> c;
-                add_edge(a, b, c, margin);
-            } else {
-                int a, b;   T c(1);
-                cin >> a >> b;
-                add_edge(a, b, c, margin);
-            }
+            int a, b;   T c(1);
+            cin >> a >> b;
+            if (need_cost) cin >> c;
+            add_edge(a, b, c, margin);
         }
     }
     inline void input_arcs(int M, int margin = 0, bool need_cost = false) {
         for (int i = 0; i < M; ++i) {
-            if (need_cost) {
-                int a, b;   T c;
-                cin >> a >> b >> c;
-                add_arc(a, b, c, margin);
-            } else {
-                int a, b;   T c(1);
-                cin >> a >> b;
-                add_arc(a, b, c, margin);
-            }
+            int a, b;   T c(1);
+            cin >> a >> b;
+            if (need_cost) cin >> c;
+            add_arc(a, b, c, margin);
         }
     }
 };

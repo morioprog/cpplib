@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :x: Segment Tree Beats <small>(datastructure/segmenttree/segmenttreebeats.hpp)</small>
+# :heavy_check_mark: Segment Tree Beats <small>(datastructure/segmenttree/segmenttreebeats.hpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
@@ -64,7 +64,7 @@ layout: default
 
 ## Verified with
 
-* :x: <a href="../../../verify/test/yosupo/rangechminchmaxaddrangesum.test.cpp.html">test/yosupo/rangechminchmaxaddrangesum.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/yosupo/rangechminchmaxaddrangesum.test.cpp.html">test/yosupo/rangechminchmaxaddrangesum.test.cpp</a>
 
 
 ## Code

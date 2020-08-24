@@ -39,7 +39,7 @@ layout: default
 
 ## Depends on
 
-* :question: <a href="../../../library/template/main.hpp.html">template/main.hpp</a>
+* :heavy_check_mark: <a href="../../../library/template/main.hpp.html">template/main.hpp</a>
 * :heavy_check_mark: <a href="../../../library/util/dice.hpp.html">サイコロ <small>(util/dice.hpp)</small></a>
 
 

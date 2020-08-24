@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :question: template/main.hpp
+# :heavy_check_mark: template/main.hpp
 
 <a href="../../index.html">Back to top page</a>
 
@@ -72,21 +72,21 @@ layout: default
 * :heavy_check_mark: <a href="../../verify/test/aoj/NTL_1_E.test.cpp.html">test/aoj/NTL_1_E.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/yosupo/determinantofmatrix.test.cpp.html">test/yosupo/determinantofmatrix.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/yosupo/pointaddrangesum.test.cpp.html">test/yosupo/pointaddrangesum.test.cpp</a>
-* :x: <a href="../../verify/test/yosupo/rangeaffinerangesum.test.cpp.html">test/yosupo/rangeaffinerangesum.test.cpp</a>
-* :x: <a href="../../verify/test/yosupo/rangechminchmaxaddrangesum.test.cpp.html">test/yosupo/rangechminchmaxaddrangesum.test.cpp</a>
-* :x: <a href="../../verify/test/yosupo/staticrangesum.test.cpp.html">test/yosupo/staticrangesum.test.cpp</a>
-* :x: <a href="../../verify/test/yosupo/staticrmq.test.cpp.html">test/yosupo/staticrmq.test.cpp</a>
-* :x: <a href="../../verify/test/yosupo/unionfind.unionfind.test.cpp.html">test/yosupo/unionfind.unionfind.test.cpp</a>
-* :x: <a href="../../verify/test/yosupo/unionfind.weightedunionfind.test.cpp.html">test/yosupo/unionfind.weightedunionfind.test.cpp</a>
-* :x: <a href="../../verify/test/yosupo/vertexaddpathsum.test.cpp.html">test/yosupo/vertexaddpathsum.test.cpp</a>
-* :x: <a href="../../verify/test/yosupo/vertexaddsubtreesum.test.cpp.html">test/yosupo/vertexaddsubtreesum.test.cpp</a>
-* :x: <a href="../../verify/test/yukicoder/1050.test.cpp.html">test/yukicoder/1050.test.cpp</a>
-* :x: <a href="../../verify/test/yukicoder/1115.test.cpp.html">test/yukicoder/1115.test.cpp</a>
-* :x: <a href="../../verify/test/yukicoder/117.test.cpp.html">test/yukicoder/117.test.cpp</a>
-* :x: <a href="../../verify/test/yukicoder/1183.test.cpp.html">test/yukicoder/1183.test.cpp</a>
-* :x: <a href="../../verify/test/yukicoder/20.test.cpp.html">test/yukicoder/20.test.cpp</a>
-* :x: <a href="../../verify/test/yukicoder/203.test.cpp.html">test/yukicoder/203.test.cpp</a>
-* :x: <a href="../../verify/test/yukicoder/399.test.cpp.html">test/yukicoder/399.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yosupo/rangeaffinerangesum.test.cpp.html">test/yosupo/rangeaffinerangesum.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yosupo/rangechminchmaxaddrangesum.test.cpp.html">test/yosupo/rangechminchmaxaddrangesum.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yosupo/staticrangesum.test.cpp.html">test/yosupo/staticrangesum.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yosupo/staticrmq.test.cpp.html">test/yosupo/staticrmq.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yosupo/unionfind.unionfind.test.cpp.html">test/yosupo/unionfind.unionfind.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yosupo/unionfind.weightedunionfind.test.cpp.html">test/yosupo/unionfind.weightedunionfind.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yosupo/vertexaddpathsum.test.cpp.html">test/yosupo/vertexaddpathsum.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yosupo/vertexaddsubtreesum.test.cpp.html">test/yosupo/vertexaddsubtreesum.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yukicoder/1050.test.cpp.html">test/yukicoder/1050.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yukicoder/1115.test.cpp.html">test/yukicoder/1115.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yukicoder/117.test.cpp.html">test/yukicoder/117.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yukicoder/1183.test.cpp.html">test/yukicoder/1183.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yukicoder/20.test.cpp.html">test/yukicoder/20.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yukicoder/203.test.cpp.html">test/yukicoder/203.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yukicoder/399.test.cpp.html">test/yukicoder/399.test.cpp</a>
 
 
 ## Code
