@@ -30,6 +30,10 @@
     - name: クラスカル法
       prefix: [graph, minimumspanningtree, spanningtree, kruskal]
       path: graph/minimumspanningtree/kruskal.hpp
+  - 最大流:
+    - name: Dinic法
+      prefix: [graph, maximumflow, dinic]
+      path: graph/maximumflow/dinic.hpp
   - 木:
     - name: HL分解
       prefix: [graph, heavylightdecomposition, lowestcommonancestor]
