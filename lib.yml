@@ -95,6 +95,9 @@
     - name: オイラーのトーシェント関数
       prefix: [math, prime, totient, phi]
       path: math/prime/euler_totient.hpp
+    - name: エラトステネスの篩
+      prefix: [math, prime, eratosthenes]
+      path: math/prime/eratosthenes.hpp
   - 行列:
     - name: 行列
       prefix: [math, matrix]
