@@ -41,7 +41,7 @@ layout: default
 
 * :heavy_check_mark: <a href="../../../library/math/matrix/matrix.hpp.html">Matrix (行列) <small>(math/matrix/matrix.hpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/math/modint.hpp.html">ModInt <small>(math/modint.hpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/template/main.hpp.html">template/main.hpp</a>
+* :question: <a href="../../../library/template/main.hpp.html">template/main.hpp</a>
 
 
 ## Code

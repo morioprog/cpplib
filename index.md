@@ -152,6 +152,7 @@ layout: default
 ### math/prime
 
 * :warning: <a href="library/math/prime/divisor.hpp.html">Divisor (約数) <small>(math/prime/divisor.hpp)</small></a>
+* :question: <a href="library/math/prime/eratosthenes.hpp.html">エラトステネスの篩 <small>(math/prime/eratosthenes.hpp)</small></a>
 * :heavy_check_mark: <a href="library/math/prime/euler_totient.hpp.html">Euler's totient function (オイラーのφ関数) <small>(math/prime/euler_totient.hpp)</small></a>
 * :heavy_check_mark: <a href="library/math/prime/is_prime.hpp.html">素数判定 <small>(math/prime/is_prime.hpp)</small></a>
 * :heavy_check_mark: <a href="library/math/prime/prime_factor.hpp.html">Prime Factor (素因数分解) <small>(math/prime/prime_factor.hpp)</small></a>
@@ -179,7 +180,7 @@ layout: default
 
 ### template
 
-* :heavy_check_mark: <a href="library/template/main.hpp.html">template/main.hpp</a>
+* :question: <a href="library/template/main.hpp.html">template/main.hpp</a>
 * :heavy_check_mark: <a href="library/template/short.hpp.html">template/short.hpp</a>
 
 
@@ -195,15 +196,20 @@ layout: default
 ### util
 
 * :warning: <a href="library/util/compress.hpp.html">座標圧縮 <small>(util/compress.hpp)</small></a>
+* :heavy_check_mark: <a href="library/util/dice.hpp.html">サイコロ <small>(util/dice.hpp)</small></a>
+* :heavy_check_mark: <a href="library/util/groupby.hpp.html">ランレングス圧縮 (groupby) <small>(util/groupby.hpp)</small></a>
 * :warning: <a href="library/util/jury.hpp.html">インタラクティブ問題 <small>(util/jury.hpp)</small></a>
 * :warning: <a href="library/util/randomnumbergenerator.hpp.html">乱数生成器 <small>(util/randomnumbergenerator.hpp)</small></a>
 
 
 ## Verify Files
 
+* :x: <a href="verify/test/aoj/0009.test.cpp.html">test/aoj/0009.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj/0502.test.cpp.html">test/aoj/0502.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/2945.test.cpp.html">test/aoj/2945.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/ALDS1_14_B.test.cpp.html">test/aoj/ALDS1_14_B.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/ALDS1_1_C.test.cpp.html">test/aoj/ALDS1_1_C.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj/ALDS1_1_C.eratosthenes.test.cpp.html">test/aoj/ALDS1_1_C.eratosthenes.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj/ALDS1_1_C.isprime.test.cpp.html">test/aoj/ALDS1_1_C.isprime.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/DSL_2_A.test.cpp.html">test/aoj/DSL_2_A.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/DSL_2_B.binaryindexedtree.test.cpp.html">test/aoj/DSL_2_B.binaryindexedtree.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/DSL_2_B.segmenttree.test.cpp.html">test/aoj/DSL_2_B.segmenttree.test.cpp</a>
@@ -220,6 +226,10 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/aoj/GRL_5_D.test.cpp.html">test/aoj/GRL_5_D.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/GRL_5_E.test.cpp.html">test/aoj/GRL_5_E.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/GRL_7_A.test.cpp.html">test/aoj/GRL_7_A.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj/ITP1_11_A.test.cpp.html">test/aoj/ITP1_11_A.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj/ITP1_11_B.test.cpp.html">test/aoj/ITP1_11_B.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj/ITP1_11_C.test.cpp.html">test/aoj/ITP1_11_C.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj/ITP1_11_D.test.cpp.html">test/aoj/ITP1_11_D.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/ITP1_1_A.short.test.cpp.html">test/aoj/ITP1_1_A.short.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/ITP1_1_A.test.cpp.html">test/aoj/ITP1_1_A.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/NTL_1_A.test.cpp.html">test/aoj/NTL_1_A.test.cpp</a>
@@ -237,7 +247,9 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/yosupo/vertexaddsubtreesum.test.cpp.html">test/yosupo/vertexaddsubtreesum.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yukicoder/1050.test.cpp.html">test/yukicoder/1050.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yukicoder/117.test.cpp.html">test/yukicoder/117.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yukicoder/1183.test.cpp.html">test/yukicoder/1183.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yukicoder/20.test.cpp.html">test/yukicoder/20.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yukicoder/203.test.cpp.html">test/yukicoder/203.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yukicoder/399.test.cpp.html">test/yukicoder/399.test.cpp</a>
 
 

@@ -25,23 +25,21 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/yosupo/vertexaddpathsum.test.cpp
+# :heavy_check_mark: test/aoj/ALDS1_1_C.isprime.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
-* category: <a href="../../../index.html#0b58406058f6619a0f31a172defc0230">test/yosupo</a>
-* <a href="{{ site.github.repository_url }}/blob/master/test/yosupo/vertexaddpathsum.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-07-23 01:40:17+09:00
+* category: <a href="../../../index.html#0d0c91c0cca30af9c1c9faef0cf04aa9">test/aoj</a>
+* <a href="{{ site.github.repository_url }}/blob/master/test/aoj/ALDS1_1_C.isprime.test.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-08-24 20:00:55+09:00
 
 
-* see: <a href="https://judge.yosupo.jp/problem/vertex_add_path_sum">https://judge.yosupo.jp/problem/vertex_add_path_sum</a>
+* see: <a href="https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/all/ALDS1_1_C">https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/all/ALDS1_1_C</a>
 
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../../library/datastructure/segmenttree/segmenttree.hpp.html">セグメント木 <small>(datastructure/segmenttree/segmenttree.hpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/graph/template.hpp.html">グラフテンプレート <small>(graph/template.hpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/graph/tree/hldecomposition.hpp.html">HL分解 <small>(graph/tree/hldecomposition.hpp)</small></a>
+* :heavy_check_mark: <a href="../../../library/math/prime/is_prime.hpp.html">素数判定 <small>(math/prime/is_prime.hpp)</small></a>
 * :question: <a href="../../../library/template/main.hpp.html">template/main.hpp</a>
 
 
@@ -50,50 +48,24 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "https://judge.yosupo.jp/problem/vertex_add_path_sum"
+#define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/all/ALDS1_1_C"
 
 #include "../../template/main.hpp"
-#include "../../datastructure/segmenttree/segmenttree.hpp"
-#include "../../graph/template.hpp"
-#include "../../graph/tree/hldecomposition.hpp"
+#include "../../math/prime/is_prime.hpp"
 
 signed main() {
 
-    int N, Q;
-    cin >> N >> Q;
+    int N;
+    cin >> N;
 
-    using lint = long long;
-    vector<lint> A(N);
-    for (auto& e: A) cin >> e;
-
-    HLDecomposition<lint> hld(N);
-    hld.input_edges(N - 1, 0, false);
-    hld.build();
-
-    vector<lint> B(N);
-    for (int i = 0; i < N; ++i) B[hld.get(i)] = A[i];
-    SegmentTree<lint> seg(B, [](lint a, lint b){ return a + b; }, 0LL);
-
-    auto query = [&](int u, int v) -> lint {
-        lint ret = 0;
-        auto prs = hld.get_path(u, v);
-        for (auto& e: prs) {
-            ret += seg.query(e.first, e.second);
-        }
-        return ret;
-    };
-
-    auto update = [&](int u, lint n) -> void {
-        int idx = hld.get(u);
-        seg.add(idx, n);
-    };
-
-    while (Q--) {
-        int t, a, b;
-        cin >> t >> a >> b;
-        if (t == 0) update(a, b);
-        else        cout << query(a, b) << endl;
+    int res = 0;
+    while (N--) {
+        int X;
+        cin >> X;
+        res += is_prime(X);
     }
+
+    cout << res << endl;
 
 }
 
@@ -103,8 +75,8 @@ signed main() {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "test/yosupo/vertexaddpathsum.test.cpp"
-#define PROBLEM "https://judge.yosupo.jp/problem/vertex_add_path_sum"
+#line 1 "test/aoj/ALDS1_1_C.isprime.test.cpp"
+#define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/all/ALDS1_1_C"
 
 #line 1 "template/main.hpp"
 // #pragma GCC optimize("Ofast")
@@ -221,237 +193,32 @@ struct abracadabra {
 } ABRACADABRA;
 
 #pragma endregion
-#line 1 "datastructure/segmenttree/segmenttree.hpp"
+#line 1 "math/prime/is_prime.hpp"
 /**
-* @brief セグメント木
-* @docs docs/datastructure/segmenttree/segmenttree.md
-*/
+ * @brief 素数判定
+ * @docs docs/math/prime/is_prime.md
+ */
 
-template<typename T> struct SegmentTree {
-    using F = function<T(T, T)>;
-    vector<T> seg;
-    int sz;
-    const F func;
-    const T IDENT;
-    SegmentTree() {}
-    SegmentTree(int n, const F f, const T &ID) : func(f), IDENT(ID) {
-        sz = 1; while (sz < n) sz <<= 1;
-        seg.assign(2 * sz - 1, IDENT);
-    }
-    SegmentTree(vector<T> v, const F f, const T &ID) : func(f), IDENT(ID) {
-        int n = v.size();
-        sz = 1; while (sz < n) sz <<= 1;
-        seg.assign(2 * sz - 1, IDENT);
-        for (int i = 0; i < n; ++i) seg[i + sz - 1] = v[i];
-        for (int i = sz - 2; i >= 0; --i) seg[i] = func(seg[2 * i + 1], seg[2 * i + 2]);
-    }
-    void update(int k, T x) {
-        k += sz - 1;
-        seg[k] = x;
-        while (k > 0) {
-            k = (k - 1) / 2;
-            seg[k] = func(seg[2 * k + 1], seg[2 * k + 2]);
-        }
-    }
-    void add(int k, T x) {
-        k += sz - 1;
-        seg[k] += x;
-        while (k > 0) {
-            k = (k - 1) / 2;
-            seg[k] = func(seg[2 * k + 1], seg[2 * k + 2]);
-        }
-    }
-    T query(int a, int b, int k = 0, int l = 0, int r = -1) {
-        if (r < 0) r = sz;
-        if (r <= a || l >= b) return IDENT;
-        if (l >= a && r <= b) return seg[k];
-        T f_l = query(a, b, 2 * k + 1, l, (l + r) / 2);
-        T f_r = query(a, b, 2 * k + 2, (l + r) / 2, r);
-        return func(f_l, f_r);
-    }
-    void print() {
-        for (int i = 0; i < 2 * sz - 1; ++i) {
-            cerr << seg[i] << ' ';
-            if (!((i + 2) & (i + 1))) cerr << endl;
-        }
-    }
-};
-#line 1 "graph/template.hpp"
-/**
-* @brief グラフテンプレート
-* @docs docs/graph/template.md
-*/
-
-template<typename T>
-struct Edge {
-    int frm, to, idx;   T cst;
-    Edge() {}
-    Edge(int f, int t, T c, int i = -1) : frm(f), to(t), cst(c), idx(i) {}
-    operator int() const { return to; }
-};
-
-template<typename T>
-constexpr T GINF = numeric_limits<T>::max() / 10;
-
-template<typename T>
-struct Graph {
-    int V, E;
-    vector<vector<Edge<T>>> mat;
-    vector<vector<T>> wf;
-    Graph() {}
-    Graph(int v) : V(v), E(0), mat(v) {}
-    inline void add_edge(int a, int b, T c = 1, int margin = 0) {
-        a -= margin, b -= margin;
-        mat[a].emplace_back(a, b, c, E++);
-        mat[b].emplace_back(b, a, c, E++);
-    }
-    inline void add_arc(int a, int b, T c = 1, int margin = 0) {
-        a -= margin, b -= margin;
-        mat[a].emplace_back(a, b, c, E++);
-    }
-    inline void input_edges(int M, int margin = 0, bool need_cost = false) {
-        for (int i = 0; i < M; ++i) {
-            if (need_cost) {
-                int a, b;   T c;
-                cin >> a >> b >> c;
-                add_edge(a, b, c, margin);
-            } else {
-                int a, b;   T c(1);
-                cin >> a >> b;
-                add_edge(a, b, c, margin);
-            }
-        }
-    }
-    inline void input_arcs(int M, int margin = 0, bool need_cost = false) {
-        for (int i = 0; i < M; ++i) {
-            if (need_cost) {
-                int a, b;   T c;
-                cin >> a >> b >> c;
-                add_arc(a, b, c, margin);
-            } else {
-                int a, b;   T c(1);
-                cin >> a >> b;
-                add_arc(a, b, c, margin);
-            }
-        }
-    }
-};
-#line 1 "graph/tree/hldecomposition.hpp"
-/**
-* @brief HL分解
-* @docs docs/graph/tree/hldecomposition.md
-*/
-
-template<typename T>
-struct HLDecomposition : Graph<T> {
-    using Graph<T>::Graph;
-    using Graph<T>::mat;
-    using Graph<T>::V;
-    vector<int> sub, dep, par, head, in, out, rev;
-    vector<T> dst;
-    void build(const int root = 0) {
-        sub.assign(V, 0);
-        dep.assign(V, 0);
-        par.assign(V, 0);
-        head.assign(V, 0);
-        in.assign(V, 0);
-        out.assign(V, 0);
-        rev.assign(V, 0);
-        dst.assign(V, T(0));
-        dfs_sz(root, -1, 0, T(0));
-        int t = 0;
-        dfs_hld(root, -1, t);
-    }
-    int get(int u) const { return in[u]; }
-    int lca(int u, int v) const {
-        for (;; v = par[head[v]]) {
-            // uよりもvを後に来るようにして, vを上に押し上げていく
-            if (in[u] > in[v]) swap(u, v);
-            if (head[u] == head[v]) return u;
-        }
-    }
-    T dist(int u, int v) const {
-        return dst[u] + dst[v] - 2 * dst[lca(u, v)];
-    }
-    pair<int, int> get_subtree(int u, bool isEdge = false) const {
-        return make_pair(in[u] + isEdge, out[u]);
-    }
-    vector<pair<int, int>> get_path(int u, int v, bool isEdge = false) {
-        vector<pair<int, int>> ret;
-        for(;; v = par[head[v]]) {
-			if (in[u] > in[v]) swap(u, v);
-			if (head[u] == head[v]) break;
-			ret.emplace_back(in[head[v]], in[v] + 1);
-		}
-		ret.emplace_back(in[u] + isEdge, in[v] + 1);
-		return ret;
-    }
-    void dfs_sz(int cur, int prv, int depth, T weight) {
-        sub[cur] = 1;
-        dep[cur] = depth;
-        par[cur] = prv;
-        dst[cur] = weight;
-        // 0番目をheavy-pathにするための比較対象を設定
-        if (mat[cur].size() && mat[cur][0] == prv)
-            swap(mat[cur][0], mat[cur].back());
-        for (auto& nxt : mat[cur]) {
-            if (nxt == prv) continue;
-            dfs_sz(nxt, cur, depth + 1, weight + nxt.cst);
-            sub[cur] += sub[nxt];
-            if (sub[mat[cur][0]] < sub[nxt]) swap(mat[cur][0], nxt);
-        }
-    }
-    void dfs_hld(int cur, int prv, int& times) {
-        in[cur] = times++;
-        rev[in[cur]] = cur;
-        for (auto& nxt : mat[cur]) {
-            if (nxt == prv) continue;
-            // cur-nxtがheavy-path上ならheadは同じ
-            head[nxt] = mat[cur][0] == nxt ? head[cur] : nxt;
-            dfs_hld(nxt, cur, times);
-        }
-        out[cur] = times;
-    }
-};
-#line 7 "test/yosupo/vertexaddpathsum.test.cpp"
+bool is_prime(long long n) {
+    if (n < 2) return false;
+    for (int i = 2; i * i <= n; ++i) if (n % i == 0) return false;
+    return true;
+}
+#line 5 "test/aoj/ALDS1_1_C.isprime.test.cpp"
 
 signed main() {
 
-    int N, Q;
-    cin >> N >> Q;
+    int N;
+    cin >> N;
 
-    using lint = long long;
-    vector<lint> A(N);
-    for (auto& e: A) cin >> e;
-
-    HLDecomposition<lint> hld(N);
-    hld.input_edges(N - 1, 0, false);
-    hld.build();
-
-    vector<lint> B(N);
-    for (int i = 0; i < N; ++i) B[hld.get(i)] = A[i];
-    SegmentTree<lint> seg(B, [](lint a, lint b){ return a + b; }, 0LL);
-
-    auto query = [&](int u, int v) -> lint {
-        lint ret = 0;
-        auto prs = hld.get_path(u, v);
-        for (auto& e: prs) {
-            ret += seg.query(e.first, e.second);
-        }
-        return ret;
-    };
-
-    auto update = [&](int u, lint n) -> void {
-        int idx = hld.get(u);
-        seg.add(idx, n);
-    };
-
-    while (Q--) {
-        int t, a, b;
-        cin >> t >> a >> b;
-        if (t == 0) update(a, b);
-        else        cout << query(a, b) << endl;
+    int res = 0;
+    while (N--) {
+        int X;
+        cin >> X;
+        res += is_prime(X);
     }
+
+    cout << res << endl;
 
 }
 

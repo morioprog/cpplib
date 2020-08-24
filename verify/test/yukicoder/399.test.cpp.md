@@ -42,7 +42,7 @@ layout: default
 * :heavy_check_mark: <a href="../../../library/datastructure/segmenttree/lazysegmenttree.hpp.html">遅延セグメント木 <small>(datastructure/segmenttree/lazysegmenttree.hpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/graph/template.hpp.html">グラフテンプレート <small>(graph/template.hpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/graph/tree/hldecomposition.hpp.html">HL分解 <small>(graph/tree/hldecomposition.hpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/template/main.hpp.html">template/main.hpp</a>
+* :question: <a href="../../../library/template/main.hpp.html">template/main.hpp</a>
 
 
 ## Code

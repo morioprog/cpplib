@@ -52,7 +52,7 @@ $O(\sqrt{n})$
 
 ## Verified with
 
-* :heavy_check_mark: <a href="../../../verify/test/aoj/ALDS1_1_C.test.cpp.html">test/aoj/ALDS1_1_C.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/aoj/ALDS1_1_C.isprime.test.cpp.html">test/aoj/ALDS1_1_C.isprime.test.cpp</a>
 
 
 ## Code

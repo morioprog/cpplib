@@ -25,22 +25,22 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/aoj/ALDS1_1_C.test.cpp
+# :heavy_check_mark: test/aoj/ITP1_11_A.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#0d0c91c0cca30af9c1c9faef0cf04aa9">test/aoj</a>
-* <a href="{{ site.github.repository_url }}/blob/master/test/aoj/ALDS1_1_C.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-07-23 01:40:17+09:00
+* <a href="{{ site.github.repository_url }}/blob/master/test/aoj/ITP1_11_A.test.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-08-24 17:58:04+09:00
 
 
-* see: <a href="https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/all/ALDS1_1_C">https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/all/ALDS1_1_C</a>
+* see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ITP1_11_A">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ITP1_11_A</a>
 
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../../library/math/prime/is_prime.hpp.html">素数判定 <small>(math/prime/is_prime.hpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/template/main.hpp.html">template/main.hpp</a>
+* :question: <a href="../../../library/template/main.hpp.html">template/main.hpp</a>
+* :heavy_check_mark: <a href="../../../library/util/dice.hpp.html">サイコロ <small>(util/dice.hpp)</small></a>
 
 
 ## Code
@@ -48,24 +48,26 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/all/ALDS1_1_C"
+#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ITP1_11_A"
 
 #include "../../template/main.hpp"
-#include "../../math/prime/is_prime.hpp"
+#include "../../util/dice.hpp"
 
 signed main() {
 
-    int N;
-    cin >> N;
+    vector<int> label(6);
+    for (int i = 0; i < 6; ++i) cin >> label[i];
 
-    int res = 0;
-    while (N--) {
-        int X;
-        cin >> X;
-        res += is_prime(X);
+    Dice dc(1, 2);
+    string manip;   cin >> manip;
+    for (auto& c: manip) {
+        if (c == 'N') dc.rot(U);
+        if (c == 'E') dc.rot(R);
+        if (c == 'W') dc.rot(L);
+        if (c == 'S') dc.rot(D);
     }
 
-    cout << res << endl;
+    cout << label[dc.T - 1] << endl;
 
 }
 
@@ -75,8 +77,8 @@ signed main() {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "test/aoj/ALDS1_1_C.test.cpp"
-#define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/all/ALDS1_1_C"
+#line 1 "test/aoj/ITP1_11_A.test.cpp"
+#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ITP1_11_A"
 
 #line 1 "template/main.hpp"
 // #pragma GCC optimize("Ofast")
@@ -193,32 +195,63 @@ struct abracadabra {
 } ABRACADABRA;
 
 #pragma endregion
-#line 1 "math/prime/is_prime.hpp"
+#line 1 "util/dice.hpp"
 /**
- * @brief 素数判定
- * @docs docs/math/prime/is_prime.md
- */
+* @brief サイコロ
+* @docs docs/util/dice.md
+*/
 
-bool is_prime(long long n) {
-    if (n < 2) return false;
-    for (int i = 2; i * i <= n; ++i) if (n % i == 0) return false;
-    return true;
-}
-#line 5 "test/aoj/ALDS1_1_C.test.cpp"
+// 下にy, 右にx
+enum { R, U, L, D };
+const int ddx[] = { 1,  0, -1, 0 };
+const int ddy[] = { 0, -1,  0, 1 };
+
+struct Dice {
+    int T, N, E, S, W, B;
+    int table[6][6] = {
+        { 0, 3, 5, 2, 4, 0 },
+        { 4, 0, 1, 6, 0, 3 },
+        { 2, 6, 0, 0, 1, 5 },
+        { 5, 1, 0, 0, 6, 2 },
+        { 3, 0, 6, 1, 0, 4 },
+        { 0, 4, 2, 5, 3, 0 }
+    };
+    Dice(int T, int S) : T(T), S(S) { build(); }
+    void build() {
+        E = table[T - 1][S - 1];
+        tie(N, W, B) = make_tuple(7 - S, 7 - E, 7 - T);
+        // swap(E, W);  // もう1種類のサイコロの場合
+    }
+    void rot(int dir) {
+        if (dir == R) tie(T, S) = make_pair(W, S);
+        if (dir == U) tie(T, S) = make_pair(S, B);
+        if (dir == L) tie(T, S) = make_pair(E, S);
+        if (dir == D) tie(T, S) = make_pair(N, T);
+        // 1行で書くなら
+        // tie(T, S) = (vector<pair<int, int>>){{W, S}, {S, B}, {E, S}, {N, T}}[dir];
+        build();
+    }
+    int get(int m) {
+        return (vector<int>){E, N, W, S, T, B}[m];
+    }
+};
+#line 5 "test/aoj/ITP1_11_A.test.cpp"
 
 signed main() {
 
-    int N;
-    cin >> N;
+    vector<int> label(6);
+    for (int i = 0; i < 6; ++i) cin >> label[i];
 
-    int res = 0;
-    while (N--) {
-        int X;
-        cin >> X;
-        res += is_prime(X);
+    Dice dc(1, 2);
+    string manip;   cin >> manip;
+    for (auto& c: manip) {
+        if (c == 'N') dc.rot(U);
+        if (c == 'E') dc.rot(R);
+        if (c == 'W') dc.rot(L);
+        if (c == 'S') dc.rot(D);
     }
 
-    cout << res << endl;
+    cout << label[dc.T - 1] << endl;
 
 }
 
