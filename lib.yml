@@ -34,6 +34,9 @@
     - name: Dinic法
       prefix: [graph, maximumflow, dinic]
       path: graph/maximumflow/dinic.hpp
+    - name: FordFulkerson法
+      prefix: [graph, maximumflow, fordfulkerson]
+      path: graph/maximumflow/fordfulkerson.hpp
   - 木:
     - name: HL分解
       prefix: [graph, heavylightdecomposition, lowestcommonancestor]
