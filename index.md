@@ -73,6 +73,7 @@ layout: default
 ### datastructure/unionfind
 
 * :heavy_check_mark: <a href="library/datastructure/unionfind/unionfind.hpp.html">UnionFind <small>(datastructure/unionfind/unionfind.hpp)</small></a>
+* :heavy_check_mark: <a href="library/datastructure/unionfind/weightedunionfind.hpp.html">重み付きUnionFind <small>(datastructure/unionfind/weightedunionfind.hpp)</small></a>
 
 
 <div id="f8b0b924ebd7046dbfa85a856e4682c8"></div>
@@ -196,6 +197,8 @@ layout: default
 ### test/atcoder
 
 * :warning: <a href="library/test/atcoder/abc106_d.cpp.html">test/atcoder/abc106_d.cpp</a>
+* :warning: <a href="library/test/atcoder/abc157_d.unionfind.cpp.html">test/atcoder/abc157_d.unionfind.cpp</a>
+* :warning: <a href="library/test/atcoder/abc157_d.weightedunionfind.cpp.html">test/atcoder/abc157_d.weightedunionfind.cpp</a>
 
 
 <div id="05c7e24700502a079cdd88012b5a76d3"></div>
@@ -212,10 +215,12 @@ layout: default
 ## Verify Files
 
 * :heavy_check_mark: <a href="verify/test/aoj/0502.test.cpp.html">test/aoj/0502.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj/1330.test.cpp.html">test/aoj/1330.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/2945.test.cpp.html">test/aoj/2945.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/ALDS1_14_B.test.cpp.html">test/aoj/ALDS1_14_B.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/ALDS1_1_C.eratosthenes.test.cpp.html">test/aoj/ALDS1_1_C.eratosthenes.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/ALDS1_1_C.isprime.test.cpp.html">test/aoj/ALDS1_1_C.isprime.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj/DSL_1_B.test.cpp.html">test/aoj/DSL_1_B.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/DSL_2_A.test.cpp.html">test/aoj/DSL_2_A.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/DSL_2_B.binaryindexedtree.test.cpp.html">test/aoj/DSL_2_B.binaryindexedtree.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/DSL_2_B.segmenttree.test.cpp.html">test/aoj/DSL_2_B.segmenttree.test.cpp</a>
@@ -248,7 +253,8 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/yosupo/rangechminchmaxaddrangesum.test.cpp.html">test/yosupo/rangechminchmaxaddrangesum.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yosupo/staticrangesum.test.cpp.html">test/yosupo/staticrangesum.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yosupo/staticrmq.test.cpp.html">test/yosupo/staticrmq.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/yosupo/unionfind.test.cpp.html">test/yosupo/unionfind.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yosupo/unionfind.unionfind.test.cpp.html">test/yosupo/unionfind.unionfind.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yosupo/unionfind.weightedunionfind.test.cpp.html">test/yosupo/unionfind.weightedunionfind.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yosupo/vertexaddpathsum.test.cpp.html">test/yosupo/vertexaddpathsum.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yosupo/vertexaddsubtreesum.test.cpp.html">test/yosupo/vertexaddsubtreesum.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yukicoder/1050.test.cpp.html">test/yukicoder/1050.test.cpp</a>

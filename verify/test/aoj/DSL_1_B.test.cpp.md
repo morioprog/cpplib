@@ -25,21 +25,21 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/yosupo/unionfind.test.cpp
+# :heavy_check_mark: test/aoj/DSL_1_B.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
-* category: <a href="../../../index.html#0b58406058f6619a0f31a172defc0230">test/yosupo</a>
-* <a href="{{ site.github.repository_url }}/blob/master/test/yosupo/unionfind.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-07-23 01:40:17+09:00
+* category: <a href="../../../index.html#0d0c91c0cca30af9c1c9faef0cf04aa9">test/aoj</a>
+* <a href="{{ site.github.repository_url }}/blob/master/test/aoj/DSL_1_B.test.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-08-24 21:05:07+09:00
 
 
-* see: <a href="https://judge.yosupo.jp/problem/unionfind">https://judge.yosupo.jp/problem/unionfind</a>
+* see: <a href="https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/1/DSL_1_B">https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/1/DSL_1_B</a>
 
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../../library/datastructure/unionfind/unionfind.hpp.html">UnionFind <small>(datastructure/unionfind/unionfind.hpp)</small></a>
+* :heavy_check_mark: <a href="../../../library/datastructure/unionfind/weightedunionfind.hpp.html">重み付きUnionFind <small>(datastructure/unionfind/weightedunionfind.hpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/template/main.hpp.html">template/main.hpp</a>
 
 
@@ -48,24 +48,30 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "https://judge.yosupo.jp/problem/unionfind"
+#define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/1/DSL_1_B"
 
 #include "../../template/main.hpp"
-#include "../../datastructure/unionfind/unionfind.hpp"
+#include "../../datastructure/unionfind/weightedunionfind.hpp"
 
 signed main() {
 
-    int N, Q;
-    cin >> N >> Q;
+    int N, M;
+    cin >> N >> M;
 
-    UnionFind uf(N);
-    while (Q--) {
-        int t, u, v;
-        cin >> t >> u >> v;
+    WeightedUnionFind<int> uf(N);
+    for (int i = 0; i < M; ++i) {
+        int t, a, b, w;
+        cin >> t;
         if (t == 0) {
-            uf.unite(u, v);
+            cin >> a >> b >> w;
+            uf.unite(a, b, w);
         } else {
-            cout << uf.same(u, v) << endl;
+            cin >> a >> b;
+            if (not uf.same(a, b)) {
+                cout << "?" << endl;
+            } else {
+                cout << uf.diff(a, b) << endl;
+            }
         }
     }
 
@@ -77,8 +83,8 @@ signed main() {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "test/yosupo/unionfind.test.cpp"
-#define PROBLEM "https://judge.yosupo.jp/problem/unionfind"
+#line 1 "test/aoj/DSL_1_B.test.cpp"
+#define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/1/DSL_1_B"
 
 #line 1 "template/main.hpp"
 // #pragma GCC optimize("Ofast")
@@ -195,46 +201,67 @@ struct abracadabra {
 } ABRACADABRA;
 
 #pragma endregion
-#line 1 "datastructure/unionfind/unionfind.hpp"
+#line 1 "datastructure/unionfind/weightedunionfind.hpp"
 /**
-* @brief UnionFind
-* @docs docs/datastructure/unionfind/unionfind.md
+* @brief 重み付きUnionFind
+* @docs docs/datastructure/unionfind/weightedunionfind.md
+* @see https://qiita.com/drken/items/cce6fc5c579051e64fab
 */
 
-struct UnionFind {
+template <typename T>
+struct WeightedUnionFind {
     int sz;
     vector<int> parent;
-    UnionFind(int sz) : sz(sz), parent(sz, -1) {}
-    bool unite(int x, int y) {
+    vector<T> diff_weight;
+    WeightedUnionFind(int sz) : sz(sz), parent(sz, -1), diff_weight(sz, T(0)) {}
+    // weight(y) = weight(x) + w
+    bool unite(int x, int y, T w) {
+        w += weight(x) - weight(y);
         if ((x = find(x)) != (y = find(y))) {
-            if (parent[y] < parent[x]) swap(x, y);
-            parent[x] += parent[y];
-            parent[y] = x;
+            if (parent[y] < parent[x]) swap(x, y), w = -w;
             --sz;
-            return true;
+            parent[x] += parent[y];
+            parent[y]      = x;
+            diff_weight[y] = w;
         }
-        return false;
+        return true;
     }
+    int find(int x) {
+        if (parent[x] < 0) return x;
+        int ret = find(parent[x]);
+        diff_weight[x] += diff_weight[parent[x]];
+        return parent[x] = ret;
+    }
+    T weight(int x) {
+        find(x);
+        return diff_weight[x];
+    }
+    T diff(int x, int y) { return weight(y) - weight(x); }
     bool same(int x, int y) { return find(x) == find(y); }
-    int find(int x) { return parent[x] < 0 ? x : parent[x] = find(parent[x]); }
     int size(int x) { return -parent[find(x)]; }
     int size() { return sz; }
 };
-#line 5 "test/yosupo/unionfind.test.cpp"
+#line 5 "test/aoj/DSL_1_B.test.cpp"
 
 signed main() {
 
-    int N, Q;
-    cin >> N >> Q;
+    int N, M;
+    cin >> N >> M;
 
-    UnionFind uf(N);
-    while (Q--) {
-        int t, u, v;
-        cin >> t >> u >> v;
+    WeightedUnionFind<int> uf(N);
+    for (int i = 0; i < M; ++i) {
+        int t, a, b, w;
+        cin >> t;
         if (t == 0) {
-            uf.unite(u, v);
+            cin >> a >> b >> w;
+            uf.unite(a, b, w);
         } else {
-            cout << uf.same(u, v) << endl;
+            cin >> a >> b;
+            if (not uf.same(a, b)) {
+                cout << "?" << endl;
+            } else {
+                cout << uf.diff(a, b) << endl;
+            }
         }
     }
 

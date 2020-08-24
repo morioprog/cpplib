@@ -56,7 +56,7 @@ $O(\alpha (n))$
 ## Verified with
 
 * :heavy_check_mark: <a href="../../../verify/test/aoj/GRL_2_A.test.cpp.html">test/aoj/GRL_2_A.test.cpp</a>
-* :heavy_check_mark: <a href="../../../verify/test/yosupo/unionfind.test.cpp.html">test/yosupo/unionfind.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/yosupo/unionfind.unionfind.test.cpp.html">test/yosupo/unionfind.unionfind.test.cpp</a>
 
 
 ## Code
