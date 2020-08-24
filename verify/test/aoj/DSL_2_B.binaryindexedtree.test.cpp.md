@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#0d0c91c0cca30af9c1c9faef0cf04aa9">test/aoj</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/aoj/DSL_2_B.binaryindexedtree.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-07-24 03:22:50+09:00
+    - Last commit date: 2020-08-24 21:32:27+09:00
 
 
 * see: <a href="https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/2/DSL_2_B">https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/2/DSL_2_B</a>
@@ -39,8 +39,8 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../../library/datastructure/binaryindexedtree.hpp.html">Binary Indexed Tree <small>(datastructure/binaryindexedtree.hpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/template/main.hpp.html">template/main.hpp</a>
+* :question: <a href="../../../library/datastructure/binaryindexedtree.hpp.html">Binary Indexed Tree <small>(datastructure/binaryindexedtree.hpp)</small></a>
+* :question: <a href="../../../library/template/main.hpp.html">template/main.hpp</a>
 
 
 ## Code
@@ -88,6 +88,13 @@ signed main() {
 // #pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx")
 #include <bits/stdc++.h>
 using namespace std;
+#pragma region boost multiprecision
+// #include <boost/multiprecision/cpp_dec_float.hpp>
+// #include <boost/multiprecision/cpp_int.hpp>
+// using Bint       = boost::multiprecision::cpp_int;
+// using Bfloat32   = boost::multiprecision::number<boost::multiprecision::cpp_dec_float<32>>;
+// using Bfloat1024 = boost::multiprecision::number<boost::multiprecision::cpp_dec_float<1024>>;
+#pragma endregion
 // #define int long long
 // #define endl '\n'
 

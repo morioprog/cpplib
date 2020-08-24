@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: グリッドグラフ <small>(graph/gridgraph.hpp)</small>
+# :question: グリッドグラフ <small>(graph/gridgraph.hpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
@@ -67,7 +67,7 @@ layout: default
 ## Verified with
 
 * :heavy_check_mark: <a href="../../verify/test/aoj/2945.test.cpp.html">test/aoj/2945.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/yukicoder/20.test.cpp.html">test/yukicoder/20.test.cpp</a>
+* :x: <a href="../../verify/test/yukicoder/20.test.cpp.html">test/yukicoder/20.test.cpp</a>
 
 
 ## Code

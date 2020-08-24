@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: Matrix (行列) <small>(math/matrix/matrix.hpp)</small>
+# :question: Matrix (行列) <small>(math/matrix/matrix.hpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
@@ -58,7 +58,7 @@ layout: default
 ## Verified with
 
 * :heavy_check_mark: <a href="../../../verify/test/yosupo/determinantofmatrix.test.cpp.html">test/yosupo/determinantofmatrix.test.cpp</a>
-* :heavy_check_mark: <a href="../../../verify/test/yukicoder/1050.test.cpp.html">test/yukicoder/1050.test.cpp</a>
+* :x: <a href="../../../verify/test/yukicoder/1050.test.cpp.html">test/yukicoder/1050.test.cpp</a>
 
 
 ## Code

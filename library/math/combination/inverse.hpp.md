@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: Combination (Inverse) <small>(math/combination/inverse.hpp)</small>
+# :x: Combination (Inverse) <small>(math/combination/inverse.hpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
@@ -54,7 +54,7 @@ $C$, $P$, $H$を逆元を用いて求める.
 
 ## Verified with
 
-* :heavy_check_mark: <a href="../../../verify/test/yukicoder/117.test.cpp.html">test/yukicoder/117.test.cpp</a>
+* :x: <a href="../../../verify/test/yukicoder/117.test.cpp.html">test/yukicoder/117.test.cpp</a>
 
 
 ## Code

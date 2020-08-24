@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: Sparse Table <small>(datastructure/sparsetable.hpp)</small>
+# :x: Sparse Table <small>(datastructure/sparsetable.hpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
@@ -58,7 +58,7 @@ layout: default
 
 ## Verified with
 
-* :heavy_check_mark: <a href="../../verify/test/yosupo/staticrmq.test.cpp.html">test/yosupo/staticrmq.test.cpp</a>
+* :x: <a href="../../verify/test/yosupo/staticrmq.test.cpp.html">test/yosupo/staticrmq.test.cpp</a>
 
 
 ## Code

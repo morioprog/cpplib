@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#54de4c5e0ecfc39083b31b56ee36cb19">snippet</a>
 * <a href="{{ site.github.repository_url }}/blob/master/snippet/main.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-07-23 01:40:17+09:00
+    - Last commit date: 2020-08-24 21:32:27+09:00
 
 
 
@@ -46,6 +46,13 @@ layout: default
 // #pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx")
 #include <bits/stdc++.h>
 using namespace std;
+#pragma region boost multiprecision
+// #include <boost/multiprecision/cpp_dec_float.hpp>
+// #include <boost/multiprecision/cpp_int.hpp>
+// using Bint       = boost::multiprecision::cpp_int;
+// using Bfloat32   = boost::multiprecision::number<boost::multiprecision::cpp_dec_float<32>>;
+// using Bfloat1024 = boost::multiprecision::number<boost::multiprecision::cpp_dec_float<1024>>;
+#pragma endregion
 // #define int long long
 // #define endl '\n'
 
@@ -185,6 +192,13 @@ int solve() {
 // #pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx")
 #include <bits/stdc++.h>
 using namespace std;
+#pragma region boost multiprecision
+// #include <boost/multiprecision/cpp_dec_float.hpp>
+// #include <boost/multiprecision/cpp_int.hpp>
+// using Bint       = boost::multiprecision::cpp_int;
+// using Bfloat32   = boost::multiprecision::number<boost::multiprecision::cpp_dec_float<32>>;
+// using Bfloat1024 = boost::multiprecision::number<boost::multiprecision::cpp_dec_float<1024>>;
+#pragma endregion
 // #define int long long
 // #define endl '\n'
 

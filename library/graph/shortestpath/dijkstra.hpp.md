@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: ダイクストラ法 <small>(graph/shortestpath/dijkstra.hpp)</small>
+# :question: ダイクストラ法 <small>(graph/shortestpath/dijkstra.hpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
@@ -53,7 +53,7 @@ $O(E\log V)$
 ## Verified with
 
 * :heavy_check_mark: <a href="../../../verify/test/aoj/GRL_1_A.test.cpp.html">test/aoj/GRL_1_A.test.cpp</a>
-* :heavy_check_mark: <a href="../../../verify/test/yukicoder/20.test.cpp.html">test/yukicoder/20.test.cpp</a>
+* :x: <a href="../../../verify/test/yukicoder/20.test.cpp.html">test/yukicoder/20.test.cpp</a>
 
 
 ## Code

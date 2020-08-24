@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#0d0c91c0cca30af9c1c9faef0cf04aa9">test/aoj</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/aoj/ITP1_11_D.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-08-24 17:58:04+09:00
+    - Last commit date: 2020-08-24 21:32:27+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ITP1_11_D">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ITP1_11_D</a>
@@ -39,7 +39,7 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../../library/template/main.hpp.html">template/main.hpp</a>
+* :question: <a href="../../../library/template/main.hpp.html">template/main.hpp</a>
 * :heavy_check_mark: <a href="../../../library/util/dice.hpp.html">サイコロ <small>(util/dice.hpp)</small></a>
 
 
@@ -110,6 +110,13 @@ signed main() {
 // #pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx")
 #include <bits/stdc++.h>
 using namespace std;
+#pragma region boost multiprecision
+// #include <boost/multiprecision/cpp_dec_float.hpp>
+// #include <boost/multiprecision/cpp_int.hpp>
+// using Bint       = boost::multiprecision::cpp_int;
+// using Bfloat32   = boost::multiprecision::number<boost::multiprecision::cpp_dec_float<32>>;
+// using Bfloat1024 = boost::multiprecision::number<boost::multiprecision::cpp_dec_float<1024>>;
+#pragma endregion
 // #define int long long
 // #define endl '\n'
 

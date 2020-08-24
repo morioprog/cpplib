@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: ModInt <small>(math/modint.hpp)</small>
+# :question: ModInt <small>(math/modint.hpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
@@ -52,8 +52,8 @@ modint::pow(3, 5);      // 3の5乗
 
 * :heavy_check_mark: <a href="../../verify/test/aoj/NTL_1_B.test.cpp.html">test/aoj/NTL_1_B.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/yosupo/determinantofmatrix.test.cpp.html">test/yosupo/determinantofmatrix.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/yukicoder/1050.test.cpp.html">test/yukicoder/1050.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/yukicoder/117.test.cpp.html">test/yukicoder/117.test.cpp</a>
+* :x: <a href="../../verify/test/yukicoder/1050.test.cpp.html">test/yukicoder/1050.test.cpp</a>
+* :x: <a href="../../verify/test/yukicoder/117.test.cpp.html">test/yukicoder/117.test.cpp</a>
 
 
 ## Code

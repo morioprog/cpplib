@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: 重み付きUnionFind <small>(datastructure/unionfind/weightedunionfind.hpp)</small>
+# :question: 重み付きUnionFind <small>(datastructure/unionfind/weightedunionfind.hpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
@@ -59,7 +59,7 @@ $O(\alpha (n))$
 
 * :heavy_check_mark: <a href="../../../verify/test/aoj/1330.test.cpp.html">test/aoj/1330.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/aoj/DSL_1_B.test.cpp.html">test/aoj/DSL_1_B.test.cpp</a>
-* :heavy_check_mark: <a href="../../../verify/test/yosupo/unionfind.weightedunionfind.test.cpp.html">test/yosupo/unionfind.weightedunionfind.test.cpp</a>
+* :x: <a href="../../../verify/test/yosupo/unionfind.weightedunionfind.test.cpp.html">test/yosupo/unionfind.weightedunionfind.test.cpp</a>
 
 
 ## Code
