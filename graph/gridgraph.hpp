@@ -3,7 +3,7 @@
 * @docs docs/graph/gridgraph.md
 */
 
-template<typename T=int>
+template <typename T = int>
 struct GridGraph : Graph<T> {
     using Graph<T>::V;
     using Graph<T>::E;
@@ -53,32 +53,22 @@ struct GridGraph : Graph<T> {
     }
     inline void input_edges(int M, int margin = 0, bool need_cost = false) {
         for (int i = 0; i < M; ++i) {
-            if (need_cost) {
-                int ax, ay, bx, by; T c;
-                cin >> ax >> ay >> bx >> by >> c;
-                add_edge(ax, ay, bx, by, c, margin);
-            } else {
-                int ax, ay, bx, by; T c(1);
-                cin >> ax >> ay >> bx >> by;
-                add_edge(ax, ay, bx, by, c, margin);
-            }
+            int ax, ay, bx, by; T c(1);
+            cin >> ax >> ay >> bx >> by;
+            if (need_cost) cin >> c;
+            add_edge(ax, ay, bx, by, c, margin);
         }
     }
     inline void input_arcs(int M, int margin = 0, bool need_cost = false) {
         for (int i = 0; i < M; ++i) {
-            if (need_cost) {
-                int ax, ay, bx, by; T c;
-                cin >> ax >> ay >> bx >> by >> c;
-                add_arc(ax, ay, bx, by, c, margin);
-            } else {
-                int ax, ay, bx, by; T c(1);
-                cin >> ax >> ay >> bx >> by;
-                add_arc(ax, ay, bx, by, c, margin);
-            }
+            int ax, ay, bx, by; T c(1);
+            cin >> ax >> ay >> bx >> by;
+            if (need_cost) cin >> c;
+            add_arc(ax, ay, bx, by, c, margin);
         }
     }
     template<typename B, typename C>
-    inline void load_board(const B &board, const C ng, const int cost = 1, const int neighbor = 4) {
+    inline void load_board(const B &board, const C ng, const T cost = 1, const int neighbor = 4) {
         assert(board.size() == H);
         if (H > 0) assert(board[0].size() == W);
         assert(neighbor >= 1 and neighbor <= 9);

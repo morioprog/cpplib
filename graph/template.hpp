@@ -7,7 +7,7 @@ template<typename T>
 struct Edge {
     int frm, to, idx;   T cst;
     Edge() {}
-    Edge(int f, int t, T c, int i = -1) : frm(f), to(t), cst(c), idx(i) {}
+    Edge(int f, int t, T c, int i = -1) : frm(f), to(t), idx(i), cst(c) {}
     operator int() const { return to; }
 };
 
@@ -32,28 +32,18 @@ struct Graph {
     }
     inline void input_edges(int M, int margin = 0, bool need_cost = false) {
         for (int i = 0; i < M; ++i) {
-            if (need_cost) {
-                int a, b;   T c;
-                cin >> a >> b >> c;
-                add_edge(a, b, c, margin);
-            } else {
-                int a, b;   T c(1);
-                cin >> a >> b;
-                add_edge(a, b, c, margin);
-            }
+            int a, b;   T c(1);
+            cin >> a >> b;
+            if (need_cost) cin >> c;
+            add_edge(a, b, c, margin);
         }
     }
     inline void input_arcs(int M, int margin = 0, bool need_cost = false) {
         for (int i = 0; i < M; ++i) {
-            if (need_cost) {
-                int a, b;   T c;
-                cin >> a >> b >> c;
-                add_arc(a, b, c, margin);
-            } else {
-                int a, b;   T c(1);
-                cin >> a >> b;
-                add_arc(a, b, c, margin);
-            }
+            int a, b;   T c(1);
+            cin >> a >> b;
+            if (need_cost) cin >> c;
+            add_arc(a, b, c, margin);
         }
     }
 };
