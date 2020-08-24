@@ -3,6 +3,11 @@
 // #pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx")
 #include <bits/stdc++.h>
 using namespace std;
+// #include <boost/multiprecision/cpp_dec_float.hpp>
+// #include <boost/multiprecision/cpp_int.hpp>
+// using Bint       = boost::multiprecision::cpp_int;
+// using Bfloat32   = boost::multiprecision::number<boost::multiprecision::cpp_dec_float<32>>;
+// using Bfloat1024 = boost::multiprecision::number<boost::multiprecision::cpp_dec_float<1024>>;
 // #define int long long
 // #define endl '\n'
 
