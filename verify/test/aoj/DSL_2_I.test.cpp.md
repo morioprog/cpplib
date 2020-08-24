@@ -40,7 +40,7 @@ layout: default
 ## Depends on
 
 * :heavy_check_mark: <a href="../../../library/datastructure/segmenttree/lazysegmenttree.hpp.html">遅延セグメント木 <small>(datastructure/segmenttree/lazysegmenttree.hpp)</small></a>
-* :question: <a href="../../../library/template/main.hpp.html">template/main.hpp</a>
+* :heavy_check_mark: <a href="../../../library/template/main.hpp.html">template/main.hpp</a>
 
 
 ## Code

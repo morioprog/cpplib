@@ -152,7 +152,7 @@ layout: default
 ### math/prime
 
 * :warning: <a href="library/math/prime/divisor.hpp.html">Divisor (約数) <small>(math/prime/divisor.hpp)</small></a>
-* :question: <a href="library/math/prime/eratosthenes.hpp.html">エラトステネスの篩 <small>(math/prime/eratosthenes.hpp)</small></a>
+* :heavy_check_mark: <a href="library/math/prime/eratosthenes.hpp.html">エラトステネスの篩 <small>(math/prime/eratosthenes.hpp)</small></a>
 * :heavy_check_mark: <a href="library/math/prime/euler_totient.hpp.html">Euler's totient function (オイラーのφ関数) <small>(math/prime/euler_totient.hpp)</small></a>
 * :heavy_check_mark: <a href="library/math/prime/is_prime.hpp.html">素数判定 <small>(math/prime/is_prime.hpp)</small></a>
 * :heavy_check_mark: <a href="library/math/prime/prime_factor.hpp.html">Prime Factor (素因数分解) <small>(math/prime/prime_factor.hpp)</small></a>
@@ -180,8 +180,15 @@ layout: default
 
 ### template
 
-* :question: <a href="library/template/main.hpp.html">template/main.hpp</a>
+* :heavy_check_mark: <a href="library/template/main.hpp.html">template/main.hpp</a>
 * :heavy_check_mark: <a href="library/template/short.hpp.html">template/short.hpp</a>
+
+
+<div id="0d0c91c0cca30af9c1c9faef0cf04aa9"></div>
+
+### test/aoj
+
+* :warning: <a href="library/test/aoj/0009.cpp.html">test/aoj/0009.cpp</a>
 
 
 <div id="e8ba03245cc911ba95395348d53122a0"></div>
@@ -204,7 +211,6 @@ layout: default
 
 ## Verify Files
 
-* :x: <a href="verify/test/aoj/0009.test.cpp.html">test/aoj/0009.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/0502.test.cpp.html">test/aoj/0502.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/2945.test.cpp.html">test/aoj/2945.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/ALDS1_14_B.test.cpp.html">test/aoj/ALDS1_14_B.test.cpp</a>

@@ -41,7 +41,7 @@ layout: default
 
 * :heavy_check_mark: <a href="../../../library/graph/bipartite/bipartite_matching.hpp.html">二部グラフの最大マッチング <small>(graph/bipartite/bipartite_matching.hpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/graph/template.hpp.html">グラフテンプレート <small>(graph/template.hpp)</small></a>
-* :question: <a href="../../../library/template/main.hpp.html">template/main.hpp</a>
+* :heavy_check_mark: <a href="../../../library/template/main.hpp.html">template/main.hpp</a>
 
 
 ## Code

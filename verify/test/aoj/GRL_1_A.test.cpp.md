@@ -41,7 +41,7 @@ layout: default
 
 * :heavy_check_mark: <a href="../../../library/graph/shortestpath/dijkstra.hpp.html">ダイクストラ法 <small>(graph/shortestpath/dijkstra.hpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/graph/template.hpp.html">グラフテンプレート <small>(graph/template.hpp)</small></a>
-* :question: <a href="../../../library/template/main.hpp.html">template/main.hpp</a>
+* :heavy_check_mark: <a href="../../../library/template/main.hpp.html">template/main.hpp</a>
 
 
 ## Code

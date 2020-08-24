@@ -39,8 +39,8 @@ layout: default
 
 ## Depends on
 
-* :question: <a href="../../../library/math/prime/eratosthenes.hpp.html">エラトステネスの篩 <small>(math/prime/eratosthenes.hpp)</small></a>
-* :question: <a href="../../../library/template/main.hpp.html">template/main.hpp</a>
+* :heavy_check_mark: <a href="../../../library/math/prime/eratosthenes.hpp.html">エラトステネスの篩 <small>(math/prime/eratosthenes.hpp)</small></a>
+* :heavy_check_mark: <a href="../../../library/template/main.hpp.html">template/main.hpp</a>
 
 
 ## Code
