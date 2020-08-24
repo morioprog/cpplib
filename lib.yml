@@ -125,6 +125,9 @@
     path: string/rollinghash.hpp
 
 その他:
+  - name: ランレングス圧縮 (groupby)
+    prefix: [runlengthcompression, groupby]
+    path: util/groupby.hpp
   - name: 座標圧縮
     prefix: [compression]
     path: util/compress.hpp
