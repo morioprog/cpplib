@@ -150,6 +150,9 @@
   - name: ローリングハッシュ
     prefix: [string, rollinghash]
     path: string/rollinghash.hpp
+  - name: Suffix Array
+    prefix: [string, suffixarray]
+    path: string/suffixarray.hpp
 
 その他:
   - name: ランレングス圧縮 (groupby)
