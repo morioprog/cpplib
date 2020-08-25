@@ -35,5 +35,7 @@
 "test/aoj/NTL_1_B.test.cpp": "2020-08-25 17:20:34 +0900",
 "test/aoj/NTL_1_D.test.cpp": "2020-08-25 17:20:34 +0900",
 "test/aoj/NTL_1_E.test.cpp": "2020-08-25 17:20:34 +0900",
-"test/yosupo/determinantofmatrix.test.cpp": "2020-08-25 17:20:34 +0900"
+"test/yosupo/determinantofmatrix.test.cpp": "2020-08-25 17:20:34 +0900",
+"test/yosupo/pointaddrangesum.test.cpp": "2020-08-25 17:20:34 +0900",
+"test/yosupo/rangeaffinerangesum.test.cpp": "2020-08-25 17:20:34 +0900"
 }
