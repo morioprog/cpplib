@@ -85,7 +85,7 @@
   - LR:
     - name: LR Priority Queue
       prefix: [datastructure, lrpriorityqueue]
-      path: datastructure/lr/lrpriorityqueue.hpp
+      path: datastructure/lr/lrprique.hpp
     - name: LR MultiSet
       prefix: [datastructure, lrmultiset]
       path: datastructure/lr/lrmultiset.hpp
