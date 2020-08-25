@@ -19,7 +19,3 @@ $\mathbb{F}_2$上の行列演算のための構造体.
 - `mat.linear_equation(b, x)` : 連立一次方程式$Ax = b$を解く.
   - `x` : 答えを格納する.
   - 返り値: ランク(解が存在しなければ$-1$).
-
-## 参考
-
-- [Gauss-Jordan の掃き出し法と、連立一次方程式の解き方](https://drken1215.hatenablog.com/entry/2019/03/20/202800)
