@@ -7,6 +7,8 @@ HEADER = r'''\documentclass[a4paper,10pt,onecolumn,notitlepage]{article}
 \usepackage{setspace}
 \usepackage{listings, jlisting}
 \usepackage{colortbl}
+\usepackage{amsmath}
+\usepackage{amsfonts}
 \title{Library for Competitive Programming}
 \author{morio\_\_}
 \lstset{
