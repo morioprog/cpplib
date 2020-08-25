@@ -7,10 +7,11 @@ struct XorVector {
     bool dirty = false;
     int rank, N;
     vector<long long> span;
-    XorVector(int N) : rank(0), N(N), span(N, 0) {}
+    XorVector(int N)
+        : rank(0), N(N), span(N, 0) {}
     void emplace(ll num) {
         span[rank++] = num;
-        dirty = true;
+        dirty        = true;
     }
     bool find(ll num) {
         if (num == 0) return true;
@@ -25,10 +26,15 @@ struct XorVector {
         rank = 0;
         for (int col = 63; col >= 0; --col) {
             int pivot = -1;
-            for (int row = rank; row < N; ++row) if (span[row] >> col & 1) { pivot = row; break; }
+            for (int row = rank; row < N; ++row)
+                if (span[row] >> col & 1) {
+                    pivot = row;
+                    break;
+                }
             if (pivot == -1) continue;
             swap(span[pivot], span[rank]);
-            for (int row = 0; row < N; ++row) if (row != rank and span[row] >> col & 1) span[row] ^= span[rank];
+            for (int row = 0; row < N; ++row)
+                if (row != rank and span[row] >> col & 1) span[row] ^= span[rank];
             ++rank;
         }
         dirty = false;

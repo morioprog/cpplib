@@ -1,6 +1,8 @@
+#pragma region optimize
 // #pragma GCC optimize("Ofast")
 // #pragma GCC optimize("unroll-loops")
 // #pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx")
+#pragma endregion
 #include <bits/stdc++.h>
 using namespace std;
 #pragma region boost multiprecision
@@ -14,7 +16,7 @@ using namespace std;
 // #define endl '\n'
 
 #pragma region TEMPLATE
-
+// clang-format off
 /* TYPE */
 typedef long long ll;       typedef long double ld;
 typedef pair<int, int> pii; typedef pair<ll, ll> pll;
@@ -117,5 +119,5 @@ struct abracadabra {
         cerr << fixed << setprecision(5);
     };
 } ABRACADABRA;
-
+// clang-format off
 #pragma endregion

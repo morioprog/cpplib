@@ -12,7 +12,8 @@ struct PrimalDual {
         Cst cst;
         Cap cap;
         CapEdge() {}
-        CapEdge(int t, int r, Cst cst, Cap cap) : to(t), rev(r), cst(cst), cap(cap) {}
+        CapEdge(int t, int r, Cst cst, Cap cap)
+            : to(t), rev(r), cst(cst), cap(cap) {}
         operator int() const { return to; }
     };
     using P = pair<Cst, int>;
@@ -21,7 +22,8 @@ struct PrimalDual {
     vector<vector<CapEdge>> graph;
     vector<Cst> pot, min_cst;
     vector<int> prv_v, prv_e;
-    PrimalDual(int V) : INF(numeric_limits<Cst>::max()), V(V), graph(V) {}
+    PrimalDual(int V)
+        : INF(numeric_limits<Cst>::max()), V(V), graph(V) {}
     void add_arc(int a, int b, Cst cst, Cap cap) {
         graph[a].emplace_back(b, (int)graph[b].size(), cst, cap);
         graph[b].emplace_back(a, (int)graph[a].size() - 1, -cst, 0);

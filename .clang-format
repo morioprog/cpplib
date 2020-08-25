@@ -1,0 +1,30 @@
+# Compro clang-format
+# - https://blog.knshnb.com/posts/vscode-setup-competitive/
+# - https://www.pynote.info/entry/clang-format-settings
+# - http://algo13.net/clang/clang-format-style-oputions.html
+
+---
+BasedOnStyle: Google
+AccessModifierOffset: -4
+AlignAfterOpenBracket: Align
+AlignConsecutiveAssignments: true
+AllowShortCaseLabelsOnASingleLine: true
+AllowShortFunctionsOnASingleLine: Inline
+AllowShortIfStatementsOnASingleLine: Always
+AllowShortLambdasOnASingleLine: Inline
+AllowShortLoopsOnASingleLine: true
+AlwaysBreakTemplateDeclarations: Yes
+ColumnLimit: 0
+CompactNamespaces: false
+ConstructorInitializerIndentWidth: 4
+Cpp11BracedListStyle: false
+FixNamespaceComments: true
+IndentPPDirectives: BeforeHash
+IndentWidth: 4
+KeepEmptyLinesAtTheStartOfBlocks: true
+Language: Cpp
+MaxEmptyLinesToKeep: 5
+Standard: Cpp11
+TabWidth: 4
+UseTab: Never
+---

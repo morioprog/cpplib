@@ -9,7 +9,8 @@ struct WeightedUnionFind {
     int sz;
     vector<int> parent;
     vector<T> diff_weight;
-    WeightedUnionFind(int sz) : sz(sz), parent(sz, -1), diff_weight(sz, T(0)) {}
+    WeightedUnionFind(int sz)
+        : sz(sz), parent(sz, -1), diff_weight(sz, T(0)) {}
     // weight(y) = weight(x) + w
     bool unite(int x, int y, T w) {
         w += weight(x) - weight(y);

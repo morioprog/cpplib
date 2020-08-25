@@ -11,14 +11,16 @@ struct FordFulkerson {
         int to, rev;
         T cap;
         CapEdge() {}
-        CapEdge(int t, int r, T c) : to(t), rev(r), cap(c) {}
+        CapEdge(int t, int r, T c)
+            : to(t), rev(r), cap(c) {}
         operator int() const { return to; }
     };
     const T INF;
     int timestamp;
     vector<int> used;
     vector<vector<CapEdge>> graph;
-    FordFulkerson(int n) : INF(numeric_limits<T>::max()), timestamp(0), used(n, -1), graph(n) {}
+    FordFulkerson(int n)
+        : INF(numeric_limits<T>::max()), timestamp(0), used(n, -1), graph(n) {}
     void add_arc(int a, int b, T c) {
         graph[a].emplace_back(b, (int)graph[b].size(), c);
         graph[b].emplace_back(a, (int)graph[a].size() - 1, 0);

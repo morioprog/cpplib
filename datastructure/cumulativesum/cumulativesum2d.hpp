@@ -3,7 +3,8 @@
 * @docs docs/datastructure/cumulativesum/cumulativesum2d.md
 */
 
-template<class T> struct CumulativeSum2D {
+template <class T>
+struct CumulativeSum2D {
     int H, W;
     vector<vector<T>> data;
     CumulativeSum2D(const vector<vector<T>> &v) {

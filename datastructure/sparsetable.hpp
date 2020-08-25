@@ -3,12 +3,14 @@
 * @docs docs/datastructure/sparsetable.md
 */
 
-template<typename T> struct SparseTable {
+template <typename T>
+struct SparseTable {
     vector<vector<T>> st;
     using F = function<T(T, T)>;
     const F f;
     SparseTable() {}
-    SparseTable(const vector<T> &v, const F f) : f(f) {
+    SparseTable(const vector<T> &v, const F f)
+        : f(f) {
         int b = 0, sz = v.size();
         while ((1 << b) <= sz) ++b;
         st.assign(b, vector<T>(1 << b));

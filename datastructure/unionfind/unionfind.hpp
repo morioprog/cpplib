@@ -6,7 +6,8 @@
 struct UnionFind {
     int sz;
     vector<int> parent;
-    UnionFind(int sz) : sz(sz), parent(sz, -1) {}
+    UnionFind(int sz)
+        : sz(sz), parent(sz, -1) {}
     bool unite(int x, int y) {
         if ((x = find(x)) != (y = find(y))) {
             if (parent[y] < parent[x]) swap(x, y);

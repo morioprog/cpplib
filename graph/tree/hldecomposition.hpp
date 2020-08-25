@@ -3,7 +3,7 @@
 * @docs docs/graph/tree/hldecomposition.md
 */
 
-template<typename T>
+template <typename T>
 struct HLDecomposition : Graph<T> {
     using Graph<T>::Graph;
     using Graph<T>::mat;
@@ -39,13 +39,13 @@ struct HLDecomposition : Graph<T> {
     }
     vector<pair<int, int>> get_path(int u, int v, bool isEdge = false) {
         vector<pair<int, int>> ret;
-        for(;; v = par[head[v]]) {
-			if (in[u] > in[v]) swap(u, v);
-			if (head[u] == head[v]) break;
-			ret.emplace_back(in[head[v]], in[v] + 1);
-		}
-		ret.emplace_back(in[u] + isEdge, in[v] + 1);
-		return ret;
+        for (;; v = par[head[v]]) {
+            if (in[u] > in[v]) swap(u, v);
+            if (head[u] == head[v]) break;
+            ret.emplace_back(in[head[v]], in[v] + 1);
+        }
+        ret.emplace_back(in[u] + isEdge, in[v] + 1);
+        return ret;
     }
     void dfs_sz(int cur, int prv, int depth, T weight) {
         sub[cur] = 1;
@@ -63,7 +63,7 @@ struct HLDecomposition : Graph<T> {
         }
     }
     void dfs_hld(int cur, int prv, int& times) {
-        in[cur] = times++;
+        in[cur]      = times++;
         rev[in[cur]] = cur;
         for (auto& nxt : mat[cur]) {
             if (nxt == prv) continue;

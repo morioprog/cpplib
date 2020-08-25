@@ -3,7 +3,8 @@
 * @docs docs/datastructure/cumulativesum/cumulativesum.md
 */
 
-template<typename T> struct CumulativeSum {
+template <typename T>
+struct CumulativeSum {
     int sz;
     vector<T> data;
     CumulativeSum(const vector<T> &v, const T margin = 0)

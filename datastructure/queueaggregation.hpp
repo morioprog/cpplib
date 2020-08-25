@@ -3,13 +3,15 @@
 * @docs docs/datastructure/queueaggregation.md
 */
 
-template <typename T> struct QueueAggregation {
+template <typename T>
+struct QueueAggregation {
     using F = function<T(T, T)>;
-    stack<pair<T, T>> st_f, st_b;   // {val, sum}
+    stack<pair<T, T>> st_f, st_b;  // {val, sum}
     F func;
-    QueueAggregation(const F f) : func(f) {}
+    QueueAggregation(const F f)
+        : func(f) {}
     bool empty() const { return st_f.empty() and st_b.empty(); }
-    int   size() const { return st_f.size()   +  st_b.empty(); }
+    int size() const { return st_f.size() + st_b.empty(); }
     T query() {
         assert(not empty());
         if (st_f.empty()) return st_b.top().second;

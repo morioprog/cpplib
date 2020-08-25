@@ -3,18 +3,20 @@
 * @docs docs/util/jury.md
 */
 
-template<typename T, typename R, int QMX>
+template <typename T, typename R, int QMX>
 struct Jury {
     int query_cnt;
     map<T, R> memo;
     T N;
-    Jury() : query_cnt(0) {
+    Jury()
+        : query_cnt(0) {
         // N = rand();
 #ifdef LOCAL
         cerr << "N : " << N << endl;
 #endif
     }
-    Jury(T _N) : query_cnt(0) {
+    Jury(T _N)
+        : query_cnt(0) {
         N = _N;
 #ifdef LOCAL
         cerr << "N : " << N << endl;

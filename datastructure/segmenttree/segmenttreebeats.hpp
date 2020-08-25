@@ -3,6 +3,7 @@
 * @docs docs/datastructure/segmenttree/segmenttreebeats.md
 */
 
+// clang-format off
 struct SegmentTreeBeats {
     static const long long INF = 1LL << 60;
     struct Node {
@@ -225,3 +226,4 @@ struct SegmentTreeBeats {
     long long query_min(int a, int b) { return _query_min(a, b, root, 0, n0); }
     long long query_sum(int a, int b) { return _query_sum(a, b, root, 0, n0); }
 };
+// clang-format on

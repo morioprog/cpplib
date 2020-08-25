@@ -6,7 +6,10 @@
 template <typename M, typename OM, typename F, typename G, typename H, typename P>
 struct LazySegmentTree {
     int sz;
-    F f; G g; H h; P p;
+    F f;
+    G g;
+    H h;
+    P p;
     const M ID_M;
     const OM ID_OM;
     vector<M> dat;
@@ -21,7 +24,8 @@ struct LazySegmentTree {
         for (int i = sz - 2; i >= 0; --i) dat[i] = f(dat[2 * i + 1], dat[2 * i + 2]);
     }
     void build(int n) {
-        sz = 1; while (sz < n) sz <<= 1;
+        sz = 1;
+        while (sz < n) sz <<= 1;
         dat.assign(2 * sz - 1, ID_M);
         laz.assign(2 * sz - 1, ID_OM);
     }
@@ -67,11 +71,11 @@ struct LazySegmentTree {
     }
 };
 
-template<typename M, typename OM, typename F, typename G, typename H, typename P>
+template <typename M, typename OM, typename F, typename G, typename H, typename P>
 auto make_segtree(int n, M ID_M, OM ID_OM, F f, G g, H h, P p) {
     return LazySegmentTree<M, OM, F, G, H, P>(n, ID_M, ID_OM, f, g, h, p);
 }
-template<typename M, typename OM, typename F, typename G, typename H, typename P>
+template <typename M, typename OM, typename F, typename G, typename H, typename P>
 auto make_segtree(vector<M> v, M ID_M, OM ID_OM, F f, G g, H h, P p) {
     return LazySegmentTree<M, OM, F, G, H, P>(v, ID_M, ID_OM, f, g, h, p);
 }

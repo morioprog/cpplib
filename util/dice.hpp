@@ -4,9 +4,12 @@
 */
 
 // 下にy, 右にx
-enum { R, U, L, D };
-const int ddx[] = { 1,  0, -1, 0 };
-const int ddy[] = { 0, -1,  0, 1 };
+enum { R,
+       U,
+       L,
+       D };
+const int ddx[] = { 1, 0, -1, 0 };
+const int ddy[] = { 0, -1, 0, 1 };
 
 struct Dice {
     int T, N, E, S, W, B;
@@ -18,9 +21,10 @@ struct Dice {
         { 3, 0, 6, 1, 0, 4 },
         { 0, 4, 2, 5, 3, 0 }
     };
-    Dice(int T, int S) : T(T), S(S) { build(); }
+    Dice(int T, int S)
+        : T(T), S(S) { build(); }
     void build() {
-        E = table[T - 1][S - 1];
+        E            = table[T - 1][S - 1];
         tie(N, W, B) = make_tuple(7 - S, 7 - E, 7 - T);
         // swap(E, W);  // もう1種類のサイコロの場合
     }
@@ -34,6 +38,6 @@ struct Dice {
         build();
     }
     int get(int m) {
-        return (vector<int>){E, N, W, S, T, B}[m];
+        return (vector<int>){ E, N, W, S, T, B }[m];
     }
 };

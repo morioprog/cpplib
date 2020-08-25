@@ -22,12 +22,12 @@ struct Fraction {
     Fraction &operator*=(const Fraction &f) { return *this = *this * f; }
     Fraction &operator/=(const Fraction &f) { return *this = *this / f; }
     Fraction operator~() const { return Fraction(denom, numer); }
-    bool operator==(const Fraction &f) const { return numer == f.numer and denom == f.denom; }
-    bool operator!=(const Fraction &f) const { return numer != f.numer  or denom != f.denom; }
-    bool operator< (const Fraction &f) const { return numer * f.denom <  f.numer * denom; }
+    bool operator<(const Fraction &f) const { return numer * f.denom < f.numer * denom; }
+    bool operator>(const Fraction &f) const { return numer * f.denom > f.numer * denom; }
+    bool operator==(const Fraction &f) const { return numer == f.numer && denom == f.denom; }
+    bool operator!=(const Fraction &f) const { return numer != f.numer || denom != f.denom; }
     bool operator<=(const Fraction &f) const { return numer * f.denom <= f.numer * denom; }
-    bool operator> (const Fraction &f) const { return numer * f.denom >  f.numer * denom; }
     bool operator>=(const Fraction &f) const { return numer * f.denom >= f.numer * denom; }
-    double to_double() const { return (double) numer / denom; }
+    double to_double() const { return (double)numer / denom; }
     friend ostream &operator<<(ostream &os, const Fraction &f) { return os << f.numer << " / " << f.denom; }
 };

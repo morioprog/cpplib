@@ -8,11 +8,12 @@ struct GridGraph : Graph<T> {
     using Graph<T>::V;
     using Graph<T>::E;
     using Graph<T>::mat;
-    const int Gdx[9] = { 1, 0, -1,  0,  1, -1, -1, 1, 0 };
-    const int Gdy[9] = { 0, 1,  0, -1, -1, -1,  1, 1, 0 };
+    const int Gdx[9] = { 1, 0, -1, 0, 1, -1, -1, 1, 0 };
+    const int Gdy[9] = { 0, 1, 0, -1, -1, -1, 1, 1, 0 };
     int H, W;
     GridGraph() {}
-    GridGraph(int h, int w) : H(h), W(w) {
+    GridGraph(int h, int w)
+        : H(h), W(w) {
         V = h * w;
         E = 0;
         mat.resize(V);
@@ -53,7 +54,8 @@ struct GridGraph : Graph<T> {
     }
     inline void input_edges(int M, int margin = 0, bool need_cost = false) {
         for (int i = 0; i < M; ++i) {
-            int ax, ay, bx, by; T c(1);
+            int ax, ay, bx, by;
+            T c(1);
             cin >> ax >> ay >> bx >> by;
             if (need_cost) cin >> c;
             add_edge(ax, ay, bx, by, c, margin);
@@ -61,13 +63,14 @@ struct GridGraph : Graph<T> {
     }
     inline void input_arcs(int M, int margin = 0, bool need_cost = false) {
         for (int i = 0; i < M; ++i) {
-            int ax, ay, bx, by; T c(1);
+            int ax, ay, bx, by;
+            T c(1);
             cin >> ax >> ay >> bx >> by;
             if (need_cost) cin >> c;
             add_arc(ax, ay, bx, by, c, margin);
         }
     }
-    template<typename B, typename C>
+    template <typename B, typename C>
     inline void load_board(const B &board, const C ng, const T cost = 1, const int neighbor = 4) {
         assert(board.size() == H);
         if (H > 0) assert(board[0].size() == W);

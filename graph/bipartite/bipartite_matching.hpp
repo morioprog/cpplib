@@ -5,13 +5,13 @@
  * @see https://qiita.com/drken/items/7f98315b56c95a6181a4
  */
 
-template<typename T>
+template <typename T>
 int bipartite_matching(const Graph<T> &g) {
     int timestamp = 0;
     vector<int> alive(g.V, 1), used(g.V, 0), match(g.V, -1);
     auto dfs = [&](auto &&f, int cur) -> bool {
         used[cur] = timestamp;
-        for (auto& nxt: g.mat[cur]) {
+        for (auto &nxt : g.mat[cur]) {
             int w = match[nxt];
             if (alive[nxt] == 0) continue;
             if (w == -1 or (used[w] != timestamp and f(f, w))) {

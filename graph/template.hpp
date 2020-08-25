@@ -3,24 +3,27 @@
 * @docs docs/graph/template.md
 */
 
-template<typename T>
+template <typename T>
 struct Edge {
-    int frm, to, idx;   T cst;
+    int frm, to, idx;
+    T cst;
     Edge() {}
-    Edge(int f, int t, T c, int i = -1) : frm(f), to(t), idx(i), cst(c) {}
+    Edge(int f, int t, T c, int i = -1)
+        : frm(f), to(t), idx(i), cst(c) {}
     operator int() const { return to; }
 };
 
-template<typename T>
+template <typename T>
 constexpr T GINF = numeric_limits<T>::max() / 10;
 
-template<typename T>
+template <typename T>
 struct Graph {
     int V, E;
     vector<vector<Edge<T>>> mat;
     vector<vector<T>> wf;
     Graph() {}
-    Graph(int v) : V(v), E(0), mat(v) {}
+    Graph(int v)
+        : V(v), E(0), mat(v) {}
     inline void add_edge(int a, int b, T c = 1, int margin = 0) {
         a -= margin, b -= margin;
         mat[a].emplace_back(a, b, c, E++);
@@ -32,7 +35,8 @@ struct Graph {
     }
     inline void input_edges(int M, int margin = 0, bool need_cost = false) {
         for (int i = 0; i < M; ++i) {
-            int a, b;   T c(1);
+            int a, b;
+            T c(1);
             cin >> a >> b;
             if (need_cost) cin >> c;
             add_edge(a, b, c, margin);
@@ -40,7 +44,8 @@ struct Graph {
     }
     inline void input_arcs(int M, int margin = 0, bool need_cost = false) {
         for (int i = 0; i < M; ++i) {
-            int a, b;   T c(1);
+            int a, b;
+            T c(1);
             cin >> a >> b;
             if (need_cost) cin >> c;
             add_arc(a, b, c, margin);
