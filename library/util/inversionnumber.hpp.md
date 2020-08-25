@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :x: 転倒数 <small>(util/inversionnumber.hpp)</small>
+# :heavy_check_mark: 転倒数 <small>(util/inversionnumber.hpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
@@ -51,7 +51,7 @@ $O(n\log n)$
 
 ## Verified with
 
-* :x: <a href="../../verify/test/yukicoder/1115.test.cpp.html">test/yukicoder/1115.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yukicoder/1115.test.cpp.html">test/yukicoder/1115.test.cpp</a>
 
 
 ## Code

@@ -39,8 +39,8 @@ layout: default
 
 ## Depends on
 
-* :question: <a href="../../../library/datastructure/unionfind/weightedunionfind.hpp.html">重み付きUnionFind <small>(datastructure/unionfind/weightedunionfind.hpp)</small></a>
-* :question: <a href="../../../library/template/main.hpp.html">template/main.hpp</a>
+* :heavy_check_mark: <a href="../../../library/datastructure/unionfind/weightedunionfind.hpp.html">重み付きUnionFind <small>(datastructure/unionfind/weightedunionfind.hpp)</small></a>
+* :heavy_check_mark: <a href="../../../library/template/main.hpp.html">template/main.hpp</a>
 
 
 ## Code
