@@ -1,6 +1,7 @@
 /**
 * @brief BitMatrix
 * @docs docs/math/matrix/bitmatrix.md
+* @see https://drken1215.hatenablog.com/entry/2019/03/20/202800
 */
 
 template <int H, int W = H>
