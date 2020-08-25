@@ -85,10 +85,10 @@
   - LR:
     - name: LR Priority Queue
       prefix: [datastructure, lrpriorityqueue]
-      path: datastructure/lrpriorityqueue.hpp
+      path: datastructure/lr/lrpriorityqueue.hpp
     - name: LR MultiSet
       prefix: [datastructure, lrmultiset]
-      path: datastructure/lrmultiset.hpp
+      path: datastructure/lr/lrmultiset.hpp
   - name: Sparse Table
     prefix: [datastructure, sparsetable]
     path: datastructure/sparsetable.hpp
