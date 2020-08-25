@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#0d0c91c0cca30af9c1c9faef0cf04aa9">test/aoj</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/aoj/GRL_6_A.fordfulkerson.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-08-24 23:23:16+09:00
+    - Last commit date: 2020-08-25 17:20:34+09:00
 
 
 * see: <a href="https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/6/GRL_6_A">https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/6/GRL_6_A</a>
@@ -40,7 +40,7 @@ layout: default
 ## Depends on
 
 * :heavy_check_mark: <a href="../../../library/graph/maximumflow/fordfulkerson.hpp.html">FordFulkerson法 <small>(graph/maximumflow/fordfulkerson.hpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/template/main.hpp.html">template/main.hpp</a>
+* :question: <a href="../../../library/template/main.hpp.html">template/main.hpp</a>
 
 
 ## Code
@@ -79,9 +79,11 @@ signed main() {
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/6/GRL_6_A"
 
 #line 1 "template/main.hpp"
+#pragma region optimize
 // #pragma GCC optimize("Ofast")
 // #pragma GCC optimize("unroll-loops")
 // #pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx")
+#pragma endregion
 #include <bits/stdc++.h>
 using namespace std;
 #pragma region boost multiprecision
@@ -95,7 +97,7 @@ using namespace std;
 // #define endl '\n'
 
 #pragma region TEMPLATE
-
+// clang-format off
 /* TYPE */
 typedef long long ll;       typedef long double ld;
 typedef pair<int, int> pii; typedef pair<ll, ll> pll;
@@ -198,7 +200,7 @@ struct abracadabra {
         cerr << fixed << setprecision(5);
     };
 } ABRACADABRA;
-
+// clang-format off
 #pragma endregion
 #line 1 "graph/maximumflow/fordfulkerson.hpp"
 /**
@@ -214,14 +216,16 @@ struct FordFulkerson {
         int to, rev;
         T cap;
         CapEdge() {}
-        CapEdge(int t, int r, T c) : to(t), rev(r), cap(c) {}
+        CapEdge(int t, int r, T c)
+            : to(t), rev(r), cap(c) {}
         operator int() const { return to; }
     };
     const T INF;
     int timestamp;
     vector<int> used;
     vector<vector<CapEdge>> graph;
-    FordFulkerson(int n) : INF(numeric_limits<T>::max()), timestamp(0), used(n, -1), graph(n) {}
+    FordFulkerson(int n)
+        : INF(numeric_limits<T>::max()), timestamp(0), used(n, -1), graph(n) {}
     void add_arc(int a, int b, T c) {
         graph[a].emplace_back(b, (int)graph[b].size(), c);
         graph[b].emplace_back(a, (int)graph[a].size() - 1, 0);

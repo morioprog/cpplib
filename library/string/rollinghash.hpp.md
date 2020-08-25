@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#b45cffe084dd3d20d928bee85e7b0f21">string</a>
 * <a href="{{ site.github.repository_url }}/blob/master/string/rollinghash.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-06-08 23:28:32+09:00
+    - Last commit date: 2020-08-25 17:20:34+09:00
 
 
 
@@ -72,7 +72,7 @@ layout: default
 */
 
 using hash_type = unsigned long long;
-template<int mod, int base=10007>
+template <int mod, int base = 10007>
 struct RollingHash {
     vector<hash_type> hsh, pwr;
     hash_type umod(hash_type n) { return (n % mod + mod) % mod; }
@@ -80,7 +80,8 @@ struct RollingHash {
     RollingHash(const string &s) {
         int sz = (int)s.size();
         hsh.assign(sz + 1, 0);
-        pwr.assign(sz + 1, 0);  pwr[0] = 1;
+        pwr.assign(sz + 1, 0);
+        pwr[0] = 1;
         for (int i = 0; i < sz; ++i) {
             if (sz > i) hsh[i + 1] = umod(hsh[i] * base + s[i]);
             pwr[i + 1] = umod(pwr[i] * base);
@@ -101,11 +102,17 @@ struct RollingHash {
 };
 using RH1 = RollingHash<(int)1e9 + 7>;
 using RH2 = RollingHash<(int)1e9 + 9>;
-using RH = tuple<RH1, RH2>;
-using H = tuple<hash_type, hash_type>;
-RH init(const string &s) { return make_tuple(RH1(s), RH2(s)); }
-H    get(RH &rh, int l, int r ) { return make_tuple(get<0>(rh).get(l, r),     get<1>(rh).get(l, r));     }
-H rotate(RH &rh, int n, int sz) { return make_tuple(get<0>(rh).rotate(n, sz), get<1>(rh).rotate(n, sz)); }
+using RH  = tuple<RH1, RH2>;
+using H   = tuple<hash_type, hash_type>;
+RH init(const string &s) {
+    return make_tuple(RH1(s), RH2(s));
+}
+H get(RH &rh, int l, int r) {
+    return make_tuple(get<0>(rh).get(l, r), get<1>(rh).get(l, r));
+}
+H rotate(RH &rh, int n, int sz) {
+    return make_tuple(get<0>(rh).rotate(n, sz), get<1>(rh).rotate(n, sz));
+}
 
 ```
 {% endraw %}
@@ -120,7 +127,7 @@ H rotate(RH &rh, int n, int sz) { return make_tuple(get<0>(rh).rotate(n, sz), ge
 */
 
 using hash_type = unsigned long long;
-template<int mod, int base=10007>
+template <int mod, int base = 10007>
 struct RollingHash {
     vector<hash_type> hsh, pwr;
     hash_type umod(hash_type n) { return (n % mod + mod) % mod; }
@@ -128,7 +135,8 @@ struct RollingHash {
     RollingHash(const string &s) {
         int sz = (int)s.size();
         hsh.assign(sz + 1, 0);
-        pwr.assign(sz + 1, 0);  pwr[0] = 1;
+        pwr.assign(sz + 1, 0);
+        pwr[0] = 1;
         for (int i = 0; i < sz; ++i) {
             if (sz > i) hsh[i + 1] = umod(hsh[i] * base + s[i]);
             pwr[i + 1] = umod(pwr[i] * base);
@@ -149,11 +157,17 @@ struct RollingHash {
 };
 using RH1 = RollingHash<(int)1e9 + 7>;
 using RH2 = RollingHash<(int)1e9 + 9>;
-using RH = tuple<RH1, RH2>;
-using H = tuple<hash_type, hash_type>;
-RH init(const string &s) { return make_tuple(RH1(s), RH2(s)); }
-H    get(RH &rh, int l, int r ) { return make_tuple(get<0>(rh).get(l, r),     get<1>(rh).get(l, r));     }
-H rotate(RH &rh, int n, int sz) { return make_tuple(get<0>(rh).rotate(n, sz), get<1>(rh).rotate(n, sz)); }
+using RH  = tuple<RH1, RH2>;
+using H   = tuple<hash_type, hash_type>;
+RH init(const string &s) {
+    return make_tuple(RH1(s), RH2(s));
+}
+H get(RH &rh, int l, int r) {
+    return make_tuple(get<0>(rh).get(l, r), get<1>(rh).get(l, r));
+}
+H rotate(RH &rh, int n, int sz) {
+    return make_tuple(get<0>(rh).rotate(n, sz), get<1>(rh).rotate(n, sz));
+}
 
 ```
 {% endraw %}

@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#05c7e24700502a079cdd88012b5a76d3">util</a>
 * <a href="{{ site.github.repository_url }}/blob/master/util/compress.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-08-22 20:30:39+09:00
+    - Last commit date: 2020-08-25 17:20:34+09:00
 
 
 
@@ -61,14 +61,15 @@ $O(n\log n)$
 * @docs docs/util/compress.md
 */
 
-template<typename T>
+template <typename T>
 pair<vector<T>, map<T, int>> compress(vector<T> ord) {
     vector<T> com(ord);
     map<T, int> rev;
     sort(com.begin(), com.end());
     com.erase(unique(com.begin(), com.end()), com.end());
     for (int i = 0; i < com.size(); ++i) rev[com[i]] = i;
-    vector<T> ret; for (auto& e: ord) ret.emplace_back(rev[e]);
+    vector<T> ret;
+    for (auto& e : ord) ret.emplace_back(rev[e]);
     return make_pair(ret, rev);
 }
 
@@ -84,14 +85,15 @@ pair<vector<T>, map<T, int>> compress(vector<T> ord) {
 * @docs docs/util/compress.md
 */
 
-template<typename T>
+template <typename T>
 pair<vector<T>, map<T, int>> compress(vector<T> ord) {
     vector<T> com(ord);
     map<T, int> rev;
     sort(com.begin(), com.end());
     com.erase(unique(com.begin(), com.end()), com.end());
     for (int i = 0; i < com.size(); ++i) rev[com[i]] = i;
-    vector<T> ret; for (auto& e: ord) ret.emplace_back(rev[e]);
+    vector<T> ret;
+    for (auto& e : ord) ret.emplace_back(rev[e]);
     return make_pair(ret, rev);
 }
 

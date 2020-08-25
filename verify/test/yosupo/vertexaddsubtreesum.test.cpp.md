@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/yosupo/vertexaddsubtreesum.test.cpp
+# :x: test/yosupo/vertexaddsubtreesum.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#0b58406058f6619a0f31a172defc0230">test/yosupo</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/yosupo/vertexaddsubtreesum.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-08-24 22:46:00+09:00
+    - Last commit date: 2020-08-25 17:20:34+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/vertex_add_subtree_sum">https://judge.yosupo.jp/problem/vertex_add_subtree_sum</a>
@@ -39,10 +39,10 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../../library/datastructure/segmenttree/segmenttree.hpp.html">セグメント木 <small>(datastructure/segmenttree/segmenttree.hpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/graph/template.hpp.html">グラフテンプレート <small>(graph/template.hpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/graph/tree/hldecomposition.hpp.html">HL分解 <small>(graph/tree/hldecomposition.hpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/template/main.hpp.html">template/main.hpp</a>
+* :question: <a href="../../../library/datastructure/segmenttree/segmenttree.hpp.html">セグメント木 <small>(datastructure/segmenttree/segmenttree.hpp)</small></a>
+* :question: <a href="../../../library/graph/template.hpp.html">グラフテンプレート <small>(graph/template.hpp)</small></a>
+* :question: <a href="../../../library/graph/tree/hldecomposition.hpp.html">HL分解 <small>(graph/tree/hldecomposition.hpp)</small></a>
+* :question: <a href="../../../library/template/main.hpp.html">template/main.hpp</a>
 
 
 ## Code
@@ -110,9 +110,11 @@ signed main() {
 #define PROBLEM "https://judge.yosupo.jp/problem/vertex_add_subtree_sum"
 
 #line 1 "template/main.hpp"
+#pragma region optimize
 // #pragma GCC optimize("Ofast")
 // #pragma GCC optimize("unroll-loops")
 // #pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx")
+#pragma endregion
 #include <bits/stdc++.h>
 using namespace std;
 #pragma region boost multiprecision
@@ -126,7 +128,7 @@ using namespace std;
 // #define endl '\n'
 
 #pragma region TEMPLATE
-
+// clang-format off
 /* TYPE */
 typedef long long ll;       typedef long double ld;
 typedef pair<int, int> pii; typedef pair<ll, ll> pll;
@@ -229,7 +231,7 @@ struct abracadabra {
         cerr << fixed << setprecision(5);
     };
 } ABRACADABRA;
-
+// clang-format off
 #pragma endregion
 #line 1 "datastructure/segmenttree/segmenttree.hpp"
 /**
@@ -237,20 +239,25 @@ struct abracadabra {
 * @docs docs/datastructure/segmenttree/segmenttree.md
 */
 
-template<typename T> struct SegmentTree {
+template <typename T>
+struct SegmentTree {
     using F = function<T(T, T)>;
     vector<T> seg;
     int sz;
     const F func;
     const T IDENT;
     SegmentTree() {}
-    SegmentTree(int n, const F f, const T &ID) : func(f), IDENT(ID) {
-        sz = 1; while (sz < n) sz <<= 1;
+    SegmentTree(int n, const F f, const T &ID)
+        : func(f), IDENT(ID) {
+        sz = 1;
+        while (sz < n) sz <<= 1;
         seg.assign(2 * sz - 1, IDENT);
     }
-    SegmentTree(vector<T> v, const F f, const T &ID) : func(f), IDENT(ID) {
+    SegmentTree(vector<T> v, const F f, const T &ID)
+        : func(f), IDENT(ID) {
         int n = v.size();
-        sz = 1; while (sz < n) sz <<= 1;
+        sz    = 1;
+        while (sz < n) sz <<= 1;
         seg.assign(2 * sz - 1, IDENT);
         for (int i = 0; i < n; ++i) seg[i + sz - 1] = v[i];
         for (int i = sz - 2; i >= 0; --i) seg[i] = func(seg[2 * i + 1], seg[2 * i + 2]);
@@ -259,7 +266,7 @@ template<typename T> struct SegmentTree {
         k += sz - 1;
         seg[k] = x;
         while (k > 0) {
-            k = (k - 1) / 2;
+            k      = (k - 1) / 2;
             seg[k] = func(seg[2 * k + 1], seg[2 * k + 2]);
         }
     }
@@ -267,7 +274,7 @@ template<typename T> struct SegmentTree {
         k += sz - 1;
         seg[k] += x;
         while (k > 0) {
-            k = (k - 1) / 2;
+            k      = (k - 1) / 2;
             seg[k] = func(seg[2 * k + 1], seg[2 * k + 2]);
         }
     }
@@ -292,24 +299,27 @@ template<typename T> struct SegmentTree {
 * @docs docs/graph/template.md
 */
 
-template<typename T>
+template <typename T>
 struct Edge {
-    int frm, to, idx;   T cst;
+    int frm, to, idx;
+    T cst;
     Edge() {}
-    Edge(int f, int t, T c, int i = -1) : frm(f), to(t), idx(i), cst(c) {}
+    Edge(int f, int t, T c, int i = -1)
+        : frm(f), to(t), idx(i), cst(c) {}
     operator int() const { return to; }
 };
 
-template<typename T>
+template <typename T>
 constexpr T GINF = numeric_limits<T>::max() / 10;
 
-template<typename T>
+template <typename T>
 struct Graph {
     int V, E;
     vector<vector<Edge<T>>> mat;
     vector<vector<T>> wf;
     Graph() {}
-    Graph(int v) : V(v), E(0), mat(v) {}
+    Graph(int v)
+        : V(v), E(0), mat(v) {}
     inline void add_edge(int a, int b, T c = 1, int margin = 0) {
         a -= margin, b -= margin;
         mat[a].emplace_back(a, b, c, E++);
@@ -321,7 +331,8 @@ struct Graph {
     }
     inline void input_edges(int M, int margin = 0, bool need_cost = false) {
         for (int i = 0; i < M; ++i) {
-            int a, b;   T c(1);
+            int a, b;
+            T c(1);
             cin >> a >> b;
             if (need_cost) cin >> c;
             add_edge(a, b, c, margin);
@@ -329,7 +340,8 @@ struct Graph {
     }
     inline void input_arcs(int M, int margin = 0, bool need_cost = false) {
         for (int i = 0; i < M; ++i) {
-            int a, b;   T c(1);
+            int a, b;
+            T c(1);
             cin >> a >> b;
             if (need_cost) cin >> c;
             add_arc(a, b, c, margin);
@@ -342,7 +354,7 @@ struct Graph {
 * @docs docs/graph/tree/hldecomposition.md
 */
 
-template<typename T>
+template <typename T>
 struct HLDecomposition : Graph<T> {
     using Graph<T>::Graph;
     using Graph<T>::mat;
@@ -378,13 +390,13 @@ struct HLDecomposition : Graph<T> {
     }
     vector<pair<int, int>> get_path(int u, int v, bool isEdge = false) {
         vector<pair<int, int>> ret;
-        for(;; v = par[head[v]]) {
-			if (in[u] > in[v]) swap(u, v);
-			if (head[u] == head[v]) break;
-			ret.emplace_back(in[head[v]], in[v] + 1);
-		}
-		ret.emplace_back(in[u] + isEdge, in[v] + 1);
-		return ret;
+        for (;; v = par[head[v]]) {
+            if (in[u] > in[v]) swap(u, v);
+            if (head[u] == head[v]) break;
+            ret.emplace_back(in[head[v]], in[v] + 1);
+        }
+        ret.emplace_back(in[u] + isEdge, in[v] + 1);
+        return ret;
     }
     void dfs_sz(int cur, int prv, int depth, T weight) {
         sub[cur] = 1;
@@ -402,7 +414,7 @@ struct HLDecomposition : Graph<T> {
         }
     }
     void dfs_hld(int cur, int prv, int& times) {
-        in[cur] = times++;
+        in[cur]      = times++;
         rev[in[cur]] = cur;
         for (auto& nxt : mat[cur]) {
             if (nxt == prv) continue;

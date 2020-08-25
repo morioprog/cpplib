@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: HL分解 <small>(graph/tree/hldecomposition.hpp)</small>
+# :question: HL分解 <small>(graph/tree/hldecomposition.hpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#28790b6202284cbbffc9d712b59f4b80">graph/tree</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/tree/hldecomposition.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-05 16:33:08+09:00
+    - Last commit date: 2020-08-25 17:20:34+09:00
 
 
 
@@ -76,9 +76,9 @@ layout: default
 * :heavy_check_mark: <a href="../../../verify/test/aoj/GRL_5_C.test.cpp.html">test/aoj/GRL_5_C.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/aoj/GRL_5_D.test.cpp.html">test/aoj/GRL_5_D.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/aoj/GRL_5_E.test.cpp.html">test/aoj/GRL_5_E.test.cpp</a>
-* :heavy_check_mark: <a href="../../../verify/test/yosupo/vertexaddpathsum.test.cpp.html">test/yosupo/vertexaddpathsum.test.cpp</a>
-* :heavy_check_mark: <a href="../../../verify/test/yosupo/vertexaddsubtreesum.test.cpp.html">test/yosupo/vertexaddsubtreesum.test.cpp</a>
-* :heavy_check_mark: <a href="../../../verify/test/yukicoder/399.test.cpp.html">test/yukicoder/399.test.cpp</a>
+* :x: <a href="../../../verify/test/yosupo/vertexaddpathsum.test.cpp.html">test/yosupo/vertexaddpathsum.test.cpp</a>
+* :x: <a href="../../../verify/test/yosupo/vertexaddsubtreesum.test.cpp.html">test/yosupo/vertexaddsubtreesum.test.cpp</a>
+* :x: <a href="../../../verify/test/yukicoder/399.test.cpp.html">test/yukicoder/399.test.cpp</a>
 
 
 ## Code
@@ -91,7 +91,7 @@ layout: default
 * @docs docs/graph/tree/hldecomposition.md
 */
 
-template<typename T>
+template <typename T>
 struct HLDecomposition : Graph<T> {
     using Graph<T>::Graph;
     using Graph<T>::mat;
@@ -127,13 +127,13 @@ struct HLDecomposition : Graph<T> {
     }
     vector<pair<int, int>> get_path(int u, int v, bool isEdge = false) {
         vector<pair<int, int>> ret;
-        for(;; v = par[head[v]]) {
-			if (in[u] > in[v]) swap(u, v);
-			if (head[u] == head[v]) break;
-			ret.emplace_back(in[head[v]], in[v] + 1);
-		}
-		ret.emplace_back(in[u] + isEdge, in[v] + 1);
-		return ret;
+        for (;; v = par[head[v]]) {
+            if (in[u] > in[v]) swap(u, v);
+            if (head[u] == head[v]) break;
+            ret.emplace_back(in[head[v]], in[v] + 1);
+        }
+        ret.emplace_back(in[u] + isEdge, in[v] + 1);
+        return ret;
     }
     void dfs_sz(int cur, int prv, int depth, T weight) {
         sub[cur] = 1;
@@ -151,7 +151,7 @@ struct HLDecomposition : Graph<T> {
         }
     }
     void dfs_hld(int cur, int prv, int& times) {
-        in[cur] = times++;
+        in[cur]      = times++;
         rev[in[cur]] = cur;
         for (auto& nxt : mat[cur]) {
             if (nxt == prv) continue;
@@ -175,7 +175,7 @@ struct HLDecomposition : Graph<T> {
 * @docs docs/graph/tree/hldecomposition.md
 */
 
-template<typename T>
+template <typename T>
 struct HLDecomposition : Graph<T> {
     using Graph<T>::Graph;
     using Graph<T>::mat;
@@ -211,13 +211,13 @@ struct HLDecomposition : Graph<T> {
     }
     vector<pair<int, int>> get_path(int u, int v, bool isEdge = false) {
         vector<pair<int, int>> ret;
-        for(;; v = par[head[v]]) {
-			if (in[u] > in[v]) swap(u, v);
-			if (head[u] == head[v]) break;
-			ret.emplace_back(in[head[v]], in[v] + 1);
-		}
-		ret.emplace_back(in[u] + isEdge, in[v] + 1);
-		return ret;
+        for (;; v = par[head[v]]) {
+            if (in[u] > in[v]) swap(u, v);
+            if (head[u] == head[v]) break;
+            ret.emplace_back(in[head[v]], in[v] + 1);
+        }
+        ret.emplace_back(in[u] + isEdge, in[v] + 1);
+        return ret;
     }
     void dfs_sz(int cur, int prv, int depth, T weight) {
         sub[cur] = 1;
@@ -235,7 +235,7 @@ struct HLDecomposition : Graph<T> {
         }
     }
     void dfs_hld(int cur, int prv, int& times) {
-        in[cur] = times++;
+        in[cur]      = times++;
         rev[in[cur]] = cur;
         for (auto& nxt : mat[cur]) {
             if (nxt == prv) continue;

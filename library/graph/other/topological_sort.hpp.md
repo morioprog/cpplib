@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#7bdf4bef6792afd2baf0aea42eec3899">graph/other</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/other/topological_sort.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-07-14 21:38:43+09:00
+    - Last commit date: 2020-08-25 17:20:34+09:00
 
 
 
@@ -65,11 +65,12 @@ $O(E + V)$
 * @docs docs/graph/other/topological_sort.md
 */
 
-template<typename T> vector<int> topological_sort(const Graph<T> &g) {
+template <typename T>
+vector<int> topological_sort(const Graph<T> &g) {
     vector<int> order, color(g.V, 0);
     auto rec = [&](auto &&f, int v) -> bool {
         color[v] = 1;
-        for (auto& e: g.mat[v]) {
+        for (auto &e : g.mat[v]) {
             if (color[e] == 2) continue;
             if (color[e] == 1) return false;
             if (not f(f, e)) return false;
@@ -78,7 +79,8 @@ template<typename T> vector<int> topological_sort(const Graph<T> &g) {
         color[v] = 2;
         return true;
     };
-    for (int i = 0; i < g.V; ++i) if (not color[i] and not rec(rec, i)) return vector<int>();
+    for (int i = 0; i < g.V; ++i)
+        if (not color[i] and not rec(rec, i)) return vector<int>();
     reverse(order.begin(), order.end());
     return order;
 }
@@ -95,11 +97,12 @@ template<typename T> vector<int> topological_sort(const Graph<T> &g) {
 * @docs docs/graph/other/topological_sort.md
 */
 
-template<typename T> vector<int> topological_sort(const Graph<T> &g) {
+template <typename T>
+vector<int> topological_sort(const Graph<T> &g) {
     vector<int> order, color(g.V, 0);
     auto rec = [&](auto &&f, int v) -> bool {
         color[v] = 1;
-        for (auto& e: g.mat[v]) {
+        for (auto &e : g.mat[v]) {
             if (color[e] == 2) continue;
             if (color[e] == 1) return false;
             if (not f(f, e)) return false;
@@ -108,7 +111,8 @@ template<typename T> vector<int> topological_sort(const Graph<T> &g) {
         color[v] = 2;
         return true;
     };
-    for (int i = 0; i < g.V; ++i) if (not color[i] and not rec(rec, i)) return vector<int>();
+    for (int i = 0; i < g.V; ++i)
+        if (not color[i] and not rec(rec, i)) return vector<int>();
     reverse(order.begin(), order.end());
     return order;
 }

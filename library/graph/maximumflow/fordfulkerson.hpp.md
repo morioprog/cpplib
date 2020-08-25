@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#9278425fe4cf6e9c7cdba9d11d70c354">graph/maximumflow</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/maximumflow/fordfulkerson.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-08-24 23:23:16+09:00
+    - Last commit date: 2020-08-25 17:20:34+09:00
 
 
 * see: <a href="http://yosupo.hatenablog.com/entry/2015/03/31/134336">http://yosupo.hatenablog.com/entry/2015/03/31/134336</a>
@@ -79,14 +79,16 @@ struct FordFulkerson {
         int to, rev;
         T cap;
         CapEdge() {}
-        CapEdge(int t, int r, T c) : to(t), rev(r), cap(c) {}
+        CapEdge(int t, int r, T c)
+            : to(t), rev(r), cap(c) {}
         operator int() const { return to; }
     };
     const T INF;
     int timestamp;
     vector<int> used;
     vector<vector<CapEdge>> graph;
-    FordFulkerson(int n) : INF(numeric_limits<T>::max()), timestamp(0), used(n, -1), graph(n) {}
+    FordFulkerson(int n)
+        : INF(numeric_limits<T>::max()), timestamp(0), used(n, -1), graph(n) {}
     void add_arc(int a, int b, T c) {
         graph[a].emplace_back(b, (int)graph[b].size(), c);
         graph[b].emplace_back(a, (int)graph[a].size() - 1, 0);
@@ -137,14 +139,16 @@ struct FordFulkerson {
         int to, rev;
         T cap;
         CapEdge() {}
-        CapEdge(int t, int r, T c) : to(t), rev(r), cap(c) {}
+        CapEdge(int t, int r, T c)
+            : to(t), rev(r), cap(c) {}
         operator int() const { return to; }
     };
     const T INF;
     int timestamp;
     vector<int> used;
     vector<vector<CapEdge>> graph;
-    FordFulkerson(int n) : INF(numeric_limits<T>::max()), timestamp(0), used(n, -1), graph(n) {}
+    FordFulkerson(int n)
+        : INF(numeric_limits<T>::max()), timestamp(0), used(n, -1), graph(n) {}
     void add_arc(int a, int b, T c) {
         graph[a].emplace_back(b, (int)graph[b].size(), c);
         graph[b].emplace_back(a, (int)graph[a].size() - 1, 0);

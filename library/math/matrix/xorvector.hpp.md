@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#a9839e7477a4d9c748aee996b52a14d5">math/matrix</a>
 * <a href="{{ site.github.repository_url }}/blob/master/math/matrix/xorvector.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-07-16 03:40:43+09:00
+    - Last commit date: 2020-08-25 17:20:34+09:00
 
 
 
@@ -73,10 +73,11 @@ struct XorVector {
     bool dirty = false;
     int rank, N;
     vector<long long> span;
-    XorVector(int N) : rank(0), N(N), span(N, 0) {}
+    XorVector(int N)
+        : rank(0), N(N), span(N, 0) {}
     void emplace(ll num) {
         span[rank++] = num;
-        dirty = true;
+        dirty        = true;
     }
     bool find(ll num) {
         if (num == 0) return true;
@@ -91,10 +92,15 @@ struct XorVector {
         rank = 0;
         for (int col = 63; col >= 0; --col) {
             int pivot = -1;
-            for (int row = rank; row < N; ++row) if (span[row] >> col & 1) { pivot = row; break; }
+            for (int row = rank; row < N; ++row)
+                if (span[row] >> col & 1) {
+                    pivot = row;
+                    break;
+                }
             if (pivot == -1) continue;
             swap(span[pivot], span[rank]);
-            for (int row = 0; row < N; ++row) if (row != rank and span[row] >> col & 1) span[row] ^= span[rank];
+            for (int row = 0; row < N; ++row)
+                if (row != rank and span[row] >> col & 1) span[row] ^= span[rank];
             ++rank;
         }
         dirty = false;
@@ -121,10 +127,11 @@ struct XorVector {
     bool dirty = false;
     int rank, N;
     vector<long long> span;
-    XorVector(int N) : rank(0), N(N), span(N, 0) {}
+    XorVector(int N)
+        : rank(0), N(N), span(N, 0) {}
     void emplace(ll num) {
         span[rank++] = num;
-        dirty = true;
+        dirty        = true;
     }
     bool find(ll num) {
         if (num == 0) return true;
@@ -139,10 +146,15 @@ struct XorVector {
         rank = 0;
         for (int col = 63; col >= 0; --col) {
             int pivot = -1;
-            for (int row = rank; row < N; ++row) if (span[row] >> col & 1) { pivot = row; break; }
+            for (int row = rank; row < N; ++row)
+                if (span[row] >> col & 1) {
+                    pivot = row;
+                    break;
+                }
             if (pivot == -1) continue;
             swap(span[pivot], span[rank]);
-            for (int row = 0; row < N; ++row) if (row != rank and span[row] >> col & 1) span[row] ^= span[rank];
+            for (int row = 0; row < N; ++row)
+                if (row != rank and span[row] >> col & 1) span[row] ^= span[rank];
             ++rank;
         }
         dirty = false;

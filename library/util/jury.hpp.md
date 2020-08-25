@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#05c7e24700502a079cdd88012b5a76d3">util</a>
 * <a href="{{ site.github.repository_url }}/blob/master/util/jury.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-08-22 20:56:30+09:00
+    - Last commit date: 2020-08-25 17:20:34+09:00
 
 
 
@@ -58,18 +58,20 @@ layout: default
 * @docs docs/util/jury.md
 */
 
-template<typename T, typename R, int QMX>
+template <typename T, typename R, int QMX>
 struct Jury {
     int query_cnt;
     map<T, R> memo;
     T N;
-    Jury() : query_cnt(0) {
+    Jury()
+        : query_cnt(0) {
         // N = rand();
 #ifdef LOCAL
         cerr << "N : " << N << endl;
 #endif
     }
-    Jury(T _N) : query_cnt(0) {
+    Jury(T _N)
+        : query_cnt(0) {
         N = _N;
 #ifdef LOCAL
         cerr << "N : " << N << endl;
@@ -117,18 +119,20 @@ struct Jury {
 * @docs docs/util/jury.md
 */
 
-template<typename T, typename R, int QMX>
+template <typename T, typename R, int QMX>
 struct Jury {
     int query_cnt;
     map<T, R> memo;
     T N;
-    Jury() : query_cnt(0) {
+    Jury()
+        : query_cnt(0) {
         // N = rand();
 #ifdef LOCAL
         cerr << "N : " << N << endl;
 #endif
     }
-    Jury(T _N) : query_cnt(0) {
+    Jury(T _N)
+        : query_cnt(0) {
         N = _N;
 #ifdef LOCAL
         cerr << "N : " << N << endl;

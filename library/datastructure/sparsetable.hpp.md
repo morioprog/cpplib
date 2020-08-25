@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: Sparse Table <small>(datastructure/sparsetable.hpp)</small>
+# :x: Sparse Table <small>(datastructure/sparsetable.hpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#8dc87745f885a4cc532acd7b15b8b5fe">datastructure</a>
 * <a href="{{ site.github.repository_url }}/blob/master/datastructure/sparsetable.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-22 15:28:38+09:00
+    - Last commit date: 2020-08-25 17:20:34+09:00
 
 
 
@@ -58,7 +58,7 @@ layout: default
 
 ## Verified with
 
-* :heavy_check_mark: <a href="../../verify/test/yosupo/staticrmq.test.cpp.html">test/yosupo/staticrmq.test.cpp</a>
+* :x: <a href="../../verify/test/yosupo/staticrmq.test.cpp.html">test/yosupo/staticrmq.test.cpp</a>
 
 
 ## Code
@@ -71,12 +71,14 @@ layout: default
 * @docs docs/datastructure/sparsetable.md
 */
 
-template<typename T> struct SparseTable {
+template <typename T>
+struct SparseTable {
     vector<vector<T>> st;
     using F = function<T(T, T)>;
     const F f;
     SparseTable() {}
-    SparseTable(const vector<T> &v, const F f) : f(f) {
+    SparseTable(const vector<T> &v, const F f)
+        : f(f) {
         int b = 0, sz = v.size();
         while ((1 << b) <= sz) ++b;
         st.assign(b, vector<T>(1 << b));
@@ -105,12 +107,14 @@ template<typename T> struct SparseTable {
 * @docs docs/datastructure/sparsetable.md
 */
 
-template<typename T> struct SparseTable {
+template <typename T>
+struct SparseTable {
     vector<vector<T>> st;
     using F = function<T(T, T)>;
     const F f;
     SparseTable() {}
-    SparseTable(const vector<T> &v, const F f) : f(f) {
+    SparseTable(const vector<T> &v, const F f)
+        : f(f) {
         int b = 0, sz = v.size();
         while ((1 << b) <= sz) ++b;
         st.assign(b, vector<T>(1 << b));

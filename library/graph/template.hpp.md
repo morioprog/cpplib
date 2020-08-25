@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: グラフテンプレート <small>(graph/template.hpp)</small>
+# :question: グラフテンプレート <small>(graph/template.hpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#f8b0b924ebd7046dbfa85a856e4682c8">graph</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/template.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-08-24 22:46:00+09:00
+    - Last commit date: 2020-08-25 17:20:34+09:00
 
 
 
@@ -75,10 +75,10 @@ layout: default
 * :heavy_check_mark: <a href="../../verify/test/aoj/GRL_5_D.test.cpp.html">test/aoj/GRL_5_D.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj/GRL_5_E.test.cpp.html">test/aoj/GRL_5_E.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj/GRL_7_A.test.cpp.html">test/aoj/GRL_7_A.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/yosupo/vertexaddpathsum.test.cpp.html">test/yosupo/vertexaddpathsum.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/yosupo/vertexaddsubtreesum.test.cpp.html">test/yosupo/vertexaddsubtreesum.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/yukicoder/20.test.cpp.html">test/yukicoder/20.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/yukicoder/399.test.cpp.html">test/yukicoder/399.test.cpp</a>
+* :x: <a href="../../verify/test/yosupo/vertexaddpathsum.test.cpp.html">test/yosupo/vertexaddpathsum.test.cpp</a>
+* :x: <a href="../../verify/test/yosupo/vertexaddsubtreesum.test.cpp.html">test/yosupo/vertexaddsubtreesum.test.cpp</a>
+* :x: <a href="../../verify/test/yukicoder/20.test.cpp.html">test/yukicoder/20.test.cpp</a>
+* :x: <a href="../../verify/test/yukicoder/399.test.cpp.html">test/yukicoder/399.test.cpp</a>
 
 
 ## Code
@@ -91,24 +91,27 @@ layout: default
 * @docs docs/graph/template.md
 */
 
-template<typename T>
+template <typename T>
 struct Edge {
-    int frm, to, idx;   T cst;
+    int frm, to, idx;
+    T cst;
     Edge() {}
-    Edge(int f, int t, T c, int i = -1) : frm(f), to(t), idx(i), cst(c) {}
+    Edge(int f, int t, T c, int i = -1)
+        : frm(f), to(t), idx(i), cst(c) {}
     operator int() const { return to; }
 };
 
-template<typename T>
+template <typename T>
 constexpr T GINF = numeric_limits<T>::max() / 10;
 
-template<typename T>
+template <typename T>
 struct Graph {
     int V, E;
     vector<vector<Edge<T>>> mat;
     vector<vector<T>> wf;
     Graph() {}
-    Graph(int v) : V(v), E(0), mat(v) {}
+    Graph(int v)
+        : V(v), E(0), mat(v) {}
     inline void add_edge(int a, int b, T c = 1, int margin = 0) {
         a -= margin, b -= margin;
         mat[a].emplace_back(a, b, c, E++);
@@ -120,7 +123,8 @@ struct Graph {
     }
     inline void input_edges(int M, int margin = 0, bool need_cost = false) {
         for (int i = 0; i < M; ++i) {
-            int a, b;   T c(1);
+            int a, b;
+            T c(1);
             cin >> a >> b;
             if (need_cost) cin >> c;
             add_edge(a, b, c, margin);
@@ -128,7 +132,8 @@ struct Graph {
     }
     inline void input_arcs(int M, int margin = 0, bool need_cost = false) {
         for (int i = 0; i < M; ++i) {
-            int a, b;   T c(1);
+            int a, b;
+            T c(1);
             cin >> a >> b;
             if (need_cost) cin >> c;
             add_arc(a, b, c, margin);
@@ -148,24 +153,27 @@ struct Graph {
 * @docs docs/graph/template.md
 */
 
-template<typename T>
+template <typename T>
 struct Edge {
-    int frm, to, idx;   T cst;
+    int frm, to, idx;
+    T cst;
     Edge() {}
-    Edge(int f, int t, T c, int i = -1) : frm(f), to(t), idx(i), cst(c) {}
+    Edge(int f, int t, T c, int i = -1)
+        : frm(f), to(t), idx(i), cst(c) {}
     operator int() const { return to; }
 };
 
-template<typename T>
+template <typename T>
 constexpr T GINF = numeric_limits<T>::max() / 10;
 
-template<typename T>
+template <typename T>
 struct Graph {
     int V, E;
     vector<vector<Edge<T>>> mat;
     vector<vector<T>> wf;
     Graph() {}
-    Graph(int v) : V(v), E(0), mat(v) {}
+    Graph(int v)
+        : V(v), E(0), mat(v) {}
     inline void add_edge(int a, int b, T c = 1, int margin = 0) {
         a -= margin, b -= margin;
         mat[a].emplace_back(a, b, c, E++);
@@ -177,7 +185,8 @@ struct Graph {
     }
     inline void input_edges(int M, int margin = 0, bool need_cost = false) {
         for (int i = 0; i < M; ++i) {
-            int a, b;   T c(1);
+            int a, b;
+            T c(1);
             cin >> a >> b;
             if (need_cost) cin >> c;
             add_edge(a, b, c, margin);
@@ -185,7 +194,8 @@ struct Graph {
     }
     inline void input_arcs(int M, int margin = 0, bool need_cost = false) {
         for (int i = 0; i < M; ++i) {
-            int a, b;   T c(1);
+            int a, b;
+            T c(1);
             cin >> a >> b;
             if (need_cost) cin >> c;
             add_arc(a, b, c, margin);

@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#54de4c5e0ecfc39083b31b56ee36cb19">snippet</a>
 * <a href="{{ site.github.repository_url }}/blob/master/snippet/main.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-08-24 21:32:27+09:00
+    - Last commit date: 2020-08-25 17:20:34+09:00
 
 
 
@@ -41,9 +41,11 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+#pragma region optimize
 // #pragma GCC optimize("Ofast")
 // #pragma GCC optimize("unroll-loops")
 // #pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx")
+#pragma endregion
 #include <bits/stdc++.h>
 using namespace std;
 #pragma region boost multiprecision
@@ -57,7 +59,7 @@ using namespace std;
 // #define endl '\n'
 
 #pragma region TEMPLATE
-
+// clang-format off
 /* TYPE */
 typedef long long ll;       typedef long double ld;
 typedef pair<int, int> pii; typedef pair<ll, ll> pll;
@@ -160,22 +162,21 @@ struct abracadabra {
         cerr << fixed << setprecision(5);
     };
 } ABRACADABRA;
-
+// clang-format on
 #pragma endregion
 
 int solve();
 
 signed main() {
-
     // int _T; cin >> _T; for (int t = 1; t <= _T; ++t)
     solve();
-
 }
 
 int solve() {
 
-    return 0;
 
+
+    return 0;
 }
 
 ```
@@ -185,9 +186,11 @@ int solve() {
 {% raw %}
 ```cpp
 #line 1 "snippet/main.cpp"
+#pragma region optimize
 // #pragma GCC optimize("Ofast")
 // #pragma GCC optimize("unroll-loops")
 // #pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx")
+#pragma endregion
 #include <bits/stdc++.h>
 using namespace std;
 #pragma region boost multiprecision
@@ -201,7 +204,7 @@ using namespace std;
 // #define endl '\n'
 
 #pragma region TEMPLATE
-
+// clang-format off
 /* TYPE */
 typedef long long ll;       typedef long double ld;
 typedef pair<int, int> pii; typedef pair<ll, ll> pll;
@@ -304,22 +307,21 @@ struct abracadabra {
         cerr << fixed << setprecision(5);
     };
 } ABRACADABRA;
-
+// clang-format on
 #pragma endregion
 
 int solve();
 
 signed main() {
-
     // int _T; cin >> _T; for (int t = 1; t <= _T; ++t)
     solve();
-
 }
 
 int solve() {
 
-    return 0;
 
+
+    return 0;
 }
 
 ```

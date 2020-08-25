@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#893699352036854e82d247c81f4d89a6">graph/shortestpath</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/shortestpath/bellmanford.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-06-02 02:19:59+09:00
+    - Last commit date: 2020-08-25 17:20:34+09:00
 
 
 
@@ -66,19 +66,20 @@ $O(EV)$
 * @docs docs/graph/shortestpath/bellmanford.md
 */
 
-template<typename T>
-vector<T> bellmanford(const Graph<T> &g, int frm) {
-    vector<T> ret(g.V, GINF<T>);    ret[frm] = 0;
+template <typename T>
+vector<T> bellmanford(const Graph<T>& g, int frm) {
+    vector<T> ret(g.V, GINF<T>);
+    ret[frm] = 0;
     for (int i = 0; i < g.V - 1; ++i) {
         for (int j = 0; j < g.V; ++j) {
-            for (auto& e: g.mat[j]) {
+            for (auto& e : g.mat[j]) {
                 if (ret[e.frm] == GINF<T>) continue;
                 ret[e.to] = min(ret[e.to], ret[e.frm] + e.cst);
             }
         }
     }
     for (int j = 0; j < g.V; ++j) {
-        for (auto& e: g.mat[j]) {
+        for (auto& e : g.mat[j]) {
             if (ret[e.frm] == GINF<T>) continue;
             if (ret[e.frm] + e.cst < ret[e.to]) return vector<T>();
         }
@@ -98,19 +99,20 @@ vector<T> bellmanford(const Graph<T> &g, int frm) {
 * @docs docs/graph/shortestpath/bellmanford.md
 */
 
-template<typename T>
-vector<T> bellmanford(const Graph<T> &g, int frm) {
-    vector<T> ret(g.V, GINF<T>);    ret[frm] = 0;
+template <typename T>
+vector<T> bellmanford(const Graph<T>& g, int frm) {
+    vector<T> ret(g.V, GINF<T>);
+    ret[frm] = 0;
     for (int i = 0; i < g.V - 1; ++i) {
         for (int j = 0; j < g.V; ++j) {
-            for (auto& e: g.mat[j]) {
+            for (auto& e : g.mat[j]) {
                 if (ret[e.frm] == GINF<T>) continue;
                 ret[e.to] = min(ret[e.to], ret[e.frm] + e.cst);
             }
         }
     }
     for (int j = 0; j < g.V; ++j) {
-        for (auto& e: g.mat[j]) {
+        for (auto& e : g.mat[j]) {
             if (ret[e.frm] == GINF<T>) continue;
             if (ret[e.frm] + e.cst < ret[e.to]) return vector<T>();
         }

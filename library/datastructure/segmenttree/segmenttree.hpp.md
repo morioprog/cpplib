@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: セグメント木 <small>(datastructure/segmenttree/segmenttree.hpp)</small>
+# :question: セグメント木 <small>(datastructure/segmenttree/segmenttree.hpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#23b0293042a380c2b90b74c55c0e1d22">datastructure/segmenttree</a>
 * <a href="{{ site.github.repository_url }}/blob/master/datastructure/segmenttree/segmenttree.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-22 16:56:36+09:00
+    - Last commit date: 2020-08-25 17:20:34+09:00
 
 
 
@@ -67,9 +67,9 @@ layout: default
 * :heavy_check_mark: <a href="../../../verify/test/aoj/DSL_2_A.test.cpp.html">test/aoj/DSL_2_A.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/aoj/DSL_2_B.segmenttree.test.cpp.html">test/aoj/DSL_2_B.segmenttree.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/aoj/GRL_5_D.test.cpp.html">test/aoj/GRL_5_D.test.cpp</a>
-* :heavy_check_mark: <a href="../../../verify/test/yosupo/pointaddrangesum.test.cpp.html">test/yosupo/pointaddrangesum.test.cpp</a>
-* :heavy_check_mark: <a href="../../../verify/test/yosupo/vertexaddpathsum.test.cpp.html">test/yosupo/vertexaddpathsum.test.cpp</a>
-* :heavy_check_mark: <a href="../../../verify/test/yosupo/vertexaddsubtreesum.test.cpp.html">test/yosupo/vertexaddsubtreesum.test.cpp</a>
+* :x: <a href="../../../verify/test/yosupo/pointaddrangesum.test.cpp.html">test/yosupo/pointaddrangesum.test.cpp</a>
+* :x: <a href="../../../verify/test/yosupo/vertexaddpathsum.test.cpp.html">test/yosupo/vertexaddpathsum.test.cpp</a>
+* :x: <a href="../../../verify/test/yosupo/vertexaddsubtreesum.test.cpp.html">test/yosupo/vertexaddsubtreesum.test.cpp</a>
 
 
 ## Code
@@ -82,20 +82,25 @@ layout: default
 * @docs docs/datastructure/segmenttree/segmenttree.md
 */
 
-template<typename T> struct SegmentTree {
+template <typename T>
+struct SegmentTree {
     using F = function<T(T, T)>;
     vector<T> seg;
     int sz;
     const F func;
     const T IDENT;
     SegmentTree() {}
-    SegmentTree(int n, const F f, const T &ID) : func(f), IDENT(ID) {
-        sz = 1; while (sz < n) sz <<= 1;
+    SegmentTree(int n, const F f, const T &ID)
+        : func(f), IDENT(ID) {
+        sz = 1;
+        while (sz < n) sz <<= 1;
         seg.assign(2 * sz - 1, IDENT);
     }
-    SegmentTree(vector<T> v, const F f, const T &ID) : func(f), IDENT(ID) {
+    SegmentTree(vector<T> v, const F f, const T &ID)
+        : func(f), IDENT(ID) {
         int n = v.size();
-        sz = 1; while (sz < n) sz <<= 1;
+        sz    = 1;
+        while (sz < n) sz <<= 1;
         seg.assign(2 * sz - 1, IDENT);
         for (int i = 0; i < n; ++i) seg[i + sz - 1] = v[i];
         for (int i = sz - 2; i >= 0; --i) seg[i] = func(seg[2 * i + 1], seg[2 * i + 2]);
@@ -104,7 +109,7 @@ template<typename T> struct SegmentTree {
         k += sz - 1;
         seg[k] = x;
         while (k > 0) {
-            k = (k - 1) / 2;
+            k      = (k - 1) / 2;
             seg[k] = func(seg[2 * k + 1], seg[2 * k + 2]);
         }
     }
@@ -112,7 +117,7 @@ template<typename T> struct SegmentTree {
         k += sz - 1;
         seg[k] += x;
         while (k > 0) {
-            k = (k - 1) / 2;
+            k      = (k - 1) / 2;
             seg[k] = func(seg[2 * k + 1], seg[2 * k + 2]);
         }
     }
@@ -144,20 +149,25 @@ template<typename T> struct SegmentTree {
 * @docs docs/datastructure/segmenttree/segmenttree.md
 */
 
-template<typename T> struct SegmentTree {
+template <typename T>
+struct SegmentTree {
     using F = function<T(T, T)>;
     vector<T> seg;
     int sz;
     const F func;
     const T IDENT;
     SegmentTree() {}
-    SegmentTree(int n, const F f, const T &ID) : func(f), IDENT(ID) {
-        sz = 1; while (sz < n) sz <<= 1;
+    SegmentTree(int n, const F f, const T &ID)
+        : func(f), IDENT(ID) {
+        sz = 1;
+        while (sz < n) sz <<= 1;
         seg.assign(2 * sz - 1, IDENT);
     }
-    SegmentTree(vector<T> v, const F f, const T &ID) : func(f), IDENT(ID) {
+    SegmentTree(vector<T> v, const F f, const T &ID)
+        : func(f), IDENT(ID) {
         int n = v.size();
-        sz = 1; while (sz < n) sz <<= 1;
+        sz    = 1;
+        while (sz < n) sz <<= 1;
         seg.assign(2 * sz - 1, IDENT);
         for (int i = 0; i < n; ++i) seg[i + sz - 1] = v[i];
         for (int i = sz - 2; i >= 0; --i) seg[i] = func(seg[2 * i + 1], seg[2 * i + 2]);
@@ -166,7 +176,7 @@ template<typename T> struct SegmentTree {
         k += sz - 1;
         seg[k] = x;
         while (k > 0) {
-            k = (k - 1) / 2;
+            k      = (k - 1) / 2;
             seg[k] = func(seg[2 * k + 1], seg[2 * k + 2]);
         }
     }
@@ -174,7 +184,7 @@ template<typename T> struct SegmentTree {
         k += sz - 1;
         seg[k] += x;
         while (k > 0) {
-            k = (k - 1) / 2;
+            k      = (k - 1) / 2;
             seg[k] = func(seg[2 * k + 1], seg[2 * k + 2]);
         }
     }

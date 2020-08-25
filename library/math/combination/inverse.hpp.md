@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: Combination (Inverse) <small>(math/combination/inverse.hpp)</small>
+# :x: Combination (Inverse) <small>(math/combination/inverse.hpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#54907edcdfa59aabac4f72caf192990b">math/combination</a>
 * <a href="{{ site.github.repository_url }}/blob/master/math/combination/inverse.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-07-07 16:44:35+09:00
+    - Last commit date: 2020-08-25 17:20:34+09:00
 
 
 
@@ -54,7 +54,7 @@ $C$, $P$, $H$を逆元を用いて求める.
 
 ## Verified with
 
-* :heavy_check_mark: <a href="../../../verify/test/yukicoder/117.test.cpp.html">test/yukicoder/117.test.cpp</a>
+* :x: <a href="../../../verify/test/yukicoder/117.test.cpp.html">test/yukicoder/117.test.cpp</a>
 
 
 ## Code
@@ -67,7 +67,7 @@ $C$, $P$, $H$を逆元を用いて求める.
  * @docs docs/math/combination/inverse.md
  */
 
-template<typename T>
+template <typename T>
 struct Combination {
     using u32 = unsigned int;
     using i64 = long long;
@@ -86,13 +86,22 @@ struct Combination {
         for (u32 i = n; i >= m; --i) finv[i - 1] = finv[i] * T(i);
         for (u32 i = m; i <= n; ++i) invs[i] = finv[i] * fact[i - 1];
     }
-    T getFact(u32 n) { init(n); return fact[n]; }
-    T getFinv(u32 n) { init(n); return finv[n]; }
-    T getInvs(u32 n) { init(n); return invs[n]; }
+    T getFact(u32 n) {
+        init(n);
+        return fact[n];
+    }
+    T getFinv(u32 n) {
+        init(n);
+        return finv[n];
+    }
+    T getInvs(u32 n) {
+        init(n);
+        return invs[n];
+    }
     T C(i64 n, i64 r) {
         if (r == 0) return T(1);
-        if (r <  0) return T(0);
-        if (n <  0) return T(r & 1 ? -1 : 1) * C(-n + r - 1, r);
+        if (r < 0) return T(0);
+        if (n < 0) return T(r & 1 ? -1 : 1) * C(-n + r - 1, r);
         if (n == 0 || n < r) return T(0);
         init(n);
         return fact[n] * finv[n - r] * finv[r];
@@ -122,7 +131,7 @@ struct Combination {
  * @docs docs/math/combination/inverse.md
  */
 
-template<typename T>
+template <typename T>
 struct Combination {
     using u32 = unsigned int;
     using i64 = long long;
@@ -141,13 +150,22 @@ struct Combination {
         for (u32 i = n; i >= m; --i) finv[i - 1] = finv[i] * T(i);
         for (u32 i = m; i <= n; ++i) invs[i] = finv[i] * fact[i - 1];
     }
-    T getFact(u32 n) { init(n); return fact[n]; }
-    T getFinv(u32 n) { init(n); return finv[n]; }
-    T getInvs(u32 n) { init(n); return invs[n]; }
+    T getFact(u32 n) {
+        init(n);
+        return fact[n];
+    }
+    T getFinv(u32 n) {
+        init(n);
+        return finv[n];
+    }
+    T getInvs(u32 n) {
+        init(n);
+        return invs[n];
+    }
     T C(i64 n, i64 r) {
         if (r == 0) return T(1);
-        if (r <  0) return T(0);
-        if (n <  0) return T(r & 1 ? -1 : 1) * C(-n + r - 1, r);
+        if (r < 0) return T(0);
+        if (n < 0) return T(r & 1 ? -1 : 1) * C(-n + r - 1, r);
         if (n == 0 || n < r) return T(0);
         init(n);
         return fact[n] * finv[n - r] * finv[r];

@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#0d0c91c0cca30af9c1c9faef0cf04aa9">test/aoj</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/aoj/ALDS1_14_B.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-08-24 21:32:27+09:00
+    - Last commit date: 2020-08-25 17:20:34+09:00
 
 
 * see: <a href="https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/14/ALDS1_14_B">https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/14/ALDS1_14_B</a>
@@ -40,7 +40,7 @@ layout: default
 ## Depends on
 
 * :heavy_check_mark: <a href="../../../library/string/rollinghash.hpp.html">ローリングハッシュ <small>(string/rollinghash.hpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/template/main.hpp.html">template/main.hpp</a>
+* :question: <a href="../../../library/template/main.hpp.html">template/main.hpp</a>
 
 
 ## Code
@@ -81,9 +81,11 @@ signed main() {
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/14/ALDS1_14_B"
 
 #line 1 "template/main.hpp"
+#pragma region optimize
 // #pragma GCC optimize("Ofast")
 // #pragma GCC optimize("unroll-loops")
 // #pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx")
+#pragma endregion
 #include <bits/stdc++.h>
 using namespace std;
 #pragma region boost multiprecision
@@ -97,7 +99,7 @@ using namespace std;
 // #define endl '\n'
 
 #pragma region TEMPLATE
-
+// clang-format off
 /* TYPE */
 typedef long long ll;       typedef long double ld;
 typedef pair<int, int> pii; typedef pair<ll, ll> pll;
@@ -200,7 +202,7 @@ struct abracadabra {
         cerr << fixed << setprecision(5);
     };
 } ABRACADABRA;
-
+// clang-format off
 #pragma endregion
 #line 1 "string/rollinghash.hpp"
 /**
@@ -209,7 +211,7 @@ struct abracadabra {
 */
 
 using hash_type = unsigned long long;
-template<int mod, int base=10007>
+template <int mod, int base = 10007>
 struct RollingHash {
     vector<hash_type> hsh, pwr;
     hash_type umod(hash_type n) { return (n % mod + mod) % mod; }
@@ -217,7 +219,8 @@ struct RollingHash {
     RollingHash(const string &s) {
         int sz = (int)s.size();
         hsh.assign(sz + 1, 0);
-        pwr.assign(sz + 1, 0);  pwr[0] = 1;
+        pwr.assign(sz + 1, 0);
+        pwr[0] = 1;
         for (int i = 0; i < sz; ++i) {
             if (sz > i) hsh[i + 1] = umod(hsh[i] * base + s[i]);
             pwr[i + 1] = umod(pwr[i] * base);
@@ -238,11 +241,17 @@ struct RollingHash {
 };
 using RH1 = RollingHash<(int)1e9 + 7>;
 using RH2 = RollingHash<(int)1e9 + 9>;
-using RH = tuple<RH1, RH2>;
-using H = tuple<hash_type, hash_type>;
-RH init(const string &s) { return make_tuple(RH1(s), RH2(s)); }
-H    get(RH &rh, int l, int r ) { return make_tuple(get<0>(rh).get(l, r),     get<1>(rh).get(l, r));     }
-H rotate(RH &rh, int n, int sz) { return make_tuple(get<0>(rh).rotate(n, sz), get<1>(rh).rotate(n, sz)); }
+using RH  = tuple<RH1, RH2>;
+using H   = tuple<hash_type, hash_type>;
+RH init(const string &s) {
+    return make_tuple(RH1(s), RH2(s));
+}
+H get(RH &rh, int l, int r) {
+    return make_tuple(get<0>(rh).get(l, r), get<1>(rh).get(l, r));
+}
+H rotate(RH &rh, int n, int sz) {
+    return make_tuple(get<0>(rh).rotate(n, sz), get<1>(rh).rotate(n, sz));
+}
 #line 5 "test/aoj/ALDS1_14_B.test.cpp"
 
 signed main() {

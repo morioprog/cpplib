@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/yosupo/staticrmq.test.cpp
+# :x: test/yosupo/staticrmq.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#0b58406058f6619a0f31a172defc0230">test/yosupo</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/yosupo/staticrmq.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-08-24 21:32:27+09:00
+    - Last commit date: 2020-08-25 17:20:34+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/staticrmq">https://judge.yosupo.jp/problem/staticrmq</a>
@@ -39,8 +39,8 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../../library/datastructure/sparsetable.hpp.html">Sparse Table <small>(datastructure/sparsetable.hpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/template/main.hpp.html">template/main.hpp</a>
+* :x: <a href="../../../library/datastructure/sparsetable.hpp.html">Sparse Table <small>(datastructure/sparsetable.hpp)</small></a>
+* :question: <a href="../../../library/template/main.hpp.html">template/main.hpp</a>
 
 
 ## Code
@@ -82,9 +82,11 @@ signed main() {
 #define PROBLEM "https://judge.yosupo.jp/problem/staticrmq"
 
 #line 1 "template/main.hpp"
+#pragma region optimize
 // #pragma GCC optimize("Ofast")
 // #pragma GCC optimize("unroll-loops")
 // #pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx")
+#pragma endregion
 #include <bits/stdc++.h>
 using namespace std;
 #pragma region boost multiprecision
@@ -98,7 +100,7 @@ using namespace std;
 // #define endl '\n'
 
 #pragma region TEMPLATE
-
+// clang-format off
 /* TYPE */
 typedef long long ll;       typedef long double ld;
 typedef pair<int, int> pii; typedef pair<ll, ll> pll;
@@ -201,7 +203,7 @@ struct abracadabra {
         cerr << fixed << setprecision(5);
     };
 } ABRACADABRA;
-
+// clang-format off
 #pragma endregion
 #line 1 "datastructure/sparsetable.hpp"
 /**
@@ -209,12 +211,14 @@ struct abracadabra {
 * @docs docs/datastructure/sparsetable.md
 */
 
-template<typename T> struct SparseTable {
+template <typename T>
+struct SparseTable {
     vector<vector<T>> st;
     using F = function<T(T, T)>;
     const F f;
     SparseTable() {}
-    SparseTable(const vector<T> &v, const F f) : f(f) {
+    SparseTable(const vector<T> &v, const F f)
+        : f(f) {
         int b = 0, sz = v.size();
         while ((1 << b) <= sz) ++b;
         st.assign(b, vector<T>(1 << b));

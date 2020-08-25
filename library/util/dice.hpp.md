@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#05c7e24700502a079cdd88012b5a76d3">util</a>
 * <a href="{{ site.github.repository_url }}/blob/master/util/dice.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-08-24 17:58:04+09:00
+    - Last commit date: 2020-08-25 17:20:34+09:00
 
 
 
@@ -89,9 +89,12 @@ layout: default
 */
 
 // 下にy, 右にx
-enum { R, U, L, D };
-const int ddx[] = { 1,  0, -1, 0 };
-const int ddy[] = { 0, -1,  0, 1 };
+enum { R,
+       U,
+       L,
+       D };
+const int ddx[] = { 1, 0, -1, 0 };
+const int ddy[] = { 0, -1, 0, 1 };
 
 struct Dice {
     int T, N, E, S, W, B;
@@ -103,9 +106,10 @@ struct Dice {
         { 3, 0, 6, 1, 0, 4 },
         { 0, 4, 2, 5, 3, 0 }
     };
-    Dice(int T, int S) : T(T), S(S) { build(); }
+    Dice(int T, int S)
+        : T(T), S(S) { build(); }
     void build() {
-        E = table[T - 1][S - 1];
+        E            = table[T - 1][S - 1];
         tie(N, W, B) = make_tuple(7 - S, 7 - E, 7 - T);
         // swap(E, W);  // もう1種類のサイコロの場合
     }
@@ -119,7 +123,7 @@ struct Dice {
         build();
     }
     int get(int m) {
-        return (vector<int>){E, N, W, S, T, B}[m];
+        return (vector<int>){ E, N, W, S, T, B }[m];
     }
 };
 
@@ -136,9 +140,12 @@ struct Dice {
 */
 
 // 下にy, 右にx
-enum { R, U, L, D };
-const int ddx[] = { 1,  0, -1, 0 };
-const int ddy[] = { 0, -1,  0, 1 };
+enum { R,
+       U,
+       L,
+       D };
+const int ddx[] = { 1, 0, -1, 0 };
+const int ddy[] = { 0, -1, 0, 1 };
 
 struct Dice {
     int T, N, E, S, W, B;
@@ -150,9 +157,10 @@ struct Dice {
         { 3, 0, 6, 1, 0, 4 },
         { 0, 4, 2, 5, 3, 0 }
     };
-    Dice(int T, int S) : T(T), S(S) { build(); }
+    Dice(int T, int S)
+        : T(T), S(S) { build(); }
     void build() {
-        E = table[T - 1][S - 1];
+        E            = table[T - 1][S - 1];
         tie(N, W, B) = make_tuple(7 - S, 7 - E, 7 - T);
         // swap(E, W);  // もう1種類のサイコロの場合
     }
@@ -166,7 +174,7 @@ struct Dice {
         build();
     }
     int get(int m) {
-        return (vector<int>){E, N, W, S, T, B}[m];
+        return (vector<int>){ E, N, W, S, T, B }[m];
     }
 };
 

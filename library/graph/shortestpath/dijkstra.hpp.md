@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: ダイクストラ法 <small>(graph/shortestpath/dijkstra.hpp)</small>
+# :question: ダイクストラ法 <small>(graph/shortestpath/dijkstra.hpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#893699352036854e82d247c81f4d89a6">graph/shortestpath</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/shortestpath/dijkstra.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-06-02 02:19:59+09:00
+    - Last commit date: 2020-08-25 17:20:34+09:00
 
 
 
@@ -53,7 +53,7 @@ $O(E\log V)$
 ## Verified with
 
 * :heavy_check_mark: <a href="../../../verify/test/aoj/GRL_1_A.test.cpp.html">test/aoj/GRL_1_A.test.cpp</a>
-* :heavy_check_mark: <a href="../../../verify/test/yukicoder/20.test.cpp.html">test/yukicoder/20.test.cpp</a>
+* :x: <a href="../../../verify/test/yukicoder/20.test.cpp.html">test/yukicoder/20.test.cpp</a>
 
 
 ## Code
@@ -66,17 +66,20 @@ $O(E\log V)$
 * @docs docs/graph/shortestpath/dijkstra.md
 */
 
-template<typename T>
-vector<T> dijkstra(const Graph<T> &g, int frm) {
+template <typename T>
+vector<T> dijkstra(const Graph<T>& g, int frm) {
     using P = pair<T, int>;
-    vector<T> ret(g.V, GINF<T>);    ret[frm] = 0;
+    vector<T> ret(g.V, GINF<T>);
+    ret[frm] = 0;
     priority_queue<P, vector<P>, greater<P>> pq;
     pq.emplace(ret[frm], frm);
     while (not pq.empty()) {
-        T cst;  int idx;
-        tie(cst, idx) = pq.top();   pq.pop();
+        T cst;
+        int idx;
+        tie(cst, idx) = pq.top();
+        pq.pop();
         if (ret[idx] < cst) continue;
-        for (auto& e: g.mat[idx]) {
+        for (auto& e : g.mat[idx]) {
             T nxt_cst = cst + e.cst;
             if (ret[e.to] <= nxt_cst) continue;
             ret[e.to] = nxt_cst;
@@ -98,17 +101,20 @@ vector<T> dijkstra(const Graph<T> &g, int frm) {
 * @docs docs/graph/shortestpath/dijkstra.md
 */
 
-template<typename T>
-vector<T> dijkstra(const Graph<T> &g, int frm) {
+template <typename T>
+vector<T> dijkstra(const Graph<T>& g, int frm) {
     using P = pair<T, int>;
-    vector<T> ret(g.V, GINF<T>);    ret[frm] = 0;
+    vector<T> ret(g.V, GINF<T>);
+    ret[frm] = 0;
     priority_queue<P, vector<P>, greater<P>> pq;
     pq.emplace(ret[frm], frm);
     while (not pq.empty()) {
-        T cst;  int idx;
-        tie(cst, idx) = pq.top();   pq.pop();
+        T cst;
+        int idx;
+        tie(cst, idx) = pq.top();
+        pq.pop();
         if (ret[idx] < cst) continue;
-        for (auto& e: g.mat[idx]) {
+        for (auto& e : g.mat[idx]) {
             T nxt_cst = cst + e.cst;
             if (ret[e.to] <= nxt_cst) continue;
             ret[e.to] = nxt_cst;

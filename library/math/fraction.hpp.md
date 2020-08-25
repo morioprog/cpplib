@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#7e676e9e663beb40fd133f5ee24487c2">math</a>
 * <a href="{{ site.github.repository_url }}/blob/master/math/fraction.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-21 14:05:17+09:00
+    - Last commit date: 2020-08-25 17:20:34+09:00
 
 
 
@@ -78,13 +78,13 @@ struct Fraction {
     Fraction &operator*=(const Fraction &f) { return *this = *this * f; }
     Fraction &operator/=(const Fraction &f) { return *this = *this / f; }
     Fraction operator~() const { return Fraction(denom, numer); }
-    bool operator==(const Fraction &f) const { return numer == f.numer and denom == f.denom; }
-    bool operator!=(const Fraction &f) const { return numer != f.numer  or denom != f.denom; }
-    bool operator< (const Fraction &f) const { return numer * f.denom <  f.numer * denom; }
+    bool operator<(const Fraction &f) const { return numer * f.denom < f.numer * denom; }
+    bool operator>(const Fraction &f) const { return numer * f.denom > f.numer * denom; }
+    bool operator==(const Fraction &f) const { return numer == f.numer && denom == f.denom; }
+    bool operator!=(const Fraction &f) const { return numer != f.numer || denom != f.denom; }
     bool operator<=(const Fraction &f) const { return numer * f.denom <= f.numer * denom; }
-    bool operator> (const Fraction &f) const { return numer * f.denom >  f.numer * denom; }
     bool operator>=(const Fraction &f) const { return numer * f.denom >= f.numer * denom; }
-    double to_double() const { return (double) numer / denom; }
+    double to_double() const { return (double)numer / denom; }
     friend ostream &operator<<(ostream &os, const Fraction &f) { return os << f.numer << " / " << f.denom; }
 };
 
@@ -119,13 +119,13 @@ struct Fraction {
     Fraction &operator*=(const Fraction &f) { return *this = *this * f; }
     Fraction &operator/=(const Fraction &f) { return *this = *this / f; }
     Fraction operator~() const { return Fraction(denom, numer); }
-    bool operator==(const Fraction &f) const { return numer == f.numer and denom == f.denom; }
-    bool operator!=(const Fraction &f) const { return numer != f.numer  or denom != f.denom; }
-    bool operator< (const Fraction &f) const { return numer * f.denom <  f.numer * denom; }
+    bool operator<(const Fraction &f) const { return numer * f.denom < f.numer * denom; }
+    bool operator>(const Fraction &f) const { return numer * f.denom > f.numer * denom; }
+    bool operator==(const Fraction &f) const { return numer == f.numer && denom == f.denom; }
+    bool operator!=(const Fraction &f) const { return numer != f.numer || denom != f.denom; }
     bool operator<=(const Fraction &f) const { return numer * f.denom <= f.numer * denom; }
-    bool operator> (const Fraction &f) const { return numer * f.denom >  f.numer * denom; }
     bool operator>=(const Fraction &f) const { return numer * f.denom >= f.numer * denom; }
-    double to_double() const { return (double) numer / denom; }
+    double to_double() const { return (double)numer / denom; }
     friend ostream &operator<<(ostream &os, const Fraction &f) { return os << f.numer << " / " << f.denom; }
 };
 

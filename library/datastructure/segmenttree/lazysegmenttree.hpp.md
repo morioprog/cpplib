@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: 遅延セグメント木 <small>(datastructure/segmenttree/lazysegmenttree.hpp)</small>
+# :question: 遅延セグメント木 <small>(datastructure/segmenttree/lazysegmenttree.hpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#23b0293042a380c2b90b74c55c0e1d22">datastructure/segmenttree</a>
 * <a href="{{ site.github.repository_url }}/blob/master/datastructure/segmenttree/lazysegmenttree.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-23 05:26:48+09:00
+    - Last commit date: 2020-08-25 17:20:34+09:00
 
 
 
@@ -129,8 +129,8 @@ auto seg = make_segtree(N, M(4e18), ID_OM, f, g, g, p);
 * :heavy_check_mark: <a href="../../../verify/test/aoj/DSL_2_H.test.cpp.html">test/aoj/DSL_2_H.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/aoj/DSL_2_I.test.cpp.html">test/aoj/DSL_2_I.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/aoj/GRL_5_E.test.cpp.html">test/aoj/GRL_5_E.test.cpp</a>
-* :heavy_check_mark: <a href="../../../verify/test/yosupo/rangeaffinerangesum.test.cpp.html">test/yosupo/rangeaffinerangesum.test.cpp</a>
-* :heavy_check_mark: <a href="../../../verify/test/yukicoder/399.test.cpp.html">test/yukicoder/399.test.cpp</a>
+* :x: <a href="../../../verify/test/yosupo/rangeaffinerangesum.test.cpp.html">test/yosupo/rangeaffinerangesum.test.cpp</a>
+* :x: <a href="../../../verify/test/yukicoder/399.test.cpp.html">test/yukicoder/399.test.cpp</a>
 
 
 ## Code
@@ -146,7 +146,10 @@ auto seg = make_segtree(N, M(4e18), ID_OM, f, g, g, p);
 template <typename M, typename OM, typename F, typename G, typename H, typename P>
 struct LazySegmentTree {
     int sz;
-    F f; G g; H h; P p;
+    F f;
+    G g;
+    H h;
+    P p;
     const M ID_M;
     const OM ID_OM;
     vector<M> dat;
@@ -161,7 +164,8 @@ struct LazySegmentTree {
         for (int i = sz - 2; i >= 0; --i) dat[i] = f(dat[2 * i + 1], dat[2 * i + 2]);
     }
     void build(int n) {
-        sz = 1; while (sz < n) sz <<= 1;
+        sz = 1;
+        while (sz < n) sz <<= 1;
         dat.assign(2 * sz - 1, ID_M);
         laz.assign(2 * sz - 1, ID_OM);
     }
@@ -207,11 +211,11 @@ struct LazySegmentTree {
     }
 };
 
-template<typename M, typename OM, typename F, typename G, typename H, typename P>
+template <typename M, typename OM, typename F, typename G, typename H, typename P>
 auto make_segtree(int n, M ID_M, OM ID_OM, F f, G g, H h, P p) {
     return LazySegmentTree<M, OM, F, G, H, P>(n, ID_M, ID_OM, f, g, h, p);
 }
-template<typename M, typename OM, typename F, typename G, typename H, typename P>
+template <typename M, typename OM, typename F, typename G, typename H, typename P>
 auto make_segtree(vector<M> v, M ID_M, OM ID_OM, F f, G g, H h, P p) {
     return LazySegmentTree<M, OM, F, G, H, P>(v, ID_M, ID_OM, f, g, h, p);
 }
@@ -231,7 +235,10 @@ auto make_segtree(vector<M> v, M ID_M, OM ID_OM, F f, G g, H h, P p) {
 template <typename M, typename OM, typename F, typename G, typename H, typename P>
 struct LazySegmentTree {
     int sz;
-    F f; G g; H h; P p;
+    F f;
+    G g;
+    H h;
+    P p;
     const M ID_M;
     const OM ID_OM;
     vector<M> dat;
@@ -246,7 +253,8 @@ struct LazySegmentTree {
         for (int i = sz - 2; i >= 0; --i) dat[i] = f(dat[2 * i + 1], dat[2 * i + 2]);
     }
     void build(int n) {
-        sz = 1; while (sz < n) sz <<= 1;
+        sz = 1;
+        while (sz < n) sz <<= 1;
         dat.assign(2 * sz - 1, ID_M);
         laz.assign(2 * sz - 1, ID_OM);
     }
@@ -292,11 +300,11 @@ struct LazySegmentTree {
     }
 };
 
-template<typename M, typename OM, typename F, typename G, typename H, typename P>
+template <typename M, typename OM, typename F, typename G, typename H, typename P>
 auto make_segtree(int n, M ID_M, OM ID_OM, F f, G g, H h, P p) {
     return LazySegmentTree<M, OM, F, G, H, P>(n, ID_M, ID_OM, f, g, h, p);
 }
-template<typename M, typename OM, typename F, typename G, typename H, typename P>
+template <typename M, typename OM, typename F, typename G, typename H, typename P>
 auto make_segtree(vector<M> v, M ID_M, OM ID_OM, F f, G g, H h, P p) {
     return LazySegmentTree<M, OM, F, G, H, P>(v, ID_M, ID_OM, f, g, h, p);
 }

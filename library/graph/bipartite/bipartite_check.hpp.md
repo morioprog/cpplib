@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#d1cac5659bebf80b30fdbc9c35b6208b">graph/bipartite</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/bipartite/bipartite_check.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-07-14 22:08:56+09:00
+    - Last commit date: 2020-08-25 17:20:34+09:00
 
 
 
@@ -60,7 +60,7 @@ $O(E + V)$
  * @docs docs/graph/bipartite/bipartite_check.md
  */
 
-template<typename T>
+template <typename T>
 // int is_bipartite(const Graph<T> &g) {
 bool is_bipartite(const Graph<T> &g) {
     bool isbi = true;
@@ -68,15 +68,18 @@ bool is_bipartite(const Graph<T> &g) {
     auto dfs = [&](auto &&f, int i, int clr) -> void {
         if (color[i] != 0) return;
         color[i] = clr;
-        for (auto& e: g.mat[i]) {
-            /* */if (color[e.to] == 0)      f(f, e.to, -clr);
-            else if (color[e.to] == clr)    isbi = false;
+        for (auto &e : g.mat[i]) {
+            if (color[e.to] == 0)
+                f(f, e.to, -clr);
+            else if (color[e.to] == clr)
+                isbi = false;
         }
     };
     dfs(dfs, 0, 1);
     return isbi;
     // int cnt = 0;
-    // for (auto& e: color) if (e == 1) ++cnt;
+    // for (auto &e : color)
+    //     if (e == 1) ++cnt;
     // return isbi ? -1 : cnt;
 }
 
@@ -92,7 +95,7 @@ bool is_bipartite(const Graph<T> &g) {
  * @docs docs/graph/bipartite/bipartite_check.md
  */
 
-template<typename T>
+template <typename T>
 // int is_bipartite(const Graph<T> &g) {
 bool is_bipartite(const Graph<T> &g) {
     bool isbi = true;
@@ -100,15 +103,18 @@ bool is_bipartite(const Graph<T> &g) {
     auto dfs = [&](auto &&f, int i, int clr) -> void {
         if (color[i] != 0) return;
         color[i] = clr;
-        for (auto& e: g.mat[i]) {
-            /* */if (color[e.to] == 0)      f(f, e.to, -clr);
-            else if (color[e.to] == clr)    isbi = false;
+        for (auto &e : g.mat[i]) {
+            if (color[e.to] == 0)
+                f(f, e.to, -clr);
+            else if (color[e.to] == clr)
+                isbi = false;
         }
     };
     dfs(dfs, 0, 1);
     return isbi;
     // int cnt = 0;
-    // for (auto& e: color) if (e == 1) ++cnt;
+    // for (auto &e : color)
+    //     if (e == 1) ++cnt;
     // return isbi ? -1 : cnt;
 }
 

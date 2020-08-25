@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#0d0c91c0cca30af9c1c9faef0cf04aa9">test/aoj</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/aoj/GRL_6_B.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-08-24 23:54:37+09:00
+    - Last commit date: 2020-08-25 17:20:34+09:00
 
 
 * see: <a href="https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/6/GRL_6_B">https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/6/GRL_6_B</a>
@@ -40,7 +40,7 @@ layout: default
 ## Depends on
 
 * :heavy_check_mark: <a href="../../../library/graph/minimumcostflow/primaldual.hpp.html">Primal Dual <small>(graph/minimumcostflow/primaldual.hpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/template/main.hpp.html">template/main.hpp</a>
+* :question: <a href="../../../library/template/main.hpp.html">template/main.hpp</a>
 
 
 ## Code
@@ -79,9 +79,11 @@ signed main() {
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/6/GRL_6_B"
 
 #line 1 "template/main.hpp"
+#pragma region optimize
 // #pragma GCC optimize("Ofast")
 // #pragma GCC optimize("unroll-loops")
 // #pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx")
+#pragma endregion
 #include <bits/stdc++.h>
 using namespace std;
 #pragma region boost multiprecision
@@ -95,7 +97,7 @@ using namespace std;
 // #define endl '\n'
 
 #pragma region TEMPLATE
-
+// clang-format off
 /* TYPE */
 typedef long long ll;       typedef long double ld;
 typedef pair<int, int> pii; typedef pair<ll, ll> pll;
@@ -198,7 +200,7 @@ struct abracadabra {
         cerr << fixed << setprecision(5);
     };
 } ABRACADABRA;
-
+// clang-format off
 #pragma endregion
 #line 1 "graph/minimumcostflow/primaldual.hpp"
 /**
@@ -215,7 +217,8 @@ struct PrimalDual {
         Cst cst;
         Cap cap;
         CapEdge() {}
-        CapEdge(int t, int r, Cst cst, Cap cap) : to(t), rev(r), cst(cst), cap(cap) {}
+        CapEdge(int t, int r, Cst cst, Cap cap)
+            : to(t), rev(r), cst(cst), cap(cap) {}
         operator int() const { return to; }
     };
     using P = pair<Cst, int>;
@@ -224,7 +227,8 @@ struct PrimalDual {
     vector<vector<CapEdge>> graph;
     vector<Cst> pot, min_cst;
     vector<int> prv_v, prv_e;
-    PrimalDual(int V) : INF(numeric_limits<Cst>::max()), V(V), graph(V) {}
+    PrimalDual(int V)
+        : INF(numeric_limits<Cst>::max()), V(V), graph(V) {}
     void add_arc(int a, int b, Cst cst, Cap cap) {
         graph[a].emplace_back(b, (int)graph[b].size(), cst, cap);
         graph[b].emplace_back(a, (int)graph[a].size() - 1, -cst, 0);

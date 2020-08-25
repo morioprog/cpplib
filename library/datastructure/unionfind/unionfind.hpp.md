@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: UnionFind <small>(datastructure/unionfind/unionfind.hpp)</small>
+# :question: UnionFind <small>(datastructure/unionfind/unionfind.hpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#30b7082b479ad4b7861d398d23468641">datastructure/unionfind</a>
 * <a href="{{ site.github.repository_url }}/blob/master/datastructure/unionfind/unionfind.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-22 01:48:03+09:00
+    - Last commit date: 2020-08-25 17:20:34+09:00
 
 
 
@@ -56,7 +56,7 @@ $O(\alpha (n))$
 ## Verified with
 
 * :heavy_check_mark: <a href="../../../verify/test/aoj/GRL_2_A.test.cpp.html">test/aoj/GRL_2_A.test.cpp</a>
-* :heavy_check_mark: <a href="../../../verify/test/yosupo/unionfind.unionfind.test.cpp.html">test/yosupo/unionfind.unionfind.test.cpp</a>
+* :x: <a href="../../../verify/test/yosupo/unionfind.unionfind.test.cpp.html">test/yosupo/unionfind.unionfind.test.cpp</a>
 
 
 ## Code
@@ -72,7 +72,8 @@ $O(\alpha (n))$
 struct UnionFind {
     int sz;
     vector<int> parent;
-    UnionFind(int sz) : sz(sz), parent(sz, -1) {}
+    UnionFind(int sz)
+        : sz(sz), parent(sz, -1) {}
     bool unite(int x, int y) {
         if ((x = find(x)) != (y = find(y))) {
             if (parent[y] < parent[x]) swap(x, y);
@@ -104,7 +105,8 @@ struct UnionFind {
 struct UnionFind {
     int sz;
     vector<int> parent;
-    UnionFind(int sz) : sz(sz), parent(sz, -1) {}
+    UnionFind(int sz)
+        : sz(sz), parent(sz, -1) {}
     bool unite(int x, int y) {
         if ((x = find(x)) != (y = find(y))) {
             if (parent[y] < parent[x]) swap(x, y);

@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: 重み付きUnionFind <small>(datastructure/unionfind/weightedunionfind.hpp)</small>
+# :question: 重み付きUnionFind <small>(datastructure/unionfind/weightedunionfind.hpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#30b7082b479ad4b7861d398d23468641">datastructure/unionfind</a>
 * <a href="{{ site.github.repository_url }}/blob/master/datastructure/unionfind/weightedunionfind.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-08-24 21:05:07+09:00
+    - Last commit date: 2020-08-25 17:20:34+09:00
 
 
 * see: <a href="https://qiita.com/drken/items/cce6fc5c579051e64fab">https://qiita.com/drken/items/cce6fc5c579051e64fab</a>
@@ -59,7 +59,7 @@ $O(\alpha (n))$
 
 * :heavy_check_mark: <a href="../../../verify/test/aoj/1330.test.cpp.html">test/aoj/1330.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/aoj/DSL_1_B.test.cpp.html">test/aoj/DSL_1_B.test.cpp</a>
-* :heavy_check_mark: <a href="../../../verify/test/yosupo/unionfind.weightedunionfind.test.cpp.html">test/yosupo/unionfind.weightedunionfind.test.cpp</a>
+* :x: <a href="../../../verify/test/yosupo/unionfind.weightedunionfind.test.cpp.html">test/yosupo/unionfind.weightedunionfind.test.cpp</a>
 
 
 ## Code
@@ -78,7 +78,8 @@ struct WeightedUnionFind {
     int sz;
     vector<int> parent;
     vector<T> diff_weight;
-    WeightedUnionFind(int sz) : sz(sz), parent(sz, -1), diff_weight(sz, T(0)) {}
+    WeightedUnionFind(int sz)
+        : sz(sz), parent(sz, -1), diff_weight(sz, T(0)) {}
     // weight(y) = weight(x) + w
     bool unite(int x, int y, T w) {
         w += weight(x) - weight(y);
@@ -125,7 +126,8 @@ struct WeightedUnionFind {
     int sz;
     vector<int> parent;
     vector<T> diff_weight;
-    WeightedUnionFind(int sz) : sz(sz), parent(sz, -1), diff_weight(sz, T(0)) {}
+    WeightedUnionFind(int sz)
+        : sz(sz), parent(sz, -1), diff_weight(sz, T(0)) {}
     // weight(y) = weight(x) + w
     bool unite(int x, int y, T w) {
         w += weight(x) - weight(y);

@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: Binary Indexed Tree <small>(datastructure/binaryindexedtree.hpp)</small>
+# :question: Binary Indexed Tree <small>(datastructure/binaryindexedtree.hpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#8dc87745f885a4cc532acd7b15b8b5fe">datastructure</a>
 * <a href="{{ site.github.repository_url }}/blob/master/datastructure/binaryindexedtree.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-07-24 03:22:50+09:00
+    - Last commit date: 2020-08-25 17:20:34+09:00
 
 
 
@@ -58,7 +58,7 @@ layout: default
 ## Verified with
 
 * :heavy_check_mark: <a href="../../verify/test/aoj/DSL_2_B.binaryindexedtree.test.cpp.html">test/aoj/DSL_2_B.binaryindexedtree.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/yukicoder/1115.test.cpp.html">test/yukicoder/1115.test.cpp</a>
+* :x: <a href="../../verify/test/yukicoder/1115.test.cpp.html">test/yukicoder/1115.test.cpp</a>
 
 
 ## Code
@@ -71,7 +71,8 @@ layout: default
 * @docs docs/datastructure/binaryindexedtree.md
 */
 
-template<typename T> struct BinaryIndexedTree {
+template <typename T>
+struct BinaryIndexedTree {
     vector<T> data;
     BinaryIndexedTree(int sz) { data.assign(++sz, 0); }
     T sum(int k) {
@@ -101,7 +102,8 @@ template<typename T> struct BinaryIndexedTree {
 * @docs docs/datastructure/binaryindexedtree.md
 */
 
-template<typename T> struct BinaryIndexedTree {
+template <typename T>
+struct BinaryIndexedTree {
     vector<T> data;
     BinaryIndexedTree(int sz) { data.assign(++sz, 0); }
     T sum(int k) {

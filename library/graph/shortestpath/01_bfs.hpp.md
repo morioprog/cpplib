@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#893699352036854e82d247c81f4d89a6">graph/shortestpath</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/shortestpath/01_bfs.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-08-23 23:58:47+09:00
+    - Last commit date: 2020-08-25 17:20:34+09:00
 
 
 
@@ -65,19 +65,22 @@ $O(E + V)$
 * @docs docs/graph/shortestpath/01_bfs.md
 */
 
-template<typename T>
-vector<T> bfs_01(const Graph<T> &g, int frm) {
-    vector<T> ret(g.V, GINF<T>);    ret[frm] = 0;
+template <typename T>
+vector<T> bfs_01(const Graph<T>& g, int frm) {
+    vector<T> ret(g.V, GINF<T>);
+    ret[frm] = 0;
     deque<int> dq;
     dq.emplace_back(frm);
     while (not dq.empty()) {
-        int idx = dq.front();   dq.pop_front();
-        for (auto& e: g.mat[idx]) {
+        int idx = dq.front();
+        dq.pop_front();
+        for (auto& e : g.mat[idx]) {
             T nxt_cst = ret[idx] + e.cst;
             if (ret[e.to] <= nxt_cst) continue;
             ret[e.to] = nxt_cst;
             if (e.cst == 0) dq.emplace_front(e.to);
-            else            dq.emplace_back(e.to);
+            else
+                dq.emplace_back(e.to);
         }
     }
     return ret;
@@ -95,19 +98,22 @@ vector<T> bfs_01(const Graph<T> &g, int frm) {
 * @docs docs/graph/shortestpath/01_bfs.md
 */
 
-template<typename T>
-vector<T> bfs_01(const Graph<T> &g, int frm) {
-    vector<T> ret(g.V, GINF<T>);    ret[frm] = 0;
+template <typename T>
+vector<T> bfs_01(const Graph<T>& g, int frm) {
+    vector<T> ret(g.V, GINF<T>);
+    ret[frm] = 0;
     deque<int> dq;
     dq.emplace_back(frm);
     while (not dq.empty()) {
-        int idx = dq.front();   dq.pop_front();
-        for (auto& e: g.mat[idx]) {
+        int idx = dq.front();
+        dq.pop_front();
+        for (auto& e : g.mat[idx]) {
             T nxt_cst = ret[idx] + e.cst;
             if (ret[e.to] <= nxt_cst) continue;
             ret[e.to] = nxt_cst;
             if (e.cst == 0) dq.emplace_front(e.to);
-            else            dq.emplace_back(e.to);
+            else
+                dq.emplace_back(e.to);
         }
     }
     return ret;

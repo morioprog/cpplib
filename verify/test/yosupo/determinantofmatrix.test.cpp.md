@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#0b58406058f6619a0f31a172defc0230">test/yosupo</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/yosupo/determinantofmatrix.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-08-24 21:32:27+09:00
+    - Last commit date: 2020-08-25 17:20:34+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/matrix_det">https://judge.yosupo.jp/problem/matrix_det</a>
@@ -39,9 +39,9 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../../library/math/matrix/matrix.hpp.html">Matrix (行列) <small>(math/matrix/matrix.hpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/math/modint.hpp.html">ModInt <small>(math/modint.hpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/template/main.hpp.html">template/main.hpp</a>
+* :question: <a href="../../../library/math/matrix/matrix.hpp.html">Matrix (行列) <small>(math/matrix/matrix.hpp)</small></a>
+* :question: <a href="../../../library/math/modint.hpp.html">ModInt <small>(math/modint.hpp)</small></a>
+* :question: <a href="../../../library/template/main.hpp.html">template/main.hpp</a>
 
 
 ## Code
@@ -79,9 +79,11 @@ signed main() {
 #define PROBLEM "https://judge.yosupo.jp/problem/matrix_det"
 
 #line 1 "template/main.hpp"
+#pragma region optimize
 // #pragma GCC optimize("Ofast")
 // #pragma GCC optimize("unroll-loops")
 // #pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx")
+#pragma endregion
 #include <bits/stdc++.h>
 using namespace std;
 #pragma region boost multiprecision
@@ -95,7 +97,7 @@ using namespace std;
 // #define endl '\n'
 
 #pragma region TEMPLATE
-
+// clang-format off
 /* TYPE */
 typedef long long ll;       typedef long double ld;
 typedef pair<int, int> pii; typedef pair<ll, ll> pll;
@@ -198,7 +200,7 @@ struct abracadabra {
         cerr << fixed << setprecision(5);
     };
 } ABRACADABRA;
-
+// clang-format off
 #pragma endregion
 #line 1 "math/modint.hpp"
 /**
@@ -206,13 +208,17 @@ struct abracadabra {
  * @docs docs/math/modint.md
  */
 
-template< int MODULO > struct ModInt {
+template <int MODULO>
+struct ModInt {
     using i32 = int;
     using i64 = long long;
     using u32 = unsigned int;
     using u64 = unsigned long long;
-    u64 x; ModInt() : x(0) {}
-    ModInt(i64 y) : x(set(y % MODULO + MODULO)) {}
+    u64 x;
+    ModInt()
+        : x(0) {}
+    ModInt(i64 y)
+        : x(set(y % MODULO + MODULO)) {}
     static u64 set(const i64 &y) { return (y < MODULO) ? y : y - MODULO; }
     ModInt operator+(const ModInt &m) const { return ModInt(set(x + m.x)); }
     ModInt operator-(const ModInt &m) const { return ModInt(set(x + MODULO - m.x)); }
@@ -223,15 +229,15 @@ template< int MODULO > struct ModInt {
     ModInt &operator*=(const ModInt &m) { return *this = *this * m; }
     ModInt &operator/=(const ModInt &m) { return *this = *this / m; }
     ModInt &operator^=(const u64 &y) { return *this = *this ^ y; }
-    ModInt operator~ () const { return *this ^ (MODULO - 2); }
-    ModInt operator- () const { return ModInt(set(MODULO - x)); }
+    ModInt operator~() const { return *this ^ (MODULO - 2); }
+    ModInt operator-() const { return ModInt(set(MODULO - x)); }
     ModInt operator++() { return *this = ModInt(set(x + 1)); }
     ModInt operator--() { return *this = ModInt(set(x + MODULO - 1)); }
+    bool operator<(const ModInt &m) const { return x < m.x; }
+    bool operator>(const ModInt &m) const { return x > m.x; }
     bool operator==(const ModInt &m) const { return x == m.x; }
     bool operator!=(const ModInt &m) const { return x != m.x; }
-    bool operator< (const ModInt &m) const { return x <  m.x; }
     bool operator<=(const ModInt &m) const { return x <= m.x; }
-    bool operator> (const ModInt &m) const { return x >  m.x; }
     bool operator>=(const ModInt &m) const { return x >= m.x; }
     explicit operator u64() const { return x; }
     ModInt operator^(i64 y) const { return pow(x, y); }
@@ -239,36 +245,50 @@ template< int MODULO > struct ModInt {
         bool neg = false;
         if (y < 0) y = -y, neg = true;
         ModInt u(1), t(x);
-        while (y) { if (y & 1) u *= t; t *= t; y >>= 1; }
+        while (y) {
+            if (y & 1) u *= t;
+            t *= t;
+            y >>= 1;
+        }
         return neg ? ModInt(1) / u : u;
     }
-    friend ostream &operator<<(ostream &os, const ModInt< MODULO > &m) { return os << m.x; }
-    friend istream &operator>>(istream &is, ModInt< MODULO > &m) { u64 y; is >> y; m = ModInt(y); return is; }
+    friend ostream &operator<<(ostream &os, const ModInt<MODULO> &m) { return os << m.x; }
+    friend istream &operator>>(istream &is, ModInt<MODULO> &m) {
+        u64 y;
+        is >> y;
+        m = ModInt(y);
+        return is;
+    }
 };
 constexpr int MODULO = (int)1e9 + 7;
-using modint = ModInt< MODULO >;
+using modint         = ModInt<MODULO>;
 #line 1 "math/matrix/matrix.hpp"
 /**
 * @brief Matrix (行列)
 * @docs docs/math/matrix/matrix.md
 */
 
-template<typename T>
+template <typename T>
 struct Matrix {
     vector<vector<T>> A;
     Matrix() {}
-    Matrix(size_t n, size_t m) : A(n, vector<T>(m, 0)) {}
-    Matrix(size_t n) : A(n, vector<T>(n, 0)) {}
+    Matrix(size_t n, size_t m)
+        : A(n, vector<T>(m, 0)) {}
+    Matrix(size_t n)
+        : A(n, vector<T>(n, 0)) {}
     size_t height() const { return A.size(); }
-    size_t  width() const { assert(height() > 0); return A[0].size(); }
+    size_t width() const {
+        assert(height() > 0);
+        return A[0].size();
+    }
     inline const vector<T> &operator[](int k) const { return A.at(k); }
-    inline       vector<T> &operator[](int k)       { return A.at(k); }
+    inline vector<T> &operator[](int k) { return A.at(k); }
     static Matrix I(size_t n) {
         Matrix mat(n);
         for (int i = 0; i < n; ++i) mat[i][i] = 1;
         return mat;
     }
-    Matrix& operator+=(const Matrix &B) {
+    Matrix &operator+=(const Matrix &B) {
         size_t n = height(), m = width();
         assert(n == B.height() and m == B.width());
         for (int i = 0; i < n; ++i)
@@ -276,7 +296,7 @@ struct Matrix {
                 (*this)[i][j] += B[i][j];
         return *this;
     }
-    Matrix& operator-=(const Matrix &B) {
+    Matrix &operator-=(const Matrix &B) {
         size_t n = height(), m = width();
         assert(n == B.height() and m == B.width());
         for (int i = 0; i < n; ++i)
@@ -284,7 +304,7 @@ struct Matrix {
                 (*this)[i][j] -= B[i][j];
         return *this;
     }
-    Matrix& operator*=(const Matrix &B) {
+    Matrix &operator*=(const Matrix &B) {
         size_t n = height(), m = B.width(), p = width();
         assert(p == B.height());
         vector<vector<T>> C(n, vector<T>(m, 0));
@@ -295,7 +315,7 @@ struct Matrix {
         A.swap(C);
         return *this;
     }
-    Matrix& operator^=(long long k) {
+    Matrix &operator^=(long long k) {
         Matrix B = Matrix::I(height());
         while (k > 0) {
             if (k & 1) B *= *this;
@@ -334,9 +354,13 @@ struct Matrix {
         T ret = 1;
         for (int i = 0; i < width(); ++i) {
             int idx = -1;
-            for (int j = i; j < width(); ++j) if (B[j][i] != 0) idx = j;
+            for (int j = i; j < width(); ++j)
+                if (B[j][i] != 0) idx = j;
             if (idx == -1) return T(0);
-            if (i != idx) { ret *= -1; swap(B[i], B[idx]); }
+            if (i != idx) {
+                ret *= -1;
+                swap(B[i], B[idx]);
+            }
             ret *= B[i][i];
             T vv = B[i][i];
             for (int j = 0; j < width(); ++j) B[i][j] /= vv;

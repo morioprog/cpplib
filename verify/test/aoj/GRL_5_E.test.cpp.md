@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#0d0c91c0cca30af9c1c9faef0cf04aa9">test/aoj</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/aoj/GRL_5_E.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-08-24 22:46:00+09:00
+    - Last commit date: 2020-08-25 17:20:34+09:00
 
 
 * see: <a href="https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/5/GRL_5_E">https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/5/GRL_5_E</a>
@@ -39,10 +39,10 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../../library/datastructure/segmenttree/lazysegmenttree.hpp.html">遅延セグメント木 <small>(datastructure/segmenttree/lazysegmenttree.hpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/graph/template.hpp.html">グラフテンプレート <small>(graph/template.hpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/graph/tree/hldecomposition.hpp.html">HL分解 <small>(graph/tree/hldecomposition.hpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/template/main.hpp.html">template/main.hpp</a>
+* :question: <a href="../../../library/datastructure/segmenttree/lazysegmenttree.hpp.html">遅延セグメント木 <small>(datastructure/segmenttree/lazysegmenttree.hpp)</small></a>
+* :question: <a href="../../../library/graph/template.hpp.html">グラフテンプレート <small>(graph/template.hpp)</small></a>
+* :question: <a href="../../../library/graph/tree/hldecomposition.hpp.html">HL分解 <small>(graph/tree/hldecomposition.hpp)</small></a>
+* :question: <a href="../../../library/template/main.hpp.html">template/main.hpp</a>
 
 
 ## Code
@@ -113,9 +113,11 @@ signed main() {
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/5/GRL_5_E"
 
 #line 1 "template/main.hpp"
+#pragma region optimize
 // #pragma GCC optimize("Ofast")
 // #pragma GCC optimize("unroll-loops")
 // #pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx")
+#pragma endregion
 #include <bits/stdc++.h>
 using namespace std;
 #pragma region boost multiprecision
@@ -129,7 +131,7 @@ using namespace std;
 // #define endl '\n'
 
 #pragma region TEMPLATE
-
+// clang-format off
 /* TYPE */
 typedef long long ll;       typedef long double ld;
 typedef pair<int, int> pii; typedef pair<ll, ll> pll;
@@ -232,7 +234,7 @@ struct abracadabra {
         cerr << fixed << setprecision(5);
     };
 } ABRACADABRA;
-
+// clang-format off
 #pragma endregion
 #line 1 "datastructure/segmenttree/lazysegmenttree.hpp"
 /**
@@ -243,7 +245,10 @@ struct abracadabra {
 template <typename M, typename OM, typename F, typename G, typename H, typename P>
 struct LazySegmentTree {
     int sz;
-    F f; G g; H h; P p;
+    F f;
+    G g;
+    H h;
+    P p;
     const M ID_M;
     const OM ID_OM;
     vector<M> dat;
@@ -258,7 +263,8 @@ struct LazySegmentTree {
         for (int i = sz - 2; i >= 0; --i) dat[i] = f(dat[2 * i + 1], dat[2 * i + 2]);
     }
     void build(int n) {
-        sz = 1; while (sz < n) sz <<= 1;
+        sz = 1;
+        while (sz < n) sz <<= 1;
         dat.assign(2 * sz - 1, ID_M);
         laz.assign(2 * sz - 1, ID_OM);
     }
@@ -304,11 +310,11 @@ struct LazySegmentTree {
     }
 };
 
-template<typename M, typename OM, typename F, typename G, typename H, typename P>
+template <typename M, typename OM, typename F, typename G, typename H, typename P>
 auto make_segtree(int n, M ID_M, OM ID_OM, F f, G g, H h, P p) {
     return LazySegmentTree<M, OM, F, G, H, P>(n, ID_M, ID_OM, f, g, h, p);
 }
-template<typename M, typename OM, typename F, typename G, typename H, typename P>
+template <typename M, typename OM, typename F, typename G, typename H, typename P>
 auto make_segtree(vector<M> v, M ID_M, OM ID_OM, F f, G g, H h, P p) {
     return LazySegmentTree<M, OM, F, G, H, P>(v, ID_M, ID_OM, f, g, h, p);
 }
@@ -318,24 +324,27 @@ auto make_segtree(vector<M> v, M ID_M, OM ID_OM, F f, G g, H h, P p) {
 * @docs docs/graph/template.md
 */
 
-template<typename T>
+template <typename T>
 struct Edge {
-    int frm, to, idx;   T cst;
+    int frm, to, idx;
+    T cst;
     Edge() {}
-    Edge(int f, int t, T c, int i = -1) : frm(f), to(t), idx(i), cst(c) {}
+    Edge(int f, int t, T c, int i = -1)
+        : frm(f), to(t), idx(i), cst(c) {}
     operator int() const { return to; }
 };
 
-template<typename T>
+template <typename T>
 constexpr T GINF = numeric_limits<T>::max() / 10;
 
-template<typename T>
+template <typename T>
 struct Graph {
     int V, E;
     vector<vector<Edge<T>>> mat;
     vector<vector<T>> wf;
     Graph() {}
-    Graph(int v) : V(v), E(0), mat(v) {}
+    Graph(int v)
+        : V(v), E(0), mat(v) {}
     inline void add_edge(int a, int b, T c = 1, int margin = 0) {
         a -= margin, b -= margin;
         mat[a].emplace_back(a, b, c, E++);
@@ -347,7 +356,8 @@ struct Graph {
     }
     inline void input_edges(int M, int margin = 0, bool need_cost = false) {
         for (int i = 0; i < M; ++i) {
-            int a, b;   T c(1);
+            int a, b;
+            T c(1);
             cin >> a >> b;
             if (need_cost) cin >> c;
             add_edge(a, b, c, margin);
@@ -355,7 +365,8 @@ struct Graph {
     }
     inline void input_arcs(int M, int margin = 0, bool need_cost = false) {
         for (int i = 0; i < M; ++i) {
-            int a, b;   T c(1);
+            int a, b;
+            T c(1);
             cin >> a >> b;
             if (need_cost) cin >> c;
             add_arc(a, b, c, margin);
@@ -368,7 +379,7 @@ struct Graph {
 * @docs docs/graph/tree/hldecomposition.md
 */
 
-template<typename T>
+template <typename T>
 struct HLDecomposition : Graph<T> {
     using Graph<T>::Graph;
     using Graph<T>::mat;
@@ -404,13 +415,13 @@ struct HLDecomposition : Graph<T> {
     }
     vector<pair<int, int>> get_path(int u, int v, bool isEdge = false) {
         vector<pair<int, int>> ret;
-        for(;; v = par[head[v]]) {
-			if (in[u] > in[v]) swap(u, v);
-			if (head[u] == head[v]) break;
-			ret.emplace_back(in[head[v]], in[v] + 1);
-		}
-		ret.emplace_back(in[u] + isEdge, in[v] + 1);
-		return ret;
+        for (;; v = par[head[v]]) {
+            if (in[u] > in[v]) swap(u, v);
+            if (head[u] == head[v]) break;
+            ret.emplace_back(in[head[v]], in[v] + 1);
+        }
+        ret.emplace_back(in[u] + isEdge, in[v] + 1);
+        return ret;
     }
     void dfs_sz(int cur, int prv, int depth, T weight) {
         sub[cur] = 1;
@@ -428,7 +439,7 @@ struct HLDecomposition : Graph<T> {
         }
     }
     void dfs_hld(int cur, int prv, int& times) {
-        in[cur] = times++;
+        in[cur]      = times++;
         rev[in[cur]] = cur;
         for (auto& nxt : mat[cur]) {
             if (nxt == prv) continue;

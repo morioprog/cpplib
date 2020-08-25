@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#8dc87745f885a4cc532acd7b15b8b5fe">datastructure</a>
 * <a href="{{ site.github.repository_url }}/blob/master/datastructure/queueaggregation.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-06-08 23:44:37+09:00
+    - Last commit date: 2020-08-25 17:20:34+09:00
 
 
 
@@ -66,13 +66,15 @@ $O(1)$
 * @docs docs/datastructure/queueaggregation.md
 */
 
-template <typename T> struct QueueAggregation {
+template <typename T>
+struct QueueAggregation {
     using F = function<T(T, T)>;
-    stack<pair<T, T>> st_f, st_b;   // {val, sum}
+    stack<pair<T, T>> st_f, st_b;  // {val, sum}
     F func;
-    QueueAggregation(const F f) : func(f) {}
+    QueueAggregation(const F f)
+        : func(f) {}
     bool empty() const { return st_f.empty() and st_b.empty(); }
-    int   size() const { return st_f.size()   +  st_b.empty(); }
+    int size() const { return st_f.size() + st_b.empty(); }
     T query() {
         assert(not empty());
         if (st_f.empty()) return st_b.top().second;
@@ -114,13 +116,15 @@ template <typename T> struct QueueAggregation {
 * @docs docs/datastructure/queueaggregation.md
 */
 
-template <typename T> struct QueueAggregation {
+template <typename T>
+struct QueueAggregation {
     using F = function<T(T, T)>;
-    stack<pair<T, T>> st_f, st_b;   // {val, sum}
+    stack<pair<T, T>> st_f, st_b;  // {val, sum}
     F func;
-    QueueAggregation(const F f) : func(f) {}
+    QueueAggregation(const F f)
+        : func(f) {}
     bool empty() const { return st_f.empty() and st_b.empty(); }
-    int   size() const { return st_f.size()   +  st_b.empty(); }
+    int size() const { return st_f.size() + st_b.empty(); }
     T query() {
         assert(not empty());
         if (st_f.empty()) return st_b.top().second;

@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#0d0c91c0cca30af9c1c9faef0cf04aa9">test/aoj</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/aoj/GRL_2_A.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-08-24 22:46:00+09:00
+    - Last commit date: 2020-08-25 17:20:34+09:00
 
 
 * see: <a href="https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/2/GRL_2_A">https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/2/GRL_2_A</a>
@@ -39,10 +39,10 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../../library/datastructure/unionfind/unionfind.hpp.html">UnionFind <small>(datastructure/unionfind/unionfind.hpp)</small></a>
+* :question: <a href="../../../library/datastructure/unionfind/unionfind.hpp.html">UnionFind <small>(datastructure/unionfind/unionfind.hpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/graph/minimumspanningtree/kruskal.hpp.html">クラスカル法 <small>(graph/minimumspanningtree/kruskal.hpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/graph/template.hpp.html">グラフテンプレート <small>(graph/template.hpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/template/main.hpp.html">template/main.hpp</a>
+* :question: <a href="../../../library/graph/template.hpp.html">グラフテンプレート <small>(graph/template.hpp)</small></a>
+* :question: <a href="../../../library/template/main.hpp.html">template/main.hpp</a>
 
 
 ## Code
@@ -79,9 +79,11 @@ signed main() {
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/2/GRL_2_A"
 
 #line 1 "template/main.hpp"
+#pragma region optimize
 // #pragma GCC optimize("Ofast")
 // #pragma GCC optimize("unroll-loops")
 // #pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx")
+#pragma endregion
 #include <bits/stdc++.h>
 using namespace std;
 #pragma region boost multiprecision
@@ -95,7 +97,7 @@ using namespace std;
 // #define endl '\n'
 
 #pragma region TEMPLATE
-
+// clang-format off
 /* TYPE */
 typedef long long ll;       typedef long double ld;
 typedef pair<int, int> pii; typedef pair<ll, ll> pll;
@@ -198,7 +200,7 @@ struct abracadabra {
         cerr << fixed << setprecision(5);
     };
 } ABRACADABRA;
-
+// clang-format off
 #pragma endregion
 #line 1 "graph/template.hpp"
 /**
@@ -206,24 +208,27 @@ struct abracadabra {
 * @docs docs/graph/template.md
 */
 
-template<typename T>
+template <typename T>
 struct Edge {
-    int frm, to, idx;   T cst;
+    int frm, to, idx;
+    T cst;
     Edge() {}
-    Edge(int f, int t, T c, int i = -1) : frm(f), to(t), idx(i), cst(c) {}
+    Edge(int f, int t, T c, int i = -1)
+        : frm(f), to(t), idx(i), cst(c) {}
     operator int() const { return to; }
 };
 
-template<typename T>
+template <typename T>
 constexpr T GINF = numeric_limits<T>::max() / 10;
 
-template<typename T>
+template <typename T>
 struct Graph {
     int V, E;
     vector<vector<Edge<T>>> mat;
     vector<vector<T>> wf;
     Graph() {}
-    Graph(int v) : V(v), E(0), mat(v) {}
+    Graph(int v)
+        : V(v), E(0), mat(v) {}
     inline void add_edge(int a, int b, T c = 1, int margin = 0) {
         a -= margin, b -= margin;
         mat[a].emplace_back(a, b, c, E++);
@@ -235,7 +240,8 @@ struct Graph {
     }
     inline void input_edges(int M, int margin = 0, bool need_cost = false) {
         for (int i = 0; i < M; ++i) {
-            int a, b;   T c(1);
+            int a, b;
+            T c(1);
             cin >> a >> b;
             if (need_cost) cin >> c;
             add_edge(a, b, c, margin);
@@ -243,7 +249,8 @@ struct Graph {
     }
     inline void input_arcs(int M, int margin = 0, bool need_cost = false) {
         for (int i = 0; i < M; ++i) {
-            int a, b;   T c(1);
+            int a, b;
+            T c(1);
             cin >> a >> b;
             if (need_cost) cin >> c;
             add_arc(a, b, c, margin);
@@ -259,7 +266,8 @@ struct Graph {
 struct UnionFind {
     int sz;
     vector<int> parent;
-    UnionFind(int sz) : sz(sz), parent(sz, -1) {}
+    UnionFind(int sz)
+        : sz(sz), parent(sz, -1) {}
     bool unite(int x, int y) {
         if ((x = find(x)) != (y = find(y))) {
             if (parent[y] < parent[x]) swap(x, y);
@@ -281,16 +289,18 @@ struct UnionFind {
 * @docs docs/graph/minimumspanningtree/kruskal.md
 */
 
-template<typename T>
+template <typename T>
 T kruskal(const Graph<T> &g) {
     vector<Edge<T>> edges;
-    for (int i = 0; i < g.V; ++i) for (auto& e: g.mat[i]) edges.emplace_back(e);
+    for (int i = 0; i < g.V; ++i)
+        for (auto &e : g.mat[i]) edges.emplace_back(e);
     sort(edges.begin(), edges.end(), [](const Edge<T> &a, const Edge<T> &b) {
         return a.cst < b.cst;
     });
     UnionFind uf(g.V);
     T ret(0);
-    for (auto& e : edges) if (uf.unite(e.frm, e.to)) ret += e.cst;
+    for (auto &e : edges)
+        if (uf.unite(e.frm, e.to)) ret += e.cst;
     return ret;
 }
 #line 7 "test/aoj/GRL_2_A.test.cpp"

@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#284ec5e6a3c30a992cd88179b43d3dce">math/prime</a>
 * <a href="{{ site.github.repository_url }}/blob/master/math/prime/is_prime.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-17 15:13:29+09:00
+    - Last commit date: 2020-08-25 17:20:34+09:00
 
 
 
@@ -67,7 +67,8 @@ $O(\sqrt{n})$
 
 bool is_prime(long long n) {
     if (n < 2) return false;
-    for (int i = 2; i * i <= n; ++i) if (n % i == 0) return false;
+    for (int i = 2; i * i <= n; ++i)
+        if (n % i == 0) return false;
     return true;
 }
 
@@ -85,7 +86,8 @@ bool is_prime(long long n) {
 
 bool is_prime(long long n) {
     if (n < 2) return false;
-    for (int i = 2; i * i <= n; ++i) if (n % i == 0) return false;
+    for (int i = 2; i * i <= n; ++i)
+        if (n % i == 0) return false;
     return true;
 }
 

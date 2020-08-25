@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#053d19836570d3243deead9fd40452d5">datastructure/cumulativesum</a>
 * <a href="{{ site.github.repository_url }}/blob/master/datastructure/cumulativesum/cumulativesum2d.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-07-06 00:41:58+09:00
+    - Last commit date: 2020-08-25 17:20:34+09:00
 
 
 
@@ -61,7 +61,8 @@ layout: default
 * @docs docs/datastructure/cumulativesum/cumulativesum2d.md
 */
 
-template<class T> struct CumulativeSum2D {
+template <class T>
+struct CumulativeSum2D {
     int H, W;
     vector<vector<T>> data;
     CumulativeSum2D(const vector<vector<T>> &v) {
@@ -91,7 +92,8 @@ template<class T> struct CumulativeSum2D {
 * @docs docs/datastructure/cumulativesum/cumulativesum2d.md
 */
 
-template<class T> struct CumulativeSum2D {
+template <class T>
+struct CumulativeSum2D {
     int H, W;
     vector<vector<T>> data;
     CumulativeSum2D(const vector<vector<T>> &v) {

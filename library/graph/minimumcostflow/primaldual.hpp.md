@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#4f2a5e89d3f9de5e41e39d8432f85e12">graph/minimumcostflow</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/minimumcostflow/primaldual.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-08-24 23:54:37+09:00
+    - Last commit date: 2020-08-25 17:20:34+09:00
 
 
 * see: <a href="http://www.prefield.com/algorithm/graph/primal_dual.html">http://www.prefield.com/algorithm/graph/primal_dual.html</a>
@@ -83,7 +83,8 @@ struct PrimalDual {
         Cst cst;
         Cap cap;
         CapEdge() {}
-        CapEdge(int t, int r, Cst cst, Cap cap) : to(t), rev(r), cst(cst), cap(cap) {}
+        CapEdge(int t, int r, Cst cst, Cap cap)
+            : to(t), rev(r), cst(cst), cap(cap) {}
         operator int() const { return to; }
     };
     using P = pair<Cst, int>;
@@ -92,7 +93,8 @@ struct PrimalDual {
     vector<vector<CapEdge>> graph;
     vector<Cst> pot, min_cst;
     vector<int> prv_v, prv_e;
-    PrimalDual(int V) : INF(numeric_limits<Cst>::max()), V(V), graph(V) {}
+    PrimalDual(int V)
+        : INF(numeric_limits<Cst>::max()), V(V), graph(V) {}
     void add_arc(int a, int b, Cst cst, Cap cap) {
         graph[a].emplace_back(b, (int)graph[b].size(), cst, cap);
         graph[b].emplace_back(a, (int)graph[a].size() - 1, -cst, 0);
@@ -162,7 +164,8 @@ struct PrimalDual {
         Cst cst;
         Cap cap;
         CapEdge() {}
-        CapEdge(int t, int r, Cst cst, Cap cap) : to(t), rev(r), cst(cst), cap(cap) {}
+        CapEdge(int t, int r, Cst cst, Cap cap)
+            : to(t), rev(r), cst(cst), cap(cap) {}
         operator int() const { return to; }
     };
     using P = pair<Cst, int>;
@@ -171,7 +174,8 @@ struct PrimalDual {
     vector<vector<CapEdge>> graph;
     vector<Cst> pot, min_cst;
     vector<int> prv_v, prv_e;
-    PrimalDual(int V) : INF(numeric_limits<Cst>::max()), V(V), graph(V) {}
+    PrimalDual(int V)
+        : INF(numeric_limits<Cst>::max()), V(V), graph(V) {}
     void add_arc(int a, int b, Cst cst, Cap cap) {
         graph[a].emplace_back(b, (int)graph[b].size(), cst, cap);
         graph[b].emplace_back(a, (int)graph[a].size() - 1, -cst, 0);

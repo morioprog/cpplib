@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: Segment Tree Beats <small>(datastructure/segmenttree/segmenttreebeats.hpp)</small>
+# :x: Segment Tree Beats <small>(datastructure/segmenttree/segmenttreebeats.hpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#23b0293042a380c2b90b74c55c0e1d22">datastructure/segmenttree</a>
 * <a href="{{ site.github.repository_url }}/blob/master/datastructure/segmenttree/segmenttreebeats.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-23 06:04:07+09:00
+    - Last commit date: 2020-08-25 17:20:34+09:00
 
 
 
@@ -64,7 +64,7 @@ layout: default
 
 ## Verified with
 
-* :heavy_check_mark: <a href="../../../verify/test/yosupo/rangechminchmaxaddrangesum.test.cpp.html">test/yosupo/rangechminchmaxaddrangesum.test.cpp</a>
+* :x: <a href="../../../verify/test/yosupo/rangechminchmaxaddrangesum.test.cpp.html">test/yosupo/rangechminchmaxaddrangesum.test.cpp</a>
 
 
 ## Code
@@ -77,6 +77,7 @@ layout: default
 * @docs docs/datastructure/segmenttree/segmenttreebeats.md
 */
 
+// clang-format off
 struct SegmentTreeBeats {
     static const long long INF = 1LL << 60;
     struct Node {
@@ -299,6 +300,7 @@ struct SegmentTreeBeats {
     long long query_min(int a, int b) { return _query_min(a, b, root, 0, n0); }
     long long query_sum(int a, int b) { return _query_sum(a, b, root, 0, n0); }
 };
+// clang-format on
 
 ```
 {% endraw %}
@@ -312,6 +314,7 @@ struct SegmentTreeBeats {
 * @docs docs/datastructure/segmenttree/segmenttreebeats.md
 */
 
+// clang-format off
 struct SegmentTreeBeats {
     static const long long INF = 1LL << 60;
     struct Node {
@@ -534,6 +537,7 @@ struct SegmentTreeBeats {
     long long query_min(int a, int b) { return _query_min(a, b, root, 0, n0); }
     long long query_sum(int a, int b) { return _query_sum(a, b, root, 0, n0); }
 };
+// clang-format on
 
 ```
 {% endraw %}

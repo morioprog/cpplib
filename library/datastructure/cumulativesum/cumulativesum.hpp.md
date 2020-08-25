@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: 1次元累積和 <small>(datastructure/cumulativesum/cumulativesum.hpp)</small>
+# :x: 1次元累積和 <small>(datastructure/cumulativesum/cumulativesum.hpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#053d19836570d3243deead9fd40452d5">datastructure/cumulativesum</a>
 * <a href="{{ site.github.repository_url }}/blob/master/datastructure/cumulativesum/cumulativesum.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-22 16:07:20+09:00
+    - Last commit date: 2020-08-25 17:20:34+09:00
 
 
 
@@ -55,7 +55,7 @@ layout: default
 
 ## Verified with
 
-* :heavy_check_mark: <a href="../../../verify/test/yosupo/staticrangesum.test.cpp.html">test/yosupo/staticrangesum.test.cpp</a>
+* :x: <a href="../../../verify/test/yosupo/staticrangesum.test.cpp.html">test/yosupo/staticrangesum.test.cpp</a>
 
 
 ## Code
@@ -68,7 +68,8 @@ layout: default
 * @docs docs/datastructure/cumulativesum/cumulativesum.md
 */
 
-template<typename T> struct CumulativeSum {
+template <typename T>
+struct CumulativeSum {
     int sz;
     vector<T> data;
     CumulativeSum(const vector<T> &v, const T margin = 0)
@@ -100,7 +101,8 @@ template<typename T> struct CumulativeSum {
 * @docs docs/datastructure/cumulativesum/cumulativesum.md
 */
 
-template<typename T> struct CumulativeSum {
+template <typename T>
+struct CumulativeSum {
     int sz;
     vector<T> data;
     CumulativeSum(const vector<T> &v, const T margin = 0)
