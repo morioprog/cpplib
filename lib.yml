@@ -123,7 +123,7 @@
     - name: 行列
       prefix: [math, matrix]
       path: math/matrix/matrix.hpp
-    - name: F_2上の行列
+    - name: $\mathbb{F}_2$上の行列
       prefix: [math, bitmatrix]
       path: math/matrix/bitmatrix.hpp
     - name: XOR Vector
