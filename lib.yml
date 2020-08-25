@@ -94,6 +94,9 @@
   - name: Segment Map
     prefix: [datastructure, segmentmap]
     path: datastructure/segmentmap.hpp
+  - name: LR Priority Queue
+    prefix: [datastructure, lrpriorityqueue]
+    path: datastructure/lrpriorityqueue.hpp
 
 数学:
   - 素数:
