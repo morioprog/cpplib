@@ -82,6 +82,13 @@
     - name: 重み付きUnionFind
       prefix: [datastructure, weightedunionfind]
       path: datastructure/unionfind/weightedunionfind.hpp
+  - LR:
+    - name: LR Priority Queue
+      prefix: [datastructure, lrpriorityqueue]
+      path: datastructure/lrpriorityqueue.hpp
+    - name: LR MultiSet
+      prefix: [datastructure, lrmultiset]
+      path: datastructure/lrmultiset.hpp
   - name: Sparse Table
     prefix: [datastructure, sparsetable]
     path: datastructure/sparsetable.hpp
@@ -94,9 +101,6 @@
   - name: Segment Map
     prefix: [datastructure, segmentmap]
     path: datastructure/segmentmap.hpp
-  - name: LR Priority Queue
-    prefix: [datastructure, lrpriorityqueue]
-    path: datastructure/lrpriorityqueue.hpp
 
 数学:
   - 素数:
