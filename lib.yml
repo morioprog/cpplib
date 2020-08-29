@@ -56,6 +56,9 @@
     - name: トポロジカルソート
       prefix: [graph, topologicalsort]
       path: graph/other/topological_sort.hpp
+    - name: 閉路検出
+      prefix: [graph, cycledetection]
+      path: graph/other/cycle_detection.hpp
 
 データ構造:
   - 累積和:
