@@ -31,9 +31,28 @@ layout: default
 
 * category: <a href="../../../index.html#7f558c0e940d1b94729e8802fdbca4ee">datastructure/lr</a>
 * <a href="{{ site.github.repository_url }}/blob/master/datastructure/lr/lrprique.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-08-25 19:30:50+09:00
+    - Last commit date: 2020-08-29 18:58:38+09:00
 
 
+
+
+## 概要
+
+$k$番目の値を高速に取り出せるデータ構造.
+
+## 計算量
+
+- 追加 : $O(\log n)$
+- 取得 : $O(\log n)$
+  - $f$次第ではオーダーが壊れる
+    - 「$k$が固定」や「中央値」は大丈夫
+
+## 使用例
+
+- `LRPrique<ll> lr([](int sz) -> int { return (sz + 1) / 2; })` : 中央値を管理する.
+- `LRPrique<ll> lr([](int sz) -> int { return 3; })` : 下から$3$番目の数を管理する.
+- `lr.emplace(x)` : $x$を挿入.
+- `lr.get()` : $f(sz)$番目の数を取得.
 
 
 ## Verified with
@@ -48,7 +67,7 @@ layout: default
 ```cpp
 /**
 * @brief LR Priority Queue
-* @docs docs/datastructure/lrprique.md
+* @docs docs/datastructure/lr/lrprique.md
 */
 
 template <typename T>
@@ -122,7 +141,7 @@ struct LRPrique {
 #line 1 "datastructure/lr/lrprique.hpp"
 /**
 * @brief LR Priority Queue
-* @docs docs/datastructure/lrprique.md
+* @docs docs/datastructure/lr/lrprique.md
 */
 
 template <typename T>
