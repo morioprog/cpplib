@@ -3,7 +3,7 @@ import yaml
 INPUT_YAML = r'lib.yml'
 OUTPUT_TEX = r'library.tex'
 HEADER = r'''\documentclass[a4paper,10pt,twocolumn,notitlepage]{article}
-\usepackage[top=10truemm,bottom=15truemm,left=10truemm,right=10truemm]{geometry}
+%\usepackage[top=10truemm,bottom=15truemm,left=10truemm,right=10truemm]{geometry}
 \usepackage{setspace}
 \usepackage{listings, jlisting}
 \usepackage{colortbl}
