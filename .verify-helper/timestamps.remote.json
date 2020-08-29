@@ -46,6 +46,7 @@
 "test/yosupo/unionfind.weightedunionfind.test.cpp": "2020-08-25 17:20:34 +0900",
 "test/yosupo/vertexaddpathsum.test.cpp": "2020-08-25 17:20:34 +0900",
 "test/yosupo/vertexaddsubtreesum.test.cpp": "2020-08-25 17:20:34 +0900",
+"test/yukicoder/1036.test.cpp": "2020-08-29 20:31:38 +0900",
 "test/yukicoder/1050.test.cpp": "2020-08-25 17:20:34 +0900",
 "test/yukicoder/1115.test.cpp": "2020-08-25 17:20:34 +0900",
 "test/yukicoder/117.test.cpp": "2020-08-25 17:20:34 +0900",
