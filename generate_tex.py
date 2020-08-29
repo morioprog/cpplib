@@ -22,7 +22,7 @@ HEADER = r'''\documentclass[a4paper,10pt,twocolumn,notitlepage]{article}
     frame=tlRB,
     framesep=5pt,
     %linewidth=0.95\linewidth,
-    xleftmargin=cm
+    xleftmargin=1.0cm
 }
 \begin{document}
 \maketitle
