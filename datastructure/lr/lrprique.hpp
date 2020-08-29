@@ -1,6 +1,6 @@
 /**
 * @brief LR Priority Queue
-* @docs docs/datastructure/lrprique.md
+* @docs docs/datastructure/lr/lrprique.md
 */
 
 template <typename T>
