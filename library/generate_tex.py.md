@@ -45,7 +45,7 @@ import yaml
 
 INPUT_YAML = r'lib.yml'
 OUTPUT_TEX = r'library.tex'
-HEADER = r'''\documentclass[a4paper,10pt,onecolumn,notitlepage]{article}
+HEADER = r'''\documentclass[a4paper,10pt,twocolumn,notitlepage]{article}
 \usepackage[top=10truemm,bottom=15truemm,left=10truemm,right=10truemm]{geometry}
 \usepackage{setspace}
 \usepackage{listings, jlisting}
@@ -64,6 +64,8 @@ HEADER = r'''\documentclass[a4paper,10pt,onecolumn,notitlepage]{article}
     stringstyle={\ttfamily \color[rgb]{0.8,0,0}},
     frame=tlRB,
     framesep=5pt,
+    linewidth=0.95\linewidth,
+    xleftmargin=1.0cm
 }
 \begin{document}
 \maketitle
