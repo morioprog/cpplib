@@ -46,7 +46,7 @@ layout: default
 ### datastructure
 
 * :heavy_check_mark: <a href="library/datastructure/binaryindexedtree.hpp.html">Binary Indexed Tree <small>(datastructure/binaryindexedtree.hpp)</small></a>
-* :warning: <a href="library/datastructure/queueaggregation.hpp.html">Queue Aggregation <small>(datastructure/queueaggregation.hpp)</small></a>
+* :heavy_check_mark: <a href="library/datastructure/queueaggregation.hpp.html">Queue Aggregation <small>(datastructure/queueaggregation.hpp)</small></a>
 * :warning: <a href="library/datastructure/segmentmap.hpp.html">区間をmapで管理するやつ <small>(datastructure/segmentmap.hpp)</small></a>
 * :heavy_check_mark: <a href="library/datastructure/sparsetable.hpp.html">Sparse Table <small>(datastructure/sparsetable.hpp)</small></a>
 
@@ -288,6 +288,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/yosupo/unionfind.weightedunionfind.test.cpp.html">test/yosupo/unionfind.weightedunionfind.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yosupo/vertexaddpathsum.test.cpp.html">test/yosupo/vertexaddpathsum.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yosupo/vertexaddsubtreesum.test.cpp.html">test/yosupo/vertexaddsubtreesum.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yukicoder/1036.test.cpp.html">test/yukicoder/1036.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yukicoder/1050.test.cpp.html">test/yukicoder/1050.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yukicoder/1115.test.cpp.html">test/yukicoder/1115.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yukicoder/117.test.cpp.html">test/yukicoder/117.test.cpp</a>

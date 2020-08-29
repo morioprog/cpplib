@@ -84,6 +84,7 @@ layout: default
 * :heavy_check_mark: <a href="../../verify/test/yosupo/unionfind.weightedunionfind.test.cpp.html">test/yosupo/unionfind.weightedunionfind.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/yosupo/vertexaddpathsum.test.cpp.html">test/yosupo/vertexaddpathsum.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/yosupo/vertexaddsubtreesum.test.cpp.html">test/yosupo/vertexaddsubtreesum.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yukicoder/1036.test.cpp.html">test/yukicoder/1036.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/yukicoder/1050.test.cpp.html">test/yukicoder/1050.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/yukicoder/1115.test.cpp.html">test/yukicoder/1115.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/yukicoder/117.test.cpp.html">test/yukicoder/117.test.cpp</a>

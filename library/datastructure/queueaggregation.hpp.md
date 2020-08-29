@@ -25,24 +25,24 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: Queue Aggregation <small>(datastructure/queueaggregation.hpp)</small>
+# :heavy_check_mark: Queue Aggregation <small>(datastructure/queueaggregation.hpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#8dc87745f885a4cc532acd7b15b8b5fe">datastructure</a>
 * <a href="{{ site.github.repository_url }}/blob/master/datastructure/queueaggregation.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-08-25 17:20:34+09:00
+    - Last commit date: 2020-08-29 20:31:38+09:00
 
 
 
 
 ## 概要
 
-全体をfoldしたものを$O(1)$で答えられるQueue.
+全体を二項演算$f$で畳み込んだものを$O(1)$で答えられるキュー.
 
-渡す二項演算$f$は結合律を満たす必要がある.
+渡す$f$は結合律を満たす必要がある.
 
-* 結合律 : $f(f(x, y), z) = f(x, f(y, z))$
+- 結合律 : $f(f(x, y), z) = f(x, f(y, z))$
 
 ## 計算量
 
@@ -50,10 +50,15 @@ $O(1)$
 
 ## 使用例
 
-* `QueueAggregation<int> swag([](int a, int b){ return min(a, b); })` : 最小クエリを処理するSWAG.
-* `swag.push(x)` : $x$をpush.
-* `swag.pop()` : SWAGからpop.
-* `swag.query()` : 全体をfold.
+- `QueueAggregation<int> swag([](int a, int b){ return min(a, b); })` : 最小クエリを処理する SWAG.
+- `swag.emplace(x)` : $x$を追加.
+- `swag.pop()` : `swag`から`pop`.
+- `swag.query()` : 全体を$f$で畳んだ結果.
+
+
+## Verified with
+
+* :heavy_check_mark: <a href="../../verify/test/yukicoder/1036.test.cpp.html">test/yukicoder/1036.test.cpp</a>
 
 
 ## Code
@@ -70,31 +75,29 @@ template <typename T>
 struct QueueAggregation {
     using F = function<T(T, T)>;
     stack<pair<T, T>> st_f, st_b;  // {val, sum}
-    F func;
-    QueueAggregation(const F f)
-        : func(f) {}
-    bool empty() const { return st_f.empty() and st_b.empty(); }
-    int size() const { return st_f.size() + st_b.empty(); }
+    const F func;
+    const T IDENT;
+    QueueAggregation(const F f, const T IDENT)
+        : func(f), IDENT(IDENT) {
+        st_f.emplace(IDENT, IDENT);
+        st_b.emplace(IDENT, IDENT);
+    }
+    // remove sentinel
+    int size() const { return (int)st_f.size() + (int)st_b.size() - 2; }
+    bool empty() const { return size() == 0; }
     T query() {
-        assert(not empty());
-        if (st_f.empty()) return st_b.top().second;
-        if (st_b.empty()) return st_f.top().second;
         return func(st_f.top().second, st_b.top().second);
     }
-    void push(const T &x) {
-        if (st_b.empty()) {
-            st_b.emplace(x, x);
-        } else {
-            T merged = func(st_b.top().second, x);
-            st_b.emplace(x, merged);
-        }
+    void emplace(const T &x) {
+        T merged = func(st_b.top().second, x);
+        st_b.emplace(x, merged);
     }
     void pop() {
         assert(not empty());
-        if (st_f.empty()) {
+        if (st_f.size() == 1) {  // <=> st_f.empty()
             st_f.emplace(st_b.top().first, st_b.top().first);
             st_b.pop();
-            while (not st_b.empty()) {
+            while (st_b.size() != 1) {
                 T merged = func(st_b.top().first, st_f.top().second);
                 st_f.emplace(st_b.top().first, merged);
                 st_b.pop();
@@ -120,31 +123,29 @@ template <typename T>
 struct QueueAggregation {
     using F = function<T(T, T)>;
     stack<pair<T, T>> st_f, st_b;  // {val, sum}
-    F func;
-    QueueAggregation(const F f)
-        : func(f) {}
-    bool empty() const { return st_f.empty() and st_b.empty(); }
-    int size() const { return st_f.size() + st_b.empty(); }
+    const F func;
+    const T IDENT;
+    QueueAggregation(const F f, const T IDENT)
+        : func(f), IDENT(IDENT) {
+        st_f.emplace(IDENT, IDENT);
+        st_b.emplace(IDENT, IDENT);
+    }
+    // remove sentinel
+    int size() const { return (int)st_f.size() + (int)st_b.size() - 2; }
+    bool empty() const { return size() == 0; }
     T query() {
-        assert(not empty());
-        if (st_f.empty()) return st_b.top().second;
-        if (st_b.empty()) return st_f.top().second;
         return func(st_f.top().second, st_b.top().second);
     }
-    void push(const T &x) {
-        if (st_b.empty()) {
-            st_b.emplace(x, x);
-        } else {
-            T merged = func(st_b.top().second, x);
-            st_b.emplace(x, merged);
-        }
+    void emplace(const T &x) {
+        T merged = func(st_b.top().second, x);
+        st_b.emplace(x, merged);
     }
     void pop() {
         assert(not empty());
-        if (st_f.empty()) {
+        if (st_f.size() == 1) {  // <=> st_f.empty()
             st_f.emplace(st_b.top().first, st_b.top().first);
             st_b.pop();
-            while (not st_b.empty()) {
+            while (st_b.size() != 1) {
                 T merged = func(st_b.top().first, st_f.top().second);
                 st_f.emplace(st_b.top().first, merged);
                 st_b.pop();
