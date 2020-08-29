@@ -126,7 +126,7 @@ layout: default
 
 ### graph/other
 
-* :warning: <a href="library/graph/other/cycle_detection.hpp.html">閉路検出 <small>(graph/other/cycle_detection.hpp)</small></a>
+* :heavy_check_mark: <a href="library/graph/other/cycle_detection.hpp.html">閉路検出 <small>(graph/other/cycle_detection.hpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/other/topological_sort.hpp.html">トポロジカルソート <small>(graph/other/topological_sort.hpp)</small></a>
 
 
@@ -292,6 +292,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/yukicoder/1115.test.cpp.html">test/yukicoder/1115.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yukicoder/117.test.cpp.html">test/yukicoder/117.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yukicoder/1183.test.cpp.html">test/yukicoder/1183.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yukicoder/13.test.cpp.html">test/yukicoder/13.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yukicoder/184.test.cpp.html">test/yukicoder/184.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yukicoder/20.test.cpp.html">test/yukicoder/20.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yukicoder/203.test.cpp.html">test/yukicoder/203.test.cpp</a>

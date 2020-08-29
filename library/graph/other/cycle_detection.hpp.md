@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: 閉路検出 <small>(graph/other/cycle_detection.hpp)</small>
+# :heavy_check_mark: 閉路検出 <small>(graph/other/cycle_detection.hpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#7bdf4bef6792afd2baf0aea42eec3899">graph/other</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/other/cycle_detection.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-08-29 09:09:31+09:00
+    - Last commit date: 2020-08-29 18:48:53+09:00
 
 
 
@@ -50,6 +50,11 @@ $O(E + V)$
   - 閉路がないなら`vector<int>()`を返す.
 
 
+## Verified with
+
+* :heavy_check_mark: <a href="../../../verify/test/yukicoder/13.test.cpp.html">test/yukicoder/13.test.cpp</a>
+
+
 ## Code
 
 <a id="unbundled"></a>
@@ -61,13 +66,14 @@ $O(E + V)$
 */
 
 template <typename T>
-vector<int> cycle_detection(const Graph<T> &g) {
+vector<int> cycle_detection(const Graph<T> &g, bool directed = false) {
     vector<int> cycle, color(g.V, 0);
-    auto dfs = [&](auto &&f, int cur, int &frm) -> bool {
+    auto dfs = [&](auto &&f, int cur, int prv, int &frm) -> bool {
         color[cur] = 1;
         for (auto &nxt : g.mat[cur]) {
+            if (not directed and nxt == prv) continue;
             if (color[nxt] == 0) {
-                if (f(f, nxt, frm)) {
+                if (f(f, nxt, cur, frm)) {
                     cycle.emplace_back(cur);
                     return frm != cur;
                 } else if (not cycle.empty())
@@ -84,7 +90,7 @@ vector<int> cycle_detection(const Graph<T> &g) {
     int frm = -1;
     for (int i = 0; i < g.V; ++i) {
         if (color[i] == 0) {
-            dfs(dfs, i, frm);
+            dfs(dfs, i, -1, frm);
             if (not cycle.empty()) {
                 reverse(cycle.begin(), cycle.end());
                 break;
@@ -107,13 +113,14 @@ vector<int> cycle_detection(const Graph<T> &g) {
 */
 
 template <typename T>
-vector<int> cycle_detection(const Graph<T> &g) {
+vector<int> cycle_detection(const Graph<T> &g, bool directed = false) {
     vector<int> cycle, color(g.V, 0);
-    auto dfs = [&](auto &&f, int cur, int &frm) -> bool {
+    auto dfs = [&](auto &&f, int cur, int prv, int &frm) -> bool {
         color[cur] = 1;
         for (auto &nxt : g.mat[cur]) {
+            if (not directed and nxt == prv) continue;
             if (color[nxt] == 0) {
-                if (f(f, nxt, frm)) {
+                if (f(f, nxt, cur, frm)) {
                     cycle.emplace_back(cur);
                     return frm != cur;
                 } else if (not cycle.empty())
@@ -130,7 +137,7 @@ vector<int> cycle_detection(const Graph<T> &g) {
     int frm = -1;
     for (int i = 0; i < g.V; ++i) {
         if (color[i] == 0) {
-            dfs(dfs, i, frm);
+            dfs(dfs, i, -1, frm);
             if (not cycle.empty()) {
                 reverse(cycle.begin(), cycle.end());
                 break;

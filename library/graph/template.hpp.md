@@ -77,6 +77,7 @@ layout: default
 * :heavy_check_mark: <a href="../../verify/test/aoj/GRL_7_A.test.cpp.html">test/aoj/GRL_7_A.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/yosupo/vertexaddpathsum.test.cpp.html">test/yosupo/vertexaddpathsum.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/yosupo/vertexaddsubtreesum.test.cpp.html">test/yosupo/vertexaddsubtreesum.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yukicoder/13.test.cpp.html">test/yukicoder/13.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/yukicoder/20.test.cpp.html">test/yukicoder/20.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/yukicoder/399.test.cpp.html">test/yukicoder/399.test.cpp</a>
 
