@@ -94,6 +94,7 @@ layout: default
 * :heavy_check_mark: <a href="../../verify/test/yukicoder/399.test.cpp.html">test/yukicoder/399.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/yukicoder/649.test.lrmultiset.cpp.html">test/yukicoder/649.test.lrmultiset.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/yukicoder/649.test.lrprique.cpp.html">test/yukicoder/649.test.lrprique.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yukicoder/755.test.cpp.html">test/yukicoder/755.test.cpp</a>
 
 
 ## Code

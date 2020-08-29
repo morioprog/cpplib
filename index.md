@@ -56,7 +56,7 @@ layout: default
 ### datastructure/cumulativesum
 
 * :heavy_check_mark: <a href="library/datastructure/cumulativesum/cumulativesum.hpp.html">1次元累積和 <small>(datastructure/cumulativesum/cumulativesum.hpp)</small></a>
-* :warning: <a href="library/datastructure/cumulativesum/cumulativesum2d.hpp.html">2次元累積和 <small>(datastructure/cumulativesum/cumulativesum2d.hpp)</small></a>
+* :heavy_check_mark: <a href="library/datastructure/cumulativesum/cumulativesum2d.hpp.html">2次元累積和 <small>(datastructure/cumulativesum/cumulativesum2d.hpp)</small></a>
 
 
 <div id="7f558c0e940d1b94729e8802fdbca4ee"></div>
@@ -126,6 +126,7 @@ layout: default
 
 ### graph/other
 
+* :warning: <a href="library/graph/other/cycle_detection.hpp.html">閉路検出 <small>(graph/other/cycle_detection.hpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/other/topological_sort.hpp.html">トポロジカルソート <small>(graph/other/topological_sort.hpp)</small></a>
 
 
@@ -297,5 +298,6 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/yukicoder/399.test.cpp.html">test/yukicoder/399.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yukicoder/649.test.lrmultiset.cpp.html">test/yukicoder/649.test.lrmultiset.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yukicoder/649.test.lrprique.cpp.html">test/yukicoder/649.test.lrprique.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yukicoder/755.test.cpp.html">test/yukicoder/755.test.cpp</a>
 
 

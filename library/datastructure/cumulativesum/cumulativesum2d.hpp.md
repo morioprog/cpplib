@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: 2次元累積和 <small>(datastructure/cumulativesum/cumulativesum2d.hpp)</small>
+# :heavy_check_mark: 2次元累積和 <small>(datastructure/cumulativesum/cumulativesum2d.hpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
@@ -49,6 +49,11 @@ layout: default
 
 * `CumulativeSum2D<int> acc(v)` : `v`で2次元累積和を構築.
 * `acc.query(a, b, c, d)` : 矩形$[a, b]$から$(c, d)$までのクエリ.
+
+
+## Verified with
+
+* :heavy_check_mark: <a href="../../../verify/test/yukicoder/755.test.cpp.html">test/yukicoder/755.test.cpp</a>
 
 
 ## Code
