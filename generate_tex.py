@@ -21,7 +21,7 @@ HEADER = r'''\documentclass[a4paper,10pt,twocolumn,notitlepage]{article}
     stringstyle={\ttfamily \color[rgb]{0.8,0,0}},
     frame=tlRB,
     framesep=5pt,
-    %linewidth=0.95\linewidth,
+    linewidth=0.95\linewidth,
     xleftmargin=1.0cm
 }
 \begin{document}
