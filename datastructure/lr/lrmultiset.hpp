@@ -1,6 +1,6 @@
 /**
 * @brief LR MultiSet
-* @docs docs/datastructure/lrmultiset.md
+* @docs docs/datastructure/lr/lrmultiset.md
 */
 
 template <typename T>

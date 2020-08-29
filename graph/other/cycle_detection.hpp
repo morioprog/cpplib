@@ -4,13 +4,14 @@
 */
 
 template <typename T>
-vector<int> cycle_detection(const Graph<T> &g) {
+vector<int> cycle_detection(const Graph<T> &g, bool directed = false) {
     vector<int> cycle, color(g.V, 0);
-    auto dfs = [&](auto &&f, int cur, int &frm) -> bool {
+    auto dfs = [&](auto &&f, int cur, int prv, int &frm) -> bool {
         color[cur] = 1;
         for (auto &nxt : g.mat[cur]) {
+            if (not directed and nxt == prv) continue;
             if (color[nxt] == 0) {
-                if (f(f, nxt, frm)) {
+                if (f(f, nxt, cur, frm)) {
                     cycle.emplace_back(cur);
                     return frm != cur;
                 } else if (not cycle.empty())
@@ -27,7 +28,7 @@ vector<int> cycle_detection(const Graph<T> &g) {
     int frm = -1;
     for (int i = 0; i < g.V; ++i) {
         if (color[i] == 0) {
-            dfs(dfs, i, frm);
+            dfs(dfs, i, -1, frm);
             if (not cycle.empty()) {
                 reverse(cycle.begin(), cycle.end());
                 break;
