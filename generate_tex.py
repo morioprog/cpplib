@@ -21,8 +21,8 @@ HEADER = r'''\documentclass[a4paper,10pt,twocolumn,notitlepage]{article}
     stringstyle={\ttfamily \color[rgb]{0.8,0,0}},
     frame=tlRB,
     framesep=5pt,
-    linewidth=0.9\linewidth,
-    xleftmargin=1cm
+    linewidth=0.95\linewidth,
+    xleftmargin=0.3cm
 }
 \begin{document}
 \maketitle
