@@ -122,6 +122,9 @@
     - name: エラトステネスの篩
       prefix: [math, prime, eratosthenes]
       path: math/prime/eratosthenes.hpp
+    - name: osa\_k法
+      prefix: [math, prime, osa_k]
+      path: math/prime/osa_k.hpp
   - 行列:
     - name: 行列
       prefix: [math, matrix]
