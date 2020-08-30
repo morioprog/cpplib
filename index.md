@@ -181,6 +181,7 @@ layout: default
 * :heavy_check_mark: <a href="library/math/prime/eratosthenes.hpp.html">エラトステネスの篩 <small>(math/prime/eratosthenes.hpp)</small></a>
 * :heavy_check_mark: <a href="library/math/prime/euler_totient.hpp.html">Euler's totient function (オイラーのφ関数) <small>(math/prime/euler_totient.hpp)</small></a>
 * :heavy_check_mark: <a href="library/math/prime/is_prime.hpp.html">素数判定 <small>(math/prime/is_prime.hpp)</small></a>
+* :heavy_check_mark: <a href="library/math/prime/osa_k.hpp.html">osa_k法 <small>(math/prime/osa_k.hpp)</small></a>
 * :heavy_check_mark: <a href="library/math/prime/prime_factor.hpp.html">Prime Factor (素因数分解) <small>(math/prime/prime_factor.hpp)</small></a>
 
 
@@ -248,6 +249,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/aoj/ALDS1_14_D.test.cpp.html">test/aoj/ALDS1_14_D.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/ALDS1_1_C.eratosthenes.test.cpp.html">test/aoj/ALDS1_1_C.eratosthenes.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/ALDS1_1_C.isprime.test.cpp.html">test/aoj/ALDS1_1_C.isprime.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj/ALDS1_1_C.osa_k.test.cpp.html">test/aoj/ALDS1_1_C.osa_k.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/DSL_1_B.test.cpp.html">test/aoj/DSL_1_B.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/DSL_2_A.test.cpp.html">test/aoj/DSL_2_A.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/DSL_2_B.binaryindexedtree.test.cpp.html">test/aoj/DSL_2_B.binaryindexedtree.test.cpp</a>
