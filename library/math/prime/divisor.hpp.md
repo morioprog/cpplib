@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: Divisor (約数) <small>(math/prime/divisor.hpp)</small>
+# :heavy_check_mark: Divisor (約数) <small>(math/prime/divisor.hpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
@@ -48,6 +48,11 @@ $O(\sqrt{n})$
 
 * `divisor(N)` : $N$の約数を返す.
   * 返り値の型 : `vector<long long>`
+
+
+## Verified with
+
+* :heavy_check_mark: <a href="../../../verify/test/yukicoder/888.test.cpp.html">test/yukicoder/888.test.cpp</a>
 
 
 ## Code

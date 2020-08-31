@@ -177,7 +177,7 @@ layout: default
 
 ### math/prime
 
-* :warning: <a href="library/math/prime/divisor.hpp.html">Divisor (約数) <small>(math/prime/divisor.hpp)</small></a>
+* :heavy_check_mark: <a href="library/math/prime/divisor.hpp.html">Divisor (約数) <small>(math/prime/divisor.hpp)</small></a>
 * :heavy_check_mark: <a href="library/math/prime/eratosthenes.hpp.html">エラトステネスの篩 <small>(math/prime/eratosthenes.hpp)</small></a>
 * :heavy_check_mark: <a href="library/math/prime/euler_totient.hpp.html">Euler's totient function (オイラーのφ関数) <small>(math/prime/euler_totient.hpp)</small></a>
 * :heavy_check_mark: <a href="library/math/prime/is_prime.hpp.html">素数判定 <small>(math/prime/is_prime.hpp)</small></a>
@@ -305,5 +305,6 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/yukicoder/649.test.lrmultiset.cpp.html">test/yukicoder/649.test.lrmultiset.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yukicoder/649.test.lrprique.cpp.html">test/yukicoder/649.test.lrprique.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yukicoder/755.test.cpp.html">test/yukicoder/755.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yukicoder/888.test.cpp.html">test/yukicoder/888.test.cpp</a>
 
 
