@@ -40,6 +40,8 @@ layout: default
 
 * :heavy_check_mark: <a href="../../verify/test/aoj/0502.test.cpp.html">test/aoj/0502.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj/1330.test.cpp.html">test/aoj/1330.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj/1501.combination.inverse.test.cpp.html">test/aoj/1501.combination.inverse.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj/1501.combination.pascal.test.cpp.html">test/aoj/1501.combination.pascal.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj/2945.test.cpp.html">test/aoj/2945.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj/ALDS1_14_B.test.cpp.html">test/aoj/ALDS1_14_B.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj/ALDS1_14_D.test.cpp.html">test/aoj/ALDS1_14_D.test.cpp</a>

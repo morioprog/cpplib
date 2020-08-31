@@ -161,7 +161,7 @@ layout: default
 ### math/combination
 
 * :heavy_check_mark: <a href="library/math/combination/inverse.hpp.html">Combination (Inverse) <small>(math/combination/inverse.hpp)</small></a>
-* :warning: <a href="library/math/combination/pascal.hpp.html">Combination (Pascal) <small>(math/combination/pascal.hpp)</small></a>
+* :heavy_check_mark: <a href="library/math/combination/pascal.hpp.html">Combination (Pascal) <small>(math/combination/pascal.hpp)</small></a>
 
 
 <div id="a9839e7477a4d9c748aee996b52a14d5"></div>
@@ -244,6 +244,8 @@ layout: default
 
 * :heavy_check_mark: <a href="verify/test/aoj/0502.test.cpp.html">test/aoj/0502.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/1330.test.cpp.html">test/aoj/1330.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj/1501.combination.inverse.test.cpp.html">test/aoj/1501.combination.inverse.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj/1501.combination.pascal.test.cpp.html">test/aoj/1501.combination.pascal.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/2945.test.cpp.html">test/aoj/2945.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/ALDS1_14_B.test.cpp.html">test/aoj/ALDS1_14_B.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/ALDS1_14_D.test.cpp.html">test/aoj/ALDS1_14_D.test.cpp</a>

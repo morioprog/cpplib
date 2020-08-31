@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: Combination (Pascal) <small>(math/combination/pascal.hpp)</small>
+# :heavy_check_mark: Combination (Pascal) <small>(math/combination/pascal.hpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
@@ -42,11 +42,16 @@ $C$, $P$, $H$をパスカルの三角形を用いて求める.
 
 ## 計算量
 
-* クエリ : $O(r)$
+- クエリ : $O(r)$
 
 ## 使用例
 
-* `C_pascal<modint>(n, r)` : `modint`型で$C(n, r)$に答える
+- `C_pascal<modint>(n, r)` : `modint`型で$C(n, r)$に答える
+
+
+## Verified with
+
+* :heavy_check_mark: <a href="../../../verify/test/aoj/1501.combination.pascal.test.cpp.html">test/aoj/1501.combination.pascal.test.cpp</a>
 
 
 ## Code
