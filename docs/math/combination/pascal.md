@@ -4,8 +4,8 @@ $C$, $P$, $H$をパスカルの三角形を用いて求める.
 
 ## 計算量
 
-* クエリ : $O(r)$
+- クエリ : $O(r)$
 
 ## 使用例
 
-* `C_pascal<modint>(n, r)` : `modint`型で$C(n, r)$に答える
+- `C_pascal<modint>(n, r)` : `modint`型で$C(n, r)$に答える
