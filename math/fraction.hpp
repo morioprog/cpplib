@@ -3,8 +3,8 @@
  * @docs docs/math/fraction.md
  */
 
+template <typename T = long long>
 struct Fraction {
-    using T = long long;
     T numer, denom;
     T gcd(T a, T b) { return b ? gcd(b, a % b) : a; }
     Fraction(T n = 0, T d = 1) {
