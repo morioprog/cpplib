@@ -152,7 +152,7 @@ layout: default
 ### math
 
 * :heavy_check_mark: <a href="library/math/extgcd.hpp.html">拡張ユークリッドの互除法 <small>(math/extgcd.hpp)</small></a>
-* :warning: <a href="library/math/fraction.hpp.html">Fraction (分数) <small>(math/fraction.hpp)</small></a>
+* :heavy_check_mark: <a href="library/math/fraction.hpp.html">Fraction (分数) <small>(math/fraction.hpp)</small></a>
 * :heavy_check_mark: <a href="library/math/modint.hpp.html">ModInt <small>(math/modint.hpp)</small></a>
 
 
@@ -304,6 +304,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/yukicoder/399.test.cpp.html">test/yukicoder/399.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yukicoder/649.test.lrmultiset.cpp.html">test/yukicoder/649.test.lrmultiset.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yukicoder/649.test.lrprique.cpp.html">test/yukicoder/649.test.lrprique.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yukicoder/750.test.cpp.html">test/yukicoder/750.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yukicoder/755.test.cpp.html">test/yukicoder/755.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yukicoder/888.test.cpp.html">test/yukicoder/888.test.cpp</a>
 

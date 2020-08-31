@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: Fraction (分数) <small>(math/fraction.hpp)</small>
+# :heavy_check_mark: Fraction (分数) <small>(math/fraction.hpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#7e676e9e663beb40fd133f5ee24487c2">math</a>
 * <a href="{{ site.github.repository_url }}/blob/master/math/fraction.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-08-25 17:20:34+09:00
+    - Last commit date: 2020-08-31 14:27:20+09:00
 
 
 
@@ -49,6 +49,11 @@ f.to_double();      // = 0.666666...
 ```
 
 
+## Verified with
+
+* :heavy_check_mark: <a href="../../verify/test/yukicoder/750.test.cpp.html">test/yukicoder/750.test.cpp</a>
+
+
 ## Code
 
 <a id="unbundled"></a>
@@ -59,8 +64,8 @@ f.to_double();      // = 0.666666...
  * @docs docs/math/fraction.md
  */
 
+template <typename T = long long>
 struct Fraction {
-    using T = long long;
     T numer, denom;
     T gcd(T a, T b) { return b ? gcd(b, a % b) : a; }
     Fraction(T n = 0, T d = 1) {
@@ -100,8 +105,8 @@ struct Fraction {
  * @docs docs/math/fraction.md
  */
 
+template <typename T = long long>
 struct Fraction {
-    using T = long long;
     T numer, denom;
     T gcd(T a, T b) { return b ? gcd(b, a % b) : a; }
     Fraction(T n = 0, T d = 1) {
