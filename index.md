@@ -106,6 +106,7 @@ layout: default
 
 * :heavy_check_mark: <a href="library/graph/maximumflow/dinic.hpp.html">Dinic法 <small>(graph/maximumflow/dinic.hpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/maximumflow/fordfulkerson.hpp.html">FordFulkerson法 <small>(graph/maximumflow/fordfulkerson.hpp)</small></a>
+* :warning: <a href="library/graph/maximumflow/moyasu_umeru.hpp.html">燃やす埋める <small>(graph/maximumflow/moyasu_umeru.hpp)</small></a>
 
 
 <div id="4f2a5e89d3f9de5e41e39d8432f85e12"></div>
