@@ -37,6 +37,9 @@
     - name: FordFulkerson法
       prefix: [graph, maximumflow, fordfulkerson]
       path: graph/maximumflow/fordfulkerson.hpp
+    - name: 燃やす埋める
+      prefix: [graph, maximumflow, moyasuumeru]
+      path: graph/maximumflow/moyasu_umeru.hpp
   - 最小費用流:
     - name: Primal Dual
       prefix: [graph, minimumcostflow, primaldual]
