@@ -8,15 +8,16 @@ signed main() {
     int N, Q;
     cin >> N >> Q;
 
-    SegmentTree<int> seg(N, [](int a, int b){ return min(a, b); }, INT_MAX);
+    auto seg = make_segment_tree(
+        N, INT_MAX, [](int a, int b) { return min(a, b); });
 
     while (Q--) {
-        int q, a, b;  cin >> q >> a >> b;
+        int q, a, b;
+        cin >> q >> a >> b;
         if (q == 0) {
             seg.update(a, b);
         } else {
             cout << seg.query(a, b + 1) << endl;
         }
     }
-
 }

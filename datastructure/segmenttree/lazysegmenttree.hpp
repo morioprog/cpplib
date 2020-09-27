@@ -6,12 +6,12 @@
 template <typename M, typename OM, typename F, typename G, typename H, typename P>
 struct LazySegmentTree {
     int sz;
+    const M ID_M;
+    const OM ID_OM;
     F f;
     G g;
     H h;
     P p;
-    const M ID_M;
-    const OM ID_OM;
     vector<M> dat;
     vector<OM> laz;
     LazySegmentTree(int n, M ID_M, OM ID_OM, F f, G g, H h, P p)

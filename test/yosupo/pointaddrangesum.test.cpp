@@ -12,13 +12,13 @@ signed main() {
     vector<T> A(N);
     for (auto& e: A) cin >> e;
 
-    SegmentTree<T> seg(A, [](T a, T b){ return a + b; }, 0LL);
+    auto seg = make_segment_tree(A, 0LL, [](T a, T b){ return a + b; });
 
     while (Q--) {
         int q;  cin >> q;
         if (q == 0) {
             T p, x;   cin >> p >> x;
-            seg.add(p, x);
+            seg.update(p, seg[p] + x);
         } else {
             int l, r;   cin >> l >> r;
             cout << seg.query(l, r) << endl;

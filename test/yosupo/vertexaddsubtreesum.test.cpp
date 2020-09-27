@@ -12,18 +12,19 @@ signed main() {
 
     using lint = long long;
     vector<lint> A(N);
-    for (auto& e: A) cin >> e;
+    for (auto& e : A) cin >> e;
 
     HLDecomposition<lint> hld(N);
     for (int i = 1; i < N; ++i) {
-        int P;  cin >> P;
+        int P;
+        cin >> P;
         hld.add_edge(P, i);
     }
     hld.build();
 
     vector<lint> B(N);
     for (int i = 0; i < N; ++i) B[hld.get(i)] = A[i];
-    SegmentTree<lint> seg(B, [](lint a, lint b){ return a + b; }, 0LL);
+    auto seg = make_segment_tree(B, 0LL, [](lint a, lint b) { return a + b; });
 
     auto query = [&](int u) -> lint {
         auto prs = hld.get_subtree(u);
@@ -32,18 +33,20 @@ signed main() {
 
     auto update = [&](int u, lint n) -> void {
         int idx = hld.get(u);
-        seg.add(idx, n);
+        seg.update(idx, seg[idx] + n);
     };
 
     while (Q--) {
-        int t;  cin >> t;
+        int t;
+        cin >> t;
         if (t == 0) {
-            int U, X;   cin >> U >> X;
+            int U, X;
+            cin >> U >> X;
             update(U, X);
         } else {
-            int U;  cin >> U;
+            int U;
+            cin >> U;
             cout << query(U) << endl;
         }
     }
-
 }
