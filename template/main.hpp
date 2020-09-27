@@ -5,6 +5,7 @@
 #pragma endregion
 #include <bits/stdc++.h>
 using namespace std;
+// #include <atcoder/all>
 #pragma region boost multiprecision
 // #include <boost/multiprecision/cpp_dec_float.hpp>
 // #include <boost/multiprecision/cpp_int.hpp>
