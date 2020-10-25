@@ -1,312 +1,446 @@
 ---
-layout: default
+data:
+  libraryCategories:
+  - name: datastructure
+    pages:
+    - icon: ':question:'
+      path: datastructure/binaryindexedtree.hpp
+      title: Binary Indexed Tree
+    - icon: ':x:'
+      path: datastructure/queueaggregation.hpp
+      title: Queue Aggregation
+    - icon: ':warning:'
+      path: datastructure/segmentmap.hpp
+      title: "\u533A\u9593\u3092map\u3067\u7BA1\u7406\u3059\u308B\u3084\u3064"
+    - icon: ':x:'
+      path: datastructure/sparsetable.hpp
+      title: Sparse Table
+  - name: datastructure/cumulativesum
+    pages:
+    - icon: ':x:'
+      path: datastructure/cumulativesum/cumulativesum.hpp
+      title: "1\u6B21\u5143\u7D2F\u7A4D\u548C"
+    - icon: ':x:'
+      path: datastructure/cumulativesum/cumulativesum2d.hpp
+      title: "2\u6B21\u5143\u7D2F\u7A4D\u548C"
+  - name: datastructure/lr
+    pages:
+    - icon: ':x:'
+      path: datastructure/lr/lrmultiset.hpp
+      title: LR MultiSet
+    - icon: ':x:'
+      path: datastructure/lr/lrprique.hpp
+      title: LR Priority Queue
+  - name: datastructure/segmenttree
+    pages:
+    - icon: ':question:'
+      path: datastructure/segmenttree/lazysegmenttree.hpp
+      title: "\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728"
+    - icon: ':question:'
+      path: datastructure/segmenttree/segmenttree.hpp
+      title: "\u30BB\u30B0\u30E1\u30F3\u30C8\u6728"
+    - icon: ':x:'
+      path: datastructure/segmenttree/segmenttreebeats.hpp
+      title: Segment Tree Beats
+  - name: datastructure/unionfind
+    pages:
+    - icon: ':question:'
+      path: datastructure/unionfind/unionfind.hpp
+      title: UnionFind
+    - icon: ':question:'
+      path: datastructure/unionfind/weightedunionfind.hpp
+      title: "\u91CD\u307F\u4ED8\u304DUnionFind"
+  - name: .
+    pages:
+    - icon: ':warning:'
+      path: generate_tex.py
+      title: generate_tex.py
+  - name: graph/bipartite
+    pages:
+    - icon: ':warning:'
+      path: graph/bipartite/bipartite_check.hpp
+      title: "\u4E8C\u90E8\u30B0\u30E9\u30D5\u5224\u5B9A"
+    - icon: ':heavy_check_mark:'
+      path: graph/bipartite/bipartite_matching.hpp
+      title: "\u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u6700\u5927\u30DE\u30C3\u30C1\u30F3\
+        \u30B0"
+  - name: graph
+    pages:
+    - icon: ':question:'
+      path: graph/gridgraph.hpp
+      title: "\u30B0\u30EA\u30C3\u30C9\u30B0\u30E9\u30D5"
+    - icon: ':question:'
+      path: graph/template.hpp
+      title: "\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
+  - name: graph/maximumflow
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: graph/maximumflow/dinic.hpp
+      title: "Dinic\u6CD5"
+    - icon: ':heavy_check_mark:'
+      path: graph/maximumflow/fordfulkerson.hpp
+      title: "FordFulkerson\u6CD5"
+    - icon: ':warning:'
+      path: graph/maximumflow/moyasu_umeru.hpp
+      title: "\u71C3\u3084\u3059\u57CB\u3081\u308B"
+  - name: graph/minimumcostflow
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: graph/minimumcostflow/primaldual.hpp
+      title: Primal Dual
+  - name: graph/minimumspanningtree
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: graph/minimumspanningtree/kruskal.hpp
+      title: "\u30AF\u30E9\u30B9\u30AB\u30EB\u6CD5"
+  - name: graph/other
+    pages:
+    - icon: ':x:'
+      path: graph/other/cycle_detection.hpp
+      title: "\u9589\u8DEF\u691C\u51FA"
+    - icon: ':heavy_check_mark:'
+      path: graph/other/topological_sort.hpp
+      title: "\u30C8\u30DD\u30ED\u30B8\u30AB\u30EB\u30BD\u30FC\u30C8"
+  - name: graph/shortestpath
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: graph/shortestpath/01_bfs.hpp
+      title: 01-BFS
+    - icon: ':heavy_check_mark:'
+      path: graph/shortestpath/bellmanford.hpp
+      title: "\u30D9\u30EB\u30DE\u30F3\u30D5\u30A9\u30FC\u30C9\u6CD5"
+    - icon: ':question:'
+      path: graph/shortestpath/dijkstra.hpp
+      title: "\u30C0\u30A4\u30AF\u30B9\u30C8\u30E9\u6CD5"
+    - icon: ':heavy_check_mark:'
+      path: graph/shortestpath/warshallfloyd.hpp
+      title: "\u30EF\u30FC\u30B7\u30E3\u30EB\u30D5\u30ED\u30A4\u30C9\u6CD5"
+  - name: graph/tree
+    pages:
+    - icon: ':question:'
+      path: graph/tree/hldecomposition.hpp
+      title: "HL\u5206\u89E3"
+  - name: math/combination
+    pages:
+    - icon: ':question:'
+      path: math/combination/inverse.hpp
+      title: Combination (Inverse)
+    - icon: ':heavy_check_mark:'
+      path: math/combination/pascal.hpp
+      title: Combination (Pascal)
+  - name: math
+    pages:
+    - icon: ':x:'
+      path: math/extgcd.hpp
+      title: "\u62E1\u5F35\u30E6\u30FC\u30AF\u30EA\u30C3\u30C9\u306E\u4E92\u9664\u6CD5"
+    - icon: ':x:'
+      path: math/fraction.hpp
+      title: "Fraction (\u5206\u6570)"
+    - icon: ':question:'
+      path: math/modint.hpp
+      title: ModInt
+  - name: math/matrix
+    pages:
+    - icon: ':warning:'
+      path: math/matrix/bitmatrix.hpp
+      title: BitMatrix
+    - icon: ':x:'
+      path: math/matrix/matrix.hpp
+      title: "Matrix (\u884C\u5217)"
+    - icon: ':x:'
+      path: math/matrix/xorvector.hpp
+      title: Xor Vector
+  - name: math/prime
+    pages:
+    - icon: ':x:'
+      path: math/prime/divisor.hpp
+      title: "Divisor (\u7D04\u6570)"
+    - icon: ':heavy_check_mark:'
+      path: math/prime/eratosthenes.hpp
+      title: "\u30A8\u30E9\u30C8\u30B9\u30C6\u30CD\u30B9\u306E\u7BE9"
+    - icon: ':x:'
+      path: math/prime/euler_totient.hpp
+      title: "Euler's totient function (\u30AA\u30A4\u30E9\u30FC\u306E\u03C6\u95A2\
+        \u6570)"
+    - icon: ':heavy_check_mark:'
+      path: math/prime/is_prime.hpp
+      title: "\u7D20\u6570\u5224\u5B9A"
+    - icon: ':heavy_check_mark:'
+      path: math/prime/osa_k.hpp
+      title: "osa_k\u6CD5"
+    - icon: ':heavy_check_mark:'
+      path: math/prime/prime_factor.hpp
+      title: "Prime Factor (\u7D20\u56E0\u6570\u5206\u89E3)"
+  - name: snippet
+    pages:
+    - icon: ':warning:'
+      path: snippet/main.cpp
+      title: snippet/main.cpp
+    - icon: ':warning:'
+      path: snippet/main.hpp
+      title: snippet/main.hpp
+    - icon: ':warning:'
+      path: snippet/meguru.hpp
+      title: "\u3081\u3050\u308B\u5F0F\u4E8C\u5206\u63A2\u7D22"
+    - icon: ':warning:'
+      path: snippet/short.hpp
+      title: snippet/short.hpp
+    - icon: ':warning:'
+      path: snippet/ternarysearch.hpp
+      title: "\u4E09\u5206\u63A2\u7D22"
+  - name: string
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: string/rollinghash.hpp
+      title: "\u30ED\u30FC\u30EA\u30F3\u30B0\u30CF\u30C3\u30B7\u30E5"
+    - icon: ':heavy_check_mark:'
+      path: string/suffixarray.hpp
+      title: "\u63A5\u5C3E\u8F9E\u914D\u5217 (Suffix Array)"
+  - name: template
+    pages:
+    - icon: ':question:'
+      path: template/main.hpp
+      title: template/main.hpp
+    - icon: ':heavy_check_mark:'
+      path: template/short.hpp
+      title: template/short.hpp
+  - name: test/aoj
+    pages:
+    - icon: ':warning:'
+      path: test/aoj/0009.cpp
+      title: test/aoj/0009.cpp
+  - name: test/atcoder
+    pages:
+    - icon: ':warning:'
+      path: test/atcoder/abc106_d.cpp
+      title: test/atcoder/abc106_d.cpp
+    - icon: ':warning:'
+      path: test/atcoder/abc157_d.unionfind.cpp
+      title: test/atcoder/abc157_d.unionfind.cpp
+    - icon: ':warning:'
+      path: test/atcoder/abc157_d.weightedunionfind.cpp
+      title: test/atcoder/abc157_d.weightedunionfind.cpp
+  - name: util
+    pages:
+    - icon: ':warning:'
+      path: util/compress.hpp
+      title: "\u5EA7\u6A19\u5727\u7E2E"
+    - icon: ':heavy_check_mark:'
+      path: util/dice.hpp
+      title: "\u30B5\u30A4\u30B3\u30ED"
+    - icon: ':x:'
+      path: util/groupby.hpp
+      title: "\u30E9\u30F3\u30EC\u30F3\u30B0\u30B9\u5727\u7E2E (groupby)"
+    - icon: ':x:'
+      path: util/inversionnumber.hpp
+      title: "\u8EE2\u5012\u6570"
+    - icon: ':warning:'
+      path: util/jury.hpp
+      title: "\u30A4\u30F3\u30BF\u30E9\u30AF\u30C6\u30A3\u30D6\u554F\u984C"
+    - icon: ':warning:'
+      path: util/randomnumbergenerator.hpp
+      title: "\u4E71\u6570\u751F\u6210\u5668"
+  verificationCategories:
+  - name: test/aoj
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/0502.test.cpp
+      title: test/aoj/0502.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/1330.test.cpp
+      title: test/aoj/1330.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/1501.combination.inverse.test.cpp
+      title: test/aoj/1501.combination.inverse.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/1501.combination.pascal.test.cpp
+      title: test/aoj/1501.combination.pascal.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/2945.test.cpp
+      title: test/aoj/2945.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/ALDS1_14_B.test.cpp
+      title: test/aoj/ALDS1_14_B.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/ALDS1_14_D.test.cpp
+      title: test/aoj/ALDS1_14_D.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/ALDS1_1_C.eratosthenes.test.cpp
+      title: test/aoj/ALDS1_1_C.eratosthenes.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/ALDS1_1_C.isprime.test.cpp
+      title: test/aoj/ALDS1_1_C.isprime.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/ALDS1_1_C.osa_k.test.cpp
+      title: test/aoj/ALDS1_1_C.osa_k.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/DSL_1_B.test.cpp
+      title: test/aoj/DSL_1_B.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/DSL_2_A.test.cpp
+      title: test/aoj/DSL_2_A.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/DSL_2_B.binaryindexedtree.test.cpp
+      title: test/aoj/DSL_2_B.binaryindexedtree.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/DSL_2_B.segmenttree.test.cpp
+      title: test/aoj/DSL_2_B.segmenttree.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/DSL_2_F.test.cpp
+      title: test/aoj/DSL_2_F.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/DSL_2_G.test.cpp
+      title: test/aoj/DSL_2_G.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/DSL_2_H.test.cpp
+      title: test/aoj/DSL_2_H.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/DSL_2_I.test.cpp
+      title: test/aoj/DSL_2_I.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/GRL_1_A.test.cpp
+      title: test/aoj/GRL_1_A.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/GRL_1_B.test.cpp
+      title: test/aoj/GRL_1_B.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/GRL_1_C.test.cpp
+      title: test/aoj/GRL_1_C.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/GRL_2_A.test.cpp
+      title: test/aoj/GRL_2_A.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/GRL_4_B.test.cpp
+      title: test/aoj/GRL_4_B.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/GRL_5_C.test.cpp
+      title: test/aoj/GRL_5_C.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/GRL_5_D.test.cpp
+      title: test/aoj/GRL_5_D.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/GRL_5_E.test.cpp
+      title: test/aoj/GRL_5_E.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/GRL_6_A.dinic.test.cpp
+      title: test/aoj/GRL_6_A.dinic.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/GRL_6_A.fordfulkerson.test.cpp
+      title: test/aoj/GRL_6_A.fordfulkerson.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/GRL_6_B.test.cpp
+      title: test/aoj/GRL_6_B.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/GRL_7_A.test.cpp
+      title: test/aoj/GRL_7_A.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/ITP1_11_A.test.cpp
+      title: test/aoj/ITP1_11_A.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/ITP1_11_B.test.cpp
+      title: test/aoj/ITP1_11_B.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/ITP1_11_C.test.cpp
+      title: test/aoj/ITP1_11_C.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/ITP1_11_D.test.cpp
+      title: test/aoj/ITP1_11_D.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/ITP1_1_A.short.test.cpp
+      title: test/aoj/ITP1_1_A.short.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/ITP1_1_A.test.cpp
+      title: test/aoj/ITP1_1_A.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/NTL_1_A.test.cpp
+      title: test/aoj/NTL_1_A.test.cpp
+    - icon: ':x:'
+      path: test/aoj/NTL_1_B.test.cpp
+      title: test/aoj/NTL_1_B.test.cpp
+    - icon: ':x:'
+      path: test/aoj/NTL_1_D.test.cpp
+      title: test/aoj/NTL_1_D.test.cpp
+    - icon: ':x:'
+      path: test/aoj/NTL_1_E.test.cpp
+      title: test/aoj/NTL_1_E.test.cpp
+  - name: test/yosupo
+    pages:
+    - icon: ':x:'
+      path: test/yosupo/determinantofmatrix.test.cpp
+      title: test/yosupo/determinantofmatrix.test.cpp
+    - icon: ':x:'
+      path: test/yosupo/pointaddrangesum.test.cpp
+      title: test/yosupo/pointaddrangesum.test.cpp
+    - icon: ':x:'
+      path: test/yosupo/rangeaffinerangesum.test.cpp
+      title: test/yosupo/rangeaffinerangesum.test.cpp
+    - icon: ':x:'
+      path: test/yosupo/rangechminchmaxaddrangesum.test.cpp
+      title: test/yosupo/rangechminchmaxaddrangesum.test.cpp
+    - icon: ':x:'
+      path: test/yosupo/staticrangesum.test.cpp
+      title: test/yosupo/staticrangesum.test.cpp
+    - icon: ':x:'
+      path: test/yosupo/staticrmq.test.cpp
+      title: test/yosupo/staticrmq.test.cpp
+    - icon: ':x:'
+      path: test/yosupo/unionfind.unionfind.test.cpp
+      title: test/yosupo/unionfind.unionfind.test.cpp
+    - icon: ':x:'
+      path: test/yosupo/unionfind.weightedunionfind.test.cpp
+      title: test/yosupo/unionfind.weightedunionfind.test.cpp
+    - icon: ':x:'
+      path: test/yosupo/vertexaddpathsum.test.cpp
+      title: test/yosupo/vertexaddpathsum.test.cpp
+    - icon: ':x:'
+      path: test/yosupo/vertexaddsubtreesum.test.cpp
+      title: test/yosupo/vertexaddsubtreesum.test.cpp
+  - name: test/yukicoder
+    pages:
+    - icon: ':x:'
+      path: test/yukicoder/1036.test.cpp
+      title: test/yukicoder/1036.test.cpp
+    - icon: ':x:'
+      path: test/yukicoder/1050.test.cpp
+      title: test/yukicoder/1050.test.cpp
+    - icon: ':x:'
+      path: test/yukicoder/1115.test.cpp
+      title: test/yukicoder/1115.test.cpp
+    - icon: ':x:'
+      path: test/yukicoder/117.test.cpp
+      title: test/yukicoder/117.test.cpp
+    - icon: ':x:'
+      path: test/yukicoder/1183.test.cpp
+      title: test/yukicoder/1183.test.cpp
+    - icon: ':x:'
+      path: test/yukicoder/13.test.cpp
+      title: test/yukicoder/13.test.cpp
+    - icon: ':x:'
+      path: test/yukicoder/184.test.cpp
+      title: test/yukicoder/184.test.cpp
+    - icon: ':x:'
+      path: test/yukicoder/20.test.cpp
+      title: test/yukicoder/20.test.cpp
+    - icon: ':x:'
+      path: test/yukicoder/203.test.cpp
+      title: test/yukicoder/203.test.cpp
+    - icon: ':x:'
+      path: test/yukicoder/399.test.cpp
+      title: test/yukicoder/399.test.cpp
+    - icon: ':x:'
+      path: test/yukicoder/649.test.lrmultiset.cpp
+      title: test/yukicoder/649.test.lrmultiset.cpp
+    - icon: ':x:'
+      path: test/yukicoder/649.test.lrprique.cpp
+      title: test/yukicoder/649.test.lrprique.cpp
+    - icon: ':x:'
+      path: test/yukicoder/750.test.cpp
+      title: test/yukicoder/750.test.cpp
+    - icon: ':x:'
+      path: test/yukicoder/755.test.cpp
+      title: test/yukicoder/755.test.cpp
+    - icon: ':x:'
+      path: test/yukicoder/888.test.cpp
+      title: test/yukicoder/888.test.cpp
+layout: toppage
 ---
-
-<!-- mathjax config similar to math.stackexchange -->
-<script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    TeX: { equationNumbers: { autoNumber: "AMS" }},
-    tex2jax: {
-      inlineMath: [ ['$','$'] ],
-      processEscapes: true
-    },
-    "HTML-CSS": { matchFontHeight: false },
-    displayAlign: "left",
-    displayIndent: "2em"
-  });
-</script>
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/jquery-balloon-js@1.1.2/jquery.balloon.min.js" integrity="sha256-ZEYs9VrgAeNuPvs15E39OsyOJaIkXEEt10fzxJ20+2I=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="assets/js/copy-button.js"></script>
-<link rel="stylesheet" href="assets/css/copy-button.css" />
-
-
-# {{ site.title }}
-
-[![Actions Status]({{ site.github.repository_url }}/workflows/verify/badge.svg)]({{ site.github.repository_url }}/actions)
-<a href="{{ site.github.repository_url }}"><img src="https://img.shields.io/github/last-commit/{{ site.github.owner_name }}/{{ site.github.repository_name }}" /></a>
-
-{% if site.github.project_tagline %}{{ site.github.project_tagline }}{% else %}This documentation is automatically generated by <a href="https://github.com/online-judge-tools/verification-helper">online-judge-tools/verification-helper</a>.{% endif %}
-
-## Library Files
-
-<div id="5058f1af8388633f609cadb75a75dc9d"></div>
-
-### .
-
-* :warning: <a href="library/generate_tex.py.html">generate_tex.py</a>
-
-
-<div id="8dc87745f885a4cc532acd7b15b8b5fe"></div>
-
-### datastructure
-
-* :heavy_check_mark: <a href="library/datastructure/binaryindexedtree.hpp.html">Binary Indexed Tree <small>(datastructure/binaryindexedtree.hpp)</small></a>
-* :heavy_check_mark: <a href="library/datastructure/queueaggregation.hpp.html">Queue Aggregation <small>(datastructure/queueaggregation.hpp)</small></a>
-* :warning: <a href="library/datastructure/segmentmap.hpp.html">区間をmapで管理するやつ <small>(datastructure/segmentmap.hpp)</small></a>
-* :heavy_check_mark: <a href="library/datastructure/sparsetable.hpp.html">Sparse Table <small>(datastructure/sparsetable.hpp)</small></a>
-
-
-<div id="053d19836570d3243deead9fd40452d5"></div>
-
-### datastructure/cumulativesum
-
-* :heavy_check_mark: <a href="library/datastructure/cumulativesum/cumulativesum.hpp.html">1次元累積和 <small>(datastructure/cumulativesum/cumulativesum.hpp)</small></a>
-* :heavy_check_mark: <a href="library/datastructure/cumulativesum/cumulativesum2d.hpp.html">2次元累積和 <small>(datastructure/cumulativesum/cumulativesum2d.hpp)</small></a>
-
-
-<div id="7f558c0e940d1b94729e8802fdbca4ee"></div>
-
-### datastructure/lr
-
-* :heavy_check_mark: <a href="library/datastructure/lr/lrmultiset.hpp.html">LR MultiSet <small>(datastructure/lr/lrmultiset.hpp)</small></a>
-* :heavy_check_mark: <a href="library/datastructure/lr/lrprique.hpp.html">LR Priority Queue <small>(datastructure/lr/lrprique.hpp)</small></a>
-
-
-<div id="23b0293042a380c2b90b74c55c0e1d22"></div>
-
-### datastructure/segmenttree
-
-* :heavy_check_mark: <a href="library/datastructure/segmenttree/lazysegmenttree.hpp.html">遅延セグメント木 <small>(datastructure/segmenttree/lazysegmenttree.hpp)</small></a>
-* :heavy_check_mark: <a href="library/datastructure/segmenttree/segmenttree.hpp.html">セグメント木 <small>(datastructure/segmenttree/segmenttree.hpp)</small></a>
-* :heavy_check_mark: <a href="library/datastructure/segmenttree/segmenttreebeats.hpp.html">Segment Tree Beats <small>(datastructure/segmenttree/segmenttreebeats.hpp)</small></a>
-
-
-<div id="30b7082b479ad4b7861d398d23468641"></div>
-
-### datastructure/unionfind
-
-* :heavy_check_mark: <a href="library/datastructure/unionfind/unionfind.hpp.html">UnionFind <small>(datastructure/unionfind/unionfind.hpp)</small></a>
-* :heavy_check_mark: <a href="library/datastructure/unionfind/weightedunionfind.hpp.html">重み付きUnionFind <small>(datastructure/unionfind/weightedunionfind.hpp)</small></a>
-
-
-<div id="f8b0b924ebd7046dbfa85a856e4682c8"></div>
-
-### graph
-
-* :heavy_check_mark: <a href="library/graph/gridgraph.hpp.html">グリッドグラフ <small>(graph/gridgraph.hpp)</small></a>
-* :heavy_check_mark: <a href="library/graph/template.hpp.html">グラフテンプレート <small>(graph/template.hpp)</small></a>
-
-
-<div id="d1cac5659bebf80b30fdbc9c35b6208b"></div>
-
-### graph/bipartite
-
-* :warning: <a href="library/graph/bipartite/bipartite_check.hpp.html">二部グラフ判定 <small>(graph/bipartite/bipartite_check.hpp)</small></a>
-* :heavy_check_mark: <a href="library/graph/bipartite/bipartite_matching.hpp.html">二部グラフの最大マッチング <small>(graph/bipartite/bipartite_matching.hpp)</small></a>
-
-
-<div id="9278425fe4cf6e9c7cdba9d11d70c354"></div>
-
-### graph/maximumflow
-
-* :heavy_check_mark: <a href="library/graph/maximumflow/dinic.hpp.html">Dinic法 <small>(graph/maximumflow/dinic.hpp)</small></a>
-* :heavy_check_mark: <a href="library/graph/maximumflow/fordfulkerson.hpp.html">FordFulkerson法 <small>(graph/maximumflow/fordfulkerson.hpp)</small></a>
-* :warning: <a href="library/graph/maximumflow/moyasu_umeru.hpp.html">燃やす埋める <small>(graph/maximumflow/moyasu_umeru.hpp)</small></a>
-
-
-<div id="4f2a5e89d3f9de5e41e39d8432f85e12"></div>
-
-### graph/minimumcostflow
-
-* :heavy_check_mark: <a href="library/graph/minimumcostflow/primaldual.hpp.html">Primal Dual <small>(graph/minimumcostflow/primaldual.hpp)</small></a>
-
-
-<div id="fd7b240ac98922caf22c9202d36f936f"></div>
-
-### graph/minimumspanningtree
-
-* :heavy_check_mark: <a href="library/graph/minimumspanningtree/kruskal.hpp.html">クラスカル法 <small>(graph/minimumspanningtree/kruskal.hpp)</small></a>
-
-
-<div id="7bdf4bef6792afd2baf0aea42eec3899"></div>
-
-### graph/other
-
-* :heavy_check_mark: <a href="library/graph/other/cycle_detection.hpp.html">閉路検出 <small>(graph/other/cycle_detection.hpp)</small></a>
-* :heavy_check_mark: <a href="library/graph/other/topological_sort.hpp.html">トポロジカルソート <small>(graph/other/topological_sort.hpp)</small></a>
-
-
-<div id="893699352036854e82d247c81f4d89a6"></div>
-
-### graph/shortestpath
-
-* :heavy_check_mark: <a href="library/graph/shortestpath/01_bfs.hpp.html">01-BFS <small>(graph/shortestpath/01_bfs.hpp)</small></a>
-* :heavy_check_mark: <a href="library/graph/shortestpath/bellmanford.hpp.html">ベルマンフォード法 <small>(graph/shortestpath/bellmanford.hpp)</small></a>
-* :heavy_check_mark: <a href="library/graph/shortestpath/dijkstra.hpp.html">ダイクストラ法 <small>(graph/shortestpath/dijkstra.hpp)</small></a>
-* :heavy_check_mark: <a href="library/graph/shortestpath/warshallfloyd.hpp.html">ワーシャルフロイド法 <small>(graph/shortestpath/warshallfloyd.hpp)</small></a>
-
-
-<div id="28790b6202284cbbffc9d712b59f4b80"></div>
-
-### graph/tree
-
-* :heavy_check_mark: <a href="library/graph/tree/hldecomposition.hpp.html">HL分解 <small>(graph/tree/hldecomposition.hpp)</small></a>
-
-
-<div id="7e676e9e663beb40fd133f5ee24487c2"></div>
-
-### math
-
-* :heavy_check_mark: <a href="library/math/extgcd.hpp.html">拡張ユークリッドの互除法 <small>(math/extgcd.hpp)</small></a>
-* :heavy_check_mark: <a href="library/math/fraction.hpp.html">Fraction (分数) <small>(math/fraction.hpp)</small></a>
-* :heavy_check_mark: <a href="library/math/modint.hpp.html">ModInt <small>(math/modint.hpp)</small></a>
-
-
-<div id="54907edcdfa59aabac4f72caf192990b"></div>
-
-### math/combination
-
-* :heavy_check_mark: <a href="library/math/combination/inverse.hpp.html">Combination (Inverse) <small>(math/combination/inverse.hpp)</small></a>
-* :heavy_check_mark: <a href="library/math/combination/pascal.hpp.html">Combination (Pascal) <small>(math/combination/pascal.hpp)</small></a>
-
-
-<div id="a9839e7477a4d9c748aee996b52a14d5"></div>
-
-### math/matrix
-
-* :warning: <a href="library/math/matrix/bitmatrix.hpp.html">BitMatrix <small>(math/matrix/bitmatrix.hpp)</small></a>
-* :heavy_check_mark: <a href="library/math/matrix/matrix.hpp.html">Matrix (行列) <small>(math/matrix/matrix.hpp)</small></a>
-* :heavy_check_mark: <a href="library/math/matrix/xorvector.hpp.html">Xor Vector <small>(math/matrix/xorvector.hpp)</small></a>
-
-
-<div id="284ec5e6a3c30a992cd88179b43d3dce"></div>
-
-### math/prime
-
-* :heavy_check_mark: <a href="library/math/prime/divisor.hpp.html">Divisor (約数) <small>(math/prime/divisor.hpp)</small></a>
-* :heavy_check_mark: <a href="library/math/prime/eratosthenes.hpp.html">エラトステネスの篩 <small>(math/prime/eratosthenes.hpp)</small></a>
-* :heavy_check_mark: <a href="library/math/prime/euler_totient.hpp.html">Euler's totient function (オイラーのφ関数) <small>(math/prime/euler_totient.hpp)</small></a>
-* :heavy_check_mark: <a href="library/math/prime/is_prime.hpp.html">素数判定 <small>(math/prime/is_prime.hpp)</small></a>
-* :heavy_check_mark: <a href="library/math/prime/osa_k.hpp.html">osa_k法 <small>(math/prime/osa_k.hpp)</small></a>
-* :heavy_check_mark: <a href="library/math/prime/prime_factor.hpp.html">Prime Factor (素因数分解) <small>(math/prime/prime_factor.hpp)</small></a>
-
-
-<div id="54de4c5e0ecfc39083b31b56ee36cb19"></div>
-
-### snippet
-
-* :warning: <a href="library/snippet/main.cpp.html">snippet/main.cpp</a>
-* :warning: <a href="library/snippet/main.hpp.html">snippet/main.hpp</a>
-* :warning: <a href="library/snippet/meguru.hpp.html">めぐる式二分探索 <small>(snippet/meguru.hpp)</small></a>
-* :warning: <a href="library/snippet/short.hpp.html">snippet/short.hpp</a>
-* :warning: <a href="library/snippet/ternarysearch.hpp.html">三分探索 <small>(snippet/ternarysearch.hpp)</small></a>
-
-
-<div id="b45cffe084dd3d20d928bee85e7b0f21"></div>
-
-### string
-
-* :heavy_check_mark: <a href="library/string/rollinghash.hpp.html">ローリングハッシュ <small>(string/rollinghash.hpp)</small></a>
-* :heavy_check_mark: <a href="library/string/suffixarray.hpp.html">接尾辞配列 (Suffix Array) <small>(string/suffixarray.hpp)</small></a>
-
-
-<div id="66f6181bcb4cff4cd38fbc804a036db6"></div>
-
-### template
-
-* :heavy_check_mark: <a href="library/template/main.hpp.html">template/main.hpp</a>
-* :heavy_check_mark: <a href="library/template/short.hpp.html">template/short.hpp</a>
-
-
-<div id="0d0c91c0cca30af9c1c9faef0cf04aa9"></div>
-
-### test/aoj
-
-* :warning: <a href="library/test/aoj/0009.cpp.html">test/aoj/0009.cpp</a>
-
-
-<div id="e8ba03245cc911ba95395348d53122a0"></div>
-
-### test/atcoder
-
-* :warning: <a href="library/test/atcoder/abc106_d.cpp.html">test/atcoder/abc106_d.cpp</a>
-* :warning: <a href="library/test/atcoder/abc157_d.unionfind.cpp.html">test/atcoder/abc157_d.unionfind.cpp</a>
-* :warning: <a href="library/test/atcoder/abc157_d.weightedunionfind.cpp.html">test/atcoder/abc157_d.weightedunionfind.cpp</a>
-
-
-<div id="05c7e24700502a079cdd88012b5a76d3"></div>
-
-### util
-
-* :warning: <a href="library/util/compress.hpp.html">座標圧縮 <small>(util/compress.hpp)</small></a>
-* :heavy_check_mark: <a href="library/util/dice.hpp.html">サイコロ <small>(util/dice.hpp)</small></a>
-* :heavy_check_mark: <a href="library/util/groupby.hpp.html">ランレングス圧縮 (groupby) <small>(util/groupby.hpp)</small></a>
-* :heavy_check_mark: <a href="library/util/inversionnumber.hpp.html">転倒数 <small>(util/inversionnumber.hpp)</small></a>
-* :warning: <a href="library/util/jury.hpp.html">インタラクティブ問題 <small>(util/jury.hpp)</small></a>
-* :warning: <a href="library/util/randomnumbergenerator.hpp.html">乱数生成器 <small>(util/randomnumbergenerator.hpp)</small></a>
-
-
-## Verify Files
-
-* :heavy_check_mark: <a href="verify/test/aoj/0502.test.cpp.html">test/aoj/0502.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/1330.test.cpp.html">test/aoj/1330.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/1501.combination.inverse.test.cpp.html">test/aoj/1501.combination.inverse.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/1501.combination.pascal.test.cpp.html">test/aoj/1501.combination.pascal.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/2945.test.cpp.html">test/aoj/2945.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/ALDS1_14_B.test.cpp.html">test/aoj/ALDS1_14_B.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/ALDS1_14_D.test.cpp.html">test/aoj/ALDS1_14_D.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/ALDS1_1_C.eratosthenes.test.cpp.html">test/aoj/ALDS1_1_C.eratosthenes.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/ALDS1_1_C.isprime.test.cpp.html">test/aoj/ALDS1_1_C.isprime.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/ALDS1_1_C.osa_k.test.cpp.html">test/aoj/ALDS1_1_C.osa_k.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/DSL_1_B.test.cpp.html">test/aoj/DSL_1_B.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/DSL_2_A.test.cpp.html">test/aoj/DSL_2_A.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/DSL_2_B.binaryindexedtree.test.cpp.html">test/aoj/DSL_2_B.binaryindexedtree.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/DSL_2_B.segmenttree.test.cpp.html">test/aoj/DSL_2_B.segmenttree.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/DSL_2_F.test.cpp.html">test/aoj/DSL_2_F.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/DSL_2_G.test.cpp.html">test/aoj/DSL_2_G.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/DSL_2_H.test.cpp.html">test/aoj/DSL_2_H.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/DSL_2_I.test.cpp.html">test/aoj/DSL_2_I.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/GRL_1_A.test.cpp.html">test/aoj/GRL_1_A.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/GRL_1_B.test.cpp.html">test/aoj/GRL_1_B.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/GRL_1_C.test.cpp.html">test/aoj/GRL_1_C.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/GRL_2_A.test.cpp.html">test/aoj/GRL_2_A.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/GRL_4_B.test.cpp.html">test/aoj/GRL_4_B.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/GRL_5_C.test.cpp.html">test/aoj/GRL_5_C.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/GRL_5_D.test.cpp.html">test/aoj/GRL_5_D.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/GRL_5_E.test.cpp.html">test/aoj/GRL_5_E.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/GRL_6_A.dinic.test.cpp.html">test/aoj/GRL_6_A.dinic.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/GRL_6_A.fordfulkerson.test.cpp.html">test/aoj/GRL_6_A.fordfulkerson.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/GRL_6_B.test.cpp.html">test/aoj/GRL_6_B.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/GRL_7_A.test.cpp.html">test/aoj/GRL_7_A.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/ITP1_11_A.test.cpp.html">test/aoj/ITP1_11_A.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/ITP1_11_B.test.cpp.html">test/aoj/ITP1_11_B.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/ITP1_11_C.test.cpp.html">test/aoj/ITP1_11_C.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/ITP1_11_D.test.cpp.html">test/aoj/ITP1_11_D.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/ITP1_1_A.short.test.cpp.html">test/aoj/ITP1_1_A.short.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/ITP1_1_A.test.cpp.html">test/aoj/ITP1_1_A.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/NTL_1_A.test.cpp.html">test/aoj/NTL_1_A.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/NTL_1_B.test.cpp.html">test/aoj/NTL_1_B.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/NTL_1_D.test.cpp.html">test/aoj/NTL_1_D.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/NTL_1_E.test.cpp.html">test/aoj/NTL_1_E.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/yosupo/determinantofmatrix.test.cpp.html">test/yosupo/determinantofmatrix.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/yosupo/pointaddrangesum.test.cpp.html">test/yosupo/pointaddrangesum.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/yosupo/rangeaffinerangesum.test.cpp.html">test/yosupo/rangeaffinerangesum.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/yosupo/rangechminchmaxaddrangesum.test.cpp.html">test/yosupo/rangechminchmaxaddrangesum.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/yosupo/staticrangesum.test.cpp.html">test/yosupo/staticrangesum.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/yosupo/staticrmq.test.cpp.html">test/yosupo/staticrmq.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/yosupo/unionfind.unionfind.test.cpp.html">test/yosupo/unionfind.unionfind.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/yosupo/unionfind.weightedunionfind.test.cpp.html">test/yosupo/unionfind.weightedunionfind.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/yosupo/vertexaddpathsum.test.cpp.html">test/yosupo/vertexaddpathsum.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/yosupo/vertexaddsubtreesum.test.cpp.html">test/yosupo/vertexaddsubtreesum.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/yukicoder/1036.test.cpp.html">test/yukicoder/1036.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/yukicoder/1050.test.cpp.html">test/yukicoder/1050.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/yukicoder/1115.test.cpp.html">test/yukicoder/1115.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/yukicoder/117.test.cpp.html">test/yukicoder/117.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/yukicoder/1183.test.cpp.html">test/yukicoder/1183.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/yukicoder/13.test.cpp.html">test/yukicoder/13.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/yukicoder/184.test.cpp.html">test/yukicoder/184.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/yukicoder/20.test.cpp.html">test/yukicoder/20.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/yukicoder/203.test.cpp.html">test/yukicoder/203.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/yukicoder/399.test.cpp.html">test/yukicoder/399.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/yukicoder/649.test.lrmultiset.cpp.html">test/yukicoder/649.test.lrmultiset.cpp</a>
-* :heavy_check_mark: <a href="verify/test/yukicoder/649.test.lrprique.cpp.html">test/yukicoder/649.test.lrprique.cpp</a>
-* :heavy_check_mark: <a href="verify/test/yukicoder/750.test.cpp.html">test/yukicoder/750.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/yukicoder/755.test.cpp.html">test/yukicoder/755.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/yukicoder/888.test.cpp.html">test/yukicoder/888.test.cpp</a>
-
-
