@@ -80,13 +80,13 @@ if __name__ == '__main__':
                                 tex=subsec_tex
                             ), shell=True)
                         subprocess.call(
-                            "sed -i -e -r \"s/^\\subsection{(.*)$/\\bf{\\1/g\" {tex}".format(
+                            "sed -i -e -r \"s/^\\subsection{{(.*)$/\\bf{\\1/g\" {tex}".format(
                                 tex=subsec_tex
                             ),
                             shell=True
                         )
                         subprocess.call(
-                            "sed -i -e -r \"s/^\\subsubsection{(.*)$/\\bf{\\small\\1/g\" {tex}".format(
+                            "sed -i -e -r \"s/^\\subsubsection{{(.*)$/\\bf{\\small\\1/g\" {tex}".format(
                                 tex=subsec_tex
                             ),
                             shell=True
@@ -109,13 +109,13 @@ if __name__ == '__main__':
                                         tex=subsubsec_tex
                                     ), shell=True)
                                 subprocess.call(
-                                    "sed -i -e -r \"s/^\\subsection{(.*)$/\\bf{\\1/g\" {tex}".format(
+                                    "sed -i -e -r \"s/^\\subsection{{(.*)$/\\bf{\\1/g\" {tex}".format(
                                         tex=subsubsec_tex
                                     ),
                                     shell=True
                                 )
                                 subprocess.call(
-                                    "sed -i -e -r \"s/^\\subsubsection{(.*)$/\\bf{\\small\\1/g\" {tex}".format(
+                                    "sed -i -e -r \"s/^\\subsubsection{{(.*)$/\\bf{\\small\\1/g\" {tex}".format(
                                         tex=subsubsec_tex
                                     ),
                                     shell=True
