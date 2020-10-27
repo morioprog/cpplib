@@ -23,7 +23,6 @@ HEADER = r'''\documentclass[a4paper,10pt,twocolumn,notitlepage]{article}
 \lstdefinestyle{mystyle}{
   basicstyle=%
     \ttfamily
-    \color{blue}%
     \lst@ifdisplaystyle\scriptsize\fi
 }
 \makeatother
