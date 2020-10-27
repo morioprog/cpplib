@@ -12,7 +12,7 @@ HEADER = r'''\documentclass[a4paper,10pt,twocolumn,notitlepage]{article}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{url}
-\usepackage[dvipdfmx]{hyperref}
+\usepackage[dvipdfmx, colorlinks=false]{hyperref}
 \usepackage{pxjahyper}
 \usepackage{xcolor}
 \usepackage{textcomp}
