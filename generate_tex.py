@@ -11,6 +11,7 @@ HEADER = r'''\documentclass[a4paper,10pt,twocolumn,notitlepage]{article}
 \usepackage{colortbl}
 \usepackage{amsmath}
 \usepackage{amsfonts}
+\usepackage{url}
 \title{Library for Competitive Programming}
 \author{morio\_\_}
 \lstset{
