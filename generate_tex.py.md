@@ -51,16 +51,16 @@ data:
     \        md=subsec_md,\n                                tex=subsec_tex\n     \
     \                       ), shell=True)\n                        subprocess.call(\n\
     \                            r'sed -i -r \"s/\\\\\\\\subsubsection(.*)$/\\\\\\\
-    \\paragraph*\\1/g\" ' +\n                            subsec_tex,\n           \
-    \                 shell=True\n                        )\n                    \
-    \    subprocess.call(\n                            r'sed -i -r \"s/\\\\\\\\subsection(.*)$/\\\
-    \\\\\\subsubsection*\\1/g\" ' +\n                            subsec_tex,\n   \
-    \                         shell=True\n                        )\n            \
-    \            tex.write(\"\\\\input{{{}}}\\n\".format(subsec_tex))\n          \
-    \          tex.write(texify_file(subsec))\n                else:\n           \
-    \         for subsec_name, v_subsubsec in subsec.items():\n                  \
-    \      tex.write(texify_tag('subsection', subsec_name))\n                    \
-    \    for subsubsec in v_subsubsec:\n                            tex.write(texify_tag(\n\
+    \\paragraph*\\1\\\\\\\\\\\\\\\\/g\" ' +\n                            subsec_tex,\n\
+    \                            shell=True\n                        )\n         \
+    \               subprocess.call(\n                            r'sed -i -r \"s/\\\
+    \\\\\\subsection(.*)$/\\\\\\\\subsubsection*\\1/g\" ' +\n                    \
+    \        subsec_tex,\n                            shell=True\n               \
+    \         )\n                        tex.write(\"\\\\input{{{}}}\\n\".format(subsec_tex))\n\
+    \                    tex.write(texify_file(subsec))\n                else:\n \
+    \                   for subsec_name, v_subsubsec in subsec.items():\n        \
+    \                tex.write(texify_tag('subsection', subsec_name))\n          \
+    \              for subsubsec in v_subsubsec:\n                            tex.write(texify_tag(\n\
     \                                'subsubsection', subsubsec['name']))\n      \
     \                      subsubsec_base = \"docs/\" + subsubsec['path'][:-4]\n \
     \                           subsubsec_md = subsubsec_base + \".md\"\n        \
@@ -71,15 +71,15 @@ data:
     \                      tex=subsubsec_tex\n                                   \
     \ ), shell=True)\n                                subprocess.call(\n         \
     \                           r'sed -i -r \"s/\\\\\\\\subsubsection(.*)$/\\\\\\\\\
-    subparagraph*\\1/g\" ' +\n                                    subsubsec_tex,\n\
-    \                                    shell=True\n                            \
-    \    )\n                                subprocess.call(\n                   \
-    \                 r'sed -i -r \"s/\\\\\\\\subsection(.*)$/\\\\\\\\paragraph*\\\
-    1/g\" ' +\n                                    subsubsec_tex,\n              \
-    \                      shell=True\n                                )\n       \
-    \                         tex.write(\n                                    \"\\\
-    \\input{{{}}}\\n\".format(subsubsec_tex))\n                            tex.write(texify_file(subsubsec))\n\
-    \        tex.write(FOOTER)\n"
+    subparagraph*\\1\\\\\\\\\\\\\\\\/g\" ' +\n                                   \
+    \ subsubsec_tex,\n                                    shell=True\n           \
+    \                     )\n                                subprocess.call(\n  \
+    \                                  r'sed -i -r \"s/\\\\\\\\subsection(.*)$/\\\\\
+    \\\\paragraph*\\1\\\\\\\\\\\\\\\\/g\" ' +\n                                  \
+    \  subsubsec_tex,\n                                    shell=True\n          \
+    \                      )\n                                tex.write(\n       \
+    \                             \"\\\\input{{{}}}\\n\".format(subsubsec_tex))\n\
+    \                            tex.write(texify_file(subsubsec))\n        tex.write(FOOTER)\n"
   dependsOn: []
   isVerificationFile: false
   path: generate_tex.py
