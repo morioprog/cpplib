@@ -34,6 +34,7 @@ HEADER = r'''\documentclass[a4paper,10pt,twocolumn,notitlepage]{article}
 \end{spacing}
 '''
 FOOTER = r'\end{document}'
+PANDOC_COMMAND = "docker run --rm -v \"$(pwd):/data\" -u $(id -u):$(id -g) pandoc/latex -r markdown-auto_identifiers --listings {md} -o {tex}"
 
 
 def isfile(file):
@@ -67,7 +68,7 @@ if __name__ == '__main__':
                     subsec_tex = subsec_base + ".tex"
                     if os.path.exists(subsec_md):
                         subprocess.call(
-                            "docker run --rm -v \"$(pwd):/data\" -u $(id -u):$(id -g) pandoc/latex -r markdown-auto_identifiers {md} -o {tex}".format(
+                            PANDOC_COMMAND.format(
                                 md=subsec_md,
                                 tex=subsec_tex
                             ), shell=True)
@@ -84,7 +85,7 @@ if __name__ == '__main__':
                             subsubsec_tex = subsubsec_base + ".tex"
                             if os.path.exists(subsubsec_md):
                                 subprocess.call(
-                                    "docker run --rm -v \"$(pwd):/data\" -u $(id -u):$(id -g) pandoc/latex -r markdown-auto_identifiers {md} -o {tex}".format(
+                                    PANDOC_COMMAND.format(
                                         md=subsubsec_md,
                                         tex=subsubsec_tex
                                     ), shell=True)
