@@ -27,6 +27,7 @@ HEADER = r'''\documentclass[a4paper,10pt,twocolumn,notitlepage]{article}
     xleftmargin=1.0cm
 }
 \def\tightlist{\itemsep1pt\parskip0pt\parsep0pt}
+\newcommand{\passthrough}[1]{\lstset{mathescape=false}#1\lstset{mathescape=true}}
 \begin{document}
 \maketitle
 \begin{spacing}{0}
