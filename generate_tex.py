@@ -12,6 +12,8 @@ HEADER = r'''\documentclass[a4paper,10pt,twocolumn,notitlepage]{article}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{url}
+\usepackage[dvipdfmx]{hyperref}
+\usepackage{pxjahyper}
 \title{Library for Competitive Programming}
 \author{morio\_\_}
 \lstset{
