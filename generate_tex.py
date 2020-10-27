@@ -14,6 +14,8 @@ HEADER = r'''\documentclass[a4paper,10pt,twocolumn,notitlepage]{article}
 \usepackage{url}
 \usepackage[dvipdfmx]{hyperref}
 \usepackage{pxjahyper}
+\usepackage{xcolor}
+\usepackage{textcomp}
 \title{Library for Competitive Programming}
 \author{morio\_\_}
 \lstset{
