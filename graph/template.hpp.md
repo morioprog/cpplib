@@ -33,23 +33,23 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/GRL_7_A.test.cpp
     title: test/aoj/GRL_7_A.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/vertexaddpathsum.test.cpp
     title: test/yosupo/vertexaddpathsum.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/vertexaddsubtreesum.test.cpp
     title: test/yosupo/vertexaddsubtreesum.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/13.test.cpp
     title: test/yukicoder/13.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/20.test.cpp
     title: test/yukicoder/20.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/399.test.cpp
     title: test/yukicoder/399.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/graph/template.md
     document_title: "\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
@@ -99,7 +99,7 @@ data:
   path: graph/template.hpp
   requiredBy: []
   timestamp: '2020-08-25 17:20:34+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/20.test.cpp
   - test/yukicoder/399.test.cpp

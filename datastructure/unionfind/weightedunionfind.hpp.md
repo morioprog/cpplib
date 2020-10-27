@@ -9,11 +9,11 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/DSL_1_B.test.cpp
     title: test/aoj/DSL_1_B.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/unionfind.weightedunionfind.test.cpp
     title: test/yosupo/unionfind.weightedunionfind.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/datastructure/unionfind/weightedunionfind.md
     document_title: "\u91CD\u307F\u4ED8\u304DUnionFind"
@@ -57,7 +57,7 @@ data:
   path: datastructure/unionfind/weightedunionfind.hpp
   requiredBy: []
   timestamp: '2020-08-25 17:20:34+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/DSL_1_B.test.cpp
   - test/aoj/1330.test.cpp

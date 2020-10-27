@@ -3,11 +3,11 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/rangechminchmaxaddrangesum.test.cpp
     title: test/yosupo/rangechminchmaxaddrangesum.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/datastructure/segmenttree/segmenttreebeats.md
     document_title: Segment Tree Beats
@@ -234,7 +234,7 @@ data:
   path: datastructure/segmenttree/segmenttreebeats.hpp
   requiredBy: []
   timestamp: '2020-08-25 17:20:34+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/rangechminchmaxaddrangesum.test.cpp
 documentation_of: datastructure/segmenttree/segmenttreebeats.hpp

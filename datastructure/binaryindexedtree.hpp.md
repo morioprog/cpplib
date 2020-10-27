@@ -6,11 +6,11 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/DSL_2_B.binaryindexedtree.test.cpp
     title: test/aoj/DSL_2_B.binaryindexedtree.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/1115.test.cpp
     title: test/yukicoder/1115.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/datastructure/binaryindexedtree.md
     document_title: Binary Indexed Tree
@@ -36,7 +36,7 @@ data:
   path: datastructure/binaryindexedtree.hpp
   requiredBy: []
   timestamp: '2020-08-25 17:20:34+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/1115.test.cpp
   - test/aoj/DSL_2_B.binaryindexedtree.test.cpp

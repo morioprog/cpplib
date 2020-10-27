@@ -3,11 +3,11 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/1115.test.cpp
     title: test/yukicoder/1115.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/util/inversionnumber.md
     document_title: "\u8EE2\u5012\u6570"
@@ -31,7 +31,7 @@ data:
   path: util/inversionnumber.hpp
   requiredBy: []
   timestamp: '2020-08-24 21:21:29+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/1115.test.cpp
 documentation_of: util/inversionnumber.hpp

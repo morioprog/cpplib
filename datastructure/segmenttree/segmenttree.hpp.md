@@ -12,17 +12,17 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/GRL_5_D.test.cpp
     title: test/aoj/GRL_5_D.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/pointaddrangesum.test.cpp
     title: test/yosupo/pointaddrangesum.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/vertexaddpathsum.test.cpp
     title: test/yosupo/vertexaddpathsum.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/vertexaddsubtreesum.test.cpp
     title: test/yosupo/vertexaddsubtreesum.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/datastructure/segmenttree/segmenttree.md
     document_title: "\u30BB\u30B0\u30E1\u30F3\u30C8\u6728"
@@ -113,7 +113,7 @@ data:
   path: datastructure/segmenttree/segmenttree.hpp
   requiredBy: []
   timestamp: '2020-09-27 22:42:12+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/DSL_2_B.segmenttree.test.cpp
   - test/aoj/DSL_2_A.test.cpp

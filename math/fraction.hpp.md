@@ -3,11 +3,11 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/750.test.cpp
     title: test/yukicoder/750.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/math/fraction.md
     document_title: "Fraction (\u5206\u6570)"
@@ -68,7 +68,7 @@ data:
   path: math/fraction.hpp
   requiredBy: []
   timestamp: '2020-08-31 14:27:20+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/750.test.cpp
 documentation_of: math/fraction.hpp

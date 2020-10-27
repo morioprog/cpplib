@@ -3,11 +3,11 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/NTL_1_D.test.cpp
     title: test/aoj/NTL_1_D.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/math/prime/euler_totient.md
     document_title: "Euler's totient function (\u30AA\u30A4\u30E9\u30FC\u306E\u03C6\
@@ -29,7 +29,7 @@ data:
   path: math/prime/euler_totient.hpp
   requiredBy: []
   timestamp: '2020-04-22 01:00:48+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/NTL_1_D.test.cpp
 documentation_of: math/prime/euler_totient.hpp

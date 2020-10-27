@@ -6,14 +6,14 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/2945.test.cpp
     title: test/aoj/2945.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/13.test.cpp
     title: test/yukicoder/13.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/20.test.cpp
     title: test/yukicoder/20.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/graph/gridgraph.md
     document_title: "\u30B0\u30EA\u30C3\u30C9\u30B0\u30E9\u30D5"
@@ -112,7 +112,7 @@ data:
   path: graph/gridgraph.hpp
   requiredBy: []
   timestamp: '2020-08-25 17:20:34+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/20.test.cpp
   - test/yukicoder/13.test.cpp
