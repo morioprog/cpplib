@@ -90,12 +90,12 @@ if __name__ == '__main__':
                                 tex=subsec_tex
                             ), shell=True)
                         subprocess.call(
-                            r'sed -i -r "s/\\\\subsubsection\{(.*)$/\\\\noindent{\\\\bf \\\\small \1/g" ' +
+                            r'sed -i -r "s/\\\\subsubsection(.*)$/\\\\paragraph*\1/g" ' +
                             subsec_tex,
                             shell=True
                         )
                         subprocess.call(
-                            r'sed -i -r "s/\\\\subsection\{(.*)$/\\\\noindent{\\\\bf \1/g" ' +
+                            r'sed -i -r "s/\\\\subsection(.*)$/\\\\subsubsection*\1/g" ' +
                             subsec_tex,
                             shell=True
                         )
@@ -117,12 +117,12 @@ if __name__ == '__main__':
                                         tex=subsubsec_tex
                                     ), shell=True)
                                 subprocess.call(
-                                    r'sed -i -r "s/\\\\subsubsection\{(.*)$/\\\\noindent{\\\\bf \\\\small \1/g" ' +
+                                    r'sed -i -r "s/\\\\subsubsection(.*)$/\\\\subparagraph*\1/g" ' +
                                     subsubsec_tex,
                                     shell=True
                                 )
                                 subprocess.call(
-                                    r'sed -i -r "s/\\\\subsection\{(.*)$/\\\\noindent{\\\\bf \1/g" ' +
+                                    r'sed -i -r "s/\\\\subsection(.*)$/\\\\paragraph*\1/g" ' +
                                     subsubsec_tex,
                                     shell=True
                                 )
