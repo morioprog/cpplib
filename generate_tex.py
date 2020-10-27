@@ -29,7 +29,8 @@ HEADER = r'''\documentclass[a4paper,10pt,twocolumn,notitlepage]{article}
     frame=tlRB,
     framesep=5pt,
     linewidth=0.95\linewidth,
-    xleftmargin=1.0cm
+    xleftmargin=1.0cm,
+    upquote=false
 }
 \def\tightlist{\itemsep1pt\parskip0pt\parsep0pt}
 \newcommand{\passthrough}[1]{\lstset{mathescape=false}#1\lstset{mathescape=true}}
