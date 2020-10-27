@@ -18,6 +18,15 @@ HEADER = r'''\documentclass[a4paper,10pt,twocolumn,notitlepage]{article}
 \usepackage{textcomp}
 \title{Library for Competitive Programming}
 \author{morio\_\_}
+% https://tex.stackexchange.com/questions/161549/scaling-inline-code-to-the-current-font-size/161551#161551
+\makeatletter
+\lstdefinestyle{mystyle}{
+  basicstyle=%
+    \ttfamily
+    \color{blue}%
+    \lst@ifdisplaystyle\scriptsize\fi
+}
+\makeatother
 \lstset{
     language=C++,
     numbers=left,
@@ -30,7 +39,8 @@ HEADER = r'''\documentclass[a4paper,10pt,twocolumn,notitlepage]{article}
     framesep=5pt,
     linewidth=0.95\linewidth,
     xleftmargin=1.0cm,
-    upquote=false
+    upquote=false,
+    style=mystyle
 }
 \def\tightlist{\itemsep1pt\parskip0pt\parsep0pt}
 \newcommand{\passthrough}[1]{\lstset{mathescape=false}#1\lstset{mathescape=true}}
