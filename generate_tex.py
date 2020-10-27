@@ -1,4 +1,6 @@
 import yaml
+import os
+import subprocess
 
 INPUT_YAML = r'lib.yml'
 OUTPUT_TEX = r'library.tex'
@@ -32,14 +34,22 @@ HEADER = r'''\documentclass[a4paper,10pt,twocolumn,notitlepage]{article}
 '''
 FOOTER = r'\end{document}'
 
+
 def isfile(file):
     return all(i in file for i in ['name', 'prefix', 'path'])
+
 
 def texify_tag(tag, name):
     return '\\{}{{{}}}\n'.format(tag, name)
 
-def texify_file(file, sec):
-    return texify_tag(sec, file['name']) + '\\lstinputlisting{{{}}}\n'.format(file['path'])
+
+def texify_file(file):
+    return '\\lstinputlisting{{{}}}\n'.format(file['path'])
+
+# https://dev.classmethod.jp/articles/pandoc-markdown2html/#toc-6
+# https://github.com/pandoc/pandoc-action-example
+# docker run --rm --volume "$(pwd):/data" --user $(id -u):$(id -g) pandoc/latex README.md -o README.pdf
+
 
 if __name__ == '__main__':
     with open(INPUT_YAML, 'r') as lib, open(OUTPUT_TEX, 'w') as tex:
@@ -49,10 +59,35 @@ if __name__ == '__main__':
             tex.write(texify_tag('section', sec))
             for subsec in v_subsec:
                 if isfile(subsec):
-                    tex.write(texify_file(subsec, 'subsection'))
+                    tex.write(texify_tag('subsection', subsec['name']))
+                    subsec_base = "docs/" + \
+                        subsec['path'][:-4]   # 拡張子(.hpp)を除く
+                    subsec_md = subsec_base + ".md"
+                    subsec_tex = subsec_base + ".tex"
+                    if os.path.exists(subsec_md):
+                        subprocess.call(
+                            "docker run --rm -v \"$(pwd):/data\" -u $(id -u):$(id -g) pandoc/latex -r markdown-auto_identifiers {md} -o {tex}".format(
+                                md=subsec_md,
+                                tex=subsec_tex
+                            ), shell=True)
+                        tex.write("\\input{{{}}}\n".format(subsec_tex))
+                    tex.write(texify_file(subsec))
                 else:
                     for subsec_name, v_subsubsec in subsec.items():
                         tex.write(texify_tag('subsection', subsec_name))
                         for subsubsec in v_subsubsec:
-                            tex.write(texify_file(subsubsec, 'subsubsection'))
+                            tex.write(texify_tag(
+                                'subsubsection', subsubsec['name']))
+                            subsubsec_base = "docs/" + subsubsec['path'][:-4]
+                            subsubsec_md = subsubsec_base + ".md"
+                            subsubsec_tex = subsubsec_base + ".tex"
+                            if os.path.exists(subsubsec_md):
+                                subprocess.call(
+                                    "docker run --rm -v \"$(pwd):/data\" -u $(id -u):$(id -g) pandoc/latex -r markdown-auto_identifiers {md} -o {tex}".format(
+                                        md=subsubsec_md,
+                                        tex=subsubsec_tex
+                                    ), shell=True)
+                                tex.write(
+                                    "\\input{{{}}}\n".format(subsubsec_tex))
+                            tex.write(texify_file(subsubsec))
         tex.write(FOOTER)
