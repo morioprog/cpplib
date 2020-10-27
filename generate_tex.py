@@ -79,6 +79,18 @@ if __name__ == '__main__':
                                 md=subsec_md,
                                 tex=subsec_tex
                             ), shell=True)
+                        subprocess.call(
+                            "sed -i -e -r \"s/^\\subsection{(.*)$/\\bf{\\1/g\" {tex}".format(
+                                tex=subsec_tex
+                            ),
+                            shell=True
+                        )
+                        subprocess.call(
+                            "sed -i -e -r \"s/^\\subsubsection{(.*)$/\\bf{\\small\\1/g\" {tex}".format(
+                                tex=subsec_tex
+                            ),
+                            shell=True
+                        )
                         tex.write("\\input{{{}}}\n".format(subsec_tex))
                     tex.write(texify_file(subsec))
                 else:
@@ -96,6 +108,18 @@ if __name__ == '__main__':
                                         md=subsubsec_md,
                                         tex=subsubsec_tex
                                     ), shell=True)
+                                subprocess.call(
+                                    "sed -i -e -r \"s/^\\subsection{(.*)$/\\bf{\\1/g\" {tex}".format(
+                                        tex=subsubsec_tex
+                                    ),
+                                    shell=True
+                                )
+                                subprocess.call(
+                                    "sed -i -e -r \"s/^\\subsubsection{(.*)$/\\bf{\\small\\1/g\" {tex}".format(
+                                        tex=subsubsec_tex
+                                    ),
+                                    shell=True
+                                )
                                 tex.write(
                                     "\\input{{{}}}\n".format(subsubsec_tex))
                             tex.write(texify_file(subsubsec))
