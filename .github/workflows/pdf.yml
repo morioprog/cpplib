@@ -25,6 +25,10 @@ jobs:
 
       - name: Generate TeX
         run: python3 generate_tex.py
+      
+      - name: Tweak TeX layout
+        run: |
+          sed -i -r "s/^(.*)section(.*)サイコロ(.*)$/\\\\newpage \1section\2サイコロ\3/g" library.tex
 
       - name: Make PDF
         run: |
