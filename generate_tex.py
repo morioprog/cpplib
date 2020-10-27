@@ -26,6 +26,7 @@ HEADER = r'''\documentclass[a4paper,10pt,twocolumn,notitlepage]{article}
     linewidth=0.95\linewidth,
     xleftmargin=1.0cm
 }
+\def\tightlist{\itemsep1pt\parskip0pt\parsep0pt}
 \begin{document}
 \maketitle
 \begin{spacing}{0}
