@@ -182,17 +182,3 @@
   - name: サイコロ
     prefix: [dice]
     path: util/dice.hpp
-
-スニペット:
-  - name: めぐる式二分探索
-    prefix: [meguru]
-    path: snippet/meguru.hpp
-  - name: 三分探索
-    prefix: [ternary]
-    path: snippet/ternarysearch.hpp
-  - name: Template with main func
-    prefix: [template_main]
-    path: snippet/main.hpp
-  - name: Template (short) with main func
-    prefix: [template_short]
-    path: snippet/short.hpp

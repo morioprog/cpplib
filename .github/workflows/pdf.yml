@@ -12,6 +12,9 @@ jobs:
       - name: Pull docker (paperist/alpine-texlive-ja)
         uses: docker://paperist/alpine-texlive-ja
       
+      - name: Pull docker (pandoc/latex)
+        uses: docker://pandoc/latex
+      
       - name: Set up Python
         uses: actions/setup-python@v1
       
