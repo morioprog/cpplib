@@ -18,9 +18,10 @@ data:
     \ = r'library.tex'\nHEADER = r'''\\documentclass[a4paper,10pt,twocolumn,notitlepage]{article}\n\
     \\usepackage[top=10truemm,bottom=15truemm,left=10truemm,right=10truemm]{geometry}\n\
     \\usepackage{setspace}\n\\usepackage{listings, jlisting}\n\\usepackage{colortbl}\n\
-    \\usepackage{amsmath}\n\\usepackage{amsfonts}\n\\usepackage{url}\n\\usepackage[dvipdfmx]{hyperref}\n\
-    \\usepackage{pxjahyper}\n\\usepackage{xcolor}\n\\usepackage{textcomp}\n\\title{Library\
-    \ for Competitive Programming}\n\\author{morio\\_\\_}\n% https://tex.stackexchange.com/questions/161549/scaling-inline-code-to-the-current-font-size/161551#161551\n\
+    \\usepackage{amsmath}\n\\usepackage{amsfonts}\n\\usepackage{url}\n\\usepackage[dvipdfmx,\
+    \ colorlinks=false]{hyperref}\n\\usepackage{pxjahyper}\n\\usepackage{xcolor}\n\
+    \\usepackage{textcomp}\n\\title{Library for Competitive Programming}\n\\author{morio\\\
+    _\\_}\n% https://tex.stackexchange.com/questions/161549/scaling-inline-code-to-the-current-font-size/161551#161551\n\
     \\makeatletter\n\\lstdefinestyle{mystyle}{\n  basicstyle=%\n    \\ttfamily\n \
     \   \\lst@ifdisplaystyle\\scriptsize\\fi\n}\n\\makeatother\n\\lstset{\n    language=C++,\n\
     \    numbers=left,\n    breaklines=true,\n    basicstyle=\\tiny\\ttfamily,\n \
