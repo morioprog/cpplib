@@ -15,7 +15,7 @@ data:
     \ basedir=basedir).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.0/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/python.py\"\
     , line 85, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
   code: "import yaml\nimport os\nimport subprocess\n\nINPUT_YAML = r'lib.yml'\nOUTPUT_TEX\
-    \ = r'library.tex'\nHEADER = r'''\\documentclass[a4paper,10pt,twocolumn,notitlepage]{article}\n\
+    \ = r'library.tex'\nHEADER = r'''\\documentclass[8pt,a4paper,10pt,twocolumn,notitlepage]{article}\n\
     \\usepackage[top=10truemm,bottom=15truemm,left=10truemm,right=10truemm]{geometry}\n\
     \\usepackage{setspace}\n\\usepackage{listings, jlisting}\n\\usepackage{colortbl}\n\
     \\usepackage{amsmath}\n\\usepackage{amsfonts}\n\\usepackage{url}\n\\usepackage[dvipdfmx,\
