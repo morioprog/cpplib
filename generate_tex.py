@@ -48,6 +48,7 @@ HEADER = r'''\documentclass[a4paper,8pt,twocolumn,notitlepage,landscape]{extarti
 \begin{spacing}{0}
     \tableofcontents
 \end{spacing}
+\newpage
 '''
 FOOTER = r'\end{document}'
 PANDOC_COMMAND = "docker run --rm -v \"$(pwd):/data\" -u $(id -u):$(id -g) pandoc/latex -r markdown-auto_identifiers --listings {md} -o {tex}"
