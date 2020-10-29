@@ -4,7 +4,7 @@ import subprocess
 
 INPUT_YAML = r'lib.yml'
 OUTPUT_TEX = r'library.tex'
-HEADER = r'''\documentclass[8pt,a4paper,10pt,twocolumn,notitlepage]{article}
+HEADER = r'''\documentclass[a4paper,8pt,twocolumn,notitlepage]{article}
 \usepackage[top=10truemm,bottom=15truemm,left=10truemm,right=10truemm]{geometry}
 \usepackage{setspace}
 \usepackage{listings, jlisting}
