@@ -5,19 +5,19 @@ on: push
 jobs:
   build:
     runs-on: ubuntu-latest
-    
+
     steps:
       - uses: actions/checkout@v1
 
       - name: Pull docker (paperist/alpine-texlive-ja)
         uses: docker://paperist/alpine-texlive-ja
-      
+
       - name: Pull docker (pandoc/latex)
         uses: docker://pandoc/latex
-      
+
       - name: Set up Python
         uses: actions/setup-python@v1
-      
+
       - name: Install YAML library
         run: pip3 install pyyaml
 
@@ -25,17 +25,13 @@ jobs:
 
       - name: Generate TeX
         run: python3 generate_tex.py
-      
-      - name: Tweak TeX layout
-        run: |
-          sed -i -r "s/^(.*)section(.*)サイコロ(.*)$/\\\\newpage \1section\2サイコロ\3/g" library.tex
 
       - name: Make PDF
         run: |
           docker run --rm -v "`pwd`":/workdir paperist/alpine-texlive-ja platex library.tex
           docker run --rm -v "`pwd`":/workdir paperist/alpine-texlive-ja platex library.tex
           docker run --rm -v "`pwd`":/workdir paperist/alpine-texlive-ja dvipdfmx library.dvi
-      
+
       - name: Move PDF
         run: mv library.pdf output
 
