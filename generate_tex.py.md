@@ -31,8 +31,8 @@ data:
     \    upquote=false,\n    style=mystyle\n}\n\\def\\tightlist{\\itemsep1pt\\parskip0pt\\\
     parsep0pt}\n\\newcommand{\\passthrough}[1]{\\lstset{mathescape=false}#1\\lstset{mathescape=true}}\n\
     \\begin{document}\n\\maketitle\n\\begin{spacing}{0}\n    \\tableofcontents\n\\\
-    end{spacing}\n'''\nFOOTER = r'\\end{document}'\nPANDOC_COMMAND = \"docker run\
-    \ --rm -v \\\"$(pwd):/data\\\" -u $(id -u):$(id -g) pandoc/latex -r markdown-auto_identifiers\
+    end{spacing}\n\\newpage\n'''\nFOOTER = r'\\end{document}'\nPANDOC_COMMAND = \"\
+    docker run --rm -v \\\"$(pwd):/data\\\" -u $(id -u):$(id -g) pandoc/latex -r markdown-auto_identifiers\
     \ --listings {md} -o {tex}\"\n\n\ndef isfile(file):\n    return all(i in file\
     \ for i in ['name', 'prefix', 'path'])\n\n\ndef texify_tag(tag, name):\n    return\
     \ '\\\\{}{{{}}}\\n'.format(tag, name)\n\n\ndef texify_file(file):\n    return\
