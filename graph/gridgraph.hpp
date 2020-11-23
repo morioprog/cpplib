@@ -10,11 +10,11 @@ struct GridGraph : Graph<T> {
     using Graph<T>::mat;
     const int Gdx[9] = { 1, 0, -1, 0, 1, -1, -1, 1, 0 };
     const int Gdy[9] = { 0, 1, 0, -1, -1, -1, 1, 1, 0 };
-    int H, W;
+    int H, W, S;
     GridGraph() {}
-    GridGraph(int h, int w)
-        : H(h), W(w) {
-        V = h * w;
+    GridGraph(int h, int w, int s = 0)
+        : H(h), W(w), S(s) {
+        V = h * w + s;
         E = 0;
         mat.resize(V);
     }
@@ -23,6 +23,9 @@ struct GridGraph : Graph<T> {
     }
     inline int hash(const int h, const int w, const int margin = 0) const {
         return (h - margin) * W + (w - margin);
+    }
+    inline int hash_super(const int s, const int margin = 0) const {
+        return H * W + (s - margin);
     }
     inline void add_edge(int ax, int ay, int bx, int by, T c = 1, int margin = 0) {
         ax -= margin, ay -= margin, bx -= margin, by -= margin;
@@ -39,6 +42,11 @@ struct GridGraph : Graph<T> {
         mat[a].emplace_back(a, b, c, E++);
         mat[b].emplace_back(b, a, c, E++);
     }
+    inline void add_edge(int a, int b, T c = 1, int margin = 0) {
+        a -= margin, b -= margin;
+        mat[a].emplace_back(a, b, c, E++);
+        mat[b].emplace_back(b, a, c, E++);
+    }
     inline void add_arc(int ax, int ay, int bx, int by, T c = 1, int margin = 0) {
         ax -= margin, ay -= margin, bx -= margin, by -= margin;
         int a = hash(ax, ay), b = hash(bx, by);
@@ -50,6 +58,10 @@ struct GridGraph : Graph<T> {
         tie(bx, by) = bp;
         ax -= margin, ay -= margin, bx -= margin, by -= margin;
         int a = hash(ax, ay), b = hash(bx, by);
+        mat[a].emplace_back(a, b, c, E++);
+    }
+    inline void add_arc(int a, int b, T c = 1, int margin = 0) {
+        a -= margin, b -= margin;
         mat[a].emplace_back(a, b, c, E++);
     }
     inline void input_edges(int M, int margin = 0, bool need_cost = false) {
