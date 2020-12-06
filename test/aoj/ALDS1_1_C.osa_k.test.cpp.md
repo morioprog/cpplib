@@ -118,7 +118,7 @@ data:
     \ {\n        cin.tie(nullptr); ios::sync_with_stdio(false);\n        cout << fixed\
     \ << setprecision(20);\n        cerr << fixed << setprecision(5);\n    };\n} ABRACADABRA;\n\
     // clang-format off\n#pragma endregion\n#line 1 \"math/prime/osa_k.hpp\"\n/**\n\
-    * @brief osa_k\u6CD5\n* @docs docs/math/prime/osa_k.hpp\n* @see https://qiita.com/rsk0315_h4x/items/ff3b542a4468679fb409\n\
+    * @brief osa_k\u6CD5\n* @docs docs/math/prime/osa_k.md\n* @see https://qiita.com/rsk0315_h4x/items/ff3b542a4468679fb409\n\
     */\n\nstruct osa_k {\n    int N;\n    vector<int> min_prime;\n    osa_k(int _N)\n\
     \        : N(_N + 1), min_prime(N) {\n        iota(min_prime.begin(), min_prime.end(),\
     \ 0);\n        for (int p = 2; p * p <= N; ++p) {\n            if (min_prime[p]\
@@ -145,7 +145,7 @@ data:
   isVerificationFile: true
   path: test/aoj/ALDS1_1_C.osa_k.test.cpp
   requiredBy: []
-  timestamp: '2020-09-27 21:24:38+09:00'
+  timestamp: '2020-12-06 13:40:38+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/ALDS1_1_C.osa_k.test.cpp
