@@ -1,6 +1,6 @@
 /**
 * @brief osa_k法
-* @docs docs/math/prime/osa_k.hpp
+* @docs docs/math/prime/osa_k.md
 * @see https://qiita.com/rsk0315_h4x/items/ff3b542a4468679fb409
 */
 
