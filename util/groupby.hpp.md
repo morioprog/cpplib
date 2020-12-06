@@ -37,8 +37,8 @@ data:
   timestamp: '2020-08-24 19:38:59+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yukicoder/203.test.cpp
   - test/yukicoder/1183.test.cpp
+  - test/yukicoder/203.test.cpp
 documentation_of: util/groupby.hpp
 layout: document
 redirect_from:

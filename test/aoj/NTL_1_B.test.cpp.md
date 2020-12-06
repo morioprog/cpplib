@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/modint.hpp
     title: ModInt
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/main.hpp
     title: template/main.hpp
   _extendedRequiredBy: []

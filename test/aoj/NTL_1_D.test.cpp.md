@@ -5,7 +5,7 @@ data:
     path: math/prime/euler_totient.hpp
     title: "Euler's totient function (\u30AA\u30A4\u30E9\u30FC\u306E\u03C6\u95A2\u6570\
       )"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/main.hpp
     title: template/main.hpp
   _extendedRequiredBy: []

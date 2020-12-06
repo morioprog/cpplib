@@ -116,8 +116,8 @@ data:
   timestamp: '2020-08-25 17:20:34+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yukicoder/1050.test.cpp
   - test/yosupo/determinantofmatrix.test.cpp
+  - test/yukicoder/1050.test.cpp
 documentation_of: math/matrix/matrix.hpp
 layout: document
 redirect_from:

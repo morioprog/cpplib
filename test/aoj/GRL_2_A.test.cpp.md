@@ -7,10 +7,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: graph/minimumspanningtree/kruskal.hpp
     title: "\u30AF\u30E9\u30B9\u30AB\u30EB\u6CD5"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: graph/template.hpp
     title: "\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/main.hpp
     title: template/main.hpp
   _extendedRequiredBy: []

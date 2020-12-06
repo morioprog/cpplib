@@ -165,7 +165,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/1183.test.cpp
     title: test/yukicoder/1183.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yukicoder/13.test.cpp
     title: test/yukicoder/13.test.cpp
   - icon: ':heavy_check_mark:'
@@ -196,7 +196,7 @@ data:
     path: test/yukicoder/888.test.cpp
     title: test/yukicoder/888.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 1 \"template/main.hpp\"\n#pragma region optimize\n// #pragma\
@@ -405,72 +405,72 @@ data:
   path: template/main.hpp
   requiredBy: []
   timestamp: '2020-09-27 21:24:38+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/yukicoder/203.test.cpp
-  - test/yukicoder/1183.test.cpp
-  - test/yukicoder/1050.test.cpp
-  - test/yukicoder/750.test.cpp
-  - test/yukicoder/888.test.cpp
-  - test/yukicoder/755.test.cpp
-  - test/yukicoder/20.test.cpp
-  - test/yukicoder/399.test.cpp
-  - test/yukicoder/117.test.cpp
-  - test/yukicoder/1115.test.cpp
-  - test/yukicoder/649.test.lrprique.cpp
-  - test/yukicoder/1036.test.cpp
-  - test/yukicoder/13.test.cpp
-  - test/yukicoder/649.test.lrmultiset.cpp
-  - test/yukicoder/184.test.cpp
-  - test/aoj/GRL_5_C.test.cpp
-  - test/aoj/GRL_6_A.fordfulkerson.test.cpp
-  - test/aoj/DSL_2_F.test.cpp
-  - test/aoj/GRL_1_B.test.cpp
-  - test/aoj/DSL_2_G.test.cpp
-  - test/aoj/GRL_6_B.test.cpp
-  - test/aoj/ITP1_11_C.test.cpp
-  - test/aoj/ALDS1_1_C.isprime.test.cpp
-  - test/aoj/ITP1_1_A.test.cpp
-  - test/aoj/DSL_1_B.test.cpp
-  - test/aoj/ALDS1_14_B.test.cpp
-  - test/aoj/1330.test.cpp
-  - test/aoj/DSL_2_B.binaryindexedtree.test.cpp
-  - test/aoj/2945.test.cpp
-  - test/aoj/GRL_7_A.test.cpp
-  - test/aoj/ALDS1_1_C.eratosthenes.test.cpp
-  - test/aoj/NTL_1_D.test.cpp
-  - test/aoj/NTL_1_B.test.cpp
-  - test/aoj/GRL_2_A.test.cpp
-  - test/aoj/ALDS1_1_C.osa_k.test.cpp
-  - test/aoj/ITP1_11_D.test.cpp
-  - test/aoj/DSL_2_B.segmenttree.test.cpp
-  - test/aoj/NTL_1_E.test.cpp
-  - test/aoj/DSL_2_A.test.cpp
-  - test/aoj/GRL_1_C.test.cpp
-  - test/aoj/GRL_1_A.test.cpp
-  - test/aoj/1501.combination.pascal.test.cpp
-  - test/aoj/GRL_5_E.test.cpp
-  - test/aoj/ITP1_11_B.test.cpp
-  - test/aoj/ALDS1_14_D.test.cpp
-  - test/aoj/NTL_1_A.test.cpp
-  - test/aoj/DSL_2_H.test.cpp
-  - test/aoj/GRL_5_D.test.cpp
-  - test/aoj/1501.combination.inverse.test.cpp
-  - test/aoj/DSL_2_I.test.cpp
-  - test/aoj/GRL_4_B.test.cpp
-  - test/aoj/ITP1_11_A.test.cpp
-  - test/aoj/0502.test.cpp
-  - test/aoj/GRL_6_A.dinic.test.cpp
-  - test/yosupo/rangechminchmaxaddrangesum.test.cpp
-  - test/yosupo/unionfind.weightedunionfind.test.cpp
-  - test/yosupo/pointaddrangesum.test.cpp
-  - test/yosupo/staticrangesum.test.cpp
   - test/yosupo/rangeaffinerangesum.test.cpp
   - test/yosupo/determinantofmatrix.test.cpp
-  - test/yosupo/vertexaddsubtreesum.test.cpp
-  - test/yosupo/staticrmq.test.cpp
-  - test/yosupo/vertexaddpathsum.test.cpp
+  - test/yosupo/unionfind.weightedunionfind.test.cpp
   - test/yosupo/unionfind.unionfind.test.cpp
+  - test/yosupo/vertexaddpathsum.test.cpp
+  - test/yosupo/rangechminchmaxaddrangesum.test.cpp
+  - test/yosupo/vertexaddsubtreesum.test.cpp
+  - test/yosupo/staticrangesum.test.cpp
+  - test/yosupo/staticrmq.test.cpp
+  - test/yosupo/pointaddrangesum.test.cpp
+  - test/yukicoder/1183.test.cpp
+  - test/yukicoder/1036.test.cpp
+  - test/yukicoder/13.test.cpp
+  - test/yukicoder/184.test.cpp
+  - test/yukicoder/649.test.lrmultiset.cpp
+  - test/yukicoder/888.test.cpp
+  - test/yukicoder/1050.test.cpp
+  - test/yukicoder/399.test.cpp
+  - test/yukicoder/117.test.cpp
+  - test/yukicoder/649.test.lrprique.cpp
+  - test/yukicoder/203.test.cpp
+  - test/yukicoder/750.test.cpp
+  - test/yukicoder/20.test.cpp
+  - test/yukicoder/1115.test.cpp
+  - test/yukicoder/755.test.cpp
+  - test/aoj/0502.test.cpp
+  - test/aoj/DSL_1_B.test.cpp
+  - test/aoj/ITP1_11_A.test.cpp
+  - test/aoj/ITP1_11_D.test.cpp
+  - test/aoj/DSL_2_B.binaryindexedtree.test.cpp
+  - test/aoj/DSL_2_G.test.cpp
+  - test/aoj/NTL_1_A.test.cpp
+  - test/aoj/ALDS1_1_C.eratosthenes.test.cpp
+  - test/aoj/GRL_2_A.test.cpp
+  - test/aoj/1501.combination.inverse.test.cpp
+  - test/aoj/1330.test.cpp
+  - test/aoj/GRL_1_B.test.cpp
+  - test/aoj/NTL_1_E.test.cpp
+  - test/aoj/ALDS1_14_D.test.cpp
+  - test/aoj/ALDS1_1_C.osa_k.test.cpp
+  - test/aoj/1501.combination.pascal.test.cpp
+  - test/aoj/GRL_6_A.dinic.test.cpp
+  - test/aoj/DSL_2_F.test.cpp
+  - test/aoj/DSL_2_I.test.cpp
+  - test/aoj/GRL_5_E.test.cpp
+  - test/aoj/DSL_2_H.test.cpp
+  - test/aoj/GRL_6_A.fordfulkerson.test.cpp
+  - test/aoj/DSL_2_A.test.cpp
+  - test/aoj/DSL_2_B.segmenttree.test.cpp
+  - test/aoj/GRL_1_C.test.cpp
+  - test/aoj/ALDS1_14_B.test.cpp
+  - test/aoj/NTL_1_D.test.cpp
+  - test/aoj/2945.test.cpp
+  - test/aoj/GRL_5_C.test.cpp
+  - test/aoj/GRL_6_B.test.cpp
+  - test/aoj/GRL_1_A.test.cpp
+  - test/aoj/GRL_7_A.test.cpp
+  - test/aoj/GRL_5_D.test.cpp
+  - test/aoj/ALDS1_1_C.isprime.test.cpp
+  - test/aoj/NTL_1_B.test.cpp
+  - test/aoj/ITP1_11_C.test.cpp
+  - test/aoj/ITP1_11_B.test.cpp
+  - test/aoj/GRL_4_B.test.cpp
+  - test/aoj/ITP1_1_A.test.cpp
 documentation_of: template/main.hpp
 layout: document
 redirect_from:

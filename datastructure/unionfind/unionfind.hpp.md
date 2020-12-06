@@ -41,8 +41,8 @@ data:
   timestamp: '2020-08-25 17:20:34+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/aoj/GRL_2_A.test.cpp
   - test/yosupo/unionfind.unionfind.test.cpp
+  - test/aoj/GRL_2_A.test.cpp
 documentation_of: datastructure/unionfind/unionfind.hpp
 layout: document
 redirect_from:

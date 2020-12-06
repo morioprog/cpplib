@@ -112,13 +112,13 @@ data:
   timestamp: '2020-09-27 22:42:12+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/yosupo/rangeaffinerangesum.test.cpp
   - test/yukicoder/399.test.cpp
-  - test/aoj/DSL_2_F.test.cpp
   - test/aoj/DSL_2_G.test.cpp
+  - test/aoj/DSL_2_F.test.cpp
+  - test/aoj/DSL_2_I.test.cpp
   - test/aoj/GRL_5_E.test.cpp
   - test/aoj/DSL_2_H.test.cpp
-  - test/aoj/DSL_2_I.test.cpp
-  - test/yosupo/rangeaffinerangesum.test.cpp
 documentation_of: datastructure/segmenttree/lazysegmenttree.hpp
 layout: document
 redirect_from:

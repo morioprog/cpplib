@@ -103,12 +103,12 @@ data:
   timestamp: '2020-08-25 17:20:34+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yukicoder/399.test.cpp
-  - test/aoj/GRL_5_C.test.cpp
-  - test/aoj/GRL_5_E.test.cpp
-  - test/aoj/GRL_5_D.test.cpp
-  - test/yosupo/vertexaddsubtreesum.test.cpp
   - test/yosupo/vertexaddpathsum.test.cpp
+  - test/yosupo/vertexaddsubtreesum.test.cpp
+  - test/yukicoder/399.test.cpp
+  - test/aoj/GRL_5_E.test.cpp
+  - test/aoj/GRL_5_C.test.cpp
+  - test/aoj/GRL_5_D.test.cpp
 documentation_of: graph/tree/hldecomposition.hpp
 layout: document
 redirect_from:

@@ -59,9 +59,9 @@ data:
   timestamp: '2020-08-25 17:20:34+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/yosupo/unionfind.weightedunionfind.test.cpp
   - test/aoj/DSL_1_B.test.cpp
   - test/aoj/1330.test.cpp
-  - test/yosupo/unionfind.weightedunionfind.test.cpp
 documentation_of: datastructure/unionfind/weightedunionfind.hpp
 layout: document
 redirect_from:

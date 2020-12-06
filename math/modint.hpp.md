@@ -98,12 +98,12 @@ data:
   timestamp: '2020-08-25 17:20:34+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/yosupo/determinantofmatrix.test.cpp
   - test/yukicoder/1050.test.cpp
   - test/yukicoder/117.test.cpp
-  - test/aoj/NTL_1_B.test.cpp
-  - test/aoj/1501.combination.pascal.test.cpp
   - test/aoj/1501.combination.inverse.test.cpp
-  - test/yosupo/determinantofmatrix.test.cpp
+  - test/aoj/1501.combination.pascal.test.cpp
+  - test/aoj/NTL_1_B.test.cpp
 documentation_of: math/modint.hpp
 layout: document
 redirect_from:

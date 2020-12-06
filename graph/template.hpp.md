@@ -39,7 +39,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/vertexaddsubtreesum.test.cpp
     title: test/yosupo/vertexaddsubtreesum.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yukicoder/13.test.cpp
     title: test/yukicoder/13.test.cpp
   - icon: ':heavy_check_mark:'
@@ -49,7 +49,7 @@ data:
     path: test/yukicoder/399.test.cpp
     title: test/yukicoder/399.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/graph/template.md
     document_title: "\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
@@ -99,23 +99,23 @@ data:
   path: graph/template.hpp
   requiredBy: []
   timestamp: '2020-08-25 17:20:34+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/yukicoder/20.test.cpp
-  - test/yukicoder/399.test.cpp
+  - test/yosupo/vertexaddpathsum.test.cpp
+  - test/yosupo/vertexaddsubtreesum.test.cpp
   - test/yukicoder/13.test.cpp
-  - test/aoj/GRL_5_C.test.cpp
-  - test/aoj/GRL_1_B.test.cpp
-  - test/aoj/2945.test.cpp
-  - test/aoj/GRL_7_A.test.cpp
+  - test/yukicoder/399.test.cpp
+  - test/yukicoder/20.test.cpp
   - test/aoj/GRL_2_A.test.cpp
-  - test/aoj/GRL_1_C.test.cpp
-  - test/aoj/GRL_1_A.test.cpp
+  - test/aoj/GRL_1_B.test.cpp
   - test/aoj/GRL_5_E.test.cpp
+  - test/aoj/GRL_1_C.test.cpp
+  - test/aoj/2945.test.cpp
+  - test/aoj/GRL_5_C.test.cpp
+  - test/aoj/GRL_1_A.test.cpp
+  - test/aoj/GRL_7_A.test.cpp
   - test/aoj/GRL_5_D.test.cpp
   - test/aoj/GRL_4_B.test.cpp
-  - test/yosupo/vertexaddsubtreesum.test.cpp
-  - test/yosupo/vertexaddpathsum.test.cpp
 documentation_of: graph/template.hpp
 layout: document
 redirect_from:

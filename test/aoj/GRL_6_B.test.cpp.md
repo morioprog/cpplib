@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: graph/minimumcostflow/primaldual.hpp
     title: Primal Dual
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/main.hpp
     title: template/main.hpp
   _extendedRequiredBy: []
