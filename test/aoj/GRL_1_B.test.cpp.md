@@ -4,10 +4,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: graph/shortestpath/bellmanford.hpp
     title: "\u30D9\u30EB\u30DE\u30F3\u30D5\u30A9\u30FC\u30C9\u6CD5"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/template.hpp
     title: "\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/main.hpp
     title: template/main.hpp
   _extendedRequiredBy: []

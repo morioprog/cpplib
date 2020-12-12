@@ -61,10 +61,10 @@ data:
         \u30B0"
   - name: graph
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: graph/gridgraph.hpp
       title: "\u30B0\u30EA\u30C3\u30C9\u30B0\u30E9\u30D5"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: graph/template.hpp
       title: "\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
   - name: graph/maximumflow
@@ -90,7 +90,7 @@ data:
       title: "\u30AF\u30E9\u30B9\u30AB\u30EB\u6CD5"
   - name: graph/other
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: graph/other/cycle_detection.hpp
       title: "\u9589\u8DEF\u691C\u51FA"
     - icon: ':heavy_check_mark:'
@@ -193,7 +193,7 @@ data:
       title: "\u63A5\u5C3E\u8F9E\u914D\u5217 (Suffix Array)"
   - name: template
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: template/main.hpp
       title: template/main.hpp
     - icon: ':heavy_check_mark:'
@@ -407,7 +407,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/1183.test.cpp
       title: test/yukicoder/1183.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/13.test.cpp
       title: test/yukicoder/13.test.cpp
     - icon: ':heavy_check_mark:'

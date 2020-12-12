@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: datastructure/unionfind/unionfind.hpp
     title: UnionFind
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/main.hpp
     title: template/main.hpp
   _extendedRequiredBy: []

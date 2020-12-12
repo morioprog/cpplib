@@ -6,14 +6,14 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/2945.test.cpp
     title: test/aoj/2945.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/13.test.cpp
     title: test/yukicoder/13.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/20.test.cpp
     title: test/yukicoder/20.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/graph/gridgraph.md
     document_title: "\u30B0\u30EA\u30C3\u30C9\u30B0\u30E9\u30D5"
@@ -48,26 +48,27 @@ data:
     \ = 0) {\n        int ax, ay, bx, by;\n        tie(ax, ay) = ap;\n        tie(bx,\
     \ by) = bp;\n        ax -= margin, ay -= margin, bx -= margin, by -= margin;\n\
     \        int a = hash(ax, ay), b = hash(bx, by);\n        mat[a].emplace_back(a,\
-    \ b, c, E++);\n    }\n    inline void add_arc(int a, int b, T c = 1, int margin\
-    \ = 0) {\n        a -= margin, b -= margin;\n        mat[a].emplace_back(a, b,\
-    \ c, E++);\n    }\n    inline void input_edges(int M, int margin = 0, bool need_cost\
-    \ = false) {\n        for (int i = 0; i < M; ++i) {\n            int ax, ay, bx,\
-    \ by;\n            T c(1);\n            cin >> ax >> ay >> bx >> by;\n       \
-    \     if (need_cost) cin >> c;\n            add_edge(ax, ay, bx, by, c, margin);\n\
-    \        }\n    }\n    inline void input_arcs(int M, int margin = 0, bool need_cost\
-    \ = false) {\n        for (int i = 0; i < M; ++i) {\n            int ax, ay, bx,\
-    \ by;\n            T c(1);\n            cin >> ax >> ay >> bx >> by;\n       \
-    \     if (need_cost) cin >> c;\n            add_arc(ax, ay, bx, by, c, margin);\n\
-    \        }\n    }\n    template <typename B, typename C>\n    inline void load_board(const\
-    \ B &board, const C ng, const T cost = 1, const int neighbor = 4) {\n        assert(board.size()\
-    \ == H);\n        if (H > 0) assert(board[0].size() == W);\n        assert(neighbor\
-    \ >= 1 and neighbor <= 9);\n        for (int h = 0; h < H; ++h) {\n          \
-    \  for (int w = 0; w < W; ++w) {\n                if (board[h][w] == ng) continue;\n\
-    \                for (int i = 0; i < neighbor; ++i) {\n                    int\
-    \ nh = h + Gdx[i];\n                    int nw = w + Gdy[i];\n               \
-    \     if (not inside(nh, nw)) continue;\n                    if (board[nh][nw]\
-    \ == ng) continue;\n                    add_arc(h, w, nh, nw, cost);\n       \
-    \         }\n            }\n        }\n    }\n};\n"
+    \ b, c, E++);\n    }\n    inline void add_arc_by_hash(int a, int b, T c = 1, int\
+    \ margin = 0) {\n        a -= margin, b -= margin;\n        mat[a].emplace_back(a,\
+    \ b, c, E++);\n    }\n    inline void input_edges(int M, int margin = 0, bool\
+    \ need_cost = false) {\n        for (int i = 0; i < M; ++i) {\n            int\
+    \ ax, ay, bx, by;\n            T c(1);\n            cin >> ax >> ay >> bx >> by;\n\
+    \            if (need_cost) cin >> c;\n            add_edge(ax, ay, bx, by, c,\
+    \ margin);\n        }\n    }\n    inline void input_arcs(int M, int margin = 0,\
+    \ bool need_cost = false) {\n        for (int i = 0; i < M; ++i) {\n         \
+    \   int ax, ay, bx, by;\n            T c(1);\n            cin >> ax >> ay >> bx\
+    \ >> by;\n            if (need_cost) cin >> c;\n            add_arc(ax, ay, bx,\
+    \ by, c, margin);\n        }\n    }\n    template <typename B, typename C>\n \
+    \   inline void load_board(const B &board, const C ng, const T cost = 1, const\
+    \ int neighbor = 4) {\n        assert(board.size() == H);\n        if (H > 0)\
+    \ assert(board[0].size() == W);\n        assert(neighbor >= 1 and neighbor <=\
+    \ 9);\n        for (int h = 0; h < H; ++h) {\n            for (int w = 0; w <\
+    \ W; ++w) {\n                if (board[h][w] == ng) continue;\n              \
+    \  for (int i = 0; i < neighbor; ++i) {\n                    int nh = h + Gdx[i];\n\
+    \                    int nw = w + Gdy[i];\n                    if (not inside(nh,\
+    \ nw)) continue;\n                    if (board[nh][nw] == ng) continue;\n   \
+    \                 add_arc(h, w, nh, nw, cost);\n                }\n          \
+    \  }\n        }\n    }\n};\n"
   code: "/**\n* @brief \u30B0\u30EA\u30C3\u30C9\u30B0\u30E9\u30D5\n* @docs docs/graph/gridgraph.md\n\
     */\n\ntemplate <typename T = int>\nstruct GridGraph : Graph<T> {\n    using Graph<T>::V;\n\
     \    using Graph<T>::E;\n    using Graph<T>::mat;\n    const int Gdx[9] = { 1,\
@@ -97,7 +98,7 @@ data:
     \ bp, T c = 1, int margin = 0) {\n        int ax, ay, bx, by;\n        tie(ax,\
     \ ay) = ap;\n        tie(bx, by) = bp;\n        ax -= margin, ay -= margin, bx\
     \ -= margin, by -= margin;\n        int a = hash(ax, ay), b = hash(bx, by);\n\
-    \        mat[a].emplace_back(a, b, c, E++);\n    }\n    inline void add_arc(int\
+    \        mat[a].emplace_back(a, b, c, E++);\n    }\n    inline void add_arc_by_hash(int\
     \ a, int b, T c = 1, int margin = 0) {\n        a -= margin, b -= margin;\n  \
     \      mat[a].emplace_back(a, b, c, E++);\n    }\n    inline void input_edges(int\
     \ M, int margin = 0, bool need_cost = false) {\n        for (int i = 0; i < M;\
@@ -122,8 +123,8 @@ data:
   isVerificationFile: false
   path: graph/gridgraph.hpp
   requiredBy: []
-  timestamp: '2020-11-23 13:57:28+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  timestamp: '2020-12-12 23:57:44+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/13.test.cpp
   - test/yukicoder/20.test.cpp

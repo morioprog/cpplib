@@ -165,7 +165,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/1183.test.cpp
     title: test/yukicoder/1183.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/13.test.cpp
     title: test/yukicoder/13.test.cpp
   - icon: ':heavy_check_mark:'
@@ -196,7 +196,7 @@ data:
     path: test/yukicoder/888.test.cpp
     title: test/yukicoder/888.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"template/main.hpp\"\n#pragma region optimize\n// #pragma\
@@ -405,7 +405,7 @@ data:
   path: template/main.hpp
   requiredBy: []
   timestamp: '2020-09-27 21:24:38+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/rangeaffinerangesum.test.cpp
   - test/yosupo/determinantofmatrix.test.cpp

@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: graph/maximumflow/dinic.hpp
     title: "Dinic\u6CD5"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/main.hpp
     title: template/main.hpp
   _extendedRequiredBy: []
