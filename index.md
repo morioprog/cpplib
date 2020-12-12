@@ -50,11 +50,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: datastructure/unionfind/weightedunionfind.hpp
       title: "\u91CD\u307F\u4ED8\u304DUnionFind"
-  - name: .
-    pages:
-    - icon: ':warning:'
-      path: generate_tex.py
-      title: generate_tex.py
   - name: graph/bipartite
     pages:
     - icon: ':warning:'
