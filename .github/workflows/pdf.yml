@@ -24,7 +24,7 @@ jobs:
       - run: mkdir output
 
       - name: Generate TeX
-        run: python3 generate_tex.py
+        run: python3 generate_tex.python
 
       - name: Make PDF
         run: |
