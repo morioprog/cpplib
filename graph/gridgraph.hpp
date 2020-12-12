@@ -60,7 +60,7 @@ struct GridGraph : Graph<T> {
         int a = hash(ax, ay), b = hash(bx, by);
         mat[a].emplace_back(a, b, c, E++);
     }
-    inline void add_arc(int a, int b, T c = 1, int margin = 0) {
+    inline void add_arc_by_hash(int a, int b, T c = 1, int margin = 0) {
         a -= margin, b -= margin;
         mat[a].emplace_back(a, b, c, E++);
     }
